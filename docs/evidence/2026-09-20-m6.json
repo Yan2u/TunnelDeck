@@ -1,0 +1,600 @@
+{
+  "capturedAtUtc": "2026-09-19T16:33:20.2293607+00:00",
+  "milestone": "M6 complete; headless forwarding engine and lifecycle verified",
+  "source": {
+    "baseCommit": "2039b14f9f83616748b2471f343defd1d58710f7",
+    "branch": "codex/m0-m1-foundation",
+    "changes": "Uncommitted workspace changes, M0-M6",
+    "implementation": [
+      {
+        "path": "src/TunnelDeck.Core/Tunnels/TunnelManager.cs",
+        "sha256": "01AA3DF1314033475ECD792BF955AE301CED93707AB3ABF215A31D9C93097599"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Tunnels/TunnelManager.Start.cs",
+        "sha256": "2BA26952AE1ABF95579FE97339F2EB4456B52546761DF0414F2432BA20951253"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Tunnels/TunnelManager.Stop.cs",
+        "sha256": "F4C05C293849DF39EF2CF618AE1F34AFF550E0B4732E782DCD15D862601A6F05"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Tunnels/TunnelManager.Batch.cs",
+        "sha256": "9F591DA75E177683132697DC106814C6EBB8D7B62F52F8D90BC4E3CEDBF3DC09"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Tunnels/TunnelResults.cs",
+        "sha256": "85A1DEAF0507156AC2494E5591FDC5C1A7E7D5834CF519D82CB0663A8A104EC2"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Tunnels/TunnelErrors.cs",
+        "sha256": "0C99636C7901AE0A4763F566FB2E4C6544B063D8DF89BC25A8136865DC7BCBC5"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Abstractions/ForwardActivity.cs",
+        "sha256": "E408C3A47419D61E96B9D652B13A3B1FE713ED23979E1EF9AE64A58D6402CFD6"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Runtime/ActiveTunnel.cs",
+        "sha256": "1C6798B0177E22AD5193B640CAD0C19B258EC5F06078C53CF98767A54F7098B7"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Connections/HostKeyApprovalCoordinator.cs",
+        "sha256": "A720377C50A939A7FADF07993C31DC40CA47935F5B3D63C6A7D08C30A7D89A7B"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Connections/SshSessionLease.cs",
+        "sha256": "7D2E5798367AD14DD300B101DFBE158DF033B0265C89E2B5F73E5A5F79DEE730"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Connections/SshConnectionManager.Authentication.cs",
+        "sha256": "E275D7A6892148F33D19353496C1271B82322700CD8D1482EFBBB4B74A34BC8E"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Connections/SshConnectionManager.Lifetime.cs",
+        "sha256": "EB68B0B62049A522D2B2DE7E373B1BCCD25974707C82F262EFFCE9AAE09F798A"
+      },
+      {
+        "path": "src/TunnelDeck.Infrastructure/Ssh/SshControlSession.cs",
+        "sha256": "89963D3AA916E1F76DD510A3A2555784707886F214AC7DE135DE8002945CE33C"
+      },
+      {
+        "path": "src/TunnelDeck.Infrastructure/Ssh/SshNetSession.cs",
+        "sha256": "A7C9D9EB33CD5B05FF5C30C5125019B91D0FEC6976F67E5E6C0D5110F0383A11"
+      },
+      {
+        "path": "src/TunnelDeck.Infrastructure/Ssh/SshForwardHandle.cs",
+        "sha256": "2D067DBCE8650613496D688626C66DA6927026B4CB77416564D8964D970717E8"
+      },
+      {
+        "path": "src/TunnelDeck.Infrastructure/Ssh/ForwardFailureMapper.cs",
+        "sha256": "89E62D65CECA840C67DBC2FF6F9CFA5EA54FCF9CD969401F54DEF671DBDBAE69"
+      },
+      {
+        "path": "TunnelDeck/Services/AppServices.cs",
+        "sha256": "41BDACF23206828382291A04956EF6DF212B34B501AE9C4AC53D82FFDF7BF3DB"
+      }
+    ]
+  },
+  "build": {
+    "command": "./scripts/Build.ps1 -LockedRestore",
+    "configuration": "Release x64",
+    "warnings": 0,
+    "errors": 0,
+    "windowsPackageType": "None",
+    "appProjectSha256": "D7CCB0B254F0E97A31F4BAAD54B57237EF0819709670B7ACC2E7854D3365D3BE",
+    "executableSha256": "4F610AC955E3E708BBD3D674AA2BC1E68D141762681C85C983651E4FF10198CF"
+  },
+  "tests": {
+    "command": "./scripts/Test.ps1 -Ssh",
+    "total": 372.0,
+    "passed": 372.0,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "TunnelDeck.Core.Tests",
+        "total": 230,
+        "passed": 230,
+        "failed": 0,
+        "skipped": 0,
+        "report": "artifacts/test-results/TunnelDeck.Core.Tests.trx",
+        "reportSha256": "0F12F537C7FAB26BB0E82EED121ECAA2CB5BBB75C5CB9C7081DBB0B1294179EA",
+        "focusCases": [
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionHostApprovalTests.CancellingOneIndependentConnectionKeepsTheOtherApprovalWaiterAlive",
+            "outcome": "Passed",
+            "duration": "00:00:00.0056965"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionHostApprovalTests.ConcurrentRemoteRulesShareApprovalButKeepSeparateAuthenticatedTransports",
+            "outcome": "Passed",
+            "duration": "00:00:00.0068890"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionHostApprovalTests.DecliningASharedPromptRejectsAllWaitersWithoutSavingTrust",
+            "outcome": "Passed",
+            "duration": "00:00:00.0062299"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionHostApprovalTests.DifferentFingerprintsNeverShareApprovalOrOverwriteTheWinningTrust",
+            "outcome": "Passed",
+            "duration": "00:00:00.0721005"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionHostApprovalTests.LastCancellationDrainsAnUncooperativePromptAndCannotGrantLateTrust",
+            "outcome": "Passed",
+            "duration": "00:00:00.0058275"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.APerAttemptDeadlineOwnsTheLateHandleAndNeverAdvancesToAnotherPort",
+            "outcome": "Passed",
+            "duration": "00:00:00.0054023"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.DisabledLocalSearchAndAllRemoteRequestsTryExactlyOnce(mode: Local, auto: False)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0016047"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.DisabledLocalSearchAndAllRemoteRequestsTryExactlyOnce(mode: Remote, auto: False)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0015747"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.DisabledLocalSearchAndAllRemoteRequestsTryExactlyOnce(mode: Remote, auto: True)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0857436"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.ExhaustionHasFiniteAttemptsAndReleasesTheConnection(port: 3000, count: 20, reason: AttemptLimitReached)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0015676"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.ExhaustionHasFiniteAttemptsAndReleasesTheConnection(port: 65532, count: 4, reason: PortLimitReached)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0008651"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.ExhaustionHasFiniteAttemptsAndReleasesTheConnection(port: 65535, count: 1, reason: PortLimitReached)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0035033"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.ExpiredTotalBudgetDoesNotIssueAnotherAttemptEvenIfThePreviousFailureWasOccupation",
+            "outcome": "Passed",
+            "duration": "00:00:00.0030397"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.MissingCredentialsFailBeforeBindingAnyPort",
+            "outcome": "Passed",
+            "duration": "00:00:00.0022674"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.OnlyTheLocalListenerAdvancesAndTheFirstAvailablePortWins",
+            "outcome": "Passed",
+            "duration": "00:00:00.0048386"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.OtherFailuresNeverSearchAnotherLocalPort(kind: Connectivity)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0010203"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.OtherFailuresNeverSearchAnotherLocalPort(kind: Credentials)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0010858"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.OtherFailuresNeverSearchAnotherLocalPort(kind: LocalAccessDenied)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0065803"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.OtherFailuresNeverSearchAnotherLocalPort(kind: RemoteListenFailure)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0011157"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelAllocationTests.OtherFailuresNeverSearchAnotherLocalPort(kind: TimeoutUnknownOutcome)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0015878"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelBatchAndActivityTests.AServerSerializesControlOperationsWhileAnotherServerCanProgress",
+            "outcome": "Passed",
+            "duration": "00:00:00.0033891"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelBatchAndActivityTests.OutOfOrderActivityCannotRegressCountsOrRepeatAnOldError",
+            "outcome": "Passed",
+            "duration": "00:00:00.0871957"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelBatchAndActivityTests.RepeatedRequestErrorsAreAggregatedWithoutFailingTheListener",
+            "outcome": "Passed",
+            "duration": "00:00:00.0028639"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelBatchAndActivityTests.StartAllPreservesOrderPartialSuccessAndDuplicateIdentity",
+            "outcome": "Passed",
+            "duration": "00:00:00.0055828"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelBatchAndActivityTests.StartAllRespectsItsGlobalConcurrencyLimit",
+            "outcome": "Passed",
+            "duration": "00:00:00.1301153"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelBatchAndActivityTests.StopAllBlocksNewAdmissionUntilEveryPendingStartIsDrained",
+            "outcome": "Passed",
+            "duration": "00:00:00.0041110"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelBatchAndActivityTests.StopServerDoesNotStopOrBlockAnotherServer",
+            "outcome": "Passed",
+            "duration": "00:00:00.0038548"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelBatchAndActivityTests.UnexpectedListenerStopIsCleanedUpAndMarkedFailed",
+            "outcome": "Passed",
+            "duration": "00:00:00.0025939"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelLifecycleTests.CancellingOneDuplicateCallerDoesNotCancelTheOtherCaller",
+            "outcome": "Passed",
+            "duration": "00:00:00.0047883"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelLifecycleTests.CancellingTheLastCallerDrainsItsLateHandle",
+            "outcome": "Passed",
+            "duration": "00:00:00.0040496"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelLifecycleTests.CleanupFailureRemainsStoppingAndCanBeRetriedWithoutLosingOwnership",
+            "outcome": "Passed",
+            "duration": "00:00:00.0029457"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelLifecycleTests.ConcurrentDuplicatesProduceOneInstanceAndPreserveTheFirstSource",
+            "outcome": "Passed",
+            "duration": "00:00:00.0063893"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelLifecycleTests.DuplicateDuringStopWaitsForCleanupBeforeCreatingANewGeneration",
+            "outcome": "Passed",
+            "duration": "00:00:00.0043672"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelLifecycleTests.IdentityCannotChangeUntilTheEntireStopHasFinished",
+            "outcome": "Passed",
+            "duration": "00:00:00.0038591"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelLifecycleTests.RetirementCancellationCannotReplaceAConfirmedRemoteRefusal",
+            "outcome": "Passed",
+            "duration": "00:00:00.0039642"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelLifecycleTests.SharedTransportLossUpdatesEveryAffectedRule",
+            "outcome": "Passed",
+            "duration": "00:00:00.0048527"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelLifecycleTests.StopRemoveAndShutdownOwnAnUncooperativeLateStart(operation: \"remove\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.0063378"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelLifecycleTests.StopRemoveAndShutdownOwnAnUncooperativeLateStart(operation: \"shutdown\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.0879363"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.TunnelLifecycleTests.StopRemoveAndShutdownOwnAnUncooperativeLateStart(operation: \"stop\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.0011443"
+          }
+        ]
+      },
+      {
+        "name": "TunnelDeck.Infrastructure.Tests",
+        "total": 87,
+        "passed": 87,
+        "failed": 0,
+        "skipped": 0,
+        "report": "artifacts/test-results/TunnelDeck.Infrastructure.Tests.trx",
+        "reportSha256": "6F2D13F2CCE61C1DCBF2708C45280E449C72BA84B002CFF92424356E2F081D3C",
+        "focusCases": [
+          {
+            "name": "TunnelDeck.Infrastructure.Tests.ForwardFailureMapperTests.OnlyConfirmedLocalBindOccupationCanEnableSearch(mode: Local, socketError: AccessDenied, expected: LocalAccessDenied)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0000054"
+          },
+          {
+            "name": "TunnelDeck.Infrastructure.Tests.ForwardFailureMapperTests.OnlyConfirmedLocalBindOccupationCanEnableSearch(mode: Local, socketError: AddressAlreadyInUse, expected: LocalAddressInUse)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0089883"
+          },
+          {
+            "name": "TunnelDeck.Infrastructure.Tests.ForwardFailureMapperTests.OnlyConfirmedLocalBindOccupationCanEnableSearch(mode: Local, socketError: ConnectionRefused, expected: Connectivity)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0003683"
+          },
+          {
+            "name": "TunnelDeck.Infrastructure.Tests.ForwardFailureMapperTests.OnlyConfirmedLocalBindOccupationCanEnableSearch(mode: Remote, socketError: AccessDenied, expected: Connectivity)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0000070"
+          },
+          {
+            "name": "TunnelDeck.Infrastructure.Tests.ForwardFailureMapperTests.OnlyConfirmedLocalBindOccupationCanEnableSearch(mode: Remote, socketError: AddressAlreadyInUse, expected: Connectivity)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0000166"
+          },
+          {
+            "name": "TunnelDeck.Infrastructure.Tests.ForwardFailureMapperTests.RemoteRefusalIsDifferentFromUnknownOutcomeAndNeverClaimsOccupation",
+            "outcome": "Passed",
+            "duration": "00:00:00.0075283"
+          },
+          {
+            "name": "TunnelDeck.Infrastructure.Tests.SshControlSessionTests.CancellationAndDisposalWaitForTheNativeWorkerEvenAfterTheClientHasClosed(cancel: False)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0298146"
+          },
+          {
+            "name": "TunnelDeck.Infrastructure.Tests.SshControlSessionTests.CancellationAndDisposalWaitForTheNativeWorkerEvenAfterTheClientHasClosed(cancel: True)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0041580"
+          },
+          {
+            "name": "TunnelDeck.Infrastructure.Tests.SshControlSessionTests.ControlDeadlineMustPrecedeTheLibrarySilentStopTimeout",
+            "outcome": "Passed",
+            "duration": "00:00:00.0005575"
+          }
+        ]
+      },
+      {
+        "name": "TunnelDeck.Ssh.Tests",
+        "total": 55,
+        "passed": 55,
+        "failed": 0,
+        "skipped": 0,
+        "report": "artifacts/test-results/TunnelDeck.Ssh.Tests.trx",
+        "reportSha256": "CFD6E2CDBC21A6F8D6010BE88F95565319F0BEE739E6A96153DB493F53E73607",
+        "focusCases": [
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineAllocationTests.DifferentServerIdsStillCompeteForTheSameLocalSocket",
+            "outcome": "Passed",
+            "duration": "00:00:00.4195748"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineAllocationTests.DisabledAndExhaustedSearchAreBoundedAndReleaseTheirSession(auto: False, count: 1)",
+            "outcome": "Passed",
+            "duration": "00:00:00.2671012"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineAllocationTests.DisabledAndExhaustedSearchAreBoundedAndReleaseTheirSession(auto: True, count: 20)",
+            "outcome": "Passed",
+            "duration": "00:00:00.2702391"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineAllocationTests.EveryRemoteRefusalStopsAfterOneRequestWithoutClaimingOccupation(scenario: \"denied\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.3868133"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineAllocationTests.EveryRemoteRefusalStopsAfterOneRequestWithoutClaimingOccupation(scenario: \"occupied\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.3118793"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineAllocationTests.EveryRemoteRefusalStopsAfterOneRequestWithoutClaimingOccupation(scenario: \"restricted\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.2992611"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineAllocationTests.RealLocalOccupationUsesTheSmallestAvailablePort(occupied: 1)",
+            "outcome": "Passed",
+            "duration": "00:00:00.3034692"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineAllocationTests.RealLocalOccupationUsesTheSmallestAvailablePort(occupied: 3)",
+            "outcome": "Passed",
+            "duration": "00:00:00.2923314"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineForwardingTests.DuplicateRulesBindOnceAndStoppingOneLocalDoesNotInterruptAnother",
+            "outcome": "Passed",
+            "duration": "00:00:00.2931541"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineForwardingTests.HttpWorksThroughBothModesWithoutChangingItsContent",
+            "outcome": "Passed",
+            "duration": "00:00:00.5834355"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineForwardingTests.LargePayloadAndConcurrentClientsTraverseTheActualRequestedDirection(mode: Local)",
+            "outcome": "Passed",
+            "duration": "00:00:00.4552752"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineForwardingTests.LargePayloadAndConcurrentClientsTraverseTheActualRequestedDirection(mode: Remote)",
+            "outcome": "Passed",
+            "duration": "00:00:00.4909686"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineForwardingTests.LocalTargetCanBecomeAvailableWithoutRestartingTheListener",
+            "outcome": "Passed",
+            "duration": "00:00:00.8306418"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineForwardingTests.RemoteTargetFailureIsReportedAsARequestErrorAndTheListenerCanRecover",
+            "outcome": "Passed",
+            "duration": "00:00:05.3098669"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineLifecycleTests.AnUnconfirmedRemoteStopRetiresOnlyItsTransport",
+            "outcome": "Passed",
+            "duration": "00:00:01.3048806"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineLifecycleTests.ARealRemoteListenerWithAHeldAcknowledgementCannotBecomeOrphaned(action: \"cancel\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.2598356"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineLifecycleTests.ARealRemoteListenerWithAHeldAcknowledgementCannotBecomeOrphaned(action: \"remove\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.2760988"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineLifecycleTests.ARealRemoteListenerWithAHeldAcknowledgementCannotBecomeOrphaned(action: \"shutdown\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.2584444"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineLifecycleTests.ARealRemoteListenerWithAHeldAcknowledgementCannotBecomeOrphaned(action: \"timeout\")",
+            "outcome": "Passed",
+            "duration": "00:00:01.2648409"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.EngineLifecycleTests.ShutdownCoordinatorReleasesLocalAndRemoteListenersBeforeItCompletes",
+            "outcome": "Passed",
+            "duration": "00:00:00.3959187"
+          }
+        ]
+      }
+    ]
+  },
+  "sshFixture": {
+    "version": "OpenSSH 8.9p1 / Ubuntu 1:8.9p1-3ubuntu0.17",
+    "factoryVersion": "SSH.NET 2026.0.0",
+    "sourceSha256": "61757CF71AFCE13719CF221FE17A67FA69D4C59CF2AE818431AAD9D02E933784",
+    "maximumPayloadTestedBytes": 1048576,
+    "concurrentClientsTested": 8,
+    "cleanup": [
+      {
+        "directory": ".test-output/ssh-fcb44402ad8a4d52a15b3adbe2f04a92",
+        "credentialsRemoved": true,
+        "containerRemoved": true
+      },
+      {
+        "directory": ".test-output/ssh-2dd64641fbcc4e60a4c84a26bdee0458",
+        "credentialsRemoved": true,
+        "containerRemoved": true
+      }
+    ]
+  },
+  "nativeConnections": {
+    "command": "./scripts/Verify-Connections.ps1 -NoFixtureBuild",
+    "suiteOrigin": "M5 connection suite rerun on M6",
+    "capturedAtUtc": "2026-09-20T00:25:14.6038011+08:00",
+    "checks": {
+      "formValidation": "Passed",
+      "unsavedTestAndHostApproval": "Passed",
+      "rememberAndRestart": "Passed",
+      "authenticationErrorAndMissingCredential": "Passed",
+      "cancelNavigationAndIdentityGuard": "Passed",
+      "encryptedKeyAndCredentialReplacement": "Passed",
+      "unencryptedKeyForgetAndUnreadableFile": "Passed",
+      "narrowDarkForm": "Passed",
+      "closeDuringHostApproval": "Passed",
+      "closeMilliseconds": 430
+    }
+  },
+  "nativeWindow": {
+    "capturedAtUtc": "2026-09-20T00:26:43.9358442+08:00",
+    "title": "TunnelDeck",
+    "startupToWindowMs": 682,
+    "fixedDashboard": "539,281,310,51",
+    "fixedSettings": "539,1041,310,51",
+    "fixedRuntime": "559,1102,270,24",
+    "resourceScroll": "Passed",
+    "titleBarSearch": "Passed",
+    "paneToggle": "Passed",
+    "shortWindow": "Passed (900 x 500 physical pixels)",
+    "repeatedClose": "Passed",
+    "responsiveDuringCleanup": true,
+    "shutdownMs": 1012,
+    "exitCode": 0
+  },
+  "visualReview": {
+    "lightAndDark": "Inspected",
+    "widthsEpx": [
+      1200,
+      900,
+      640
+    ],
+    "targetWindowCapture": true,
+    "screenshots": [
+      {
+        "path": "artifacts/m6-review/authentication-error.png",
+        "sha256": "CD0246BCD2EEA8650867433127CDA67166A189015407C7E4B40CA23CA7A806F5"
+      },
+      {
+        "path": "artifacts/m6-review/encrypted-key-dark.png",
+        "sha256": "95A27272E5FB5748879842769E6979230032DF72B53B43FB67D2065F5BA64560"
+      },
+      {
+        "path": "artifacts/m6-review/final-app.png",
+        "sha256": "ACC8CA18B8EF24EBCB62AD06D49F7C97FA9F3257E69E4FB09D7EFF93CEB88BC0"
+      },
+      {
+        "path": "artifacts/m6-review/host-key-approval.png",
+        "sha256": "CB906D055CF7A2EA504A4D6DA4A9F19081BE8C5A7A8180C295EAD8010DDE38BD"
+      },
+      {
+        "path": "artifacts/m6-review/password-test-success.png",
+        "sha256": "DD5BEBCD88AF850122B7AD4DF9FA36F11915ECD99C658CBFFF5340D34EF71451"
+      },
+      {
+        "path": "artifacts/m6-review/private-key-640-dark.png",
+        "sha256": "A3DD9136DD0CF1F99CB0FA771791B944E4890DCA582D58632894A890F05099B3"
+      },
+      {
+        "path": "artifacts/m6-review/private-key-900-dark.png",
+        "sha256": "D0C45CF426EC38551A82B570223979EBBBB0021AE9201BD395C1AEF4BE5A54C7"
+      },
+      {
+        "path": "artifacts/m6-review/window-short.png",
+        "sha256": "360F123589F0F3D9CF14298E332E631BC08E57CD564B828EA4C95CA61D868AE0"
+      },
+      {
+        "path": "artifacts/m6-review/window-wide.png",
+        "sha256": "33A914CFE69425C1C5098F1BDC6FF28D07A9D0734EA8B30546C49BF3DDB561A9"
+      }
+    ]
+  },
+  "finalLaunch": {
+    "capturedAtUtc": "2026-09-20T00:29:40.9113609+08:00",
+    "processId": 47720,
+    "windowHandle": 8458132,
+    "responding": true,
+    "title": "TunnelDeck",
+    "executable": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\TunnelDeck\\bin\\x64\\Release\\net10.0-windows10.0.19041.0\\TunnelDeck.exe",
+    "mode": "Normal",
+    "dashboardLoaded": true,
+    "m7CommandsStillDisabled": true,
+    "verifiedAtUtc": "2026-09-19T16:33:20.2012361+00:00"
+  },
+  "humanReview": {
+    "M4": "Accepted by user: OK，继续 M5.",
+    "M5": "Accepted by user: GUI 人工评测通过，继续 M6.",
+    "M6": "No new manual GUI gate",
+    "highContrast": "Not switched or visually tested by agent"
+  },
+  "portSearchScope": "Only confirmed Local AddressAlreadyInUse increments; Remote never increments",
+  "limitations": [
+    "SSH.NET does not fully publish Local direct-tcpip OpenFailed through ForwardedPortLocal.Exception; no fabricated target-health claim.",
+    "A failed Remote target can produce an observed request error while a client with buffered data waits until its own read timeout.",
+    "Remote listen refusal does not distinguish occupation from forwarding policy; unknown control outcomes retire the physical transport.",
+    "Remote listener release during a network blackhole still depends on sshd disconnect detection.",
+    "Quick Forward and Active Tunnels UI commands remain for M7; automatic reconnect remains for M10."
+  ],
+  "documentation": [
+    "docs/tunnels.md",
+    "docs/milestones.md",
+    ".codex/history/2026-09-20-m6-tunnel-engine.md"
+  ]
+}

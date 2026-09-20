@@ -1,0 +1,1148 @@
+{
+  "capturedAtUtc": "2026-09-19T10:04:22.8432264+00:00",
+  "milestone": "M3",
+  "source": {
+    "baseCommit": "2039b14f9f83616748b2471f343defd1d58710f7",
+    "branch": "codex/m0-m1-foundation",
+    "changes": "Uncommitted workspace changes, M0-M3"
+  },
+  "portSearchScope": "Local bind AddressAlreadyInUse only; Remote never increments",
+  "build": {
+    "command": "./scripts/Build.ps1 -LockedRestore",
+    "configuration": "Release x64",
+    "warnings": 0,
+    "errors": 0
+  },
+  "window": {
+    "processId": 36664,
+    "title": "TunnelDeck",
+    "handle": 26413902,
+    "responding": true,
+    "storageReady": true
+  },
+  "suites": [
+    {
+      "name": "TunnelDeck.Core.Tests",
+      "total": 137,
+      "passed": 137,
+      "failed": 0,
+      "notExecuted": 0,
+      "tests": [
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.LocalErrorsOtherThanConfirmedOccupationDoNotAdvance(failure: Connectivity)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000077"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ResourceOrderTests.AddPinMoveAndUnpinPreserveTheirDistinctOrderingRules(kind: Profile)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002046"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: \"\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000215"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.HostKeyIdentityTests.EquivalentHostSpellingsMatch(first: \"EXAMPLE.COM.\", second: \"example.com\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000083"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.DisabledLocalSearchAndSuccessfulAttemptDoNotIssueAnotherCandidate",
+          "outcome": "Passed",
+          "duration": "00:00:00.0001657"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: UnknownHostKey, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000129"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Connectivity, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000063"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.RuleDefaultsTests.PrioritySkipsDeletedOrAbsentServerIds(previous: 1, current: 2, pinned: 3, fallback: 4, expected: 1)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000029"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.TwentyAttemptsIncludeRequestedAndNeverChangeTheTargetOrSavedRule",
+          "outcome": "Passed",
+          "duration": "00:00:00.0016619"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SnapshotAndDuplicateTests.EquivalentRequestedRoutesReuseLiveWorkAcrossProfiles(state: Starting)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000227"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SnapshotAndDuplicateTests.IpNormalizationDoesNotResolveDnsOrTreatDifferentTargetsAsDuplicates",
+          "outcome": "Passed",
+          "duration": "00:00:00.0035765"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.ExpiredBudgetAndInvalidConfigurationCannotStart",
+          "outcome": "Passed",
+          "duration": "00:00:00.0003391"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: RemoteListenFailure, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000163"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: \"+22\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0003087"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.HostInputDoesNotAcceptUrisPortsOrCommandArguments(host: \"host\\nname\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000153"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.NumberBoxValuesMustBeFiniteWholePorts(value: 0)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000038"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.NumberBoxValuesMustBeFiniteWholePorts(value: 22.5)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0003222"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SnapshotAndDuplicateTests.SnapshotCannotResolveADeletedServerByDuplicateDisplayName",
+          "outcome": "Passed",
+          "duration": "00:00:00.0102381"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.LocalErrorsOtherThanConfirmedOccupationDoNotAdvance(failure: Input)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0006068"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.HostKeyIdentityTests.EndpointAlgorithmAndKeyAreAllPartOfTrust",
+          "outcome": "Passed",
+          "duration": "00:00:00.0055882"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Connectivity, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000072"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: RemoteListenFailure, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000056"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Storage, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000080"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.UnsupportedSchemaIsReportedWithoutResetOrMutation(version: 0)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002636"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SidebarProjectionTests.PinnedComesFirstAndRecentFillsEachSectionIndependently(maximum: 3)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000623"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.SidebarSettingsRespectTheSupportedRange(maximum: 10, valid: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000020"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.ListenerAndTargetFollowTheActualDirection(mode: Local)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0005091"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Cancelled, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0139448"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SidebarProjectionTests.PinnedComesFirstAndRecentFillsEachSectionIndependently(maximum: 10)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0021242"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.PortLimitNeverWraps(requested: 65520, count: 16)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0096151"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.SidebarSettingsRespectTheSupportedRange(maximum: 2, valid: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0003115"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: TimeoutUnknownOutcome, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000128"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: \"0\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000204"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: LocalAddressInUse, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000132"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.TrimmingRecentActivityDoesNotChangeCumulativeCounts",
+          "outcome": "Passed",
+          "duration": "00:00:00.0001437"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Unknown, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000122"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: null)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000104"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.HostKeyIdentityTests.EquivalentHostSpellingsMatch(first: \"BÜCHER.EXAMPLE。\", second: \"xn--bcher-kva.example\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002470"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: \"NaN\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000102"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ShutdownCoordinatorTests.DeadlineEndsTheWaitEvenWhenParticipantHasNotFinished",
+          "outcome": "Passed",
+          "duration": "00:00:00.0027460"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Unknown, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000046"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.RuleDefaultsTests.PrioritySkipsDeletedOrAbsentServerIds(previous: 99, current: 2, pinned: 3, fallback: 4, expected: 2)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0107932"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SidebarProjectionTests.SettingsLimitsAreEnforced(maximum: 11)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0001342"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.PersistenceRootExcludesRuntimeTrustAndSecretMaterial",
+          "outcome": "Passed",
+          "duration": "00:00:00.0078088"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Credentials, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000120"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: \"-1\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000103"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.RuleDefaultsTests.PrioritySkipsDeletedOrAbsentServerIds(previous: 99, current: 99, pinned: 99, fallback: 99, expected: 0)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0003587"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.NumberBoxValuesMustBeFiniteWholePorts(value: ∞)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000007"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.UnsupportedSchemaIsReportedWithoutResetOrMutation(version: 2)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0843361"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ShutdownCoordinatorTests.FailureIsReportedAndCanBeRetried",
+          "outcome": "Passed",
+          "duration": "00:00:00.0016603"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.HostKeyIdentityTests.EquivalentHostSpellingsMatch(first: \"2001:0db8:0:0:0:0:0:1\", second: \"2001:db8::1\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0029239"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.CancellationStopsBeforeIssuingTheNextAttempt(afterInitial: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0001858"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SidebarProjectionTests.UsingAnOtherResourceChangesProjectionWithoutReorderingOther",
+          "outcome": "Passed",
+          "duration": "00:00:00.0258545"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: \"0x16\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000128"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Credentials, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000437"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.SidebarSettingsRespectTheSupportedRange(maximum: 3, valid: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0065499"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ResourceOrderTests.AddPinMoveAndUnpinPreserveTheirDistinctOrderingRules(kind: Server)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0011995"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Input, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000126"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SnapshotAndDuplicateTests.CrossServerLaunchSnapshotSurvivesConfigurationEditsAndDeletion",
+          "outcome": "Passed",
+          "duration": "00:00:00.0016998"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SidebarProjectionTests.EqualTimestampsHaveAStableIdTieBreakAcrossInputOrder",
+          "outcome": "Passed",
+          "duration": "00:00:00.0012281"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.PortLimitNeverWraps(requested: 65534, count: 2)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000224"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Storage, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000070"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.LocalErrorsOtherThanConfirmedOccupationDoNotAdvance(failure: Cancelled)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000053"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.LocalErrorsOtherThanConfirmedOccupationDoNotAdvance(failure: Unknown)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000106"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.NumberBoxValuesMustBeFiniteWholePorts(value: NaN)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002649"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.UnsupportedSchemaIsReportedWithoutResetOrMutation(version: 2147483647)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0001032"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: \"1e3\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000155"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SnapshotAndDuplicateTests.EquivalentRequestedRoutesReuseLiveWorkAcrossProfiles(state: Running)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002865"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.HostInputDoesNotAcceptUrisPortsOrCommandArguments(host: \"https://host\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000135"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.MissingPersistenceEnvelopeDoesNotDeserializeIntoAnEmptyReplacement(json: \"{}\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0001576"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: LocalAccessDenied, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000196"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SidebarProjectionTests.PinnedComesFirstAndRecentFillsEachSectionIndependently(maximum: 5)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002087"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidProfileFieldsAreReportedTogetherWithRulePaths",
+          "outcome": "Passed",
+          "duration": "00:00:00.0008913"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.RuleDefaultsTests.EmptyProfileAndRepeatedDisplayNamesStillUseIds",
+          "outcome": "Passed",
+          "duration": "00:00:00.0012858"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SnapshotAndDuplicateTests.EquivalentRequestedRoutesReuseLiveWorkAcrossProfiles(state: Reconnecting)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0025701"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SnapshotAndDuplicateTests.StopAndGenerationGuardsRejectLateCompletions",
+          "outcome": "Passed",
+          "duration": "00:00:00.0010691"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SnapshotAndDuplicateTests.TerminalWorkDoesNotBlockANewRequest(state: Failed)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0063607"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.WholePortsAtTheBoundsAreAccepted(text: \"1\", expected: 1)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0001639"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SnapshotAndDuplicateTests.StoppingOrStopRequestedWorkMustFinishBeforeAnotherStart",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002678"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.WholePortsAtTheBoundsAreAccepted(text: \"65535\", expected: 65535)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0001560"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.LocalErrorsOtherThanConfirmedOccupationDoNotAdvance(failure: RemoteListenFailure)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000039"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.NumberBoxValuesMustBeFiniteWholePorts(value: -1)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000012"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: UnknownHostKey, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000046"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.MissingPersistenceEnvelopeDoesNotDeserializeIntoAnEmptyReplacement(json: \"{\\\"schemaVersion\\\":1}\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0010678"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.RuleDefaultsTests.PrioritySkipsDeletedOrAbsentServerIds(previous: 0, current: 99, pinned: 3, fallback: 4, expected: 3)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000205"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.LocalErrorsOtherThanConfirmedOccupationDoNotAdvance(failure: UnknownHostKey)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000033"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: \"3000.0\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000099"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.BindAndTargetValidationFollowTheSelectedMode",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002369"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: ChangedHostKey, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000119"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.RuleDefaultsTests.LocalDefaultsAffectOnlyNewDraftsAndRemoteNeverSavesTheFlag",
+          "outcome": "Passed",
+          "duration": "00:00:00.0013779"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.HostInputDoesNotAcceptUrisPortsOrCommandArguments(host: \"host:22\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002400"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: TimeoutUnknownOutcome, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000050"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.NumberBoxValuesMustBeFiniteWholePorts(value: 65536)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000009"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.PrivateKeysNeedAPathAndUnknownAuthenticationIsRejected",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002260"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.HostInputDoesNotAcceptUrisPortsOrCommandArguments(host: \"bad host\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000053"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: LocalAccessDenied, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000134"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: \"3000.5\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0130487"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.WholePortsAtTheBoundsAreAccepted(text: \" 22 \", expected: 22)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000095"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.PortLimitNeverWraps(requested: 65535, count: 1)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002701"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.LocalErrorsOtherThanConfirmedOccupationDoNotAdvance(failure: ChangedHostKey)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000036"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SidebarProjectionTests.SettingsLimitsAreEnforced(maximum: 2)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002470"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.NumberBoxValuesMustBeFiniteWholePorts(value: -∞)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000010"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SidebarProjectionTests.ExcessPinnedItemsUsePinnedOrderWithoutRecentOverflow",
+          "outcome": "Passed",
+          "duration": "00:00:00.0028985"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ShutdownCoordinatorTests.RepeatedCloseSharesOneCleanupAndPreventsNewWork",
+          "outcome": "Passed",
+          "duration": "00:00:00.0118698"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.HostInputDoesNotAcceptUrisPortsOrCommandArguments(host: \"-oProxyCommand=anything\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0018152"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.OptionalAndRepeatedDisplayNamesDoNotChangeResourceIdentity",
+          "outcome": "Passed",
+          "duration": "00:00:00.0065058"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.UnknownEnumsAndRemoteAutoFlagAreRejectedInStoredConfiguration",
+          "outcome": "Passed",
+          "duration": "00:00:00.0003443"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.TotalBudgetClampsEachAttemptAndExpiresWithoutWallClockSleep",
+          "outcome": "Passed",
+          "duration": "00:00:00.0024473"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SnapshotAndDuplicateTests.TerminalWorkDoesNotBlockANewRequest(state: Stopped)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002340"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SnapshotAndDuplicateTests.TerminalWorkDoesNotBlockANewRequest(state: Cancelled)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000066"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.CompleteStateRoundTripsAllResourceOrdersSettingsHistoryAndCounts",
+          "outcome": "Passed",
+          "duration": "00:00:00.0274001"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ResourceOrderTests.RemovalPreservesRelativeOrderInBothGroups",
+          "outcome": "Passed",
+          "duration": "00:00:00.0077883"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ResourceOrderTests.OperationsMaintainOneOccurrenceOfEveryResourceAcrossLongSequences",
+          "outcome": "Passed",
+          "duration": "00:00:00.0176579"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: LocalAddressInUse, flag: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000143"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.NullAndUninitializedCollectionsProduceDiagnosticsInsteadOfCrashing",
+          "outcome": "Passed",
+          "duration": "00:00:00.0004338"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.NonUtcTimesNegativeCountsAndNegativeRevisionsAreInvalid",
+          "outcome": "Passed",
+          "duration": "00:00:00.0004464"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.SidebarProjectionTests.EmptyNeverUsedStaleAndDuplicatePinnedItemsAreHandled",
+          "outcome": "Passed",
+          "duration": "00:00:00.0004840"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.RuleDefaultsTests.PrioritySkipsDeletedOrAbsentServerIds(previous: 0, current: 0, pinned: 99, fallback: 4, expected: 4)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000034"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.CancellationStopsBeforeIssuingTheNextAttempt(afterInitial: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002001"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: ChangedHostKey, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000093"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.EndpointFormattingAndDnsValidationHaveUnambiguousBoundaries",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002063"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Cancelled, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000041"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.LocalErrorsOtherThanConfirmedOccupationDoNotAdvance(failure: Credentials)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000034"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ResourceOrderTests.ReorderCannotMoveOtherItemsOrLoseOrDuplicatePinnedItems",
+          "outcome": "Passed",
+          "duration": "00:00:00.0010693"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.ListenerAndTargetFollowTheActualDirection(mode: Remote)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0001483"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.LocalErrorsOtherThanConfirmedOccupationDoNotAdvance(failure: LocalAccessDenied)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000031"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.SidebarSettingsRespectTheSupportedRange(maximum: 11, valid: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000053"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.DuplicateRuleIdsAcrossProfilesAreInvalid",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002705"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.MissingReferencesDuplicateIdsAndInvalidOrdersAreReported",
+          "outcome": "Passed",
+          "duration": "00:00:00.0004923"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.RuleDefaultsTests.PrioritySkipsDeletedOrAbsentServerIds(previous: 0, current: 0, pinned: 0, fallback: 0, expected: 0)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000032"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: \"1,000\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000132"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ConfigurationValidationTests.InvalidRawPortInputCannotFallBackToTheLastValue(text: \"65536\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000137"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.LocalErrorsOtherThanConfirmedOccupationDoNotAdvance(failure: TimeoutUnknownOutcome)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000034"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.RemoteNeverIncrementsEvenWithAMalformedAutoFlag(failure: Input, flag: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0003908"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.PortSearchPolicyTests.LocalErrorsOtherThanConfirmedOccupationDoNotAdvance(failure: Storage)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0001543"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.RuleDefaultsTests.EditingAndDiscardingDraftsDoesNotModifySavedObjects",
+          "outcome": "Passed",
+          "duration": "00:00:00.0054403"
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.AppStateContractTests.SidebarSettingsRespectTheSupportedRange(maximum: 5, valid: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0000026"
+        }
+      ]
+    },
+    {
+      "name": "TunnelDeck.Infrastructure.Tests",
+      "total": 77,
+      "passed": 77,
+      "failed": 0,
+      "notExecuted": 0,
+      "tests": [
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"missing-order\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0105570"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"missing-server\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0038297"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.SshControlSessionTests.ControlDeadlineMustPrecedeTheLibrarySilentStopTimeout",
+          "outcome": "Passed",
+          "duration": "00:00:00.0149811"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.EveryFieldRoundTripsThroughDiskWithoutRuntimeOrSecrets",
+          "outcome": "Passed",
+          "duration": "00:00:00.0087022"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.CancellationAtPublicationDoesNotRollBackOrReportFailure",
+          "outcome": "Passed",
+          "duration": "00:00:00.0082995"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.UnpackagedDataDefaultsToLocalAppDataAndProbeDataIsIsolated",
+          "outcome": "Passed",
+          "duration": "00:00:00.0061272"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.WindowsCredentialStoreTests.DisposableCredentialRoundTripsReplacesAndDeletes",
+          "outcome": "Passed",
+          "duration": "00:00:00.0205529"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"duplicate-rule\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0037285"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.FailedConfigurationReplacementCompensatesOnlyTheNewCredential(fault: Publish)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0499782"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.UnsupportedSchemaNeverDowngradesToAnOlderBackup(version: 0)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0159629"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"null-settings\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0063893"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.AnotherInstanceCannotCleanAStagedCredentialBeforeItsConfigurationCommits",
+          "outcome": "Passed",
+          "duration": "00:00:00.1448192"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"unknown-auth\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0035709"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.ConfigurationQueueTests.IndependentStoreInstancesCannotLoseAnUpdateWithTheSameExpectedRevision",
+          "outcome": "Passed",
+          "duration": "00:00:00.2336989"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.FailuresNeverPublishPartialFilesAndCanBeRetried(fault: PartialWrite, existing: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0105018"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.UnknownConfigurationNeverTriggersCredentialDeletion",
+          "outcome": "Passed",
+          "duration": "00:00:00.0099746"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.InvalidTrustNeverSilentlyRestoresOlderTrustedKeys(fault: \"future\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0136724"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.DeterministicMigrationCanBeRepeatedAndIsPersistedOnlyByAnEdit",
+          "outcome": "Passed",
+          "duration": "00:00:00.0159190"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.FailuresAfterPublicationStillReportTheCommittedRevision(fault: AfterPublish)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0088901"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.ConfigurationQueueTests.FailedEditDoesNotPublishAndDoesNotPoisonLaterEdits",
+          "outcome": "Passed",
+          "duration": "00:00:00.0155420"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.FailuresNeverPublishPartialFilesAndCanBeRetried(fault: Flush, existing: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0110144"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.MissingOrBrokenPrimaryRecoversBackupAndPreservesItOnNextCommit(missing: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0274446"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"missing-statistics\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0036532"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.SharedReferencesAreDeletedOnlyAfterTheLastServerForgetsThem",
+          "outcome": "Passed",
+          "duration": "00:00:00.0334473"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.MalformedTrustEntriesFailClosed(fault: \"bad-fingerprint\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0139580"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.FailedPostCommitCleanupIsDurableAndRetriedAfterRestart",
+          "outcome": "Passed",
+          "duration": "00:00:00.0557002"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.FutureSchemaIsProtectedBeforeCheckingTodaysDataShape(json: \"{\\\"schemaVersion\\\":1,\\\"schemaVersion\\\":2}\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0123190"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"missing-mode\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0033433"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.IsolatedWindowsCredentialsWorkThroughTheRealPersistenceTransaction",
+          "outcome": "Passed",
+          "duration": "00:00:00.0472533"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"duplicate-id\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0046987"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"missing-counter\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0030880"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.CancellationBeforePublicationLeavesTheExistingRevision",
+          "outcome": "Passed",
+          "duration": "00:00:00.0105196"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.ConfigurationQueueTests.CancelledQueuedEditNeverRunsAndLaterEditsStillCommit",
+          "outcome": "Passed",
+          "duration": "00:00:00.0206913"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.RememberReplaceForgetUsesFreshReferencesAndNeverPersistsSecrets",
+          "outcome": "Passed",
+          "duration": "00:00:00.0727312"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"missing-port\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0029650"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.CancellationAfterCredentialWriteCompensatesBeforeReturning",
+          "outcome": "Passed",
+          "duration": "00:00:00.0191975"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.CredentialAdapterFailureIsCompensatedAndItsRawMessageIsNeverExposed",
+          "outcome": "Passed",
+          "duration": "00:00:00.0225263"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.SavingServerConfigurationNeverGrantsHostTrust",
+          "outcome": "Passed",
+          "duration": "00:00:00.0097408"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.RepairsOnlyOrderAndMissingDefaultsWithoutDiscardingHistoricalData",
+          "outcome": "Passed",
+          "duration": "00:00:00.0131097"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.ConfigurationQueueTests.ShutdownWaitsForAllAcceptedEditsAndRejectsNewOnes",
+          "outcome": "Passed",
+          "duration": "00:00:00.0178719"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.DuplicateJsonPropertiesAreRejected(json: \"{\\\"schemaVersion\\\":1,\\\"schemaVersion\\\":1}\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002281"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.ConfigurationQueueTests.ConcurrentEditsAreFifoAndBuildOnEveryPreviousCommit",
+          "outcome": "Passed",
+          "duration": "00:00:00.1551248"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.AtomicPublicationCancellationDoesNotDeleteTheNowReferencedCredential",
+          "outcome": "Passed",
+          "duration": "00:00:00.0265434"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.FailedConfigurationReplacementCompensatesOnlyTheNewCredential(fault: Flush)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0472134"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.MissingOrBrokenPrimaryRecoversBackupAndPreservesItOnNextCommit(missing: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0166649"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.FailuresNeverPublishPartialFilesAndCanBeRetried(fault: Publish, existing: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0107558"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.ConfigurationQueueTests.SubscriberFailureCannotChangeSuccessfulCommitOutcome",
+          "outcome": "Passed",
+          "duration": "00:00:00.0109928"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.TrustRoundTripsSeparatelyAndUsesHostPortAndAlgorithmIdentity",
+          "outcome": "Passed",
+          "duration": "00:00:00.0167071"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.MalformedTrustEntriesFailClosed(fault: \"bad-port\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0097635"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.UnsupportedSchemaNeverDowngradesToAnOlderBackup(version: 2147483647)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0140567"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"bad-port\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0037272"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.FailuresNeverPublishPartialFilesAndCanBeRetried(fault: PartialWrite, existing: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0165896"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"unknown-mode\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0036537"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.DuplicateJsonPropertiesAreRejected(json: \"{\\\"schemaVersion\\\":1,\\\"servers\\\":[{\\\"host\\\":\\\"one\\\"···)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0001530"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"missing-rules\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0050393"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.UnsupportedSchemaNeverDowngradesToAnOlderBackup(version: 2)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0145415"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.ConfigurationQueueTests.ExternalRevisionConflictKeepsThePublishedSnapshotUntilExplicitReload",
+          "outcome": "Passed",
+          "duration": "00:00:00.1283815"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.InvalidTrustNeverSilentlyRestoresOlderTrustedKeys(fault: \"corrupt\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0989551"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.ConfigurationQueueTests.ReadOnlyLoadAndFailedReloadPreventWrites",
+          "outcome": "Passed",
+          "duration": "00:00:00.0070791"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.FailuresNeverPublishPartialFilesAndCanBeRetried(fault: Publish, existing: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.1108778"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.InvalidTrustNeverSilentlyRestoresOlderTrustedKeys(fault: \"missing\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0137966"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.FailedConfigurationReplacementCompensatesOnlyTheNewCredential(fault: PartialWrite)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0563254"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.ConfigurationQueueTests.PinAndSettingsUseTheSameDurableCommitPath",
+          "outcome": "Passed",
+          "duration": "00:00:00.0206374"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.BothCorruptFilesProduceAnErrorAndAreNotReset",
+          "outcome": "Passed",
+          "duration": "00:00:00.0072672"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.MalformedTrustEntriesFailClosed(fault: \"null-key\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0084639"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"remote-auto\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0034817"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.FailuresNeverPublishPartialFilesAndCanBeRetried(fault: Flush, existing: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0157320"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.FutureSchemaIsProtectedBeforeCheckingTodaysDataShape(json: \"{\\\"schemaVersion\\\":2147483648}\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0002916"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.StartupReconcilesInterruptedTransactionsWithoutDeletingLiveReferences",
+          "outcome": "Passed",
+          "duration": "00:00:00.0246253"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.CleanupJournalNeverFallsBackToAPotentiallyStaleDeletionList",
+          "outcome": "Passed",
+          "duration": "00:00:00.0169013"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"missing-envelope\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0033548"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.ConfigurationQueueTests.ConfigurationLeaseWaitCanBeCancelledWithoutStealingOwnership",
+          "outcome": "Passed",
+          "duration": "00:00:00.0035818"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.AmbiguousOrInvalidConfigurationIsNeverSilentlyDropped(corruption: \"negative-count\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0036191"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.FailedCompensationRemainsRetryableAcrossRestart",
+          "outcome": "Passed",
+          "duration": "00:00:00.0202216"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.MalformedTrustEntriesFailClosed(fault: \"duplicate\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0089929"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.CredentialTransactionTests.BrokenJournalBlocksNewCredentialsBeforeCredWriteAndRetainsConfiguration",
+          "outcome": "Passed",
+          "duration": "00:00:00.0081740"
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.JsonStateStoreTests.FailuresAfterPublicationStillReportTheCommittedRevision(fault: Cleanup)",
+          "outcome": "Passed",
+          "duration": "00:00:00.0085673"
+        }
+      ]
+    }
+  ],
+  "nativeStorageVerification": {
+    "capturedAtUtc": "2026-09-19T17:51:36.0477185+08:00",
+    "futureSchemaProtected": true,
+    "validBackupWasNotUsedToDowngrade": true,
+    "recoveredBackupNotice": true,
+    "bothFilesCorruptNotice": true,
+    "retryAfterExternalRepair": true,
+    "cleanLoadAndShutdownPreservedFile": true,
+    "isolatedDataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\storage-window\\2c8c197b658543a29db95453f1eac9b6",
+    "credentialNamespace": "TunnelDeck/Isolated/<directory hash>"
+  },
+  "nativeWindowVerification": {
+    "capturedAtUtc": "2026-09-19T18:00:44.3347225+08:00",
+    "title": "TunnelDeck",
+    "startupToWindowMs": 703,
+    "fixedDashboard": "137,194,310,51",
+    "fixedSettings": "142,917,300,45",
+    "fixedRuntime": "157,977,61,24",
+    "resourceScroll": "Passed",
+    "titleBarSearch": "Passed",
+    "paneToggle": "Passed",
+    "shortWindow": "Passed (900 x 500 physical pixels)",
+    "repeatedClose": "Passed",
+    "responsiveDuringCleanup": true,
+    "shutdownMs": 923,
+    "exitCode": 0,
+    "humanGuiReview": "Pending"
+  },
+  "sshRegression": {
+    "runThisMilestone": false,
+    "previousEvidence": "2026-09-19-m2.json",
+    "previousPassed": 18,
+    "reason": "SSH transport code was unchanged in M3"
+  },
+  "humanGuiReview": "Pending M4 formal pages; automated smoke only"
+}

@@ -1,6 +1,10 @@
 # TunnelDeck：技术核实与规划决策
 
+> 2026-09-19 用户明确决定：目前取消远端端口失败自动递增，仅保留 Local 本地监听端口占用时的自动递增；这已是当前范围约束，不再作为未确认选项或首版待补缺口。
+
 调研日期：2026-09-19。本文为实施计划的依据，不代表已在用户的空白模板或真实服务器上完成验证。公开文档、库的 develop 分支与最终安装的 NuGet 版本可能不同；M0 锁定版本，M1 对该版本验证。
+
+2026-09-20 实施补充：M0–M8 已完成，GUI A / B / C / D 已确认；M9 已接入删除影响、共享任务门禁、停止与配置事务、失败重试，GUI E 待评测。SSH.NET 固定为 2026.0.0，真实验证结果见 [里程碑](../../docs/milestones.md)、[删除契约](../../docs/deletion.md)、[Profiles 契约](../../docs/profiles.md) 与 [转发契约](../../docs/tunnels.md)。[ADR 0002](../../docs/decisions/0002-forwarded-channel-keepalive.md) 记录转发通道存活答复的公开 API 兼容处理。下方规划论证与固定版本实测冲突时，以 ADR 和实施契约为准。
 
 ## 1. 对前期建议的修正
 
@@ -11,26 +15,28 @@
 [SSH.NET ForwardedPortRemote 源码](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/ForwardedPortRemote.cs) 在收到失败后抛出通用 `SshException`。因此：
 
 - `-L`：真实绑定后，可依据 `SocketError.AddressAlreadyInUse` 递增；AccessDenied 可能来自 Windows 保留端口/策略，不应直接宣称“被占用”。
-- `-R`：连接正常并收到明确监听拒绝时，可以在用户开启自动找端口后做有限顺序尝试，但不知道拒绝是否由占用引起。
+- `-R`：只申请指定端口一次；失败返回通用错误，由用户手动调整端口或服务端策略，不自动递增。
 - 认证失败、host key 不匹配、DNS 错误、连接中断、超时、取消，不进入端口搜索。
 - 不通过解析本地化异常文案进行稳定错误分类；对缺乏公开结构化结果的库行为，M1 必须验证适配器能否可靠识别，不能把所有 `SshException` 都当监听拒绝。
-- 若固定版本不能可靠区分监听拒绝与其他异常，默认降级为原因不明即停止；将有限重试作为明确尚未完成的能力，不伪称满足自动递增。
+- 远端自动递增已按用户要求移出当前范围，不因异常类型或错误文本猜测端口占用。
 - 不以远程执行 `ss/netstat` 为默认诊断方式：需要 shell 权限、受平台影响，且先检查再绑定仍有竞争条件。
 - 不使用 `-R 0` 代替顺序递增：服务器分配端口不等于从 N+1 开始逐个尝试。
 
-成功文案应对应证据：本地明确占用可以写“Port 3000 was already in use”；远端仅拒绝应写“The server rejected the requested listening port. Port 8001 was assigned.”。
+文案应对应证据：本地明确占用并调整成功可以写“Port 3000 was already in use”；远端失败写“Remote forwarding could not be established. Check the requested port and server forwarding settings.”，不显示自动分配端口的成功文案。
 
 ### 1.2 一个 SSH 连接可以承载多条规则，但控制操作需串行
 
 [SshClient API](https://sshnet.github.io/SSH.NET/api/Renci.SshNet.SshClient.html) 提供 `AddForwardedPort` / `RemoveForwardedPort`；[ForwardedPort API](https://sshnet.github.io/SSH.NET/api/Renci.SshNet.ForwardedPort.html) 提供 `Start` / `Stop` / `IsStarted` / `Dispose`。
 
-RFC 的全局请求回复不带请求类型或独立请求 ID，要求按请求顺序回复。SSH.NET 当前源码在远端转发对象上订阅 session 回复。应用层应按 ServerId 串行执行连接、转发 start/stop 等控制操作，并在 M1 实测共享连接上的多条 `-R`；不同服务器可有限并发，数据传输仍并行。
+RFC 的全局请求回复不带请求类型或独立请求 ID，要求按请求顺序回复。M1 已验证 SSH.NET 2026.0.0 会向 Remote 对象广播 session 回复；仅串行操作不足以消除串扰。因此同 Server 的 Local 共享 Local-only 传输，Remote 每条独立传输。M6 按 ServerId 串行执行监听 Start / Stop / Dispose；认证和用户确认位于控制门禁之外，不同服务器有限并发，数据传输并行。
 
 不要把一个远端超时当作“无副作用的失败”后立即申请下一条。超时后服务端可能已经创建监听；必要时使该 session 失效并整体重建，避免延迟回复被新操作误认。停止超时也不能只凭本地 `IsStarted == false` 推断远端监听已经消失。
 
 ### 1.3 监听成功不等于目标服务可达
 
 `-L` 先创建本地 listener，目标连接通常在访问该 listener 时才建立；`-R` 同样可能接受监听请求，但转发目标未运行。Active 表示转发已建立，不应宣传为应用服务健康检查。验收必须传输真实 payload，不能只看 `IsStarted`。
+
+M6 实测：Local direct-tcpip OpenFailed 未完整透传到 `ForwardedPortLocal.Exception`，客户端可收到 EOF 而应用没有该次目标拒绝诊断；Remote 可记录请求异常，提前发送数据的客户端可能读超时。两种模式均已验证目标启动后无需重启 listener 即可传输。应用只记录实际观察到的错误，不能用日志文本解析或端口扫描填补这一边界。
 
 ### 1.4 身份校验需显式实现
 
@@ -43,6 +49,8 @@ RFC 的全局请求回复不带请求类型或独立请求 ID，要求按请求�
 ### 1.5 首版统计不要假设能直接取得流量
 
 本次查阅的 `ForwardedPort` 公共 API 有请求和异常事件，没有直接的每隧道双向字节累计接口。`RequestReceived` 不是字节数。首版建议实现成功启动次数、最近活动、常用服务器和 Profile；隐藏尚未实现的流量指标。
+
+M7 已按新成功实例记录 TotalForwards / ServerForwards 和 LastUsedAt，并持久化 Started / Stopped / Failed / Cancelled；完全重复提交不计数，duration 与请求数不触发写盘。M8 的 ProfileUses 按每次操作至少有一条新成功规则计一次，部分成功后取消保留该次使用；纯 AlreadyRunning / 全失败不计数。完整统计与重连口径仍由后续里程碑完成。
 
 若必须精确计量，应先定义业务 payload 与 SSH 传输字节的口径，再为代理/流计量评估额外复制、监听和维护成本；不能用网卡流量或进程总流量冒充隧道流量。
 
@@ -65,15 +73,15 @@ RFC 的全局请求回复不带请求类型或独立请求 ID，要求按请求�
 
 ## 3. 首版边界与可调整的规划默认
 
-下表是尚未由本次澄清答复确认时的**规划默认**，不是用户已同意的事实。后续答复优先更新此表及主计划。
+下表中远端不递增已由用户确认；其余未得到回复的内容仍为**规划默认**。后续答复优先更新此表及主计划。
 
 | 项目 | 规划默认 | 改变时影响 |
 | --- | --- | --- |
 | 关闭窗口 | × 停止全部并退出；最小化保持运行；首版不强制引入托盘 | 若要求托盘，M10 增加显式驻留设置及托盘验收 |
 | SSH 范围 | SSH.NET 直连，密码/私钥，有限 SSH config 导入 | ProxyJump、agent、FIDO2 会改变 M1/M5/M11 的范围 |
-| 远端递增 | 连接正常且可确认监听拒绝时有限顺序重试，文案保留原因不确定性 | 严格模式则 `-R` 原因不明不递增，须注明能力缺口 |
+| 远端递增 | 用户已确认：当前不支持；只申请指定端口一次 | 将来如扩展须重新评估，不纳入当前完成标准 |
 | 流量统计 | 后续版本，首版隐藏 | 强制首版计量需增加独立技术验证和实现里程碑 |
-| 自动搜索 | 默认开启，最多 20 个候选端口（含原端口），不越过 65535；同时受总时限约束 | 常量/设置，不更改 Requested 端口 |
+| 本地自动搜索 | Local 默认开启，仅 AddressAlreadyInUse 触发，最多 20 个候选（含原端口），不越过 65535；同时受总时限约束 | 仅修改实际 Local 监听端口，不更改 Requested 或目标端 |
 | 地址范围 | TCP；默认双方 loopback，高级字段可显式设 bind/target；首版不做 UDP/SOCKS | 额外协议应另立范围 |
 | 批量启动 | 逐条报告；成功条保留，失败条可重试；不承诺全有或全无 | 全量回滚增加事务和重连复杂度 |
 | 重复启动 | 完全相同 requested endpoint/mode 的启动幂等，导航到现有条目 | 不将双击自动变成另一条递增端口规则 |

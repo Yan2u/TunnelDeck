@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../../src/TunnelDeck.Core/TunnelDeck.Core.csproj" />
+  </ItemGroup>
+</Project>

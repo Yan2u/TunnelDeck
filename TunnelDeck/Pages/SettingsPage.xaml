@@ -1,0 +1,40 @@
+<pages:ShellPage x:Class="TunnelDeck.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:pages="using:TunnelDeck.Pages" SizeChanged="OnPageSizeChanged">
+    <ScrollViewer x:Name="SettingsScroll" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled" AutomationProperties.AutomationId="SettingsScroll">
+        <StackPanel x:Name="PageContent" Padding="24" Spacing="32">
+            <TextBlock Text="Settings" Style="{ThemeResource TitleTextBlockStyle}" AutomationProperties.HeadingLevel="Level1" AutomationProperties.AutomationId="SettingsPage" />
+            <StackPanel Spacing="16">
+                <TextBlock Text="Appearance" Style="{ThemeResource SubtitleTextBlockStyle}" AutomationProperties.HeadingLevel="Level2" />
+                <ComboBox x:Name="ThemeSelector" Header="Window theme" SelectedIndex="{x:Bind Shell.ThemeIndex, Mode=TwoWay}"
+                          MinWidth="240" AutomationProperties.AutomationId="ThemeSelector">
+                    <ComboBoxItem Content="Use system setting" AutomationProperties.AutomationId="ThemeSystem" />
+                    <ComboBoxItem Content="Light" AutomationProperties.AutomationId="ThemeLight" />
+                    <ComboBoxItem Content="Dark" AutomationProperties.AutomationId="ThemeDark" />
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Spacing="16">
+                <TextBlock Text="Sidebar" Style="{ThemeResource SubtitleTextBlockStyle}" AutomationProperties.HeadingLevel="Level2" />
+                <StackPanel Spacing="8">
+                    <NumberBox x:Name="SidebarMaximum" Header="Maximum items per section" Minimum="3" Maximum="10" SmallChange="1"
+                               SpinButtonPlacementMode="Compact" ValueChanged="OnMaximumChanged" Width="240" HorizontalAlignment="Left"
+                               IsEnabled="{x:Bind Shell.CanEdit, Mode=OneWay}" AutomationProperties.AutomationId="SidebarMaximum" />
+                    <TextBlock Text="Show 3–10 items in each section. Pinned items appear first, followed by recently used resources."
+                               TextWrapping="Wrap" MaxWidth="720" HorizontalAlignment="Left" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Spacing="16">
+                <TextBlock Text="Forwarding" Style="{ThemeResource SubtitleTextBlockStyle}" AutomationProperties.HeadingLevel="Level2" />
+                <StackPanel Spacing="8">
+                    <ToggleSwitch x:Name="AutoFindDefault" Header="Find next available local port when occupied" Toggled="OnAutoFindToggled"
+                                  IsEnabled="{x:Bind Shell.CanEdit, Mode=OneWay}" AutomationProperties.AutomationId="AutoFindDefault" />
+                    <TextBlock Text="Used for new Local rules. Existing rules and the current Quick Forward draft keep their own settings. Remote forwarding uses the requested port."
+                               TextWrapping="Wrap" MaxWidth="720" HorizontalAlignment="Left" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                </StackPanel>
+                <ComboBox x:Name="DefaultServer" Header="Default server" DisplayMemberPath="Name" SelectionChanged="OnDefaultServerChanged"
+                          HorizontalAlignment="Stretch" IsEnabled="{x:Bind Shell.CanEdit, Mode=OneWay}" AutomationProperties.AutomationId="DefaultServer" />
+            </StackPanel>
+            <TextBlock Text="Sidebar and forwarding settings are saved automatically." Foreground="{ThemeResource TextFillColorSecondaryBrush}" Style="{ThemeResource CaptionTextBlockStyle}" TextWrapping="Wrap" />
+        </StackPanel>
+    </ScrollViewer>
+</pages:ShellPage>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="GlobalSearch.PlaceholderText" xml:space="preserve"><value>Search profiles and servers</value></data>
+  <data name="DashboardButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve"><value>Dashboard</value></data>
+  <data name="AllProfilesItem.Content" xml:space="preserve"><value>All profiles</value></data>
+  <data name="AllServersItem.Content" xml:space="preserve"><value>All servers</value></data>
+  <data name="SettingsItem.Content" xml:space="preserve"><value>Settings</value></data>
+  <data name="FoundationInfo.Title" xml:space="preserve"><value>Development build · M0–M3</value></data>
+  <data name="FoundationInfo.Message" xml:space="preserve"><value>The native shell now loads saved configuration and handles storage recovery. Server and profile editing arrive in the next milestones.</value></data>
+  <data name="FoundationHeading.Text" xml:space="preserve"><value>A small foundation for your tunnels</value></data>
+  <data name="FoundationDescription.Text" xml:space="preserve"><value>Use the title bar to search, collapse the navigation pane, or resize the window. Closing the window runs the shared cleanup path. No SSH connections are opened by this page.</value></data>
+  <data name="ThemeSelector.Header" xml:space="preserve"><value>Window theme</value></data>
+</root>

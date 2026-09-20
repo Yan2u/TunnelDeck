@@ -1,5 +1,15 @@
 # TunnelDeck WinUI 3 UI/UX 与实现规范
 
+> 2026-09-19 用户确认：当前仅支持 Local 本地监听端口占用时自动递增；Remote 转发不支持失败自动递增。以下相关控件、文案和端口标记已按此更新。
+
+> 2026-09-20 实施更新：M0–M8 已完成，GUI A / B / C / D 已确认，最新确认是「GUI 测试通过，继续 M9.」。M9 已启用 More 中的单个 / 全量删除、原生影响确认、失败后的 Review and retry、配置与导航引用清理；GUI E 待评测。Quick Forward、Requested / Actual 和 Local 调整标识保持原契约。预览通过 `Run.ps1 -Preview Sample` 打开，隔离数据且不建立 SSH 连接；Long lists 包含 24 个运行样本。详细约定见 [删除契约](../../docs/deletion.md)、[profiles](../../docs/profiles.md)、[quick-forward](../../docs/quick-forward.md) 和 [页面契约](../../docs/shell-and-navigation.md)。
+
+> M8 交互补充：Apply rule 只改 Profile 草稿，Save 一次提交，Cancel 可丢弃规则编辑、移除和排序；有草稿时不启动。新规则优先继承上一条的 Server。Latest start 显示最近一次启动的逐条结果，运行状态独立呈现；Retry failed 只处理仍存在的失败规则。Pinned 的名称按钮负责导航，原生手柄负责拖排，Other 不接收拖放；写入失败恢复已保存顺序并提供 Retry。每个包含新成功实例的 Profile 启动操作计一次使用，访问、Pin 和纯 AlreadyRunning 不计数。
+
+> M7 交互补充：Quick 草稿跨页面保留、固定 Server 跨重启保留；初始化 focus 等待页面与配置就绪，后台通知不抢焦点。活动 ListView 使用有界独立滚动，Quick 不随列表滚动。正常 Stop 清理且历史提交成功后移至 Recent；失败条保留 Retry / Remove，历史写入失败单独提示并可重试。Details 只在打开时更新 duration，清理后的 EndedAt 固定终态时长，timer 与请求计数不写盘。Open Terminal 仍为禁用的次要入口，待 M11。
+
+> M6 诊断约定：Running 只表示监听建立；目标连接错误与监听错误分开、重复错误适度聚合。SSH.NET 的 Local 目标拒绝通知不完整，UI 不承诺每次目标失败都有通知，不根据连接请求数显示“服务健康”。Requested / Actual 和本地端口调整原因由引擎提供，界面不得自行修改配置端口。
+
 ## 1. 项目定位
 
 TunnelDeck 是一个轻量级 Windows 11 SSH 端口转发管理工具。
@@ -706,29 +716,29 @@ UI 不要只显示：
 
 ------
 
-# 17. 自动寻找可用端口
+# 17. 自动寻找可用本地监听端口
 
-Quick Forward 和 Profile Rule Editor 都提供：
+Quick Forward 和 Profile Rule Editor 在 Local Forwarding 模式下提供：
 
 ```text
-Find next available port if occupied
+Find next available local port if occupied
 ```
 
 Settings 中提供全局默认值：
 
 ```text
-Automatically find next available port when occupied
+Automatically find next available local port when occupied
 ```
 
-创建新的 Quick Forward / Rule 时使用该设置作为默认值。
+创建新的 Local Quick Forward / Rule 时使用该设置作为默认值。
 
-用户可以在单次 Rule 上覆盖。
+用户可以在单次 Local Rule 上覆盖。Remote 模式隐藏自动搜索选项，显示辅助说明：`Remote listening failures require a manual port or server configuration change.` 切换到 Remote 时保存 AutoFindAvailablePort=false；切回 Local 时可恢复当前草稿中原有的 Local 选项，不回写其他规则。
 
 ------
 
 # 18. Auto Port Search 行为
 
-当指定端口不可用时：
+Local 模式先实际申请指定本地监听端口；仅收到可确认的 AddressAlreadyInUse 且开启自动搜索时：
 
 ```text
 Requested = N
@@ -745,7 +755,9 @@ N + 1
 直到：
 
 - 找到可用端口；
-- 或达到实现定义的搜索上限。
+- 或达到 20 次申请（含原端口）、65535 边界、总时限或取消。
+
+仅 LocalPort 可以变化，RemoteHost/RemotePort 目标保持不变。AccessDenied、认证、指纹、网络、超时错误均不递增。Remote 模式只申请指定远端端口一次，失败后呈现通用错误和手动恢复路径，不宣称端口被占用，不自动修改任一端口。
 
 成功时：
 
@@ -773,11 +785,7 @@ Local :3000 → Remote :3000
 Local :3001 [!] → Remote :3000
 ```
 
-如果 Remote Port 被调整：
-
-```text
-Local :3000 → Remote :8001 [!]
-```
+Remote 模式不自动调整端口，因此不显示自动调整 InfoBadge。方向始终按实际流向显示为 `Remote :8000 → Local :3000`。
 
 其中：
 
@@ -1415,7 +1423,7 @@ ForwardRule
     Mode
     LocalPort
     RemotePort
-    AutoFindAvailablePort
+    AutoFindAvailablePort // 仅 Local 使用；Remote 保存为 false
 }
 ```
 
@@ -1501,7 +1509,7 @@ Remote Server
 Mode
 Local Port
 Remote Port
-Auto Find Available Port
+Auto Find Available Local Port (Local mode only)
 ```
 
 普通列表 Row 保持紧凑。
@@ -1599,6 +1607,17 @@ SHA256:...
 
 但它不是 Authentication Method。
 
+M5 的认证表单约定：
+
+- Password 与 Private Key / Identity File 共用一个掩码凭据输入区，私钥模式明确标为 Private-key passphrase；未加密私钥允许留空。
+- Remember in Windows Credential Manager 是可选项。仅 Save 提交凭据；Test Connection 使用当前草稿，成功后关闭临时连接，不保存服务器，也不增加活动隧道或统计。
+- 存在已保存凭据时不把它读回输入框；提示留空保留、输入替换，取消 Remember 并 Save 会移除保存的凭据。丢失的凭据在字段附近请求重新输入。
+- Test Connection 等待时提供 Cancel test；页面仍可导航，离开页面取消该次测试。已经明确 Save 的数据在返回或重启后保留。
+- 首次指纹通过排队的原生 ContentDialog 确认，显示服务器、endpoint、算法和 SHA256 指纹；默认聚焦 Cancel。接受后重新握手并继续精确校验；已保存指纹改变时拒绝连接，不提供跳过校验的按钮。
+- 多条规则并发连接同一 host / SSH port / algorithm / fingerprint 时只显示一次确认；每条 Remote 仍独立认证。取消一个等待者不取消其他等待者的确认，最后一个取消后等待对话框真正结束；不同指纹不能合并。
+- 存在活动、待重连、正在连接或待指纹确认的工作时锁定连接身份和凭据字段；Display name 仍可修改。后端必须使用同一门禁执行占用检查、身份保存及连接登记。
+- Open terminal 在 M11 完成前保持禁用；隔离设计预览中的 Test Connection 也保持禁用。
+
 ------
 
 # 47. SSH Config
@@ -1639,11 +1658,11 @@ Maximum items per section
 ## Forwarding
 
 ```text
-Find next available port when occupied
+Find next available local port when occupied
 [On / Off]
 ```
 
-这是创建新 Forward Rule 和 Quick Forward 的默认值。
+这是创建新 Local Forward Rule 和 Local Quick Forward 的默认值。Remote 不使用该设置，已有规则和已编辑草稿不随全局默认值变更。
 
 ## Default Server
 
@@ -1966,6 +1985,17 @@ Port search exhausted
 Routine Success 不需要频繁弹 InfoBar。
 
 成功状态尽量直接反映在页面内容中。
+
+## 61.1 配置加载与恢复
+
+配置加载不阻塞窗口。正常加载完成后收起提示，不额外弹成功通知。
+
+- 主文件损坏但备份有效：Warning InfoBar 明确说明已加载备份。加载时保留原文件，后续成功编辑才提交恢复后的配置。
+- 顺序或默认选择的安全修复：Warning 展示具体修复诊断；不通过删除 Server、Rule 或历史记录来消除错误。
+- 主文件和备份均无效：Error InfoBar 提供数据目录和 Retry；保留文件，不静默创建空配置覆盖。
+- 未支持的未来版本：Error 明确只读，提示更新 App 或恢复兼容文件；不得改用旧备份降级覆盖。
+
+只读或尚未初始化时，保存入口不可用。文件修复后 Retry 重新加载；错误详情不得包含密码、私钥口令或原始 JSON 内容。恢复 / 迁移提示使用 InfoBar，不要求额外 ContentDialog。凭据清理失败可以提示已保存配置、稍后重试清理，不能把已成功的保存显示为失败。
 
 ------
 

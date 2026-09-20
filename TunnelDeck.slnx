@@ -3,6 +3,25 @@
     <Platform Name="Any CPU" />
     <Platform Name="x64" />
   </Configurations>
+  <Folder Name="/src/">
+    <Project Path="src/TunnelDeck.Core/TunnelDeck.Core.csproj">
+      <Platform Solution="*|x64" Project="x64" />
+    </Project>
+    <Project Path="src/TunnelDeck.Infrastructure/TunnelDeck.Infrastructure.csproj">
+      <Platform Solution="*|x64" Project="x64" />
+    </Project>
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/TunnelDeck.Core.Tests/TunnelDeck.Core.Tests.csproj">
+      <Platform Solution="*|x64" Project="x64" />
+    </Project>
+    <Project Path="tests/TunnelDeck.Infrastructure.Tests/TunnelDeck.Infrastructure.Tests.csproj">
+      <Platform Solution="*|x64" Project="x64" />
+    </Project>
+    <Project Path="tests/TunnelDeck.Ssh.Tests/TunnelDeck.Ssh.Tests.csproj">
+      <Platform Solution="*|x64" Project="x64" />
+    </Project>
+  </Folder>
   <Project Path="TunnelDeck/TunnelDeck.csproj">
     <Platform Solution="*|x64" Project="x64" />
   </Project>

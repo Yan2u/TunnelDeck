@@ -1,0 +1,217 @@
+{
+  "capturedAtUtc": "2026-09-19T05:49:42.3171899+00:00",
+  "sourceBaseline": "2039b14f9f83616748b2471f343defd1d58710f7",
+  "branch": "codex/m0-m1-foundation",
+  "template": {
+    "capturedAtUtc": "2026-09-19T12:33:55.1025258+08:00",
+    "configuration": "Release x64 original template",
+    "sdk": "10.0.400-preview.0.26322.102",
+    "appSdk": "2.5.1",
+    "title": "MainWindow",
+    "windowHandle": 2165644,
+    "responding": true,
+    "sampleSeconds": 60.0336588,
+    "cpuSeconds": 0.03125,
+    "cpuPercentOfMachine": 0.0021689221669316835,
+    "privateBytes": 95776768,
+    "workingSetBytes": 129523712,
+    "handleCount": 1066,
+    "threadCount": 77,
+    "logicalProcessors": 24
+  },
+  "window": {
+    "capturedAtUtc": "2026-09-19T13:45:02.9826915+08:00",
+    "title": "TunnelDeck",
+    "startupToWindowMs": 770,
+    "fixedDashboard": "73,130,310,51",
+    "fixedSettings": "78,853,300,45",
+    "fixedRuntime": "93,913,61,24",
+    "resourceScroll": "Passed",
+    "titleBarSearch": "Passed",
+    "paneToggle": "Passed",
+    "shortWindow": "Passed (900 x 500 physical pixels)",
+    "repeatedClose": "Passed",
+    "responsiveDuringCleanup": true,
+    "shutdownMs": 902,
+    "exitCode": 0,
+    "humanGuiReview": "Pending"
+  },
+  "suites": [
+    {
+      "name": "TunnelDeck.Core.Tests",
+      "counters": "<Counters total=\"6\" executed=\"6\" passed=\"6\" failed=\"0\" error=\"0\" timeout=\"0\" aborted=\"0\" inconclusive=\"0\" passedButRunAborted=\"0\" notRunnable=\"0\" notExecuted=\"0\" disconnected=\"0\" warning=\"0\" completed=\"0\" inProgress=\"0\" pending=\"0\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" />",
+      "tests": [
+        {
+          "name": "TunnelDeck.Core.Tests.HostKeyIdentityTests.EquivalentHostSpellingsMatch(first: \"EXAMPLE.COM.\", second: \"example.com\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0003074",
+          "observations": ""
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.HostKeyIdentityTests.EquivalentHostSpellingsMatch(first: \"2001:0db8:0:0:0:0:0:1\", second: \"2001:db8::1\")",
+          "outcome": "Passed",
+          "duration": "00:00:00.0022129",
+          "observations": ""
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ShutdownCoordinatorTests.RepeatedCloseSharesOneCleanupAndPreventsNewWork",
+          "outcome": "Passed",
+          "duration": "00:00:00.0099565",
+          "observations": ""
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.HostKeyIdentityTests.EndpointAlgorithmAndKeyAreAllPartOfTrust",
+          "outcome": "Passed",
+          "duration": "00:00:00.0046936",
+          "observations": ""
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ShutdownCoordinatorTests.DeadlineEndsTheWaitEvenWhenParticipantHasNotFinished",
+          "outcome": "Passed",
+          "duration": "00:00:00.0020720",
+          "observations": ""
+        },
+        {
+          "name": "TunnelDeck.Core.Tests.ShutdownCoordinatorTests.FailureIsReportedAndCanBeRetried",
+          "outcome": "Passed",
+          "duration": "00:00:00.0011953",
+          "observations": ""
+        }
+      ]
+    },
+    {
+      "name": "TunnelDeck.Infrastructure.Tests",
+      "counters": "<Counters total=\"2\" executed=\"2\" passed=\"2\" failed=\"0\" error=\"0\" timeout=\"0\" aborted=\"0\" inconclusive=\"0\" passedButRunAborted=\"0\" notRunnable=\"0\" notExecuted=\"0\" disconnected=\"0\" warning=\"0\" completed=\"0\" inProgress=\"0\" pending=\"0\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" />",
+      "tests": [
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.SshControlSessionTests.ControlDeadlineMustPrecedeTheLibrarySilentStopTimeout",
+          "outcome": "Passed",
+          "duration": "00:00:00.0131926",
+          "observations": ""
+        },
+        {
+          "name": "TunnelDeck.Infrastructure.Tests.WindowsCredentialStoreTests.DisposableCredentialRoundTripsReplacesAndDeletes",
+          "outcome": "Passed",
+          "duration": "00:00:00.0200568",
+          "observations": ""
+        }
+      ]
+    },
+    {
+      "name": "TunnelDeck.Ssh.Tests",
+      "counters": "<Counters total=\"18\" executed=\"18\" passed=\"18\" failed=\"0\" error=\"0\" timeout=\"0\" aborted=\"0\" inconclusive=\"0\" passedButRunAborted=\"0\" notRunnable=\"0\" notExecuted=\"0\" disconnected=\"0\" warning=\"0\" completed=\"0\" inProgress=\"0\" pending=\"0\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" />",
+      "tests": [
+        {
+          "name": "TunnelDeck.Ssh.Tests.TimeoutTests.UncertainRemoteStartRetiresTransportBeforeAnyNextOperation(cancel: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.3567147",
+          "observations": "SSH-04 cancelled: real sshd had already created listener; old session retired; late reply cannot be reused; fresh session forwards successfully."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.ControlSessionTests.TwoLocalsShareAndTwoRemotesAreIndependentEvenWhenOneStopTimesOut",
+          "outcome": "Passed",
+          "duration": "00:00:01.3199648",
+          "observations": "ADAPTER: 2 Local rules share one transport; 2 Remote rules use one each. A remote Stop deadline retires only that Remote transport; the other three routes still transfer payload."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.ForwardingTests.PermitListenAllowsItsExplicitPort",
+          "outcome": "Passed",
+          "duration": "00:00:00.1962736",
+          "observations": ""
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.ControlSessionTests.IsolatedRemoteStopWaitsForItsOwnAcknowledgement",
+          "outcome": "Passed",
+          "duration": "00:00:00.3719990",
+          "observations": "ADAPTER: a dedicated Remote transport does not finish Stop until its own real sshd acknowledgement arrives; repeated Stop is harmless."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.AuthenticationTests.UnknownHostIsRejectedBeforeAuthentication",
+          "outcome": "Passed",
+          "duration": "00:00:00.0626406",
+          "observations": "AUTH-01 unknown host: key captured, handshake rejected, IsAuthenticated=false."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.AuthenticationTests.ExplicitlyTrustedHostSupportsPasswordAndEncryptedPrivateKey(privateKey: True)",
+          "outcome": "Passed",
+          "duration": "00:00:00.5517210",
+          "observations": "AUTH: encrypted Ed25519 key authentication passed."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.ControlSessionTests.GuardRejectsASecondRemoteOnTheSameTransport",
+          "outcome": "Passed",
+          "duration": "00:00:00.2033943",
+          "observations": ""
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.AuthenticationTests.AlreadyCancelledConnectCannotCreateASession",
+          "outcome": "Passed",
+          "duration": "00:00:00.0143767",
+          "observations": ""
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.AuthenticationTests.ExplicitlyTrustedHostSupportsPasswordAndEncryptedPrivateKey(privateKey: False)",
+          "outcome": "Passed",
+          "duration": "00:00:00.1503787",
+          "observations": "AUTH: password authentication passed."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.UpstreamBehaviorTests.CharacterizeRemoteStopAcknowledgementAfterAnotherRemoteStart",
+          "outcome": "Passed",
+          "duration": "00:00:00.2057772",
+          "observations": "UPSTREAM: remote Stop completed before its acknowledgement was released = True; duration including probe=0 ms."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.ControlSessionTests.UnclassifiedRemoteRefusalRetiresTheTransportWithoutRetrying",
+          "outcome": "Passed",
+          "duration": "00:00:00.2027340",
+          "observations": ""
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.AuthenticationTests.ChangedHostKeyOnTheSameEndpointIsRejected",
+          "outcome": "Passed",
+          "duration": "00:00:00.4454542",
+          "observations": "AUTH-01 changed host: same host/port, replacement server key rejected before authentication."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.ForwardingTests.ExplicitIpv6LoopbackWorksInBothDirections",
+          "outcome": "Passed",
+          "duration": "00:00:00.2082836",
+          "observations": "SSH address boundary: explicit IPv4/IPv6 loopback passed; string Remote constructor resolves bind and target on the client. Use numeric bind addresses and explicit client-side target resolution."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.ForwardingTests.TwoLocalAndTwoRemoteForwardsShareOneSessionAndStopIndependently",
+          "outcome": "Passed",
+          "duration": "00:00:00.7599569",
+          "observations": "SSH-01: 32 KiB binary payload passed through 2 Local + 2 Remote forwards on one connection; independent and repeated Stop passed."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.ForwardingTests.UnreachableTargetDoesNotTurnListenerIntoASessionFailure",
+          "outcome": "Passed",
+          "duration": "00:00:00.1936286",
+          "observations": "Target refused: consumer stream reached EOF; listener and SSH connection remain started. ForwardedPort.Exception event observed = False. No target-health claim is made."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.ForwardingTests.LocalOccupiedPortHasStructuredSocketErrorAndIsReusableAfterRelease",
+          "outcome": "Passed",
+          "duration": "00:00:00.1939585",
+          "observations": "SSH-02 local: SocketException, SocketError=AddressAlreadyInUse, NativeError=10048. AccessDenied must not trigger automatic port search."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.TimeoutTests.UncertainRemoteStartRetiresTransportBeforeAnyNextOperation(cancel: False)",
+          "outcome": "Passed",
+          "duration": "00:00:01.3556883",
+          "observations": "SSH-04 timed out: real sshd had already created listener; old session retired; late reply cannot be reused; fresh session forwards successfully."
+        },
+        {
+          "name": "TunnelDeck.Ssh.Tests.ForwardingTests.RemoteOccupiedAndPolicyDeniedHaveTheSameUnstructuredExceptionType",
+          "outcome": "Passed",
+          "duration": "00:00:00.7679408",
+          "observations": "SSH-03 occupied: Renci.SshNet.Common.SshException; HResult=-2146233088; listener not started. Message is diagnostic only, never a classifier.\r\nSSH-03 AllowTcpForwarding=no: Renci.SshNet.Common.SshException; HResult=-2146233088; listener not started. Message is diagnostic only, never a classifier.\r\nSSH-03 PermitListen restriction: Renci.SshNet.Common.SshException; HResult=-2146233088; listener not started. Message is diagnostic only, never a classifier."
+        }
+      ]
+    }
+  ],
+  "humanGuiReview": "Pending",
+  "remoteAutoPortSearch": "Not implemented; fail closed on unclassified remote refusal"
+}

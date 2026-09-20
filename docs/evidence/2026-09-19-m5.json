@@ -1,0 +1,401 @@
+{
+  "capturedAtUtc": "2026-09-19T15:00:55.5371410+00:00",
+  "milestone": "M5 implementation and automated verification complete; GUI B pending",
+  "source": {
+    "baseCommit": "2039b14f9f83616748b2471f343defd1d58710f7",
+    "branch": "codex/m0-m1-foundation",
+    "changes": "Uncommitted workspace changes, M0-M5"
+  },
+  "build": {
+    "command": "./scripts/Build.ps1 -LockedRestore",
+    "configuration": "Release x64",
+    "warnings": 0,
+    "errors": 0,
+    "windowsPackageType": "None",
+    "appProjectSha256": "D7CCB0B254F0E97A31F4BAAD54B57237EF0819709670B7ACC2E7854D3365D3BE"
+  },
+  "tests": {
+    "command": "./scripts/Test.ps1 -Ssh -NoFixtureBuild",
+    "total": 298,
+    "passed": 298,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "name": "TunnelDeck.Core.Tests",
+        "total": 184,
+        "passed": 184,
+        "failed": 0,
+        "notExecuted": 0,
+        "reportSha256": "7A042C7EC00DA4D22252C09C93F91C8AFCF3274748C8394C5193F12FA74399FD",
+        "focusCases": [
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionAuthenticationTests.ApprovalWaitDoesNotHoldServerEditOrOtherServerConnectionLocks",
+            "outcome": "Passed",
+            "duration": "00:00:00.0033699"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionAuthenticationTests.ApprovedKeyIsSavedAndReconnectionUsesTheExactFingerprintWithoutPromptingAgain",
+            "outcome": "Passed",
+            "duration": "00:00:00.0031401"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionAuthenticationTests.ChangedKeyIsRejectedIncludingAChangeWhileApprovalWasOpen(duringApproval: False)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0010386"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionAuthenticationTests.ChangedKeyIsRejectedIncludingAChangeWhileApprovalWasOpen(duringApproval: True)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0102005"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionAuthenticationTests.ClosingDuringApprovalCancelsThePromptWithoutGrantingTrust",
+            "outcome": "Passed",
+            "duration": "00:00:00.0534499"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionAuthenticationTests.DecliningUnknownKeyNeverAuthenticatesOrSavesTrust",
+            "outcome": "Passed",
+            "duration": "00:00:00.0027292"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionAuthenticationTests.MissingSavedCredentialRequiresInlineInputBeforeOpeningTheNetwork(method: Password)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0051659"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionAuthenticationTests.MissingSavedCredentialRequiresInlineInputBeforeOpeningTheNetwork(method: PrivateKey)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0011239"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionAuthenticationTests.SavedCredentialsAreResolvedAtUseAndSecretsStayOutOfDiagnosticFormattingAndJson",
+            "outcome": "Passed",
+            "duration": "00:00:00.0544810"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionAuthenticationTests.UnreadableTrustFailsClosedWithoutShowingAnApprovalPrompt",
+            "outcome": "Passed",
+            "duration": "00:00:00.0030626"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.AnUnsavedTestCannotReplaceTheIdentityReservedByActiveWork",
+            "outcome": "Passed",
+            "duration": "00:00:00.0024351"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.AuthenticationTargetChangesCannotImplicitlyReuseSavedCredentials",
+            "outcome": "Passed",
+            "duration": "00:00:00.0024248"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.DisplayNameCanChangeWithoutReplacingASharedSession",
+            "outcome": "Passed",
+            "duration": "00:00:00.0026428"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.PendingWorkWithoutATransportStillGuardsEveryIdentityField(edit: \"credential-reference\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.0008209"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.PendingWorkWithoutATransportStillGuardsEveryIdentityField(edit: \"forget\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.0008498"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.PendingWorkWithoutATransportStillGuardsEveryIdentityField(edit: \"host\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.0064888"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.PendingWorkWithoutATransportStillGuardsEveryIdentityField(edit: \"key-file\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.0011933"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.PendingWorkWithoutATransportStillGuardsEveryIdentityField(edit: \"method\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.0007683"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.PendingWorkWithoutATransportStillGuardsEveryIdentityField(edit: \"port\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.0007061"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.PendingWorkWithoutATransportStillGuardsEveryIdentityField(edit: \"remember\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.0009446"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.PendingWorkWithoutATransportStillGuardsEveryIdentityField(edit: \"username\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.0490448"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.ShutdownPreventsBothNewConnectionsAndServerEdits",
+            "outcome": "Passed",
+            "duration": "00:00:00.0031950"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionIdentityTests.StartingConnectionCannotSlipBetweenIdentityCheckAndSaveCommit",
+            "outcome": "Passed",
+            "duration": "00:00:00.0124329"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionLifetimeTests.ConcurrentLocalRequestsCoalesceAndLastReleaseClosesTheTransport",
+            "outcome": "Passed",
+            "duration": "00:00:00.0047630"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionLifetimeTests.DisconnectRetiresTheSessionAndNextRequestUsesAFreshTransport",
+            "outcome": "Passed",
+            "duration": "00:00:00.0099572"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionLifetimeTests.FailedDisposalRemainsTrackedAndShutdownRetriesIt",
+            "outcome": "Passed",
+            "duration": "00:00:00.0048570"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionLifetimeTests.LastCancellationOrShutdownOwnsAndDisposesLateSuccess(shutdown: False)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0009720"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionLifetimeTests.LastCancellationOrShutdownOwnsAndDisposesLateSuccess(shutdown: True)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0049613"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionLifetimeTests.OneCancelledWaiterDoesNotCancelOtherWaiters",
+            "outcome": "Passed",
+            "duration": "00:00:00.0542841"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionLifetimeTests.PreviewCannotOpenEvenAnExplicitUnsavedEndpoint",
+            "outcome": "Passed",
+            "duration": "00:00:00.0025636"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionLifetimeTests.RemoteRulesAlwaysOwnSeparateTransportsFromEachOtherAndLocalRules",
+            "outcome": "Passed",
+            "duration": "00:00:00.0041406"
+          },
+          {
+            "name": "TunnelDeck.Core.Tests.ConnectionLifetimeTests.TemporaryTestUsesUnsavedValuesAndDoesNotReuseOrLeaveAnIdleSession",
+            "outcome": "Passed",
+            "duration": "00:00:00.0060275"
+          }
+        ]
+      },
+      {
+        "name": "TunnelDeck.Infrastructure.Tests",
+        "total": 79,
+        "passed": 79,
+        "failed": 0,
+        "notExecuted": 0,
+        "reportSha256": "D203E72764A81764A9E484B0E366BF473015DE12692E4A5E446911656491A843",
+        "focusCases": [
+          {
+            "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.ApprovingTheSameKeyAgainPreservesTheOriginalTrustRecord",
+            "outcome": "Passed",
+            "duration": "00:00:00.0200036"
+          },
+          {
+            "name": "TunnelDeck.Infrastructure.Tests.HostKeyPersistenceTests.ConcurrentFirstUseApprovalsCannotOverwriteEachOthersKeys",
+            "outcome": "Passed",
+            "duration": "00:00:00.0451585"
+          }
+        ]
+      },
+      {
+        "name": "TunnelDeck.Ssh.Tests",
+        "total": 35,
+        "passed": 35,
+        "failed": 0,
+        "notExecuted": 0,
+        "reportSha256": "20F2B35878AB7958E3883263C2844CD7B4E569163AFD10CAF3F045649603EC26",
+        "focusCases": [
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionAuthenticationTests.AuthenticationFailuresAreTypedAndNeverExposeCredentials(fault: \"missing-key\", expected: KeyFileUnreadable)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0023290"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionAuthenticationTests.AuthenticationFailuresAreTypedAndNeverExposeCredentials(fault: \"missing-passphrase\", expected: CredentialRequired)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0028123"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionAuthenticationTests.AuthenticationFailuresAreTypedAndNeverExposeCredentials(fault: \"wrong-passphrase\", expected: KeyUnlockFailed)",
+            "outcome": "Passed",
+            "duration": "00:00:00.1216179"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionAuthenticationTests.AuthenticationFailuresAreTypedAndNeverExposeCredentials(fault: \"wrong-password\", expected: AuthenticationFailed)",
+            "outcome": "Passed",
+            "duration": "00:00:00.2282708"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionAuthenticationTests.DecliningRealUnknownHostNeverCreatesAnAuthenticatedSessionOrSavesTrust",
+            "outcome": "Passed",
+            "duration": "00:00:00.0685361"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionAuthenticationTests.RealAuthenticationClosesItsTemporarySessionAndPersistsOnlyExplicitHostTrust(method: \"encrypted-key\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.7896894"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionAuthenticationTests.RealAuthenticationClosesItsTemporarySessionAndPersistsOnlyExplicitHostTrust(method: \"password\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.4411113"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionAuthenticationTests.RealAuthenticationClosesItsTemporarySessionAndPersistsOnlyExplicitHostTrust(method: \"plain-key\")",
+            "outcome": "Passed",
+            "duration": "00:00:00.4547929"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionAuthenticationTests.RealHostKeyChangeIsRefusedIncludingAfterTheUserApproves(duringApproval: False)",
+            "outcome": "Passed",
+            "duration": "00:00:00.4898898"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionAuthenticationTests.RealHostKeyChangeIsRefusedIncludingAfterTheUserApproves(duringApproval: True)",
+            "outcome": "Passed",
+            "duration": "00:00:00.3406620"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionLifetimeTests.DnsFailureIsReportedWithoutRawSocketDetails",
+            "outcome": "Passed",
+            "duration": "00:00:00.0117455"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionLifetimeTests.FactoryBackedSessionsExposeRealForwardRoutesAndIndependentStop",
+            "outcome": "Passed",
+            "duration": "00:00:00.9305155"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionLifetimeTests.LostRealTransportSignalsDisconnectionToItsOwner",
+            "outcome": "Passed",
+            "duration": "00:00:00.1481305"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionLifetimeTests.RealHandshakeCanTimeOutOrBeCancelledWithoutReturningALateSession(cancel: False)",
+            "outcome": "Passed",
+            "duration": "00:00:01.0144719"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionLifetimeTests.RealHandshakeCanTimeOutOrBeCancelledWithoutReturningALateSession(cancel: True)",
+            "outcome": "Passed",
+            "duration": "00:00:00.0201215"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionLifetimeTests.RealLocalAcquisitionsCoalesceAndRemoteTransportsRemainIndependent",
+            "outcome": "Passed",
+            "duration": "00:00:00.6771551"
+          },
+          {
+            "name": "TunnelDeck.Ssh.Tests.ConnectionLifetimeTests.ShutdownCancelsARealPendingHandshakeAndDrainsAllConnectionWork",
+            "outcome": "Passed",
+            "duration": "00:00:00.0121288"
+          }
+        ]
+      }
+    ]
+  },
+  "sshFixture": {
+    "version": "OpenSSH 8.9p1 / Ubuntu 1:8.9p1-3ubuntu0.17",
+    "factoryVersion": "SSH.NET 2026.0.0",
+    "sourceSha256": "EF7476EF2D4BF293A3D00DB2E18B2BCEE5808B93F54E165837223E16C0A4B8C8",
+    "temporaryCredentialsRemoved": true,
+    "containerRemoved": true
+  },
+  "nativeConnections": {
+    "milestone": "M5",
+    "recordedAtUtc": "2026-09-19T22:51:32.0359802+08:00",
+    "checks": {
+      "formValidation": "Passed",
+      "unsavedTestAndHostApproval": "Passed",
+      "rememberAndRestart": "Passed",
+      "authenticationErrorAndMissingCredential": "Passed",
+      "cancelNavigationAndIdentityGuard": "Passed",
+      "encryptedKeyAndCredentialReplacement": "Passed",
+      "unencryptedKeyForgetAndUnreadableFile": "Passed",
+      "narrowDarkForm": "Passed",
+      "closeDuringHostApproval": "Passed",
+      "closeMilliseconds": 411
+    },
+    "humanGuiReview": "Pending"
+  },
+  "nativeShell": {
+    "capturedAtUtc": "2026-09-19T22:53:38.6677054+08:00",
+    "checks": {
+      "dashboard": "Passed",
+      "saveDoesNotStealNavigation": "Passed",
+      "localPortOption": "Passed",
+      "searchAndBack": "Passed",
+      "fixedSidebar": "Passed",
+      "resourceEditsAndPinOrder": "Passed",
+      "adaptiveLayouts": "Passed (900, 640 and 500 epx)",
+      "emptyAndAddFlows": "Passed",
+      "restartPersistence": "Passed"
+    },
+    "dataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m4-shell\\6596d8ba9ae848bf90197f050a9fb6de",
+    "highContrast": "Not switched globally; ThemeResource audit and manual review pending"
+  },
+  "nativeStorage": {
+    "capturedAtUtc": "2026-09-19T22:53:44.1368851+08:00",
+    "futureSchemaProtected": true,
+    "validBackupWasNotUsedToDowngrade": true,
+    "recoveredBackupNotice": true,
+    "bothFilesCorruptNotice": true,
+    "retryAfterExternalRepair": true,
+    "cleanLoadAndShutdownPreservedFile": true,
+    "isolatedDataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\storage-window\\27d3b1e6acfc4895afd3d62ba3d6234c",
+    "credentialNamespace": "TunnelDeck/Isolated/<directory hash>"
+  },
+  "nativeWindow": {
+    "capturedAtUtc": "2026-09-19T22:53:53.2394294+08:00",
+    "title": "TunnelDeck",
+    "startupToWindowMs": 607,
+    "fixedDashboard": "539,281,310,51",
+    "fixedSettings": "539,1041,310,51",
+    "fixedRuntime": "559,1102,270,24",
+    "resourceScroll": "Passed",
+    "titleBarSearch": "Passed",
+    "paneToggle": "Passed",
+    "shortWindow": "Passed (900 x 500 physical pixels)",
+    "repeatedClose": "Passed",
+    "responsiveDuringCleanup": true,
+    "shutdownMs": 990,
+    "exitCode": 0
+  },
+  "finalLaunch": {
+    "processId": 51016,
+    "windowHandle": 987312,
+    "responding": true,
+    "title": "TunnelDeck",
+    "mode": "Normal; new unsaved server form"
+  },
+  "humanReview": {
+    "M4": "Accepted by user: OK，继续 M5.",
+    "M5": "Pending GUI B",
+    "highContrast": "Not switched or visually tested by agent"
+  },
+  "portSearchScope": "Confirmed Local bind occupation only; Remote never increments",
+  "screenshots": [
+    "host-key-approval.png",
+    "password-test-success.png",
+    "authentication-error.png",
+    "encrypted-key-dark.png",
+    "private-key-900-dark.png",
+    "private-key-640-dark.png",
+    "final-app-server-form.png"
+  ],
+  "screenshotDirectory": "artifacts/m5-review"
+}

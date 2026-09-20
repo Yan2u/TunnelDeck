@@ -1,0 +1,50 @@
+<ContentDialog
+    x:Class="TunnelDeck.Controls.DeletionDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:pages="using:TunnelDeck.Pages"
+    xmlns:presentation="using:TunnelDeck.Core.Presentation"
+    Title="{x:Bind Model.Title}" PrimaryButtonText="{x:Bind Model.ActionLabel}" CloseButtonText="Cancel"
+    DefaultButton="Close" AutomationProperties.AutomationId="DeletionConfirmation"
+    Opened="OnOpened" Closed="OnClosed">
+    <ContentDialog.PrimaryButtonStyle>
+        <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}">
+            <Setter Property="Foreground" Value="{ThemeResource SystemFillColorCriticalBrush}" />
+        </Style>
+    </ContentDialog.PrimaryButtonStyle>
+    <ScrollViewer x:Name="BodyScroll" MaxHeight="400" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled"
+                  AutomationProperties.AutomationId="DeletionBody">
+        <StackPanel Spacing="16">
+            <InfoBar IsOpen="{x:Bind pages:ShellPage.HasText(Model.UpdateNotice)}" IsClosable="False" Severity="Warning" Title="Impact updated"
+                     Message="{x:Bind Model.UpdateNotice}" Visibility="{x:Bind pages:ShellPage.TextVisible(Model.UpdateNotice)}"
+                     AutomationProperties.AutomationId="DeletionImpactUpdated" />
+            <TextBlock Text="{x:Bind Model.ResourceSummary}" TextWrapping="Wrap" IsTextSelectionEnabled="True" AutomationProperties.AutomationId="DeletionResourceSummary" />
+            <TextBlock Text="{x:Bind Model.RuntimeSummary}" TextWrapping="Wrap" Visibility="{x:Bind pages:ShellPage.TextVisible(Model.RuntimeSummary)}"
+                       AutomationProperties.AutomationId="DeletionRuntimeSummary" />
+            <TextBlock Text="{x:Bind Model.PendingSummary}" TextWrapping="Wrap" Visibility="{x:Bind pages:ShellPage.TextVisible(Model.PendingSummary)}"
+                       AutomationProperties.AutomationId="DeletionPendingSummary" />
+            <TextBlock Text="{x:Bind Model.TestsSummary}" TextWrapping="Wrap" Visibility="{x:Bind pages:ShellPage.TextVisible(Model.TestsSummary)}"
+                       AutomationProperties.AutomationId="DeletionTestsSummary" />
+            <TextBlock Text="{x:Bind Model.RulesSummary}" TextWrapping="Wrap" Visibility="{x:Bind pages:ShellPage.TextVisible(Model.RulesSummary)}"
+                       AutomationProperties.AutomationId="DeletionRulesSummary" />
+            <Expander Header="Affected forwarding rules" IsExpanded="{x:Bind Model.ExpandDetails}" HorizontalAlignment="Stretch"
+                      Visibility="{x:Bind pages:ShellPage.Visible(Model.ShowDetails)}" AutomationProperties.AutomationId="DeletionRuleDetails">
+                <ItemsControl ItemsSource="{x:Bind Model.Groups}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="presentation:DeletionProfileGroup">
+                            <StackPanel Spacing="6" Margin="0,0,0,16" AutomationProperties.AutomationId="{x:Bind AutomationId}">
+                                <TextBlock Text="{x:Bind Heading}" TextWrapping="Wrap" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                                <TextBlock Text="{x:Bind Details}" TextWrapping="Wrap" IsTextSelectionEnabled="True" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Expander>
+            <TextBlock Text="{x:Bind Model.KeptProfiles}" TextWrapping="Wrap" Visibility="{x:Bind pages:ShellPage.TextVisible(Model.KeptProfiles)}" />
+            <TextBlock Text="{x:Bind Model.KeptServers}" TextWrapping="Wrap" Visibility="{x:Bind pages:ShellPage.TextVisible(Model.KeptServers)}"
+                       AutomationProperties.AutomationId="DeletionKeptServers" />
+            <TextBlock Text="{x:Bind Model.ClearedSelections}" TextWrapping="Wrap" Visibility="{x:Bind pages:ShellPage.TextVisible(Model.ClearedSelections)}" />
+            <TextBlock Text="This action can't be undone." TextWrapping="Wrap" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+        </StackPanel>
+    </ScrollViewer>
+</ContentDialog>

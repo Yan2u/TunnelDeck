@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <Deterministic>true</Deterministic>
+    <Platforms>AnyCPU;x64</Platforms>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <MSBuildProjectExtensionsPath>$(MSBuildProjectDirectory)\obj\$(Platform)\</MSBuildProjectExtensionsPath>
+  </PropertyGroup>
+</Project>

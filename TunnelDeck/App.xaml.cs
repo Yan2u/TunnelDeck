@@ -1,5 +1,7 @@
 ﻿using Microsoft.UI.Xaml;
 
+using TunnelDeck.Design;
+
 namespace TunnelDeck;
 
 public partial class App : Application
@@ -13,7 +15,9 @@ public partial class App : Application
 
     protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
     {
-        _window ??= new MainWindow();
+        AppServices services = AppServices.Create(Program.Launch);
+        _window ??= new MainWindow(services);
+        Program.Instance.Attach(((MainWindow)_window).ActivateFromAnotherInstance);
         _window.Activate();
     }
 }

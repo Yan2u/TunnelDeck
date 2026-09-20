@@ -1,0 +1,13 @@
+<ContentDialog x:Class="TunnelDeck.Controls.ShutdownDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="{x:Bind Heading}" PrimaryButtonText="Retry" SecondaryButtonText="{x:Bind ExitLabel}"
+    DefaultButton="Primary" AutomationProperties.AutomationId="ShutdownConfirmation">
+    <ContentDialog.SecondaryButtonStyle>
+        <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}">
+            <Setter Property="Foreground" Value="{ThemeResource SystemFillColorCriticalBrush}" />
+        </Style>
+    </ContentDialog.SecondaryButtonStyle>
+    <TextBlock Text="{x:Bind Explanation}" TextWrapping="Wrap" MaxWidth="460"
+               AutomationProperties.AutomationId="ShutdownFailureMessage" />
+</ContentDialog>

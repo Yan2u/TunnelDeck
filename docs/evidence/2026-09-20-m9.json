@@ -1,0 +1,742 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M9",
+  "recordedAtUtc": "2026-09-20T07:38:06.8313683+00:00",
+  "status": "Implementation and automated verification complete; GUI E pending user review",
+  "source": {
+    "branch": "codex/m0-m1-foundation",
+    "baseCommit": "2039b14f9f83616748b2471f343defd1d58710f7",
+    "workingTree": "Uncommitted M0-M9 changes retained, including the user prompt edits.",
+    "resumedTask": "01a0b7ed-02e4-7680-bc94-e9b17e9273af",
+    "implementation": [
+      {
+        "path": "TunnelDeck/Controls/DeletionDialog.xaml",
+        "sha256": "13DA8BDD9B929EAADBB4FB58A69AE3199F3671CD1AA78897CFE9A59DCF685054",
+        "length": 4280,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Controls/DeletionDialog.xaml"
+      },
+      {
+        "path": "TunnelDeck/Controls/DeletionDialog.xaml.cs",
+        "sha256": "224859A7137F255967687A403A66DE72F7612A2A2A0D1F7F7CD536E4F84E2F04",
+        "length": 1086,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Controls/DeletionDialog.xaml.cs"
+      },
+      {
+        "path": "TunnelDeck/Controls/ResourceListView.xaml",
+        "sha256": "4C121DFAF02CE9C4459289EBD83E666088E1E1D0D6F596156A815AC8B440A6D5",
+        "length": 9898,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Controls/ResourceListView.xaml"
+      },
+      {
+        "path": "TunnelDeck/Controls/ResourceListView.xaml.cs",
+        "sha256": "FF75C994174AA950BB412D971B5AC45C5A1F97D088B2649E6F679B9412A30568",
+        "length": 3610,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Controls/ResourceListView.xaml.cs"
+      },
+      {
+        "path": "TunnelDeck/Controls/TunnelListItem.xaml",
+        "sha256": "9F1CA43472BE15CD655051FB9EA1CD99D44EB9A448ED078D6C4E48844FA63797",
+        "length": 8353,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Controls/TunnelListItem.xaml"
+      },
+      {
+        "path": "TunnelDeck/MainWindow.xaml",
+        "sha256": "13B9763D4468664AF48C243ED5EF3CEE8056903C38710EEC9C2F304F9BD1ED6A",
+        "length": 10476,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/MainWindow.xaml"
+      },
+      {
+        "path": "TunnelDeck/MainWindow.xaml.cs",
+        "sha256": "429BD7F43D58821F32298EAA460B169D1A065630F0D83D5AB877AA5D0E4CD116",
+        "length": 6712,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/MainWindow.xaml.cs"
+      },
+      {
+        "path": "TunnelDeck/Pages/ProfileDetailPage.xaml",
+        "sha256": "D9D300DBA9D5343C3862314B08A85C7AB675909C21CADFDFA0286622C0F0AF1D",
+        "length": 11775,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Pages/ProfileDetailPage.xaml"
+      },
+      {
+        "path": "TunnelDeck/Pages/ProfileDetailPage.xaml.cs",
+        "sha256": "96AF55389749982AC803E7DD7B949805A07F42512139AD1017C09ED024319B55",
+        "length": 3837,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Pages/ProfileDetailPage.xaml.cs"
+      },
+      {
+        "path": "TunnelDeck/Pages/ServerDetailPage.xaml",
+        "sha256": "E1DA57129A11274E18AE44C7282D578BA1E4D80CA1AB32687157247FC45E37F4",
+        "length": 10669,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Pages/ServerDetailPage.xaml"
+      },
+      {
+        "path": "TunnelDeck/Pages/ServerDetailPage.xaml.cs",
+        "sha256": "9AD73A9604AF41125590C63E31531F8E633805E8974D6032D904FDB23E922DA4",
+        "length": 2063,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Pages/ServerDetailPage.xaml.cs"
+      },
+      {
+        "path": "TunnelDeck/Services/AppServices.cs",
+        "sha256": "86DF4AC1AC404BA0863E6C96880165FFBF2318A37C6691071BC88D83E17DE3A9",
+        "length": 3724,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Services/AppServices.cs"
+      },
+      {
+        "path": "TunnelDeck/Services/DialogService.Deletion.cs",
+        "sha256": "BF99BB7004682751FF974CD99F31B3F3DC4A6B5BB63FDB98B1177E1F98F80ECC",
+        "length": 553,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Services/DialogService.Deletion.cs"
+      },
+      {
+        "path": "TunnelDeck/Services/DialogService.cs",
+        "sha256": "58C904E3009613E3BA48ABAF3644E9199A6679C6A82B4B3A1E5A3E64FFF31B20",
+        "length": 5034,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/Services/DialogService.cs"
+      },
+      {
+        "path": "TunnelDeck/ViewModels/ProfileDetailViewModel.cs",
+        "sha256": "7376AB44A8969CA0B2FBD0E4241F34D92DF32A8983302C5545897FBFD010B332",
+        "length": 4761,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/ViewModels/ProfileDetailViewModel.cs"
+      },
+      {
+        "path": "TunnelDeck/ViewModels/ResourceListViewModel.cs",
+        "sha256": "2EA65311BACFB1E69CCCE5E3A90CDA55326F57065FFCEC28471D6A366836C06F",
+        "length": 2777,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/ViewModels/ResourceListViewModel.cs"
+      },
+      {
+        "path": "TunnelDeck/ViewModels/ResourceRow.cs",
+        "sha256": "6EC9B06DCC73341EC2E536AF526845BBD387DCA37487B08D8E11F078110CC361",
+        "length": 2467,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/ViewModels/ResourceRow.cs"
+      },
+      {
+        "path": "TunnelDeck/ViewModels/ServerDetailViewModel.cs",
+        "sha256": "119C292B6875DFB39B178F25D3C389E87984C64C593FAC76EA486BBF2573CA2F",
+        "length": 9484,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/ViewModels/ServerDetailViewModel.cs"
+      },
+      {
+        "path": "TunnelDeck/ViewModels/ShellViewModel.Deletion.cs",
+        "sha256": "B9A61419B7359BDB0C0847735EFC598FE636D88AE7E40590A75C38E67FC165A1",
+        "length": 3974,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/ViewModels/ShellViewModel.Deletion.cs"
+      },
+      {
+        "path": "TunnelDeck/ViewModels/ShellViewModel.cs",
+        "sha256": "0DD604ADA2E1FA83F7B03DCF1BC52B5D1E5E9BC39C9CEB7741CB2A81BD92FA1B",
+        "length": 10920,
+        "snapshotPath": "artifacts/m9-review/source/TunnelDeck/ViewModels/ShellViewModel.cs"
+      },
+      {
+        "path": "scripts/Deletion-ForwardingChecks.ps1",
+        "sha256": "B16575947414B188C4BC12C107FBA396FF9C05237C48BA290C3445F808CE82A4",
+        "length": 10859,
+        "snapshotPath": "artifacts/m9-review/source/scripts/Deletion-ForwardingChecks.ps1"
+      },
+      {
+        "path": "scripts/Deletion-TestSupport.ps1",
+        "sha256": "1EA71C4E08566CFE0B56F94C7C2E81C0DCB2A0EBD01FCA33C7C259E55746E490",
+        "length": 5839,
+        "snapshotPath": "artifacts/m9-review/source/scripts/Deletion-TestSupport.ps1"
+      },
+      {
+        "path": "scripts/Desktop-TestSupport.ps1",
+        "sha256": "69F28890A8D376345055FFF91BE6EC287BF14EBCD44AC8AD48EA9DD171E27825",
+        "length": 10777,
+        "snapshotPath": "artifacts/m9-review/source/scripts/Desktop-TestSupport.ps1"
+      },
+      {
+        "path": "scripts/Verify-Connections.ps1",
+        "sha256": "1703F3860EB8F9A9147582B7853C9F0085610CB3D81C14F2B9065BE5C98A54E1",
+        "length": 15520,
+        "snapshotPath": "artifacts/m9-review/source/scripts/Verify-Connections.ps1"
+      },
+      {
+        "path": "scripts/Verify-Deletions.ps1",
+        "sha256": "EAF181BBC7E2305D278B90A6FE7915D95D7F283AEECF76E528477173EF116A3F",
+        "length": 8454,
+        "snapshotPath": "artifacts/m9-review/source/scripts/Verify-Deletions.ps1"
+      },
+      {
+        "path": "scripts/Verify-Forwards.ps1",
+        "sha256": "4D05C7DEFB08C27AC7E83D5C1B0FB567685257B56F20B4CC50F3313B35A6856A",
+        "length": 14190,
+        "snapshotPath": "artifacts/m9-review/source/scripts/Verify-Forwards.ps1"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Connections/SshConnectionManager.Deletion.cs",
+        "sha256": "34C0D2614BB38736F0030F4C6BD99A8AD642E2BBAEBC535D7665ED96BAD61881",
+        "length": 1988,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Connections/SshConnectionManager.Deletion.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Connections/SshConnectionManager.cs",
+        "sha256": "DE24DCF02CEF99EF4E00F4166D11532F179149D9A51E3D638DE86D0DA2A42F0A",
+        "length": 8811,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Connections/SshConnectionManager.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Deletion/DeletionImpact.cs",
+        "sha256": "FD85A4FDC5E092C624185BB776EAB07887E2650F0E57A95742E6EF5B9219FC48",
+        "length": 1732,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Deletion/DeletionImpact.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Deletion/DeletionImpactCalculator.cs",
+        "sha256": "FC83B878FF25D66FBF5BC89C9E9CBB1504183648C4F99E9103E4777D45B94F5B",
+        "length": 5990,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Deletion/DeletionImpactCalculator.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Deletion/ResourceDeletionService.cs",
+        "sha256": "096191C45A4A3BA676484F163645950F373C6DA1FBC536A61921C6A2CED6A470",
+        "length": 8956,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Deletion/ResourceDeletionService.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Operations/ServerWorkRegistry.cs",
+        "sha256": "555B912B1618107D5A359B283AFD0D4A6CF48C9E4DEE3E334EE6BB952669A019",
+        "length": 7030,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Operations/ServerWorkRegistry.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Operations/ServerWorkSnapshot.cs",
+        "sha256": "D66EE7EE44F614673E4CCC22F3EC7F9EF93E2E235F1781930085DD0DE60D954E",
+        "length": 535,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Operations/ServerWorkSnapshot.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Persistence/ConfigurationService.Deletion.cs",
+        "sha256": "2255810D723820AE8EDDA838A5BE54920CA2CD0BEF67EE85829317422F1304CF",
+        "length": 1162,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Persistence/ConfigurationService.Deletion.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Presentation/DeletionConfirmationModel.cs",
+        "sha256": "DE54E3935ECDFA20A62748EB71211FFEFB913A704E697408C9B47E196E653463",
+        "length": 3526,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Presentation/DeletionConfirmationModel.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Presentation/TunnelItem.cs",
+        "sha256": "C90C156852F80E7C3757C0C5A0511FD8A177618851C4497C2E7B11858CB509C0",
+        "length": 5041,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Presentation/TunnelItem.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Presentation/TunnelWorkspace.Commands.cs",
+        "sha256": "926285AA2BD4DE60F42B908B0418F4324B30565DD291DBE225BC5FCEE9EA2239",
+        "length": 7232,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Presentation/TunnelWorkspace.Commands.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Profiles/ProfileRunner.Start.cs",
+        "sha256": "5A6A1943CEB70D1CF99EB96A139DD8AC3D53DEC82EC9D228E74FD0605D5128FA",
+        "length": 5430,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Profiles/ProfileRunner.Start.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Profiles/ProfileRunner.cs",
+        "sha256": "2B736835894C1B7D8C7D8FA95A6A9D688EF09AA9C0F2713077A557C57C58741D",
+        "length": 8808,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Profiles/ProfileRunner.cs"
+      },
+      {
+        "path": "src/TunnelDeck.Core/Tunnels/TunnelManager.cs",
+        "sha256": "A6A73AE522ED3BD6D80251A2EC078C22B23F12E10C735EB7D2FDA5BB5DE32E93",
+        "length": 9989,
+        "snapshotPath": "artifacts/m9-review/source/src/TunnelDeck.Core/Tunnels/TunnelManager.cs"
+      },
+      {
+        "path": "tests/TunnelDeck.Core.Tests/DeletionConcurrencyTests.cs",
+        "sha256": "F6740B9B922C2B751ACF58ED0478DCEDC7C8682F4FF157AAE75F539111D49EC7",
+        "length": 9215,
+        "snapshotPath": "artifacts/m9-review/source/tests/TunnelDeck.Core.Tests/DeletionConcurrencyTests.cs"
+      },
+      {
+        "path": "tests/TunnelDeck.Core.Tests/DeletionConfirmationTests.cs",
+        "sha256": "D0800257213477B68A2D4CA5A7BBB47D9E65B2B5C3DB7B58A08923608FABEA00",
+        "length": 2350,
+        "snapshotPath": "artifacts/m9-review/source/tests/TunnelDeck.Core.Tests/DeletionConfirmationTests.cs"
+      },
+      {
+        "path": "tests/TunnelDeck.Core.Tests/DeletionImpactTests.cs",
+        "sha256": "934DEA9BF6E0DF4815CAD02DC5568F8C53A4ECB3925F4B6F5814C1A67B3C83D3",
+        "length": 5670,
+        "snapshotPath": "artifacts/m9-review/source/tests/TunnelDeck.Core.Tests/DeletionImpactTests.cs"
+      },
+      {
+        "path": "tests/TunnelDeck.Core.Tests/DeletionTransactionTests.cs",
+        "sha256": "B311D614577A2FEDFD42AF8A99AA71CFEA33155D679978EC7E9D30AD323106F7",
+        "length": 7322,
+        "snapshotPath": "artifacts/m9-review/source/tests/TunnelDeck.Core.Tests/DeletionTransactionTests.cs"
+      },
+      {
+        "path": "tests/TunnelDeck.Core.Tests/Fixtures/DeletionFixture.cs",
+        "sha256": "58A6FBC48C1E0A19C4A820B693BE813ABDB313C57D3164B623EF67D0C76631ED",
+        "length": 2404,
+        "snapshotPath": "artifacts/m9-review/source/tests/TunnelDeck.Core.Tests/Fixtures/DeletionFixture.cs"
+      },
+      {
+        "path": "tests/TunnelDeck.Infrastructure.Tests/DeletionPersistenceTests.cs",
+        "sha256": "1FD1E38CF9116586751EED8ADD71673616758469D346BD75439A41DE32F8B602",
+        "length": 6460,
+        "snapshotPath": "artifacts/m9-review/source/tests/TunnelDeck.Infrastructure.Tests/DeletionPersistenceTests.cs"
+      },
+      {
+        "path": "tests/TunnelDeck.Ssh.Tests/DeletionForwardingTests.cs",
+        "sha256": "5CC9BE6DDE6E47F59ADE588E69BA0EFA7D22971395BAB948906828896FB0EBC7",
+        "length": 5830,
+        "snapshotPath": "artifacts/m9-review/source/tests/TunnelDeck.Ssh.Tests/DeletionForwardingTests.cs"
+      }
+    ]
+  },
+  "build": {
+    "command": "./scripts/Build.ps1 -LockedRestore",
+    "configuration": "Release x64",
+    "packaging": "WindowsPackageType=None; direct executable",
+    "warnings": 0,
+    "errors": 0,
+    "log": {
+      "path": "artifacts/m9-review/build-release.log",
+      "sha256": "7F686386BD2FD5A34AEB1A7873CB726E800C3A18510B57D166C2A8B4543A03D8",
+      "length": 4165
+    },
+    "outputs": [
+      {
+        "path": "artifacts/m9-review/build/TunnelDeck.exe",
+        "sha256": "4F610AC955E3E708BBD3D674AA2BC1E68D141762681C85C983651E4FF10198CF",
+        "length": 165376,
+        "originalPath": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.exe"
+      },
+      {
+        "path": "artifacts/m9-review/build/TunnelDeck.dll",
+        "sha256": "53315F5AD7720BCB285B1F985B792A3F6E493F55A06C3E37739F370C2C05FB7D",
+        "length": 433152,
+        "originalPath": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.dll"
+      },
+      {
+        "path": "artifacts/m9-review/build/TunnelDeck.Core.dll",
+        "sha256": "94064FF7DC112A4EE547C995E742B68EF9D82BDD1E119566A01372AEB61F023A",
+        "length": 351744,
+        "originalPath": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.Core.dll"
+      },
+      {
+        "path": "artifacts/m9-review/build/TunnelDeck.Infrastructure.dll",
+        "sha256": "3F9C17BF92BD07A13D632B1C348A39FE4B56B0DA2892E9E5FD057128D5D35F40",
+        "length": 67584,
+        "originalPath": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.Infrastructure.dll"
+      },
+      {
+        "path": "artifacts/m9-review/build/TunnelDeck.pri",
+        "sha256": "9604A8711DEC5E21410D59D59A9AFFD9165D57C42161D575A00499E9D56A3775",
+        "length": 114184,
+        "originalPath": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.pri"
+      },
+      {
+        "path": "artifacts/m9-review/build/TunnelDeck.deps.json",
+        "sha256": "54E0FD5E4C8A6636EDE8BE21F353FEE81100C6F14AB089D3C34BA208983E334F",
+        "length": 29132,
+        "originalPath": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.deps.json"
+      },
+      {
+        "path": "artifacts/m9-review/build/TunnelDeck.runtimeconfig.json",
+        "sha256": "3E965CD7CFD553C2FF4E842D8D8019AAAE2DA0A21D92FF85A87573DD8D1B95C6",
+        "length": 399,
+        "originalPath": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.runtimeconfig.json"
+      }
+    ]
+  },
+  "tests": {
+    "command": "./scripts/Test.ps1 -Ssh -NoFixtureBuild",
+    "total": 459,
+    "passed": 459,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "suite": "Core",
+        "total": 304,
+        "passed": 304,
+        "failed": 0,
+        "skipped": 0,
+        "finishedAt": "2026-09-20T14:43:08.9041164+08:00",
+        "report": {
+          "path": "artifacts/m9-review/tests/TunnelDeck.Core.Tests.trx",
+          "sha256": "12182DA1BC3B126D0F9066FA46AE8FDF9FA0DCFB5BE1AC4EA4E46C3B98B301C6",
+          "length": 445587
+        }
+      },
+      {
+        "suite": "Infrastructure",
+        "total": 92,
+        "passed": 92,
+        "failed": 0,
+        "skipped": 0,
+        "finishedAt": "2026-09-20T14:43:12.9523298+08:00",
+        "report": {
+          "path": "artifacts/m9-review/tests/TunnelDeck.Infrastructure.Tests.trx",
+          "sha256": "37B24EEE8F26C2240A379B226804B78441BBC35AF6C21794CD893E3BBA441C6B",
+          "length": 145415
+        }
+      },
+      {
+        "suite": "Ssh",
+        "total": 63,
+        "passed": 63,
+        "failed": 0,
+        "skipped": 0,
+        "finishedAt": "2026-09-20T14:44:18.1677825+08:00",
+        "report": {
+          "path": "artifacts/m9-review/tests/TunnelDeck.Ssh.Tests.trx",
+          "sha256": "BEDD1B234A49D886D92054C9389609F7FF3423A1620309441C1B509E905174A0",
+          "length": 97515
+        }
+      }
+    ],
+    "log": {
+      "path": "artifacts/m9-review/test-all.log",
+      "sha256": "1242BC292D30995D77E641F0E13ED3191AC797B946781CF453B43A7ED6E39D9D",
+      "length": 15025
+    },
+    "sshFixture": "Isolated OpenSSH 8.9p1 in WSL Ubuntu / Docker; disposable credentials and explicit ready checks; fixture cleaned up."
+  },
+  "nativeVerification": {
+    "deletions": {
+      "capturedAtUtc": "2026-09-20T14:45:27.3662962+08:00",
+      "checks": {
+        "zeroSectionsAndDefaultCancel": "Passed",
+        "groupedLongRulesAndStationaryActions": "Passed",
+        "darkAndAdaptiveDialog": "Passed",
+        "bulkDeduplicatedSummaryAndCancel": "Passed",
+        "singleServerDetailDeletionAndSearchCleanup": "Passed",
+        "profileDetailCancelKeepsDraftAndDeleteNavigates": "Passed",
+        "bulkProfileDeletionAndEmptyCommands": "Passed",
+        "closeDuringConfirmationHasNoSideEffects": "Passed",
+        "realCrossServerAndQuickPayload": "Passed",
+        "profileDeletionPreservesPayloadAndSource": "Passed",
+        "failedSaveKeepsConfigurationAndReportsStoppedForwards": "Passed",
+        "retryClearsSelectionsKeepsEmptyProfilesAndOtherTraffic": "Passed",
+        "bulkDeleteReleasesListenersAndPreservesHistory": "Passed",
+        "restartPreservesDeletion": "Passed"
+      },
+      "layoutDataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m9-layout\\43d53227b396414ebc59a2d027383396",
+      "forwardingDataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m9-forwarding\\e193fe16c8f749708ab2a99db455ad56",
+      "highContrast": "Not switched globally",
+      "humanGuiReview": "Pending GUI E"
+    },
+    "profiles": {
+      "capturedAtUtc": "2026-09-20T14:48:33.4761517+08:00",
+      "checks": {
+        "editorDefaultsValidationAndAtomicSave": "Passed",
+        "ruleMovesAndRemovalCanBeDiscarded": "Passed",
+        "crossServerPartialSuccessAndScopedCredentials": "Passed",
+        "retryFailedAndRepeatedStart": "Passed",
+        "savedEditsDoNotChangeRunningSnapshotsAndIndependentStop": "Passed",
+        "lightDarkAndAdaptiveProfileUi": "Passed",
+        "shutdownPersistenceAndNoAutomaticResume": "Passed"
+      },
+      "dataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m8-profiles\\fb7594c26cd544ac91968ead0a806ba2",
+      "humanGuiReview": "Pending GUI D"
+    },
+    "forwards": {
+      "capturedAtUtc": "2026-09-20T15:01:09.3774092+08:00",
+      "checks": {
+        "emptyAddAndPinnedSelection": "Passed",
+        "rawTextAndEnterValidation": "Passed",
+        "localAllocationPayloadDuplicateAndDetails": "Passed",
+        "advancedDraftNavigationAndIndependentStop": "Passed",
+        "remotePayloadAndAdaptiveUi": "Passed",
+        "remoteRefusalAndManualRetry": "Passed",
+        "liveLocalAndRemoteShutdown": "Passed",
+        "shutdownMilliseconds": 261,
+        "ephemeralCredentialsAndActivityPersistence": "Passed"
+      },
+      "dataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m7-ui\\83160f753da9452ebb2a8e2850a20519",
+      "humanGuiReview": "Pending GUI C"
+    },
+    "connections": {
+      "milestone": "M5",
+      "recordedAtUtc": "2026-09-20T15:07:53.5538935+08:00",
+      "checks": {
+        "formValidation": "Passed",
+        "unsavedTestAndHostApproval": "Passed",
+        "rememberAndRestart": "Passed",
+        "authenticationErrorAndMissingCredential": "Passed",
+        "cancelNavigationAndIdentityGuard": "Passed",
+        "encryptedKeyAndCredentialReplacement": "Passed",
+        "unencryptedKeyForgetAndUnreadableFile": "Passed",
+        "narrowDarkForm": "Passed",
+        "closeDuringHostApproval": "Passed",
+        "closeMilliseconds": 454
+      },
+      "humanGuiReview": "Pending"
+    },
+    "resources": {
+      "capturedAtUtc": "2026-09-20T15:12:53.4273574+08:00",
+      "checks": {
+        "nativePinnedProfileDrag": "Passed",
+        "keyboardMoveAndCrossListRejection": "Passed",
+        "pinAppendAndUnpinAtOtherHead": "Passed",
+        "failedDragRollsBackAndRetries": "Passed",
+        "emptyPinnedCollapsesWithoutEmptyCollection": "Passed",
+        "newResourceAndLiveSearchRename": "Passed",
+        "nativePinnedServerDrag": "Passed",
+        "sidebarLimitsAndAdaptiveLists": "Passed",
+        "restartPreservesOrderAndVisitsDoNotReorder": "Passed"
+      },
+      "dataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m8-resources\\02eef10ad2b042fbb467812608561e0f",
+      "highContrast": "Not switched globally",
+      "humanGuiReview": "Pending GUI D"
+    },
+    "shell": {
+      "capturedAtUtc": "2026-09-20T15:13:24.4944109+08:00",
+      "checks": {
+        "dashboard": "Passed",
+        "saveDoesNotStealNavigation": "Passed",
+        "localPortOption": "Passed",
+        "searchAndBack": "Passed",
+        "fixedSidebar": "Passed",
+        "resourceEditsAndPinOrder": "Passed",
+        "adaptiveLayouts": "Passed (900, 640 and 500 epx)",
+        "emptyAndAddFlows": "Passed",
+        "restartPersistence": "Passed"
+      },
+      "dataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m4-shell\\37985eba4b4d43a89db40dac5748833c",
+      "highContrast": "Not switched globally; ThemeResource audit and manual review pending",
+      "humanGuiReview": "Pending"
+    },
+    "window": {
+      "capturedAtUtc": "2026-09-20T15:13:36.5838197+08:00",
+      "title": "TunnelDeck",
+      "startupToWindowMs": 922,
+      "fixedDashboard": "539,281,310,51",
+      "fixedSettings": "539,1041,310,51",
+      "fixedRuntime": "559,1102,270,24",
+      "resourceScroll": "Passed",
+      "titleBarSearch": "Passed",
+      "paneToggle": "Passed",
+      "shortWindow": "Passed (900 x 500 physical pixels)",
+      "repeatedClose": "Passed",
+      "responsiveDuringCleanup": true,
+      "shutdownMs": 1092,
+      "exitCode": 0,
+      "humanGuiReview": "Pending"
+    },
+    "dashboard": {
+      "capturedAtUtc": "2026-09-20T15:13:49.3007435+08:00",
+      "checks": {
+        "boundedListAndStationaryQuickInput": "Passed (24 sample rows)",
+        "keyboardDetailsAdjustmentAndEscape": "Passed",
+        "adaptiveLightAndDark": "Passed (1200, 900, 640, 500 epx)",
+        "emptyAndPreviewNetworkDisabled": "Passed"
+      },
+      "highContrast": "Not switched globally",
+      "humanGuiReview": "Pending GUI C"
+    },
+    "storage": {
+      "capturedAtUtc": "2026-09-20T15:13:56.4497864+08:00",
+      "futureSchemaProtected": true,
+      "validBackupWasNotUsedToDowngrade": true,
+      "recoveredBackupNotice": true,
+      "bothFilesCorruptNotice": true,
+      "retryAfterExternalRepair": true,
+      "cleanLoadAndShutdownPreservedFile": true,
+      "isolatedDataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\storage-window\\2cf1d678971847edba65edc4b958b147",
+      "credentialNamespace": "TunnelDeck/Isolated/<directory hash>"
+    }
+  },
+  "nativeReports": [
+    {
+      "path": "artifacts/m9-review/deletions-verification.json",
+      "sha256": "F99ED56141C2F1D4FDC2F4BF1B48A33FC7C4936EE68868028F5A548B5B34C460",
+      "length": 1247
+    },
+    {
+      "path": "artifacts/m9-review/profiles-verification.json",
+      "sha256": "24F0D9A11709647FC3FF31F5F53962A5486339EFEB363D29606F5550C853AFB3",
+      "length": 655
+    },
+    {
+      "path": "artifacts/m9-review/forwards-verification.json",
+      "sha256": "1BD39AAD219E7643AF02DB94814B73FF1A16ECCDB7A161984ECE5027B99A77DA",
+      "length": 691
+    },
+    {
+      "path": "artifacts/m9-review/connections-verification.json",
+      "sha256": "0FD70AA2D11F716CB837C5EF778068A9DD65EBC64B175CFC72737A527148794A",
+      "length": 577
+    },
+    {
+      "path": "artifacts/m9-review/resources-verification.json",
+      "sha256": "E8F175A66E622A5393D9EC99FB1ABE944BC37247BD4938B58059FC34F9F28AE5",
+      "length": 751
+    },
+    {
+      "path": "artifacts/m9-review/shell-verification.json",
+      "sha256": "FBF8C872BD7CFD3C56F5DA47E304C48A985DF228421DA0DD6460C24342878B0A",
+      "length": 681
+    },
+    {
+      "path": "artifacts/m9-review/window-verification.json",
+      "sha256": "F902C9E89E81DDD5CAFB41BDD0C1D361CA56EA3F70DF7C40B73DF407EE305594",
+      "length": 517
+    },
+    {
+      "path": "artifacts/m9-review/dashboard-verification.json",
+      "sha256": "1F29C0497E444309D4C985D47D483600610EE2A174F46916FD61943CB33E6A32",
+      "length": 401
+    },
+    {
+      "path": "artifacts/m9-review/storage-verification.json",
+      "sha256": "58731083D088F20EE57CB3446918371730118EF52A8DCA17BC38EF6755707B98",
+      "length": 507
+    }
+  ],
+  "visualReview": {
+    "themes": [
+      "Light",
+      "Dark"
+    ],
+    "widthsEpx": [
+      1200,
+      900,
+      640,
+      500
+    ],
+    "shortWindowEpx": [
+      500,
+      500
+    ],
+    "inspected": [
+      "Zero sections, grouped rules, bulk summaries, collapsed and expanded scrolling, fixed action buttons, stopped-but-not-deleted failure, retained source details, final review app"
+    ],
+    "screenshots": [
+      {
+        "path": "artifacts/m9-review/final-app.png",
+        "sha256": "3CA67D4659444B73E90F65AD1F13F820426ED2C2AD13B00362F16687F934ACA3",
+        "length": 57939
+      },
+      {
+        "path": "artifacts/m9-review/delete-zero-light.png",
+        "sha256": "4A08994B4E9DCD36EAD5803B52E3FA18EBB5475C75E7F8FCCD1DCC095FAFC8C7",
+        "length": 101437
+      },
+      {
+        "path": "artifacts/m9-review/delete-grouped-rules-light.png",
+        "sha256": "E3C34C500490C4E207A0621341B3DE411C3979327D3BD292D2FD2C7D8D832F1D",
+        "length": 145534
+      },
+      {
+        "path": "artifacts/m9-review/delete-grouped-rules-bottom-light.png",
+        "sha256": "63E53F5DF6143F8CC8526ABABCF7055175DC10219C17520F313D47CDC4C89C4C",
+        "length": 149829
+      },
+      {
+        "path": "artifacts/m9-review/delete-900-dark.png",
+        "sha256": "1D0CCFD9319249B2664272A64164DBC8609D70F27AD2224DA19B7ED50E262446",
+        "length": 68565
+      },
+      {
+        "path": "artifacts/m9-review/delete-640-dark.png",
+        "sha256": "8717E9193427A7BA4D30F11959BA73E38CBB0709655864CFDC1063AE2D1DC0D0",
+        "length": 51144
+      },
+      {
+        "path": "artifacts/m9-review/delete-500-dark.png",
+        "sha256": "A57525746DD92DF1414F9AFDBBCD685BD25A4A63337544A6588DB07EFF8F379D",
+        "length": 40043
+      },
+      {
+        "path": "artifacts/m9-review/delete-500-expanded-dark.png",
+        "sha256": "098A67A5D1BA2A83E960143075DEB5074DDCBBFB33C766284990829F8FAA7B46",
+        "length": 45300
+      },
+      {
+        "path": "artifacts/m9-review/delete-all-servers-summary-light.png",
+        "sha256": "60696EE5DC0627DC5F32003E365B73DC225F17E151BE87EDFC2DEF0CB4E46561",
+        "length": 105816
+      },
+      {
+        "path": "artifacts/m9-review/delete-all-profiles-light.png",
+        "sha256": "4B5174CFC0D02C7F9AA35F7A1565937848200A64A12E9947623A089609466D13",
+        "length": 96528
+      },
+      {
+        "path": "artifacts/m9-review/delete-live-profile-light.png",
+        "sha256": "A0639A7C0C9A2D60B90D8449F5883758611F41DA2B1ADE3DE644E5624A9E8AE4",
+        "length": 126002
+      },
+      {
+        "path": "artifacts/m9-review/deleted-profile-source-details.png",
+        "sha256": "1D69B163B61086C98AECF330701B50002CB5A7C12BE7653F813D259807D95161",
+        "length": 279355
+      },
+      {
+        "path": "artifacts/m9-review/delete-live-server-impact-light.png",
+        "sha256": "CA4C9102D10A742C022F9969FFD0A106AF078D0EF20DC5F2FD4D29C834BC0B70",
+        "length": 109922
+      },
+      {
+        "path": "artifacts/m9-review/deletion-save-failed-light.png",
+        "sha256": "CA0A491A3C58BBA3194BB660936FC9342DC8851A7E204D5B1DC0AF145A306243",
+        "length": 110474
+      },
+      {
+        "path": "artifacts/m9-review/delete-all-complete-light.png",
+        "sha256": "24FD44217F8353909321FCE4C7105E2047011AE56D83306293A4530306702F51",
+        "length": 132802
+      }
+    ]
+  },
+  "application": {
+    "capturedAtUtc": "2026-09-20T15:20:53.1687301+08:00",
+    "processId": 37400,
+    "windowHandle": 4722808,
+    "title": "TunnelDeck",
+    "responding": true,
+    "executable": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\TunnelDeck\\bin\\x64\\Release\\net10.0-windows10.0.19041.0\\TunnelDeck.exe",
+    "configuration": "Release x64",
+    "isPreview": false,
+    "dataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m9-gui\\815cecd45eda4cab857d5d28f7704403",
+    "page": "Servers",
+    "networkStarted": false,
+    "reviewData": "Three synthetic servers, four profiles, twenty rules; reserved example.invalid hosts."
+  },
+  "applicationReport": {
+    "path": "artifacts/m9-review/final-launch.json",
+    "sha256": "D0F939133471B3BE1F5747DB2A82DD6026ACD4DA17838031C183865493461699",
+    "length": 657
+  },
+  "guiReview": {
+    "previous": "GUI A/B/C already confirmed; GUI D confirmed by the user: GUI 测试通过，继续 M9.",
+    "current": "GUI E pending",
+    "evaluationData": "Isolated normal-mode review window with synthetic resources; no SSH connection started.",
+    "scriptPlaceholders": "Pending fields in older regression scripts do not override previous user confirmations.",
+    "highContrast": "Not switched globally; no claim of completed system High Contrast review."
+  },
+  "documentation": [
+    "README.md",
+    "docs/milestones.md",
+    "docs/deletion.md",
+    "docs/profiles.md",
+    "docs/quick-forward.md",
+    "docs/tunnels.md",
+    "docs/connections.md",
+    "docs/storage.md",
+    "docs/shell-and-navigation.md",
+    ".codex/docs/implementation-plan.md",
+    ".codex/docs/research-and-decisions.md",
+    ".codex/docs/ui-ux-spec.md",
+    ".codex/docs/handoff.md",
+    ".codex/history/2026-09-20-m9-resource-deletion.md"
+  ],
+  "knownLimits": [
+    "M10 automatic reconnect, complete shutdown recovery and single-instance work remain pending.",
+    "M11 import/export and terminal integration remain pending; future reconnect/import must use the existing deletion gates.",
+    "Remote failures do not auto-increment ports; abnormal network remote release still depends on sshd disconnect detection.",
+    "The original M7 local target error observability and half-close / long-running channel limitations remain unchanged."
+  ]
+}

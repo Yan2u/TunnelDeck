@@ -337,6 +337,9 @@ ASALocalRun/
 ### OSX ###
 
 .DS_Store
+
+# Isolated SSH fixtures contain disposable test credentials and private keys.
+.test-output/
 .AppleDouble
 .LSOverride
 

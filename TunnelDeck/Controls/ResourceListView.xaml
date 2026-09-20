@@ -1,0 +1,102 @@
+<UserControl
+    x:Class="TunnelDeck.Controls.ResourceListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:TunnelDeck.ViewModels"
+    xmlns:pages="using:TunnelDeck.Pages"
+    SizeChanged="OnControlSizeChanged">
+    <UserControl.Resources>
+        <DataTemplate x:Key="ResourceTemplate" x:DataType="vm:ResourceRow">
+            <Grid ColumnSpacing="12">
+                <Grid.ColumnDefinitions><ColumnDefinition Width="16" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                <FontIcon Glyph="&#xE784;" FontSize="16" VerticalAlignment="Center" Visibility="{x:Bind pages:ShellPage.Visible(IsPinned)}"
+                          Foreground="{ThemeResource TextFillColorSecondaryBrush}" ToolTipService.ToolTip="Drag to reorder pinned items" AutomationProperties.Name="Reorder pinned item" AutomationProperties.AutomationId="{x:Bind DragAutomationId}" />
+                <Button Grid.Column="1" Tag="{x:Bind}" Click="OnOpenClick" Style="{ThemeResource SubtleButtonStyle}" Padding="0"
+                        HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Center"
+                        AutomationProperties.AutomationId="{x:Bind RowAutomationId}" AutomationProperties.Name="{x:Bind AccessibleName}"
+                        ToolTipService.ToolTip="{x:Bind AccessibleName}">
+                  <StackPanel Spacing="4">
+                    <TextBlock Text="{x:Bind Name}" Style="{ThemeResource BodyStrongTextBlockStyle}" TextTrimming="CharacterEllipsis" />
+                    <TextBlock Text="{x:Bind Description}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextTrimming="CharacterEllipsis" />
+                  </StackPanel>
+                </Button>
+                <Button Grid.Column="2" Tag="{x:Bind}" Click="OnPinClick" Style="{ThemeResource SubtleButtonStyle}"
+                        IsEnabled="{x:Bind CanEdit}" VerticalAlignment="Center" ToolTipService.ToolTip="{x:Bind PinLabel}"
+                        AutomationProperties.AutomationId="{x:Bind PinAutomationId}" AutomationProperties.Name="{x:Bind PinAccessibleName}">
+                    <FontIcon Glyph="{x:Bind PinGlyph}" />
+                </Button>
+                <Button Grid.Column="3" Style="{ThemeResource SubtleButtonStyle}" VerticalAlignment="Center"
+                        AutomationProperties.AutomationId="{x:Bind MenuAutomationId}" AutomationProperties.Name="{x:Bind MenuAccessibleName}" ToolTipService.ToolTip="More actions">
+                    <FontIcon Glyph="&#xE712;" />
+                    <Button.Flyout><MenuFlyout>
+                        <MenuFlyoutItem Text="Open" Icon="OpenFile" Tag="{x:Bind}" Click="OnOpenClick" />
+                        <MenuFlyoutItem Text="{x:Bind PinLabel}" Icon="Pin" Tag="{x:Bind}" Click="OnPinClick" IsEnabled="{x:Bind CanEdit}" />
+                        <MenuFlyoutSeparator Visibility="{x:Bind pages:ShellPage.Visible(IsPinned)}" />
+                        <MenuFlyoutItem Text="Move up" Tag="{x:Bind}" Click="OnMoveUpClick" IsEnabled="{x:Bind CanMoveUp}" Visibility="{x:Bind pages:ShellPage.Visible(IsPinned)}"
+                                        AutomationProperties.AutomationId="{x:Bind MoveUpAutomationId}">
+                            <MenuFlyoutItem.Icon><FontIcon Glyph="&#xE70E;" /></MenuFlyoutItem.Icon>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Move down" Tag="{x:Bind}" Click="OnMoveDownClick" IsEnabled="{x:Bind CanMoveDown}" Visibility="{x:Bind pages:ShellPage.Visible(IsPinned)}"
+                                        AutomationProperties.AutomationId="{x:Bind MoveDownAutomationId}">
+                            <MenuFlyoutItem.Icon><FontIcon Glyph="&#xE70D;" /></MenuFlyoutItem.Icon>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutSeparator />
+                        <MenuFlyoutItem Text="Delete" Icon="Delete" Tag="{x:Bind}" Click="OnDeleteClick" IsEnabled="{x:Bind CanEdit}"
+                                        Foreground="{ThemeResource SystemFillColorCriticalBrush}" AutomationProperties.AutomationId="{x:Bind DeleteAutomationId}" />
+                    </MenuFlyout></Button.Flyout>
+                </Button>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="PageContent" Padding="24" RowSpacing="24">
+        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+        <StackPanel Spacing="12">
+        <CommandBar DefaultLabelPosition="Right" HorizontalContentAlignment="Stretch" Background="{ThemeResource SubtleFillColorTransparentBrush}">
+            <CommandBar.Content>
+                <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}" Style="{ThemeResource TitleTextBlockStyle}" VerticalAlignment="Center"
+                           AutomationProperties.HeadingLevel="Level1" AutomationProperties.AutomationId="{x:Bind ViewModel.PageId, Mode=OneWay}" />
+            </CommandBar.Content>
+            <AppBarButton x:Name="AddResourceButton" Icon="Add" Label="Add" Click="OnAddClick" IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}"
+                          AutomationProperties.Name="{x:Bind ViewModel.AddLabel, Mode=OneWay}" AutomationProperties.AutomationId="AddResourceButton" />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Import" Icon="Import" IsEnabled="False" ToolTipService.ToolTip="Import is not available in this build." />
+                <AppBarButton Label="Export" Icon="SaveLocal" IsEnabled="False" ToolTipService.ToolTip="Export is not available in this build." />
+                <AppBarSeparator />
+                <AppBarButton Label="{x:Bind ViewModel.DeleteAllLabel, Mode=OneWay}" Icon="Delete" Click="OnDeleteAllClick"
+                              IsEnabled="{x:Bind ViewModel.CanDeleteAll, Mode=OneWay}" Foreground="{ThemeResource SystemFillColorCriticalBrush}"
+                              AutomationProperties.AutomationId="{x:Bind ViewModel.DeleteAllId, Mode=OneWay}" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+        <InfoBar IsOpen="{x:Bind pages:ShellPage.HasText(ViewModel.OperationError), Mode=OneWay}" Visibility="{x:Bind pages:ShellPage.TextVisible(ViewModel.OperationError), Mode=OneWay}"
+                 Message="{x:Bind ViewModel.OperationError, Mode=OneWay}" Severity="Error" IsClosable="False" AutomationProperties.AutomationId="ResourceOrderError">
+            <InfoBar.ActionButton><Button Content="Retry" Click="OnRetryChange" IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}" AutomationProperties.AutomationId="RetryResourceChange" /></InfoBar.ActionButton>
+        </InfoBar>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled" AutomationProperties.AutomationId="ResourceScroll">
+            <StackPanel>
+                <StackPanel Visibility="{x:Bind pages:ShellPage.Visible(ViewModel.ShowEmpty), Mode=OneWay}" Spacing="12" Margin="0,16,0,0">
+                    <TextBlock Text="{x:Bind ViewModel.EmptyTitle, Mode=OneWay}" Style="{ThemeResource SubtitleTextBlockStyle}" />
+                    <TextBlock Text="{x:Bind ViewModel.EmptyDescription, Mode=OneWay}" TextWrapping="Wrap" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                    <Button Content="{x:Bind ViewModel.AddLabel, Mode=OneWay}" Click="OnAddClick" IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}"
+                            Style="{ThemeResource AccentButtonStyle}" AutomationProperties.AutomationId="EmptyAddResource" />
+                </StackPanel>
+                <StackPanel Visibility="{x:Bind pages:ShellPage.Visible(ViewModel.HasPinned), Mode=OneWay}" Margin="0,0,0,24" Spacing="8">
+                    <TextBlock Text="Pinned" Style="{ThemeResource BodyStrongTextBlockStyle}" AutomationProperties.AutomationId="PinnedHeading" />
+                    <ListView x:Name="PinnedList" ItemsSource="{x:Bind ViewModel.Pinned, Mode=OneWay}" ItemTemplate="{StaticResource ResourceTemplate}"
+                              CanDragItems="True" CanReorderItems="True" AllowDrop="True" DragItemsStarting="OnPinnedDragStarting" DragItemsCompleted="OnPinnedDragCompleted" DragOver="OnPinnedDragOver" Drop="OnPinnedDrop"
+                              IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}"
+                              ItemContainerStyle="{StaticResource StretchListViewItemStyle}" SelectionMode="Single" IsItemClickEnabled="False"
+                              ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                              ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              AutomationProperties.AutomationId="PinnedResources" />
+                </StackPanel>
+                <ListView ItemsSource="{x:Bind ViewModel.Other, Mode=OneWay}" ItemTemplate="{StaticResource ResourceTemplate}" AllowDrop="True" DragOver="RejectDrop" Drop="RejectDrop"
+                          IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}"
+                          ItemContainerStyle="{StaticResource StretchListViewItemStyle}" SelectionMode="None" IsItemClickEnabled="True" ItemClick="OnItemClick"
+                          ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                          ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          AutomationProperties.AutomationId="OtherResources" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

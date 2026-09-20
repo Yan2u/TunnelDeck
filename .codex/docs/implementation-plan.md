@@ -1,8 +1,10 @@
 # 构建 TunnelDeck - 一个 WinUI3 的端口转发助手
 
+> 2026-09-20 实施更新：M0–M8 已完成；GUI D 已由用户「GUI 测试通过，继续 M9.」确认，GUI A / B / C 保持已确认。M9 已接入删除影响确认、共享任务门禁、停止与原子配置删除、失败重试及引用清理；GUI E 待评测。当前 Core 304、Infrastructure 92、真实 SSH 63，共 459 项测试通过。最新状态见 [里程碑](../../docs/milestones.md)、[删除契约](../../docs/deletion.md)、[Profiles 契约](../../docs/profiles.md)、[转发契约](../../docs/tunnels.md) 和 [ADR 0002](../../docs/decisions/0002-forwarded-channel-keepalive.md)。仅 Local 监听端口确认占用时自动递增；Remote 不递增。物理传输采用 Local 共享、Remote 每条独立连接。
+
 版本：2026-09-19 规划稿。目标：在用户已创建的空白 WinUI 3 template 上，实现轻量、原生、可靠的 Windows 11 SSH 端口转发工具。
 
-本文给出 M0–M13 共 14 个里程碑。每个里程碑都应可独立验证、交付和回退。它是供后续 Coding Agent 执行的计划；本次没有实现 App，也没有声称完成编译或真实 SSH 测试。
+本文给出 M0–M13 共 14 个里程碑。每个里程碑都应可独立验证、交付和回退。已实施内容以上方更新和里程碑证据为准，后续步骤保留完整计划。
 
 配套文件：[原始 77 条 UI/UX 规范](ui-ux-spec.md)、[技术核实与决策](research-and-decisions.md)、[新会话启动说明](handoff.md)。用户后续澄清优先于本文；原始规范优先于通用技能建议。
 
@@ -13,7 +15,7 @@
 完成版本需要覆盖：
 
 1. TCP Local Forwarding (`-L`) / Remote Forwarding (`-R`)，多服务器、多条规则，每条独立启停。
-2. 同端口 Quick Forward、不同端口/地址的高级编辑、有限递增搜索、Requested/Actual 分开显示。
+2. 同端口 Quick Forward、不同端口/地址的高级编辑、仅本地监听端口占用时有限递增、Requested/Actual 分开显示。
 3. 独立 Server 资源与可跨服务器的 Profile；保存配置和一键启动。
 4. TitleBar 全局搜索、NavigationView working set、Pinned/Other 管理、详情页、Settings。
 5. 连接认证、host key 校验、凭据存储、断线处理、正常退出清理。
@@ -21,7 +23,7 @@
 7. SSH config 有限导入、TunnelDeck 配置导入导出、外部终端入口。
 8. 最近活动、可靠口径的基本统计、主题/高对比/键盘支持、可重复构建发布。
 
-规划默认：SSH.NET 直连后端；密码及私钥；关闭窗口停止并退出；累计流量延期；远端监听拒绝可有限重试，但不伪称确定端口占用。这四项已发起澄清，未回复时只是当前规划假设，详见决策表。
+用户已确认：目前不支持远端端口失败自动递增，仅支持 Local 本地监听端口占用自动递增。其余规划默认仍为 SSH.NET 直连、密码及私钥、关闭窗口停止并退出、累计流量延期；未另行回复的选项仍是规划假设。
 
 首版不扩展到：内置终端模拟器、SFTP、UDP、SOCKS、后台 Windows 服务、Zed 插件、自动扫描服务器端口、自动恢复上次 App 运行、完整 OpenSSH 兼容层。若澄清要求跳板机/agent/FIDO2 或流量计量，应先调整 M1，不把额外范围悄悄塞入后面的 UI 任务。
 
@@ -69,10 +71,10 @@ Pages 只处理视图生命周期、focus、flyout/dialog anchor 等 UI 事项�
 | --- | --- |
 | RemoteServer | `Id: Guid`、DisplayName?、Host、Port、Username、AuthMethod、IdentityFilePath?、CredentialReference?、LastUsedAt?；DisplayName 允许空和重名 |
 | ForwardProfile | Id、Name、按顺序保存的 Rules、LastUsedAt?；不绑定一个 Server |
-| ForwardRule | Id、ServerId、Mode、LocalHost、LocalPort、RemoteHost、RemotePort、AutoFindAvailablePort；端口为 1–65535 |
-| AppSettings | SidebarMaximumItems=5（3–10）、DefaultServerId?、AutoFindAvailablePortDefault、PinnedQuickServerId?；搜索次数/时限首先作为实现策略常量 |
+| ForwardRule | Id、ServerId、Mode、LocalHost、LocalPort、RemoteHost、RemotePort、AutoFindAvailablePort；端口为 1–65535；自动搜索仅 Local 生效，Remote 保存为 false |
+| AppSettings | SidebarMaximumItems=5（3–10）、DefaultServerId?、AutoFindAvailablePortDefault（仅新建 Local 使用）、PinnedQuickServerId?；搜索次数/时限首先作为实现策略常量 |
 | ResourceOrder | PinnedProfileIds、OtherProfileIds、PinnedServerIds、OtherServerIds；数组顺序即 UI 顺序 |
-| ActiveTunnel | Id、ServerId、Mode、Requested/Actual 双端地址端口、状态、StartedAt、最近连接时间、来源快照、最后错误；运行时对象不序列化到配置 |
+| ActiveTunnel | Id、ServerId、Mode、Requested/Actual 双端地址端口、状态、StartedAt、EndedAt、最近连接时间、来源快照、最后错误；运行时对象不序列化到配置 |
 | ActivityEntry / UsageStatistics | 成功/失败/停止的历史快照、UTC 时间；累计成功启动次数与 per-resource 使用次数独立于裁剪后的 Recent 列表 |
 | TrustedHostKey | 规范化 host + SSH port + 算法 + 公钥/指纹；与显示名无关，不通过导入配置自动授信 |
 | AppState | SchemaVersion、Revision、资源、顺序、设置、历史/计数；无明文密码、私钥内容、SshClient 或 Socket |
@@ -82,7 +84,7 @@ Pages 只处理视图生命周期、focus、flyout/dialog anchor 等 UI 事项�
 | 模式 | 监听地址 | 目标地址 | 自动搜索改变哪端 |
 | --- | --- | --- | --- |
 | Local `-L` | 本机 LocalHost:LocalPort | SSH 服务器视角的 RemoteHost:RemotePort | 仅 LocalPort |
-| Remote `-R` | SSH 服务器上的 RemoteHost:RemotePort | 本机视角的 LocalHost:LocalPort | 仅 RemotePort |
+| Remote `-R` | SSH 服务器上的 RemoteHost:RemotePort | 本机视角的 LocalHost:LocalPort | 不支持自动递增，失败即返回错误 |
 
 默认地址明确使用 `127.0.0.1`，不要依赖 `localhost` 在 IPv4/IPv6 上的解析差异。高级 bind 字段按所选后端的实际支持范围验证；不要把 SSH 服务器地址与转发目标地址混为一谈。`-R` 真实访问方向为 Remote → Local，UI 的方向说明必须正确，不能把两个模式画成相同的数据流向。
 
@@ -98,21 +100,21 @@ Running → Reconnecting → Running / Failed
 ```
 
 - `Active` 在 UI 中表示 Running；Sidebar 的 N active 只统计 Running，不把 Reconnecting 当已建立。
-- 每个 ServerId 一个按需共享的 session；无活动/待恢复规则时释放。连接参数变化前先停止该服务器相关操作。
+- 每个 ServerId 一个逻辑协调器；Local 规则共享 Local-only 物理 session，Remote 每条独立物理 session。无活动/待恢复规则时释放。连接参数变化前先停止该服务器相关操作。
 - 每台服务器的控制操作串行；跨服务器有并发上限，例如 4。UI 事件订阅有明确释放点。
 - `StopAsync` 幂等，重复 Enter/双击不能并发创建重复转发；重连、删除、退出通过状态/代次标记阻止迟到回调恢复已停止规则。
 - 基于 Mode + ServerId + requested endpoints 的完全重复请求返回现有条目；部分重叠或目标不同的规则按照真实绑定结果处理。自动调整后也不能用 Actual endpoint 误判为新的请求。
 - 相同规则通过多个 Profile 出现时复用已运行条目；来源表示首次创建者，批量结果报告“already running”。规则级 Stop 就是停止该隧道，不建立隐含的多 Profile 引用计数。
 - Profile Start all 逐条报告 Started / AlreadyRunning / Failed / Cancelled；部分成功保持运行，可重试失败条。
-- 监听成功与目标健康分开：目标暂时不可达应报告具体连接请求失败，不随意把所有 listener 都销毁。
+- 监听成功与目标健康分开：记录库实际通知的连接请求失败，不随意销毁 listener。SSH.NET 2026.0.0 的 Local direct-tcpip OpenFailed 没有完整透传到公共异常事件，不能保证每次 Local 目标拒绝都有应用诊断；客户端 EOF 不当作端口占用。
 
 ### 2.4 端口搜索契约
 
-先真正申请 N；符合可重试条件后按 N+1、N+2……递增。最多 20 次申请（含 N），同时有总时限、单次超时及 CancellationToken；使用整数防溢出，到 65535 即停止。配置的 Requested 不变。
+先真正申请 N；仅 Local 模式、启用自动搜索且本地绑定失败为 AddressAlreadyInUse 时，按 N+1、N+2……递增 LocalPort。最多 20 次申请（含 N），同时有总时限、单次超时及 CancellationToken；使用整数防溢出，到 65535 即停止。目标地址端口与配置的 Requested 均不变。
 
-`-L` 只对确定的 AddressAlreadyInUse 自动重试；Windows AccessDenied/保留端口单独报错。`-R` 遵循决策表中的有限监听拒绝重试政策。若适配器无法可靠区分拒绝与其他错误，不能靠异常字符串硬凑成功，须在 M1 记录缺口并调整方案。
+Windows AccessDenied/保留端口、认证、host key、DNS/网络错误、超时及取消均不触发端口递增。`-R` 始终只申请指定端口一次；失败返回通用错误，由用户编辑端口或服务端策略后手动重试。即使旧配置或草稿错误地携带自动搜索标志，Remote 也不能进入递增路径。
 
-每次失败释放临时 ForwardedPort、事件和注册。远端超时是结果未知，必要时使共享 session 失效；禁止立即继续发请求造成晚到的回复串扰。
+每次失败释放临时 ForwardedPort、事件和注册。远端超时是结果未知，使该规则的独立 session 失效；禁止复用它继续发请求造成晚到的回复串扰。
 
 ### 2.5 全局交付规则
 
@@ -170,7 +172,7 @@ Running → Reconnecting → Running / Failed
 **实施**：
 
 1. 用固定版本 SSH.NET 验证：同一连接 2 条 `-L`、2 条 `-R`，逐条停止；API 的实际错误类型、取消/超时和 Dispose 行为。
-2. 比较远端端口被占用、`AllowTcpForwarding` 禁止、PermitListen 限制的响应；确认有限重试可实现的范围，记录原因不确定性。
+2. 比较远端端口被占用、`AllowTcpForwarding` 禁止、PermitListen 限制的响应；记录原因不确定性，并验证 Remote 失败不会自动递增。
 3. 验证 `-R` 接收/取消监听、目标地址解析、loopback 和 IPv6 支持边界；明确不支持值的 UI 校验。
 4. 验证未知/变更 host key 拒绝路径、加密私钥口令、Windows 凭据读写路径。
 5. 最小 WinUI 实验：原生 TitleBar 搜索与 pane toggle；固定 Sidebar 顶/底和中间滚动；关闭事件异步清理。验证目标 SDK 的可用 API，不大规模编写页面。
@@ -184,7 +186,7 @@ Running → Reconnecting → Running / Failed
 - `SSH-04`：远端请求超时后的迟到结果不能被下一条操作认领。
 - `AUTH-01`：未信任/变更 host key 时绝不进入允许的认证连接。
 
-**通过标准**：形成可重跑的实验与事实清单；M6 所需关键 API/语义成立。若 `-R` 识别或控制回复隔离仍不可靠，先修适配方案/选型，不能标记自动搜索已解决。
+**通过标准**：形成可重跑的实验与事实清单；M6 所需关键 API/语义成立。控制回复隔离须经过实测；Remote 自动搜索已按用户要求移出当前范围。
 
 ## M2：领域模型与纯逻辑策略
 
@@ -201,7 +203,7 @@ Running → Reconnecting → Running / Failed
 
 **Agent 测试**：
 
-- `DOM-01`：Local/Remote 的监听端和目标端映射正确；仅监听端可递增；0、负数、小数、65536 非法。
+- `DOM-01`：Local/Remote 的监听端和目标端映射正确；仅 Local 模式的 LocalPort 可递增；Remote 无论标志或错误类型都不能递增；0、负数、小数、65536 非法。
 - `DOM-02`：20 次上限包含首个端口；65535 不溢出；非冲突错误不推进候选。
 - `ORDER-01`：新增/Unpin 到 Other[0]，Pin 到 Pinned 尾部，只有 Pinned 可 reorder。
 - `ORDER-02`：Sidebar 先取 Pinned、Recent 补齐去重；分别验证 3/5/10 上限、空数据、Pinned 超上限和 LastUsedAt 相同。
@@ -214,6 +216,8 @@ Running → Reconnecting → Running / Failed
 ## M3：配置、凭据与原子持久化
 
 **目标**：资源、顺序、设置能够可靠保存，写入失败不会损坏已有数据。
+
+**实施状态（2026-09-19）**：完成，Core / Infrastructure 合计 214 项测试通过，原生窗口错误恢复与关闭 smoke 通过。格式为首个持久化 schema 1；迁移入口通过独立旧格式夹具验证，生产未臆造不存在的旧版格式。加载只修复顺序 ID 和失效默认选择，未知格式只读且不回退旧备份；凭据补偿队列持久化并受跨实例配置锁保护。详情与测试边界见 [存储契约](../../docs/storage.md)。
 
 **实施**：
 
@@ -237,6 +241,8 @@ Running → Reconnecting → Running / Failed
 ## M4：App Shell、导航与视觉骨架
 
 **目标**：先验证原生 Windows 风格与信息布局，避免完成业务后大面积返工。
+
+**实施状态（2026-09-19）**：六类页面、导航 / 搜索 / Back、隔离 Sample / Stress / Empty 数据、响应式布局已实现。229 项 Core / Infrastructure 测试通过；三套原生窗口脚本通过。为避免无效按钮，提前接入 M3 已支持的基本元数据保存、Pin / 菜单移动和设置。用户回复「OK，继续 M5.」，据此记录 GUI 评测 A 已确认。Agent 未切换系统 High Contrast；这项操作不作为已实测证据。详见 [页面契约](../../docs/shell-and-navigation.md)。
 
 **实施**：
 
@@ -264,21 +270,23 @@ Running → Reconnecting → Running / Failed
 
 **目标**：能够保存真实服务器并可靠验证连接，为转发引擎提供 session。
 
+**实施状态（2026-09-20 更新）**：已完成密码 / 未加密及加密私钥、可选凭据保存、原生指纹确认队列、临时 Test Connection、引用释放与关闭清理、服务器身份占用门禁。M5 阶段 298 项测试通过（Core 184、Infrastructure 79、真实 SSH 35）；连接表单和三套既有原生窗口回归通过。GUI 评测 B 已由用户「GUI 人工评测通过，继续 M6.」确认，详见 [连接契约](../../docs/connections.md) 与 [M5 历史证据](../../docs/evidence/2026-09-19-m5.json)。
+
 **实施**：
 
 1. 完成 Server Detail 的 DisplayName、Host/IP、Username、SSH Port、Authentication Method；Password 与 Private Key/Identity File 两种表单，支持加密私钥口令。
 2. 显式 Save/Cancel 与字段校验；DisplayName 为空回退 Host，允许重名；新增成功插入 Other[0]。
-3. `SshConnectionManager` 按 ServerId 协调 session，连接超时、取消、keepalive、事件退订和引用释放。临时 Test Connection 成功后关闭，不生成 ActiveTunnel。
+3. `SshConnectionManager` 按 ServerId 协调 session，连接超时、取消、keepalive、事件退订和引用释放。Local 并发请求共用一次连接建立流程；Remote 每条独立传输。临时 Test Connection 使用独立连接，成功后关闭，不生成 ActiveTunnel，也不复用已有连接来代替验证表单中的凭据。
 4. host key 首连确认与变更拒绝；确认 UI 使用统一队列，不能同时叠多个 ContentDialog。用户交互等待期间不占用业务锁；确认后重连仍验证指纹。
 5. 界面明确区分 auth method 与 fingerprint。可选记住密码/口令，缺失凭据内联请求，禁止日志输出。
-6. 有活动/待重连规则时，只允许直接编辑 DisplayName；修改 Host/Port/User/Auth 要先停止该 Server 的隧道，避免偷偷替换底层 session。
+6. 有活动/待重连规则、正在连接或等待指纹确认的工作时，只允许直接编辑 DisplayName；修改 Host/Port/User/Auth/凭据要先停止该 Server 的工作。身份检查与保存提交共用登记门禁，防止连接在检查后、落盘前使用旧身份。
 7. Server 列表显示名称和 endpoint，连接错误可重试；Open Terminal 入口保留到 M11 完成时再启用，不能假装已工作。
 
 **Agent 测试**：
 
 - `AUTH-02`：密码、无口令私钥、有口令私钥成功；错误密码、错误口令、不可读文件分别失败。
 - `AUTH-03`：首次信任拒绝/接受、已保存 key 重连、key 改变、确认后握手 key 再改变。
-- `CONN-01`：同 Server 并发请求只发起一次连接；两个 Server 独立；Test Connection 不遗留空闲连接。
+- `CONN-01`：同 Server 的 Local 并发请求只发起一次连接建立流程（拒绝未知指纹的探测握手 + 受信任的认证握手）；Remote 按 ADR 独立；两个 Server 独立；Test Connection 不遗留空闲连接。
 - `CONN-02`：DNS 失败、超时、取消、关闭期间回调到达均有确定结果，UI 不阻塞。
 - `CONN-03`：连接身份修改受活动状态约束；显示名修改不重建连接。
 
@@ -288,15 +296,17 @@ Running → Reconnecting → Running / Failed
 
 ## M6：多规则转发引擎与端口分配
 
+**实施状态（2026-09-20）**：已完成。`Core/Tunnels/TunnelManager` 与 `AppServices.Tunnels` 就位；真实 Local / Remote echo、HTTP、1 MiB 和并发客户端、端口分配、持有确认回复时的取消 / Remove / Shutdown 均通过。生命周期与错误观测边界见 [tunnels](../../docs/tunnels.md)。M6 无新增人工 GUI 关卡。
+
 **目标**：实现可脱离 WinUI 运行的 `TunnelManager`，完成核心 SSH 行为。
 
 **实施**：
 
 1. 对 `ForwardedPortLocal` / `ForwardedPortRemote` 封装生命周期句柄；按模式把数据模型映射到 bound/target。
 2. 按服务器串行调度 Start/Stop/Dispose；实例在整个操作生命周期中保持明确归属。失败 candidate 必须移除并 Dispose。
-3. 实现有限顺序 allocator，保持 Requested，写入 Actual 与 AdjustmentReason。避免先探测再绑定和修改目标端口。
+3. 实现仅针对 Local 监听占用的有限顺序 allocator，保持 Requested，写入 Actual 与 AdjustmentReason。Remote 只申请一次，不递增。避免先探测再绑定和修改目标端口。
 4. 实现重复请求幂等、每条独立 Stop、Start all/Stop all 的逐条结果与并发限流。
-5. 将目标连接失败与 listener 失败分开；适度聚合重复错误，避免每个 TCP 请求弹一条 InfoBar。
+5. 将实际观察到的目标连接失败与 listener 失败分开；适度聚合重复错误，避免每个 TCP 请求弹一条 InfoBar。活动快照有单调版本，乱序通知不能使计数倒退。Local 目标拒绝事件不完整是已验证的库限制，不伪造错误或健康结果。
 6. 将远端监听请求“明确拒绝”和“超时/结果未知”分开。未知时失效该 session 并更新所有相关状态，防止遗漏监听或回复串扰。
 7. 从第一次接入真实转发开始就提供基本 Shutdown：阻止新建、停止句柄、Dispose session。不能等 M10 才清理真实资源。
 
@@ -305,12 +315,12 @@ Running → Reconnecting → Running / Failed
 **Agent 测试**：
 
 - `TUN-01`：真实 `-L`、`-R` echo/HTTP payload 双向一致，包含较大 payload 和同时多个连接。
-- `TUN-02`：N 被占用选 N+1；连续占用选最小可用候选；自动搜索关闭时只申请一次。
+- `TUN-02`：Local 的 N 被占用选 N+1；连续占用选最小可用候选；自动搜索关闭或 Remote 模式时只申请一次。
 - `TUN-03`：搜索耗尽、65535 边界、取消、AccessDenied、认证失败、远端策略拒绝均符合政策；远端错误文案不武断写占用。
 - `TUN-04`：相同请求双击/并发提交只有一条；不同 Server 的本地监听端口仍由本机全局绑定竞争决定。
 - `TUN-05`：同连接多条规则中停止一条，其他规则继续传输；停止后重新绑定原端口成功。
 - `TUN-06`：Start 与 Stop/删除/关闭交错，迟到成功不会产生 orphan tunnel；所有临时事件/句柄释放。
-- `TUN-07`：监听成功、目标服务未启动时，如实报告连接请求错误；启动目标后可再次通过 listener 传输。
+- `TUN-07`：监听成功、目标服务未启动时，记录可观察到的连接请求错误并保留 listener；两种模式均验证目标启动后可继续传输。Local 以客户端 EOF 和后续 payload 证明状态，明确保留异常事件不完整的限制；Remote 独立断言请求诊断，不假定客户端立即收到 EOF。
 - `TUN-08`：正常退出后本地和远端监听释放；每条真实测试在 finally 中清理。
 
 **通过标准**：纯单测与真实 SSH 集成测试同时通过，不能只断言 IsStarted。用户无需手测网络正确性。
@@ -319,16 +329,19 @@ Running → Reconnecting → Running / Failed
 
 **目标**：交付第一版可供日常使用的核心界面。
 
+**实施状态（2026-09-20）**：Quick Forward / Enter / 高级端点、临时凭据、稳定活动行、独立 Stop / Retry / Remove、调整与 Details Flyout 已接入。VM-01–04 与真实原生转发闭环通过，GUI C 已由「GUI 通过，继续 M8.」确认。M7 提前接入最小离散活动记录，M8 补充 Profile 使用；重连统计仍留给后续里程碑。契约与证据见 [quick-forward](../../docs/quick-forward.md)。
+
 **实施**：
 
-1. Dashboard 顶部 Quick Forward：Server selector、Local/Remote 人类可读模式名、端口输入、自动找端口、Forward；Secondary 区域预留实际 Open Terminal。
+1. Dashboard 顶部 Quick Forward：Server selector、Local/Remote 人类可读模式名、端口输入、仅 Local 可用的自动找本地端口、Forward；Remote 隐藏该选项并提示失败需手动调整；Secondary 区域预留实际 Open Terminal。
 2. 默认单端口输入映射双方同端口；展开高级项编辑不同端口及地址。Quick 当前选择跨页面保留，固定选择跨重启保存。
 3. Server 已选时端口输入 Enter 直接启动；NumberBox 在提交时校验原始文本/整数范围，防 NaN、小数及旧值未提交。重复提交受命令 busy 和引擎幂等双重约束。
 4. Active Tunnels 使用紧凑 ListView，展示 Server、mode、两端实际端口、状态、Stop/More；Starting/Reconnecting 等条目可见但不计入 N active。
-5. 调整标识只放在变化的端口旁：Attention IconInfoBadge + 可聚焦 Button + ToolTip/Flyout；不要用数字 badge 包住端口或把整行改为 Warning。
+5. 自动调整标识仅出现在 Local 模式变化的本地监听端口旁：Attention IconInfoBadge + 可聚焦 Button + ToolTip/Flyout；Remote 不显示自动调整标识。不要用数字 badge 包住端口或把整行改为 Warning。
 6. Details Flyout 显示 Requested/Actual、开始时间、动态 duration、来源快照；打开时更新 duration，关闭后停止无用 tick，不写磁盘。
 7. 失败条保留到用户重试/移除，正常停止条进入 Recent；成功直接反映列表，不反复弹成功 InfoBar。
 8. 无 Server 时提示 Add server，无运行隧道时简洁空态；保留输入与合理 focus，新增多条端口无需反复选 Server。
+9. 保存 Started / Stopped / Failed / Cancelled 离散事件与新成功实例计数，失败提交可重试；请求数 / duration 不写盘。关闭先排空界面命令，再清理网络、保存活动与配置；活动长列表使用有界独立 viewport，滚动不带动 Quick 输入区。
 
 **Agent 测试**：`VM-01` 默认选择、命令启用、Enter、重复提交、输入错误；`VM-02` requested/actual 和只标记变更端；`VM-03` duration/状态统计/来源删除的投影；`VM-04` dispatcher 和订阅清理。对 UI 绑定进行 build/run smoke，底层真实链路沿用 M6 用例。
 
@@ -344,6 +357,10 @@ Running → Reconnecting → Running / Failed
 ## M8：Profiles、All 页面与 Sidebar working set
 
 **目标**：保存并一键启动跨 Server 规则组，资源排序完全符合规范。
+
+**验收状态**：GUI D 已由用户「GUI 测试通过，继续 M9.」确认。
+
+**实施补充（2026-09-20）**：Profile Save 比较可编辑内容而非全局 revision，并保留并发更新的 LastUsedAt。批量凭据只在本次调用内按 Server 合并；结果显示为 Latest start，与当前隧道状态分开。每次操作至少有一个新成功实例才增加一次 ProfileUses，纯 AlreadyRunning / 全失败 / 无成功的取消不计数。资源重排检查捕获的 Pinned 顺序，写盘失败恢复投影并提供 Retry。实现契约见 [profiles](../../docs/profiles.md)。
 
 **实施**：
 
@@ -372,6 +389,8 @@ Running → Reconnecting → Running / Failed
 ## M9：删除影响计算与业务一致性
 
 **目标**：删除 Server 前准确说明后果，失败不破坏配置引用。
+
+**实施补充（2026-09-20）**：单个 / 全量共用 ID 影响扫描；Quick、Profile 和连接测试在输入或启动前登记 ServerWorkLease。确认后按固定顺序取门禁，在配置事务内重新检查并停止，失败保留配置；成功删除的终态行仅在活动记录落盘后清理，包括上一次失败已停止的行。Profile 删除保留已接受工作和来源快照。More、原生确认、长清单滚动、默认 Cancel、失败 InfoBar 与重试已接入；窗口销毁前先关闭并排空确认对话框。详见 [deletion](../../docs/deletion.md)。GUI E 待用户评测；完整重连 / 导入交错分别留给 M10 / M11。
 
 **实施**：
 
@@ -407,7 +426,7 @@ Running → Reconnecting → Running / Failed
 
 1. 在 M6 基本清理上完善 `ReconnectCoordinator` 和 `ShutdownCoordinator`。每台服务器一个重连任务，指数退避加抖动，等待期间不阻塞 UI；默认上限窗口建议 2 分钟，单次退避上限 30 秒，之后 Failed 并允许手动 Retry。
 2. 仅瞬时网络故障进入自动重连；认证、host key、永久配置和策略问题等待用户处理。禁止同时恢复已被 Stop/删除的规则。
-3. 重连优先尝试该运行实例上次 Actual 监听端口；冲突且允许自动查找时再顺序递增，重新展示调整。用户手动重新启动新实例则从 Requested 开始。
+3. 重连优先尝试该运行实例上次 Actual 监听端口；仅 Local 的确认占用且允许自动查找时才递增。Remote 仍只申请原监听端口，失败时等待用户处理。用户手动重新启动新实例则从 Requested 开始。
 4. shared session 失效时更新该 Server 所有规则，重新建立 session 后逐条恢复。单条目标 TCP 连接失败不等于整个 SSH session 断开。
 5. 关闭默认：第一次 Closing 取消系统关闭，阻止新增命令 → 取消重连/启动 → 有时限地停止 → Dispose session → flush 持久化 → 一次性最终关闭。示例总预算 10 秒，在 M1 实测基础上锁定。
 6. 连续点击 ×、Alt+F4、退出命令、任务栏关闭统一入口。保存失败提供明确的 Retry/退出而不保存选择；不能无限卡住或默默丢改动。
@@ -469,7 +488,7 @@ Running → Reconnecting → Running / Failed
 3. Most used Server 依据成功转发次数；Profile 每次批量启动至少一条新规则成功算一次使用。浏览页面、测试连接、终端启动可影响 LastUsedAt，但不冒充成功转发统计。
 4. 累计统计独立持久化，Recent 裁剪不改变 Total forwards。活动使用 UTC 存储、本地时间显示；名称重命名/删除不破坏历史快照，当前资源与历史口径区分清楚。
 5. 不显示未实现的 Total transferred traffic，不用 0 伪装。若用户明确要求计量，先完成独立计量技术里程碑再将真实数据接入。
-6. Settings：MaximumItems 3–10、默认 Server、自动找端口默认值；默认值只作用于新 Quick/Rule，不回写旧 Rule 或覆盖当前已编辑草稿。
+6. Settings：MaximumItems 3–10、默认 Server、自动找本地端口默认值；自动搜索默认值只作用于新 Local Quick/Rule，不回写旧 Rule 或覆盖当前已编辑草稿，Remote 不使用该设置。
 7. Default Server 被删除清空；Quick 固定/选择独立于列表 Pin。Settings 常规修改即时保存且失败可见。
 8. Recent/Statistics 宽窗并排，窄窗上下；无巨大 KPI 卡片、实时带宽或 Sidebar uptime。资源频率计数不改变 Other 排序。
 
@@ -512,7 +531,7 @@ Running → Reconnecting → Running / Failed
 | --- | --- | --- |
 | 默认 Server + 端口 + Enter | 单条真实转发、重复提交幂等、focus 命令逻辑 | 是否足够快捷自然 |
 | `-L` N 占用，N+1 空闲 | 实际绑定 N+1、target 不变、停止释放 | Badge、Requested/Actual 是否一眼可懂 |
-| `-R` 占用/策略拒绝 | 有限重试、正确停止条件、不误分类 | 错误文案是否诚实且可操作 |
+| `-R` 占用/策略拒绝 | 只申请一次、不递增、不误分类、清理独立传输 | 通用错误与手动恢复指引是否清楚 |
 | 2 台 Server、4 条混合规则 | 数据全通、单条停不影响其余 | 行信息和状态是否清楚 |
 | Profile 多服务器部分失败 | 成功保留、失败可重试、无重复 listener | 部分成功呈现 |
 | 新建/Pin/Unpin/排序/重启 | 顺序不变量与 Sidebar 投影保持 | 拖排、键盘、空态和间距 |

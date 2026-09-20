@@ -7,13 +7,17 @@
 	  <Nullable>enable</Nullable>
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <UseWinUI>true</UseWinUI>
+      <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
 	  <WindowsPackageType>None</WindowsPackageType>
 	  <ApplicationManifest>app.manifest</ApplicationManifest>
 	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	  <Platforms>AnyCPU;x64</Platforms>
+	  <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../src/TunnelDeck.Core/TunnelDeck.Core.csproj" />
+    <ProjectReference Include="../src/TunnelDeck.Infrastructure/TunnelDeck.Infrastructure.csproj" />
     <PackageReference Include="CommunityToolkit.WinUI.Controls.HeaderedControls" Version="8.2.251219" />
     <PackageReference Include="CommunityToolkit.WinUI.Controls.Primitives" Version="8.2.251219" />
     <PackageReference Include="CommunityToolkit.WinUI.Controls.Segmented" Version="8.2.251219" />

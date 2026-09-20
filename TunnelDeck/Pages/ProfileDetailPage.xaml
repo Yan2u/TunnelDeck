@@ -1,0 +1,91 @@
+<pages:ShellPage x:Class="TunnelDeck.Pages.ProfileDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:pages="using:TunnelDeck.Pages" xmlns:controls="using:TunnelDeck.Controls" xmlns:presentation="using:TunnelDeck.Core.Presentation"
+    SizeChanged="OnPageSizeChanged">
+    <Grid x:Name="PageContent" Padding="24" RowSpacing="24">
+        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+        <CommandBar DefaultLabelPosition="Right" Background="{ThemeResource SubtleFillColorTransparentBrush}">
+            <CommandBar.Content><TextBlock Text="{x:Bind ViewModel.Editor.Title, Mode=OneWay}" Style="{ThemeResource TitleTextBlockStyle}" TextTrimming="CharacterEllipsis"
+                                          ToolTipService.ToolTip="{x:Bind ViewModel.Editor.Title, Mode=OneWay}" AutomationProperties.HeadingLevel="Level1" AutomationProperties.AutomationId="ProfileDetailPage" /></CommandBar.Content>
+            <AppBarButton Icon="Play" Label="Start all" Click="OnStartAll" IsEnabled="{x:Bind ViewModel.CanStartAll, Mode=OneWay}" AutomationProperties.AutomationId="StartProfile" />
+            <AppBarButton Icon="Save" Label="Save" Click="OnSaveClick" IsEnabled="{x:Bind ViewModel.Editor.CanSave, Mode=OneWay}" AutomationProperties.AutomationId="SaveProfile" AutomationProperties.Name="Save profile" />
+            <AppBarButton Icon="Cancel" Label="Cancel" Click="OnCancelClick" AutomationProperties.AutomationId="CancelProfile" />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Delete profile" Icon="Delete" Click="OnDeleteClick" IsEnabled="{x:Bind ViewModel.CanDelete, Mode=OneWay}"
+                              Foreground="{ThemeResource SystemFillColorCriticalBrush}" AutomationProperties.AutomationId="DeleteProfile" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+        <ScrollViewer x:Name="DetailScroll" Grid.Row="1" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled" AutomationProperties.AutomationId="ProfileDetailScroll">
+            <StackPanel Spacing="20">
+                <InfoBar IsOpen="{x:Bind pages:ShellPage.HasText(ViewModel.OperationError), Mode=OneWay}" Visibility="{x:Bind pages:ShellPage.TextVisible(ViewModel.OperationError), Mode=OneWay}"
+                         Message="{x:Bind ViewModel.OperationError, Mode=OneWay}" Severity="Error" IsClosable="False" AutomationProperties.AutomationId="ProfileOperationError" />
+                <InfoBar IsOpen="{x:Bind pages:ShellPage.HasText(Shell.Forwarding.ActivityError), Mode=OneWay}" Visibility="{x:Bind pages:ShellPage.TextVisible(Shell.Forwarding.ActivityError), Mode=OneWay}"
+                         Message="{x:Bind Shell.Forwarding.ActivityError, Mode=OneWay}" Severity="Warning" IsClosable="False">
+                    <InfoBar.ActionButton><Button Content="Retry saving activity" Click="OnRetryActivity" /></InfoBar.ActionButton>
+                </InfoBar>
+                <StackPanel Spacing="6">
+                    <TextBox Header="Name" PlaceholderText="e.g. Web Development" Text="{x:Bind ViewModel.Editor.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             IsEnabled="{x:Bind ViewModel.Editor.CanEdit, Mode=OneWay}" AutomationProperties.AutomationId="ProfileName" />
+                    <TextBlock Text="{x:Bind ViewModel.Editor.Error, Mode=OneWay}" Visibility="{x:Bind pages:ShellPage.TextVisible(ViewModel.Editor.Error), Mode=OneWay}" Foreground="{ThemeResource SystemFillColorCriticalBrush}"
+                               TextWrapping="Wrap" AutomationProperties.AutomationId="ProfileValidationError" AutomationProperties.LiveSetting="Polite" />
+                    <TextBlock Text="{x:Bind ViewModel.Editor.DraftHint, Mode=OneWay}" Visibility="{x:Bind pages:ShellPage.TextVisible(ViewModel.Editor.DraftHint), Mode=OneWay}"
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" />
+                </StackPanel>
+                <StackPanel Spacing="8" Visibility="{x:Bind pages:ShellPage.TextVisible(ViewModel.RunSummary), Mode=OneWay}">
+                    <TextBlock Text="Latest start" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                    <TextBlock Text="{x:Bind ViewModel.RunSummary, Mode=OneWay}" TextWrapping="Wrap" AutomationProperties.AutomationId="ProfileBatchSummary" AutomationProperties.LiveSetting="Polite" />
+                    <CommandBar DefaultLabelPosition="Right" HorizontalAlignment="Left" Background="{ThemeResource SubtleFillColorTransparentBrush}">
+                        <AppBarButton Icon="Cancel" Label="Cancel start" Click="OnCancelStart" Visibility="{x:Bind pages:ShellPage.Visible(ViewModel.IsStarting), Mode=OneWay}" AutomationProperties.AutomationId="CancelProfileStart" />
+                        <AppBarButton Icon="Refresh" Label="Retry failed" Click="OnRetryFailed" IsEnabled="{x:Bind ViewModel.CanRetryFailed, Mode=OneWay}" AutomationProperties.AutomationId="RetryProfileFailed" />
+                        <AppBarButton Icon="List" Label="Active tunnels" Click="OnShowTunnels" AutomationProperties.AutomationId="ShowProfileTunnels" />
+                    </CommandBar>
+                </StackPanel>
+                <StackPanel Spacing="12">
+                    <TextBlock Text="Forwarding rules" Style="{ThemeResource SubtitleTextBlockStyle}" AutomationProperties.HeadingLevel="Level2" />
+                    <TextBlock Text="Each rule can use a different server. Removing a rule changes the saved profile; existing forwards keep running."
+                               Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap" />
+                    <TextBlock Text="No forwarding rules" Visibility="{x:Bind pages:ShellPage.Visible(ViewModel.Editor.IsEmpty), Mode=OneWay}" AutomationProperties.AutomationId="EmptyProfileRules" />
+                    <ListView ItemsSource="{x:Bind ViewModel.Editor.Rules, Mode=OneWay}" SelectionMode="None" ItemContainerStyle="{StaticResource StretchListViewItemStyle}"
+                              ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                              ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" AutomationProperties.AutomationId="ProfileRules">
+                        <ListView.ItemTemplate><DataTemplate x:DataType="presentation:ProfileRuleItem">
+                            <Grid ColumnSpacing="12" RowSpacing="4" Padding="0,4" ToolTipService.ToolTip="{x:Bind FullRoute}" AutomationProperties.Name="{x:Bind AccessibleName, Mode=OneWay}" AutomationProperties.AutomationId="{x:Bind RowId}">
+                                <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+                                <StackPanel Spacing="4">
+                                    <TextBlock Text="{x:Bind ServerName, Mode=OneWay}" TextTrimming="CharacterEllipsis" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                                    <TextBlock Text="{x:Bind Route}" Style="{StaticResource TechnicalTextStyle}" />
+                                    <TextBlock Text="{x:Bind Status, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Button Tag="{x:Bind}" Click="OnStartRule" IsEnabled="{x:Bind CanStart, Mode=OneWay}" Visibility="{x:Bind pages:ShellPage.Hidden(ShowStop), Mode=OneWay}" Style="{ThemeResource SubtleButtonStyle}"
+                                            AutomationProperties.Name="Start rule" AutomationProperties.AutomationId="{x:Bind StartId}" ToolTipService.ToolTip="Start rule"><SymbolIcon Symbol="Play" /></Button>
+                                    <Button Tag="{x:Bind}" Click="OnStopRule" IsEnabled="{x:Bind CanStop, Mode=OneWay}" Visibility="{x:Bind pages:ShellPage.Visible(ShowStop), Mode=OneWay}" Style="{ThemeResource SubtleButtonStyle}"
+                                            AutomationProperties.Name="Stop rule" AutomationProperties.AutomationId="{x:Bind StopId}" ToolTipService.ToolTip="Stop rule"><SymbolIcon Symbol="Stop" /></Button>
+                                    <Button Tag="{x:Bind}" Click="OnEditRule" IsEnabled="{x:Bind CanEdit, Mode=OneWay}" Style="{ThemeResource SubtleButtonStyle}"
+                                            AutomationProperties.Name="Edit rule" AutomationProperties.AutomationId="{x:Bind EditId}" ToolTipService.ToolTip="Edit rule"><SymbolIcon Symbol="Edit" /></Button>
+                                    <Button IsEnabled="{x:Bind CanEdit, Mode=OneWay}" Style="{ThemeResource SubtleButtonStyle}" AutomationProperties.Name="Rule actions" AutomationProperties.AutomationId="{x:Bind MoreId}" ToolTipService.ToolTip="Rule actions">
+                                        <FontIcon Glyph="&#xE712;" />
+                                        <Button.Flyout><MenuFlyout>
+                                            <MenuFlyoutItem Text="Move up" Tag="{x:Bind}" Click="OnMoveRuleUp" IsEnabled="{x:Bind CanMoveUp, Mode=OneWay}" AutomationProperties.AutomationId="{x:Bind MoveUpId}" />
+                                            <MenuFlyoutItem Text="Move down" Tag="{x:Bind}" Click="OnMoveRuleDown" IsEnabled="{x:Bind CanMoveDown, Mode=OneWay}" AutomationProperties.AutomationId="{x:Bind MoveDownId}" />
+                                            <MenuFlyoutSeparator />
+                                            <MenuFlyoutItem Text="Remove rule" Tag="{x:Bind}" Click="OnRemoveRule" AutomationProperties.AutomationId="{x:Bind RemoveId}" />
+                                        </MenuFlyout></Button.Flyout>
+                                    </Button>
+                                </StackPanel>
+                                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="{x:Bind Error, Mode=OneWay}" Visibility="{x:Bind pages:ShellPage.TextVisible(Error), Mode=OneWay}" Foreground="{ThemeResource SystemFillColorCriticalBrush}" TextWrapping="Wrap" />
+                            </Grid>
+                        </DataTemplate></ListView.ItemTemplate>
+                    </ListView>
+                    <Button x:Name="AddRuleButton" Content="Add rule" Click="OnAddRule" IsEnabled="{x:Bind ViewModel.Editor.CanEdit, Mode=OneWay}" AutomationProperties.AutomationId="AddRule" />
+                </StackPanel>
+                <StackPanel x:Name="RuleEditorPanel" Spacing="16" Visibility="{x:Bind pages:ShellPage.Visible(ViewModel.Editor.IsEditingRule), Mode=OneWay}">
+                    <TextBlock Text="{x:Bind ViewModel.Editor.RuleEditorTitle, Mode=OneWay}" Style="{ThemeResource SubtitleTextBlockStyle}" AutomationProperties.HeadingLevel="Level2" />
+                    <controls:RuleEditorView x:Name="RuleEditor" Model="{x:Bind ViewModel.Editor.RuleEditor, Mode=OneWay}" ServerChoices="{x:Bind Shell.ServerChoices, Mode=OneWay}"
+                                             IsEnabled="{x:Bind ViewModel.Editor.CanApplyRule, Mode=OneWay}" ApplyRequested="OnApplyRule" CancelRequested="OnCancelRule" AutomationProperties.AutomationId="RuleEditor" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</pages:ShellPage>

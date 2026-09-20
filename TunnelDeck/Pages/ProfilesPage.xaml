@@ -1,0 +1,5 @@
+<pages:ShellPage x:Class="TunnelDeck.Pages.ProfilesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:pages="using:TunnelDeck.Pages" xmlns:controls="using:TunnelDeck.Controls">
+    <controls:ResourceListView x:Name="ResourcesView" />
+</pages:ShellPage>

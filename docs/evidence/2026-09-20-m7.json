@@ -1,0 +1,568 @@
+{
+  "capturedAtUtc": "2026-09-20T10:57:04.0266011+08:00",
+  "milestone": "M7 complete; GUI C accepted by user",
+  "source": {
+    "baseCommit": "2039b14f9f83616748b2471f343defd1d58710f7",
+    "branch": "codex/m0-m1-foundation",
+    "changes": "Uncommitted workspace changes, M0-M7; user prompt edits preserved",
+    "implementation": [
+      {
+        "path": "src/TunnelDeck.Core/Presentation/ObservableModel.cs",
+        "sha256": "94A9808A8F878D2C5464822510F7F5406C90526A07585C2C2721FFB7DDE6DE02",
+        "length": 735
+      },
+      {
+        "path": "src/TunnelDeck.Core/Presentation/QuickForwardModel.cs",
+        "sha256": "F1EE233530FC58C90E62F051204065B913BAA6315CE2D47958BC2761FE7EEB69",
+        "length": 6154
+      },
+      {
+        "path": "src/TunnelDeck.Core/Presentation/TunnelItem.cs",
+        "sha256": "4A5CC7F3C5B7A9CE28A9AFB84B11BBFCD4582547BE1519591FA03998C9D8DA7A",
+        "length": 5024
+      },
+      {
+        "path": "src/TunnelDeck.Core/Presentation/TunnelWorkspace.cs",
+        "sha256": "DFE3725CEBC50F1B2F309D5CE1CA0AB64CA179995E8B7558936914A179C99DAE",
+        "length": 6548
+      },
+      {
+        "path": "src/TunnelDeck.Core/Presentation/TunnelWorkspace.Commands.cs",
+        "sha256": "BA821245B3A187316AD94B58C177B316C32F0AEE05B0A07B5B0DAD8367B95F34",
+        "length": 6582
+      },
+      {
+        "path": "src/TunnelDeck.Core/Tunnels/TunnelActivityRecorder.cs",
+        "sha256": "F3B121F8388BEFF59EF9312371391A0B0F039E26D1A20BE797A1BF9BD11B9C8A",
+        "length": 5362
+      },
+      {
+        "path": "src/TunnelDeck.Core/Tunnels/TunnelManager.Stop.cs",
+        "sha256": "639AFE7C20FF105DCDFCA5C18E8D1E1859B5FB393539D08EC42C002F9F6E613D",
+        "length": 8721
+      },
+      {
+        "path": "src/TunnelDeck.Core/Runtime/ActiveTunnel.cs",
+        "sha256": "19D2FE248CED1F6E369E5F478F5A94BB5698627F03C8F1C878F232D3BF417E50",
+        "length": 1545
+      },
+      {
+        "path": "src/TunnelDeck.Infrastructure/Ssh/SshSessionFactory.cs",
+        "sha256": "0F70237A4280212248F2774BD1A208B2ABE74834AA66311A31C83F8AE7529FAF",
+        "length": 5898
+      },
+      {
+        "path": "TunnelDeck/Services/AppServices.cs",
+        "sha256": "E9216B2555AD958AEDE060F9C43F2C600CF7896884AAFD80AAB47A2FCD50F5EA",
+        "length": 3330
+      },
+      {
+        "path": "TunnelDeck/Services/ViewDispatcher.cs",
+        "sha256": "1691C0ACE0C3825595344706AD01F446F23513BDB3A1D7609B335479EF49A459",
+        "length": 333
+      },
+      {
+        "path": "TunnelDeck/Services/DialogService.cs",
+        "sha256": "9942974E3B1ACBC10DF4544DFFDE6BA9E99AC6A0F4AA128DCD06A0E53BC07551",
+        "length": 4373
+      },
+      {
+        "path": "TunnelDeck/Services/DialogService.Credentials.cs",
+        "sha256": "CCDD076F8C3AC2C14FBE92AA02729E78F843D17F019453470ACA3F25752A306F",
+        "length": 3014
+      },
+      {
+        "path": "TunnelDeck/ViewModels/ShellViewModel.cs",
+        "sha256": "3736276F4CDCD9110EF38A9F3CDADAD45E7C8FA152F2682474CECCAAD3AAAA57",
+        "length": 9694
+      },
+      {
+        "path": "TunnelDeck/ViewModels/DashboardViewModel.cs",
+        "sha256": "B8CA5F1BFB2089C7DA18FE72198F7F2FCB54FDBE19018196CE83F707ADAC1DD9",
+        "length": 2002
+      },
+      {
+        "path": "TunnelDeck/ViewModels/ResourceDetailRows.cs",
+        "sha256": "C31EEEDAFC940164EA161B6F8C9C88C5AE47797D7EC633BB28A5D21C869CED96",
+        "length": 873
+      },
+      {
+        "path": "TunnelDeck/Pages/DashboardPage.xaml",
+        "sha256": "0DD85F6FBC0121262FC4A9F5C6BF7E57B533B4EBD07AD0C59FEAA15EF578A9A0",
+        "length": 16232
+      },
+      {
+        "path": "TunnelDeck/Pages/DashboardPage.xaml.cs",
+        "sha256": "6EE8B83B0C77E28C0CF171B72B8D1E020325084D46E71947C8F5A69FC38E1089",
+        "length": 7120
+      },
+      {
+        "path": "TunnelDeck/Controls/PortInput.xaml",
+        "sha256": "A2445ABCDBBFF7C07D78E0FAC87289ABCDD496D7BFA986456E9CA7F2DCCCA9B1",
+        "length": 483
+      },
+      {
+        "path": "TunnelDeck/Controls/PortInput.xaml.cs",
+        "sha256": "9809A582ECA60DBCC22BBA6F8C2C26D5433D7701E24C76F6DE9F6DD2690FB495",
+        "length": 3378
+      },
+      {
+        "path": "TunnelDeck/Controls/TunnelListItem.xaml",
+        "sha256": "BC91C2AD4427E631B80E8262F6154FAD944EDDF7E02DDF22A776CB9943A4D769",
+        "length": 8197
+      },
+      {
+        "path": "TunnelDeck/Controls/TunnelListItem.xaml.cs",
+        "sha256": "3F8C020515496C424EFE019570821CE208326EFD36E3D78BA6ACCE022D4DEF99",
+        "length": 2387
+      },
+      {
+        "path": "TunnelDeck/Design/DesignScenario.cs",
+        "sha256": "846BC4DBCA952114E91290D64CD9D8825EB3B782D4B9E106C39053A069FEA609",
+        "length": 7087
+      },
+      {
+        "path": "scripts/Desktop-TestSupport.ps1",
+        "sha256": "3F8239EE0A21880029684479466A3C76C56BB62106134678874F174B2EECC797",
+        "length": 6642
+      },
+      {
+        "path": "scripts/Verify-Forwards.ps1",
+        "sha256": "679A7890CDD7F0F141B81A0B5E2573E67CF1FD990CE716065EDCA0F90F02AF37",
+        "length": 14002
+      },
+      {
+        "path": "scripts/Verify-Dashboard.ps1",
+        "sha256": "AE52CBA316AACFEE1234D60E5C949C32DF10E64AAA844C8E84CDA5E5D65E1C8A",
+        "length": 4879
+      },
+      {
+        "path": "tests/TunnelDeck.Core.Tests/QuickForwardTests.cs",
+        "sha256": "7A5D3265B9E60C0CE712A85737C24EE2AF1FF3FF987160D71F5F096BA8B386C8",
+        "length": 4235
+      },
+      {
+        "path": "tests/TunnelDeck.Core.Tests/TunnelItemTests.cs",
+        "sha256": "619B4EA9B4938AE783420F1B39CBD41C652C3E38DF47DEC882635F0A15AA9580",
+        "length": 2294
+      },
+      {
+        "path": "tests/TunnelDeck.Core.Tests/TunnelWorkspaceTests.cs",
+        "sha256": "1B8B016B40CFA5AC10DF390D3110CBF97A56911B6C04DDE540179D8FC057A075",
+        "length": 9685
+      },
+      {
+        "path": "tests/TunnelDeck.Ssh.Tests/EngineLifecycleTests.cs",
+        "sha256": "976C7AEEDFD9C1E32EE6A99CD4F94F680EBFF93060E39020E23F362DAD7A533A",
+        "length": 7262
+      },
+      {
+        "path": "tests/TunnelDeck.Ssh.Tests/FixtureControlTests.cs",
+        "sha256": "EAED70072B390BF090348B53B3DCC80466F6BD2C0B6A371DDF75171791C65102",
+        "length": 670
+      },
+      {
+        "path": "test-infra/sshd/fixture_server.py",
+        "sha256": "2BCB76944203DE7A85615E9A568761A3779D31CF6F2CE417B8920D1F1E2AB98D",
+        "length": 11152
+      }
+    ]
+  },
+  "build": {
+    "command": "./scripts/Build.ps1 -LockedRestore",
+    "configuration": "Release x64",
+    "warnings": 0,
+    "errors": 0,
+    "sdk": "10.0.400-preview.0.26322.102",
+    "targetFramework": "net10.0-windows10.0.19041.0",
+    "windowsPackageType": "None",
+    "sshNetVersion": "2026.0.0",
+    "outputs": [
+      {
+        "path": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.exe",
+        "sha256": "4F610AC955E3E708BBD3D674AA2BC1E68D141762681C85C983651E4FF10198CF",
+        "length": 165376
+      },
+      {
+        "path": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.dll",
+        "sha256": "DB14119C90C2DB2F023518CD834190BEBB2460B471C4ADE2DE194A27A1224F4A",
+        "length": 327680
+      },
+      {
+        "path": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.Core.dll",
+        "sha256": "9B6363DDB43768B90506264E92FE9149343D0D77138A784FA442CDE3F0AB6236",
+        "length": 252416
+      },
+      {
+        "path": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.Infrastructure.dll",
+        "sha256": "980B97293CB4D06BEF43C572A89150D6C2DECFD011C8ED467B19D830671B157E",
+        "length": 67584
+      }
+    ]
+  },
+  "tests": {
+    "command": "./scripts/Test.ps1 -Ssh",
+    "fixtureRebuilt": true,
+    "total": 404,
+    "passed": 404,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "suite": "Core",
+        "total": 260,
+        "passed": 260,
+        "failed": 0,
+        "skipped": 0,
+        "finishedAt": "2026-09-20T01:33:58.4917039+08:00",
+        "report": {
+          "path": "artifacts/m7-review/tests/TunnelDeck.Core.Tests.trx",
+          "sha256": "6743505BB6AB3942CD3E9C25005130C2EB6154A42644D7FAD78BA0691D921638",
+          "length": 381514
+        }
+      },
+      {
+        "suite": "Infrastructure",
+        "total": 87,
+        "passed": 87,
+        "failed": 0,
+        "skipped": 0,
+        "finishedAt": "2026-09-20T01:34:02.8125579+08:00",
+        "report": {
+          "path": "artifacts/m7-review/tests/TunnelDeck.Infrastructure.Tests.trx",
+          "sha256": "E9DC1FDE76B2830EB8F20DF96BAD5AA2B15BD00514EF4B054527C4F3A9DD7D6D",
+          "length": 137549
+        }
+      },
+      {
+        "suite": "Ssh",
+        "total": 57,
+        "passed": 57,
+        "failed": 0,
+        "skipped": 0,
+        "finishedAt": "2026-09-20T01:35:03.7958864+08:00",
+        "report": {
+          "path": "artifacts/m7-review/tests/TunnelDeck.Ssh.Tests.trx",
+          "sha256": "20204568D15E5C53465366B902E188E170EFE5DD451F3F555BE73C49702F1BC1",
+          "length": 88542
+        }
+      }
+    ],
+    "addedSinceM6": {
+      "core": 30,
+      "realSsh": 2
+    }
+  },
+  "nativeVerification": {
+    "forwards": {
+      "capturedAtUtc": "2026-09-20T10:30:33.5981306+08:00",
+      "checks": {
+        "emptyAddAndPinnedSelection": "Passed",
+        "rawTextAndEnterValidation": "Passed",
+        "localAllocationPayloadDuplicateAndDetails": "Passed",
+        "advancedDraftNavigationAndIndependentStop": "Passed",
+        "remotePayloadAndAdaptiveUi": "Passed",
+        "remoteRefusalAndManualRetry": "Passed",
+        "liveLocalAndRemoteShutdown": "Passed",
+        "shutdownMilliseconds": 232,
+        "ephemeralCredentialsAndActivityPersistence": "Passed"
+      },
+      "dataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m7-ui\\de715bb32eaf4df0814fb9e6b3bdd5aa"
+    },
+    "dashboard": {
+      "capturedAtUtc": "2026-09-20T10:43:20.5131556+08:00",
+      "checks": {
+        "boundedListAndStationaryQuickInput": "Passed (24 sample rows)",
+        "keyboardDetailsAdjustmentAndEscape": "Passed",
+        "adaptiveLightAndDark": "Passed (1200, 900, 640, 500 epx)",
+        "emptyAndPreviewNetworkDisabled": "Passed"
+      },
+      "highContrast": "Not switched globally"
+    },
+    "connections": {
+      "milestone": "M5",
+      "recordedAtUtc": "2026-09-20T10:31:26.9353038+08:00",
+      "checks": {
+        "formValidation": "Passed",
+        "unsavedTestAndHostApproval": "Passed",
+        "rememberAndRestart": "Passed",
+        "authenticationErrorAndMissingCredential": "Passed",
+        "cancelNavigationAndIdentityGuard": "Passed",
+        "encryptedKeyAndCredentialReplacement": "Passed",
+        "unencryptedKeyForgetAndUnreadableFile": "Passed",
+        "narrowDarkForm": "Passed",
+        "closeDuringHostApproval": "Passed",
+        "closeMilliseconds": 460
+      }
+    },
+    "window": {
+      "capturedAtUtc": "2026-09-20T10:44:58.6431651+08:00",
+      "title": "TunnelDeck",
+      "startupToWindowMs": 1346,
+      "fixedDashboard": "539,281,310,51",
+      "fixedSettings": "539,1041,310,51",
+      "fixedRuntime": "559,1102,270,24",
+      "resourceScroll": "Passed",
+      "titleBarSearch": "Passed",
+      "paneToggle": "Passed",
+      "shortWindow": "Passed (900 x 500 physical pixels)",
+      "repeatedClose": "Passed",
+      "responsiveDuringCleanup": true,
+      "shutdownMs": 1229,
+      "exitCode": 0
+    },
+    "shell": {
+      "capturedAtUtc": "2026-09-20T10:48:26.8697835+08:00",
+      "checks": {
+        "dashboard": "Passed",
+        "saveDoesNotStealNavigation": "Passed",
+        "localPortOption": "Passed",
+        "searchAndBack": "Passed",
+        "fixedSidebar": "Passed",
+        "resourceEditsAndPinOrder": "Passed",
+        "adaptiveLayouts": "Passed (900, 640 and 500 epx)",
+        "emptyAndAddFlows": "Passed",
+        "restartPersistence": "Passed"
+      },
+      "dataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m4-shell\\1f2101713fc84421b5dde9fd06ed34fd",
+      "highContrast": "Not switched globally; ThemeResource audit and manual review pending"
+    },
+    "storage": {
+      "capturedAtUtc": "2026-09-20T10:49:09.6287321+08:00",
+      "futureSchemaProtected": true,
+      "validBackupWasNotUsedToDowngrade": true,
+      "recoveredBackupNotice": true,
+      "bothFilesCorruptNotice": true,
+      "retryAfterExternalRepair": true,
+      "cleanLoadAndShutdownPreservedFile": true,
+      "isolatedDataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\storage-window\\5a73ee40032d4cee823336e5c8793ded",
+      "credentialNamespace": "TunnelDeck/Isolated/<directory hash>"
+    }
+  },
+  "nativeReports": [
+    {
+      "path": "artifacts/m7-review/verification.json",
+      "sha256": "727A488A1D42E2520B8C75CB254B39733179F6FE9179B0BF2DA3477965EA5D88",
+      "length": 691
+    },
+    {
+      "path": "artifacts/m7-review/dashboard-verification.json",
+      "sha256": "2C80784186BEDA577F0A6CBD1AD4E391FFDB7731C30D2D3294149C4AF9FD737C",
+      "length": 401
+    },
+    {
+      "path": "artifacts/m7-review/connections-verification.json",
+      "sha256": "6C287F6B0D15F7DE26FA567477A7238C98920CC870EAD15647F8039A2C91B918",
+      "length": 577
+    },
+    {
+      "path": "artifacts/m7-review/window-verification.json",
+      "sha256": "5B5C8C9976FA0740EE6ABCE73A63057DD84B5B603129A8B4EA5473AFAEE72173",
+      "length": 518
+    },
+    {
+      "path": "artifacts/m7-review/shell-verification.json",
+      "sha256": "A52294F3789385EF90B4B199B75940F5A3C7DDDDEC77B86544BBF1BEC7263C0C",
+      "length": 681
+    },
+    {
+      "path": "artifacts/m7-review/storage-verification.json",
+      "sha256": "80FF48406021C1EC18D05AA136EA890B135140F6F1F79AE6B469D4ECC1ADF837",
+      "length": 507
+    }
+  ],
+  "nativeCommands": [
+    "./scripts/Verify-Forwards.ps1 -NoFixtureBuild",
+    "./scripts/Verify-Dashboard.ps1",
+    "./scripts/Verify-Connections.ps1 -NoFixtureBuild",
+    "./scripts/Verify-Window.ps1",
+    "./scripts/Verify-Shell.ps1",
+    "./scripts/Verify-Storage.ps1"
+  ],
+  "visualReview": {
+    "themes": [
+      "Light",
+      "Dark"
+    ],
+    "widthsEpx": [
+      1200,
+      900,
+      640,
+      500
+    ],
+    "targetWindowCapture": true,
+    "inspected": [
+      "Normal startup",
+      "Local adjustment",
+      "Left-placed Details",
+      "Mixed real forwards",
+      "Remote failure",
+      "Stress list at 1200, 900 and 500 epx",
+      "Advanced fields at 640 epx",
+      "Private-key form at 640 epx",
+      "Short window"
+    ],
+    "screenshots": [
+      {
+        "path": "artifacts/m7-review/final-app.png",
+        "sha256": "5BE5651B2BB523FF40688431265B7E2FDD81E6649A98EDB9128E99000C35C41D",
+        "length": 69379
+      },
+      {
+        "path": "artifacts/m7-review/local-port-adjusted.png",
+        "sha256": "F978380DE3855A0D4470E00BD3500242BF36C216B06F6FED414E6E44AEC30BF1",
+        "length": 179729
+      },
+      {
+        "path": "artifacts/m7-review/running-details.png",
+        "sha256": "2DFE4052798E7BD551230F13417AAC27226A3082C8F7F5E25BCA861E2C1CAAFC",
+        "length": 257748
+      },
+      {
+        "path": "artifacts/m7-review/mixed-running-dark.png",
+        "sha256": "FFDAA127DA233BFA1E33511F3B83E55B809765C51608A86717DA4ADA4191FD9C",
+        "length": 113648
+      },
+      {
+        "path": "artifacts/m7-review/advanced-900-dark.png",
+        "sha256": "13A8394986319B06FB530DB322B2B8F114435ED6B39B608EE658673469BC7A56",
+        "length": 90845
+      },
+      {
+        "path": "artifacts/m7-review/advanced-640-dark.png",
+        "sha256": "C9B5C9CC496761657AAED9DDD01DA5F28A9DBC6B83A795AF424CC9E64A6673A5",
+        "length": 57315
+      },
+      {
+        "path": "artifacts/m7-review/remote-refusal.png",
+        "sha256": "1F1946962E14172CF963C06A4D4F758D5A305764F3113461BCFF92A9ADA289D0",
+        "length": 117211
+      },
+      {
+        "path": "artifacts/m7-review/stress-1200-light.png",
+        "sha256": "9614AB9D9F0FFCEB689A313A216EC61FD1C1A57C1B1D21FF8D51BA609A919838",
+        "length": 172988
+      },
+      {
+        "path": "artifacts/m7-review/stress-900-dark.png",
+        "sha256": "3C80F90A8B3917B340C07D93B0F4ABB8888638830BD567F0F90D2A5001BFEED8",
+        "length": 99928
+      },
+      {
+        "path": "artifacts/m7-review/stress-640-dark.png",
+        "sha256": "A8AD4C886D6D53E4156CE9595470498310EB99EE805E44C7C5146FE04A45A3F2",
+        "length": 62988
+      },
+      {
+        "path": "artifacts/m7-review/stress-500-dark.png",
+        "sha256": "734A0FB752F154CDE3D951A91628C763899CF847B31A29DDB61530A480C161F3",
+        "length": 46752
+      },
+      {
+        "path": "artifacts/m7-review/empty-dark.png",
+        "sha256": "5E57A7D20141D07C724D0F90E181B1C03687496254AA68772B28CBBDBD7FA094",
+        "length": 105256
+      },
+      {
+        "path": "artifacts/m7-review/connections-host-key-approval.png",
+        "sha256": "36A66DDA07B33E88EDF12484DFAE30A854C057847D0CE61941969919C5D1EF03",
+        "length": 132432
+      },
+      {
+        "path": "artifacts/m7-review/connections-authentication-error.png",
+        "sha256": "BC32AF1723DA6A7098B0DB5401B48252442A2911CEB5BF9FDD6E817543F44317",
+        "length": 123622
+      },
+      {
+        "path": "artifacts/m7-review/connections-private-key-640-dark.png",
+        "sha256": "779EAEF245744EEB701DD2E2B57F8F3C8F77ECFD6B7119072BC36F7542571734",
+        "length": 49950
+      },
+      {
+        "path": "artifacts/m7-review/window-wide.png",
+        "sha256": "EE5A43259165B9E5FB84236AFB8F30D5E4CAC1BB40EAF9A7656BA28EE65AD997",
+        "length": 121751
+      },
+      {
+        "path": "artifacts/m7-review/window-short.png",
+        "sha256": "7FAD4F301EECF04FA1473B5A22F3F7F9BBF224388FAC0DEA2FCA41BF02ABDA8E",
+        "length": 107243
+      },
+      {
+        "path": "artifacts/m7-review/shell-profiles-stress.png",
+        "sha256": "F2F8D7532C4E2DEA88676CB31F553337E3A5AFD43A1CC7F26522106FBAEDB9AF",
+        "length": 164807
+      },
+      {
+        "path": "artifacts/m7-review/shell-settings-dark.png",
+        "sha256": "F9740DDCB95B6950E217F3BE7841A47C7245148CA0C2E9774FB11786B6FADEEB",
+        "length": 85849
+      },
+      {
+        "path": "artifacts/m7-review/storage-future-schema.png",
+        "sha256": "60531F2DAFE6345448437FA1B8F373E1D486A9A23D8EA09BB92775D66B3A7766",
+        "length": 82832
+      },
+      {
+        "path": "artifacts/m7-review/storage-recovered-backup.png",
+        "sha256": "9D628616394F808B8A590853112CE8F7D5173D5FB7E1EBCAC49814FEE179C8C2",
+        "length": 79022
+      }
+    ],
+    "highContrast": "Not switched or visually tested by agent"
+  },
+  "finalLaunch": {
+    "capturedAtUtc": "2026-09-20T10:54:48.159614+08:00",
+    "processId": 3224,
+    "windowHandle": 1181464,
+    "responding": true,
+    "title": "TunnelDeck",
+    "executable": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\TunnelDeck\\bin\\x64\\Release\\net10.0-windows10.0.19041.0\\TunnelDeck.exe",
+    "mode": "Normal",
+    "dashboardLoaded": true,
+    "quickInputLoaded": true,
+    "activeTunnelsAtStartup": 0,
+    "connectionInitiatedByAgent": false,
+    "verifiedAtUtc": "2026-09-20T10:57:04.0200803+08:00"
+  },
+  "fixtureCleanup": {
+    "verifiedAtUtc": "2026-09-20T10:54:30.4586934+08:00",
+    "remainingFixtureContainers": 0
+  },
+  "humanReview": {
+    "M4": "Accepted by user: OK，继续 M5.",
+    "M5": "Accepted by user: GUI 人工评测通过，继续 M6.",
+    "M7": "Accepted by user: GUI 通过，继续 M8.",
+    "legacyReportPlaceholders": "Pending fields in baseline GUI scripts do not revoke accepted GUI A/B."
+  },
+  "portSearchScope": "Only confirmed Local AddressAlreadyInUse increments; Remote never increments",
+  "activityScope": "Discrete Started/Stopped/Failed/Cancelled, latest 200 events; one count per newly successful instance; Profile batch-use and reconnect statistics remain future work.",
+  "verificationNotes": [
+    "A dashboard keyboard run stopped at the foreground ownership guard without sending input; a subsequent unchanged run passed with the same guard.",
+    "The forwarded-channel keepalive regression idles for seven seconds under ClientAliveInterval 2 / ClientAliveCountMax 2; default client keepalive remains 20 seconds.",
+    "Fixture HTTP/1.1 plus Content-Length is covered by eight concurrent data probes followed by 100 reserve/listen/release cycles; no underlying WSL cause is claimed."
+  ],
+  "limitations": [
+    "SSH.NET Local direct-tcpip OpenFailed notifications are incomplete; listener Running is not a target-health guarantee.",
+    "Remote refusal cannot distinguish occupation from forwarding policy; it does not trigger port search.",
+    "The keepalive compatibility fix does not resolve or establish long-duration TCP half-close/channel-reclamation behavior.",
+    "Remote release under a network blackhole still depends on server-side disconnect detection.",
+    "Profile editing/Start all UI, deletion consistency, automatic reconnect, Terminal, and complete statistics remain assigned to later milestones."
+  ],
+  "documentation": [
+    "README.md",
+    "docs/quick-forward.md",
+    "docs/milestones.md",
+    "docs/tunnels.md",
+    "docs/connections.md",
+    "docs/domain-model.md",
+    "docs/shell-and-navigation.md",
+    "docs/storage.md",
+    "docs/decisions/0002-forwarded-channel-keepalive.md",
+    ".codex/docs/implementation-plan.md",
+    ".codex/docs/ui-ux-spec.md",
+    ".codex/docs/research-and-decisions.md",
+    ".codex/docs/handoff.md",
+    ".codex/history/2026-09-20-m7-quick-forward.md"
+  ]
+}
