@@ -57,7 +57,7 @@ Requested 及目标端始终不变。成功时记录 Actual、BindAttempts、Por
 
 Start、单个或最后一个重复调用者取消、Stop、Remove 和 Shutdown 的交错都保持同一所有权。Stop / Dispose 默认确认预算为 5 秒；未确认时通过 `SshSessionLease.InvalidateAsync` 失效整个物理传输。Local 共享传输失效会更新相关 Local 规则，Remote 只影响自己的传输。保留清理失败的任务与句柄，重试 lease 释放不会重复扣减借用者。
 
-App 关闭顺序为 **Deletion → Profiles → Forwarding → Tunnels → Connections → Activity → Configuration → 可选窗口 probe**。M9 先排空删除事务，再排空 ProfileRunner / Quick 命令、取消临时凭据输入，清理网络并保存离散历史；最后在窗口仍存活时取消并排空原生对话框，再关闭窗口。Shutdown 永久停止接收新转发；所有已接收的监听和连接工作排空之后才完成。外层窗口超时只结束等待，后台清理仍被追踪。删除门禁和失败一致性见 [deletion](deletion.md)。断线后标记失败并清理；自动重连保留给 M10。
+App 关闭顺序为 **Work registry → Deletion → Reconnect → Profiles → Forwarding → Tunnels → Connections → Activity → Configuration → 可选窗口 probe**。M9 先排空删除事务，再排空 ProfileRunner / Quick 命令、取消临时凭据输入，清理网络并保存离散历史；最后在窗口仍存活时取消并排空原生对话框，再关闭窗口。Shutdown 永久停止接收新转发；所有已接收的监听和连接工作排空之后才完成。外层窗口超时只结束等待，后台清理仍被追踪。删除门禁和失败一致性见 [deletion](deletion.md)。断线后已建立的转发进入 M10 自动重连，未建立的启动仍标记失败并清理；见 [lifecycle](lifecycle.md)。
 
 正常可达的测试服务器上，清理完成后已验证 Local 可重新绑定、Remote 不再监听。网络黑洞、崩溃或断电时，远端释放依赖 sshd 检测到连接丢失；不能把本地 Dispose 完成扩展为所有网络故障下的即时远端释放承诺。
 

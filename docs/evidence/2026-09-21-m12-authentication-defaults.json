@@ -1,0 +1,267 @@
+{
+  "milestone": "M12",
+  "feedback": "SSH IdentityFile support and default server authentication/private-key configuration",
+  "capturedAtUtc": "2026-09-21T09:36:49.4399077+00:00",
+  "gitBase": "8665720da5a09bbffa99b1a1b2a11894cd287d9e",
+  "status": "Authentication defaults implemented and feature checks passed; GUI H pending. Full Transfer native regression failed twice at the existing resize rendering incident.",
+  "priorAcceptance": "M0-M11 and GUI A-G accepted by the user; M13 not started",
+  "behavior": [
+    "Standard IdentityFile was already supported. A valid explicit identity overrides either default authentication method.",
+    "Password remains the default. Private-key controls appear only when Private key is selected.",
+    "Detect only the user profile .ssh/id_rsa; permit manual file selection or full-path input. Persist only the path.",
+    "Prefill new servers and SSH config entries without IdentityFile. Preserve existing servers, edited drafts and explicit JSON authentication.",
+    "A missing configured default key requires correction before import. Explicit unusable IdentityFile declarations retain the earlier reported password fallback.",
+    "The source SSH config is never rewritten. Authentication settings do not start connections."
+  ],
+  "schema": {
+    "internalState": 2,
+    "migrateFrom": 1,
+    "loadWritesDisk": false,
+    "firstEditPreservesOldBackup": true,
+    "olderAppRejectsNewSchema": true,
+    "portableExport": 1,
+    "hostKeys": 1,
+    "credentialCleanup": 1
+  },
+  "build": {
+    "report": "artifacts/m12-auth-defaults/build.log",
+    "platform": "x64",
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0,
+    "lockedRestore": true
+  },
+  "tests": [
+    {
+      "path": "artifacts/m12-auth-defaults/tests/Core.trx",
+      "total": 428,
+      "passed": 428,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/tests/Infrastructure.trx",
+      "total": 148,
+      "passed": 148,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/tests/Ssh.trx",
+      "total": 87,
+      "passed": 87,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "totalPassed": 663,
+  "totalSkipped": 0,
+  "nativeReports": [
+    {
+      "path": "artifacts/m12-auth-defaults/native/result.json",
+      "status": "Passed",
+      "checkGroups": 8
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/storage/result.json",
+      "status": "Passed",
+      "futureSchemaProtected": true,
+      "cleanLoadAndShutdownPreservedFile": true
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer/result.json",
+      "status": "Failed",
+      "completedCheckGroups": 6,
+      "processId": 41276,
+      "incident": "artifacts/m12-auth-defaults/transfer/incident.json"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer-rerun/result.json",
+      "status": "Failed",
+      "completedCheckGroups": 6,
+      "processId": 11456,
+      "incident": "artifacts/m12-auth-defaults/transfer-rerun/incident.json"
+    }
+  ],
+  "notes": [
+    "Open-key and Save-export native pickers and cancellation passed. The shared driver distinguishes the file-name Edit from the address toolbar and waits for an owned picker to close before closing its app.",
+    "The full Transfer runs both completed export, preview cancellation, invalid JSON rejection and atomic failed-save retry before crashing after resizing to 500x580 and scrolling the SSH preview.",
+    "Windows Application events identify Microsoft.UI.Xaml 3.2.3.0 / E_SURFACE_CONTENTS_LOST (0x802b0020), matching the already recorded M12 rendering incident. No production exception handler was added and no exception was suppressed.",
+    "The earlier 641-test M12 evidence and earlier successful resize runs are preserved as historical evidence; they do not replace the two current failed regression runs.",
+    "Native driver corrections used AddServer, the runtime automation ID, and native Home/End selection for the default-authentication ComboBox. Review fixture editing preserves UTC strings."
+  ],
+  "isolation": {
+    "normalUserSettingsModified": false,
+    "userSshConfigModified": false,
+    "automaticTestsConnectedToActualUserServers": false,
+    "sshFixture": "Isolated fixture with temporary keys; stopped and credentials cleaned after tests"
+  },
+  "reviewWindow": {
+    "capturedAtUtc": "2026-09-21T09:35:48.3580919+00:00",
+    "processId": 52136,
+    "dataPath": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\authentication-review\\d7043fd1aa56435c80d95dd39498c364\\data",
+    "isolation": "Dedicated data directory; reserved example hosts; sample history; no connections started",
+    "page": "Settings / Server authentication",
+    "defaultAuthenticationMethod": "PrivateKey (review data only)",
+    "keyDetection": "Only checks whether the user profile .ssh/id_rsa exists; no key contents are read",
+    "guiReview": "M12 GUI H authentication feedback pending user evaluation",
+    "userDataModified": false
+  },
+  "limitations": [
+    "GUI H remains pending user evaluation",
+    "Investigate the repeated WinUI resize rendering incident as the first M13 follow-up",
+    "Comprehensive DPI, accessibility, performance and clean-machine release validation remain M13 work"
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/m12-auth-defaults/build.log",
+      "bytes": 3984,
+      "sha256": "e7e85694b6aab90f8a6678fe9cc0629621e846943cb336bc3dc197ca7ea13ad2"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/gui-review/authentication-review.png",
+      "bytes": 89950,
+      "sha256": "a28ccc3f96404ccd125a092cfb2d50c840837eb5246f565526deca4566972c2c"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/gui-review/review.json",
+      "bytes": 666,
+      "sha256": "792082d06aedd18d437386def948ceed578337271f0c2a19dbde50aa2cf17ce7"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/native/authentication-500-dark.png",
+      "bytes": 56210,
+      "sha256": "7f51a34861dc54fb16534eb134a41806ff063ce4619058cfc8ec03cea37ff970"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/native/detected-key-light.png",
+      "bytes": 83218,
+      "sha256": "7d23e487012785e71e46c89fac33636e852d2a819b10f6e36f5c1d51b0a66a99"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/native/key-save-failure.png",
+      "bytes": 91035,
+      "sha256": "c5664293742b40b9da41523c430892614e4213fc1fe6a4ca4ab8a1b8c0cfb883"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/native/result.json",
+      "bytes": 695,
+      "sha256": "cedee41276e5b415f0e30c351f42436261332a742c970aa67d88a8efe8a9dea0"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/native/selected-key-light.png",
+      "bytes": 87860,
+      "sha256": "3526d342384cceb1b519d55a3cb08a08c23227d9f9996e98fb86bc0725bd789a"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/native/ssh-default-and-explicit-preview.png",
+      "bytes": 92083,
+      "sha256": "93dd8f45a80edd532f14fa830dd3f165ad3d0bfe47dd123a3d16a4c3b4251c06"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/storage/corrupt-data.png",
+      "bytes": 83256,
+      "sha256": "d233fefaa408086dbc5dffdce7a34df17f1f5639c06e0d0f9cecb68d41a63b28"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/storage/future-schema.png",
+      "bytes": 82729,
+      "sha256": "4f7badb05735e60878c64ee3ef288ec83872cf60fd0d05a5694db4f19e245f51"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/storage/recovered-backup.png",
+      "bytes": 79108,
+      "sha256": "a1713c81f9e956e30b6691de9aef18d9221f970fed90af7adde1b4c1975a695f"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/storage/result.json",
+      "bytes": 505,
+      "sha256": "f48395eb9dbafa3304f34456fb050f9da3779b721dbf8b77e558d273bff444f6"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/tests/Core.trx",
+      "bytes": 630394,
+      "sha256": "35813d8a0663dcf85322b35b410db9aba5689cc6c2db59bf51d1fbcf209e9f72"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/tests/Infrastructure.trx",
+      "bytes": 234190,
+      "sha256": "e3d137dc9bcc37ae52be7f63894c4328d50dc658ea99bd2432ac682211ccd33b"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/tests/Ssh.trx",
+      "bytes": 133988,
+      "sha256": "3b53a9c54285bbe587e03d6ef6cec69da96649fbf53e8898c3a5e4160623178c"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer-rerun/export-preview-light.png",
+      "bytes": 74384,
+      "sha256": "e75ef3fb40f1b987b2b3314e14cfbd045a5034b1d21d4525acc022104954418f"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer-rerun/import-save-failure.png",
+      "bytes": 84995,
+      "sha256": "d7cb19c3583440fe69c9f5a2a8d432676de3e0428f9e96f496b24cf739b4a280"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer-rerun/incident.json",
+      "bytes": 2596,
+      "sha256": "827f41aafa88799d7c8472a98a6abdcf94c2f09111ec8ee2fd93163391126a21"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer-rerun/json-preview-light.png",
+      "bytes": 86084,
+      "sha256": "909a7e8a15b5333a04267746a51fac3b38d4c7bb3623298d56d846142bba8b61"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer-rerun/result.json",
+      "bytes": 750,
+      "sha256": "bfd2a64351f1870896e12da3059816a52c6a97c08d75193d03d648ce21b74ad7"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer-rerun/ssh-warnings-light.png",
+      "bytes": 100849,
+      "sha256": "6728998f4577ddcaba0d72561175027714f9d074715a7229918664ed2958b477"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer-rerun/unsupported-json.png",
+      "bytes": 77213,
+      "sha256": "ae24bec8d6f66107fa34ae757fb26a60a47572278834c0be6393112be87ad7c1"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer/export-preview-light.png",
+      "bytes": 76721,
+      "sha256": "5596104e0cc3e50694e7028c02cae466fb640efad3f654d556eb0ae9cdadce86"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer/import-save-failure.png",
+      "bytes": 84673,
+      "sha256": "0f938b96fba3afb4804b4efdfded068547655a602d4980468ae15cd3567b16c0"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer/incident.json",
+      "bytes": 2599,
+      "sha256": "a9bdd89dbec29f8b89d37e296d76d5fb856eab460bfb0655f6c4bfe02cea78a8"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer/json-preview-light.png",
+      "bytes": 85900,
+      "sha256": "aa2205680e5623987f28423f09a79dc3e309e98594f9dadbc2f391eb0eeb3093"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer/result.json",
+      "bytes": 750,
+      "sha256": "1d93fd63509bd4896af8a89414461950babe25849c1426e9aa30c455f8279b05"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer/ssh-warnings-light.png",
+      "bytes": 100906,
+      "sha256": "23641c2718cd7f49511d8463116c110665fc82a7d577c6cf361b57d47ab6d659"
+    },
+    {
+      "path": "artifacts/m12-auth-defaults/transfer/unsupported-json.png",
+      "bytes": 76965,
+      "sha256": "41fe1de0a89972fe1bbd9e38a80bf2833c73d82aa95863150998a7695bbf274c"
+    }
+  ]
+}

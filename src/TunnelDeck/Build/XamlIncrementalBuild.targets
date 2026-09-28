@@ -1,0 +1,32 @@
+<Project>
+  <!-- The IDE can refresh .g.i.cs and the WinUI saved state without replacing the
+       previous .g.cs. Track inputs from real pass 2 separately so pass 1 cannot
+       compile a mixture of old event bindings and new named-element fields. -->
+  <Target Name="CollectTunnelDeckXamlInputs"
+          Condition="'$(DesignTimeBuild)' != 'true'">
+    <GetFileHash Files="@(ApplicationDefinition);@(Page);$(MSBuildProjectFullPath);$(MSBuildThisFileFullPath)" Algorithm="SHA256">
+      <Output TaskParameter="Items" ItemName="_TunnelDeckXamlInputs" />
+    </GetFileHash>
+    <WriteLinesToFile File="$(IntermediateOutputPath)TunnelDeck.XamlInputs"
+                      Lines="@(_TunnelDeckXamlInputs->'%(FullPath)|%(FileHash)')"
+                      Overwrite="true" WriteOnlyWhenDifferent="true" />
+    <ItemGroup>
+      <FileWrites Include="$(IntermediateOutputPath)TunnelDeck.XamlInputs;$(IntermediateOutputPath)TunnelDeck.XamlInputs.stamp" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="InvalidateStaleTunnelDeckXamlState"
+          BeforeTargets="MarkupCompilePass1"
+          DependsOnTargets="CollectTunnelDeckXamlInputs"
+          Condition="'$(DesignTimeBuild)' != 'true'"
+          Inputs="$(IntermediateOutputPath)TunnelDeck.XamlInputs"
+          Outputs="$(IntermediateOutputPath)TunnelDeck.XamlInputs.stamp">
+    <Delete Files="$(XamlSavedStateFilePath)" />
+  </Target>
+
+  <Target Name="RecordTunnelDeckXamlCompilation"
+          AfterTargets="MarkupCompilePass2"
+          Condition="'$(DesignTimeBuild)' != 'true'">
+    <Touch Files="$(IntermediateOutputPath)TunnelDeck.XamlInputs.stamp" AlwaysCreate="true" />
+  </Target>
+</Project>

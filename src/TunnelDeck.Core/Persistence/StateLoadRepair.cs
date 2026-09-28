@@ -48,7 +48,7 @@ public static class StateLoadRepair
         if (!validation.IsValid)
         {
             throw new StateStoreException(StateStoreFailure.InvalidData,
-                "Saved configuration contains invalid data. Restore a valid configuration or backup.", validation.Issues);
+                UiText.Invariant("Diagnostic_StateLoadRepair_SavedConfigurationContainsInvalidDataRestoreAValid"), validation.Issues);
         }
         return new(state, diagnostics.ToImmutable());
 
@@ -63,7 +63,7 @@ public static class StateLoadRepair
                 .Concat(available.Where(seen.Add)).ToImmutableArray();
             if (!pinned.SequenceEqual(fixedPinned) || !other.SequenceEqual(fixedOther))
             {
-                diagnostics.Add(new(path, "Removed duplicate or missing-resource order entries and appended omitted resources to Other."));
+                diagnostics.Add(new(path, UiText.Invariant("Diagnostic_StateLoadRepair_RemovedDuplicateOrMissingResourceOrderEntriesAnd")));
             }
             return (fixedPinned, fixedOther);
         }
@@ -71,7 +71,7 @@ public static class StateLoadRepair
         Guid? RepairReference(Guid? reference, Guid[] available, string path)
         {
             if (reference is null || available.Contains(reference.Value)) { return reference; }
-            diagnostics.Add(new(path, "Cleared a default selection whose server no longer exists."));
+            diagnostics.Add(new(path, UiText.Invariant("Diagnostic_StateLoadRepair_ClearedADefaultSelectionWhoseServerNoLonger")));
             return null;
         }
     }

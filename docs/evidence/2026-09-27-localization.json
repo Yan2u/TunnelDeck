@@ -1,0 +1,54 @@
+{
+  "date": "2026-09-27",
+  "change": "Explicit English and Simplified Chinese with live WinUI updates",
+  "resourcePairs": 722,
+  "schemaVersion": 3,
+  "build": {
+    "configuration": "Release",
+    "platform": "x64",
+    "lockedRestore": true,
+    "warnings": 0,
+    "errors": 0
+  },
+  "tests": {
+    "corePassed": 441,
+    "infrastructurePassed": 154,
+    "totalPassed": 595,
+    "failed": 0,
+    "skipped": 0,
+    "regressionFoundAndFixed": "Profile shutdown cancellation could reach linked server work after a late credential answer. Check the operation token before starting a tunnel."
+  },
+  "nativeChecks": {
+    "isolatedDataDirectory": ".test-output/localization/smoke",
+    "liveEnglishChineseRoundtrip": true,
+    "existingSidebarAndSearch": true,
+    "settingsHeadingsAndSelectedOptionText": true,
+    "dashboardUsageAndEmptyPlaceholders": true,
+    "profileAndServerAddImportExportLabels": true,
+    "importLineDiagnosticsAndAuthenticationFooter": true,
+    "chineseLanguageRestoredOnFinalLaunch": true,
+    "finalProcessId": 47440,
+    "finalWindowId": 1183616,
+    "leftRunning": true,
+    "notCompleted": [
+      "Additional narrow-window check interrupted by user desktop input",
+      "Quick-forward draft UI roundtrip interrupted by user desktop input"
+    ],
+    "notRepeated": ["Real SSH regression", "Windows language, text scaling or display settings"]
+  },
+  "git": {
+    "branch": "master",
+    "head": "8665720da5a09bbffa99b1a1b2a11894cd287d9e",
+    "removedBranch": "codex/m0-m1-foundation",
+    "verifiedFilePaths": 551,
+    "fileContentsUnchangedByBranchOperations": true,
+    "headUnchanged": true,
+    "indexUnchanged": true,
+    "workingTreeStatusUnchanged": true,
+    "localBranches": ["master"],
+    "remoteConfigured": false,
+    "committed": false,
+    "detachedBaselineWorktreePreserved": true
+  },
+  "previousReleaseArchiveReplaced": false
+}

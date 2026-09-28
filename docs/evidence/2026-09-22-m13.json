@@ -1,0 +1,148 @@
+{
+  "milestone": "M13",
+  "capturedAtUtc": "2026-09-21T16:37:36.2674678+00:00",
+  "status": "Local evaluation candidate; final acceptance incomplete",
+  "priorAcceptance": "M0-M12 and GUI A-H accepted by the user",
+  "gitBase": "8665720da5a09bbffa99b1a1b2a11894cd287d9e",
+  "branch": "codex/m0-m1-foundation",
+  "workingTreeUncommitted": true,
+  "nonGuiTests": {
+    "reports": "artifacts/m13-review/tests",
+    "ssh": 87,
+    "passed": 663,
+    "core": 428,
+    "infrastructure": 148,
+    "skipped": 0,
+    "note": "Full baseline suite; subsequent changes are in UI, diagnostics, packaging and test harnesses"
+  },
+  "nativeSuites": [
+    {
+      "name": "Resources",
+      "passed": true,
+      "runReport": "artifacts/m13-review/native-regression/result.json"
+    },
+    {
+      "name": "Shell",
+      "passed": true,
+      "runReport": "artifacts/m13-review/native-regression/result.json"
+    },
+    {
+      "name": "Window",
+      "passed": true,
+      "runReport": "artifacts/m13-review/native-regression/result.json"
+    },
+    {
+      "name": "Dashboard",
+      "passed": true,
+      "runReport": "artifacts/m13-review/native-regression/result.json"
+    },
+    {
+      "name": "Activity",
+      "passed": true,
+      "runReport": "artifacts/m13-review/native-regression/result.json"
+    },
+    {
+      "name": "AuthenticationDefaults",
+      "passed": true,
+      "runReport": "artifacts/m13-review/native-regression/result.json"
+    },
+    {
+      "name": "Connections",
+      "passed": true,
+      "runReport": "artifacts/m13-review/native-remaining/result.json"
+    },
+    {
+      "name": "Forwards",
+      "passed": true,
+      "runReport": "artifacts/m13-review/native-remaining/result.json"
+    },
+    {
+      "name": "Profiles",
+      "passed": true,
+      "runReport": "artifacts/m13-review/native-remaining/result.json"
+    },
+    {
+      "name": "Deletions",
+      "passed": true,
+      "runReport": "artifacts/m13-review/native-remaining/result.json"
+    },
+    {
+      "name": "Lifecycle",
+      "passed": true,
+      "runReport": "artifacts/m13-review/lifecycle-storage/result.json"
+    },
+    {
+      "name": "Storage",
+      "passed": true,
+      "runReport": "artifacts/m13-review/lifecycle-storage/result.json"
+    },
+    {
+      "name": "Transfer",
+      "passed": true,
+      "runReport": "artifacts/m13-review/transfer-after-focus-fix/result.json",
+      "resizeCycles": 20
+    }
+  ],
+  "importFailure": {
+    "qualification": "The focused regression also passed on an older build; diagnosis is grounded in the original failure dump, not a claim of deterministic reproduction.",
+    "actualExceptionMessage": "Focus cannot be moved while getting or losing focus.",
+    "correction": "Independent form and virtualized ItemsRepeater inside a bounded ScrollViewer; named read-only item peers; valid format indices only",
+    "rtssLoaded": false,
+    "hresult": "0x802b0020",
+    "originalProcessId": 49444,
+    "path": "RadioButtons.SelectedIndex -> ImportViewModel.SourceIndex -> Invalidate -> RefreshPlan -> ListView.ItemsSource during GettingFocus",
+    "originalMessageBytes": "artifacts/m13-review/crash-analysis/49444-error-text.log",
+    "originalExceptionEvidence": "artifacts/m13-review/crash-analysis/49444-managed-exception.log"
+  },
+  "sourceReports": [
+    "artifacts/m13-review/resource-scale-after/result.json",
+    "artifacts/m13-review/ui-performance-native-input/handlers.json",
+    "artifacts/m13-review/application-performance/result.json",
+    "artifacts/m13-review/lifecycle/cycles.json",
+    "artifacts/m13-review/import-scale-verified/result.json",
+    "artifacts/m13-review/import-focus-after/result.json",
+    "artifacts/m13-review/import-focus-accessible/result.json",
+    "artifacts/m13-review/display-scaling-import-fixed/result.json",
+    "artifacts/m13-review/high-contrast-import-fixed/result.json",
+    "artifacts/m13-review/text-scaling-native-button/result.json"
+  ],
+  "packaging": {
+    "smoke": "artifacts/m13-review/rc-final-smoke/smoke.json",
+    "archive": "artifacts/m13-review/rc-final/TunnelDeck-m13-win-x64.zip",
+    "checks": {
+      "upgradeThroughRealUiAndOriginalBackup": true,
+      "packagedRestartAndNormalExit": true,
+      "previousApplicationProtectsNewSchema": true,
+      "explicitRollbackToSeparateOldBackup": true,
+      "noAutomaticConnections": true
+    },
+    "unpackedBytes": 88094994,
+    "publishedExternally": false,
+    "deployment": "Unpackaged, framework-dependent, multiple files",
+    "normalUserDataModified": false,
+    "archiveBytes": 31584908,
+    "signed": false,
+    "sha256": "03183beb75196d75302a8933c853e3bfd183bb04c01ce02574ddcdc730dd9c80"
+  },
+  "keyboardAndUiAutomation": {
+    "evidence": "artifacts/m13-review/packaged-accessibility/result.json",
+    "narratorSpeechVerified": false,
+    "passed": true
+  },
+  "remaining": [
+    "User final GUI acceptance",
+    "Full 200 percent system text-size validation: Settings slider changed but the effective Windows/app size did not; recorded as failed, original setting restored",
+    "Narrator speech and runtime LiveRegion announcements: not measured; winapp returned null for LiveSetting",
+    "Clean Windows 11 dependency installation: no clean machine or enabled Sandbox available",
+    "Cross-monitor DPI transition: only one physical display"
+  ],
+  "limits": [
+    "No exception suppression or arbitrary minimum-window workaround",
+    "Original RTSS workaround inference withdrawn",
+    "The 100-cycle resource report is from the test host and only has before/after resource samples",
+    "Startup measurements did not flush OS file caches",
+    "Only temporary SSH fixtures and isolated data directories used"
+  ],
+  "finalDisplayState": "artifacts/m13-review/final-display-state.json",
+  "userReview": "artifacts/m13-review/user-review-final/review.json"
+}

@@ -13,7 +13,7 @@ public sealed record ReconnectOptions
     {
         if (InitialDelay <= TimeSpan.Zero || MaximumDelay < InitialDelay || RecoveryWindow <= TimeSpan.Zero ||
             !double.IsFinite(JitterFraction) || JitterFraction is < 0 or > 1)
-        { throw new ArgumentException("Reconnect delays and recovery window must be positive, with jitter between zero and one."); }
+        { throw new ArgumentException(UiText.Invariant("Diagnostic_ReconnectPolicy_ReconnectDelaysAndRecoveryWindowMustBePositive")); }
     }
 }
 

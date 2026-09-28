@@ -50,10 +50,10 @@ internal static class VersionedJson
     public static byte[] Serialize<T>(T value) => JsonSerializer.SerializeToUtf8Bytes(value, Options);
 
     public static StateStoreException Invalid() => new(StateStoreFailure.InvalidData,
-        "A saved data file is invalid. Restore a valid file or backup and retry.");
+        UiText.Invariant("Diagnostic_VersionedJson_ASavedDataFileIsInvalidRestoreA"));
 
     public static StateStoreException Unsupported() => new(StateStoreFailure.UnsupportedSchema,
-        "This saved data format is not supported by this version of TunnelDeck. The file must not be overwritten.");
+        UiText.Invariant("Diagnostic_VersionedJson_ThisSavedDataFormatIsNotSupportedBy"));
 
     private static void RejectDuplicateProperties(JsonElement element)
     {

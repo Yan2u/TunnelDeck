@@ -9,7 +9,7 @@ public sealed class ConnectionCredentials(string? secret)
     [JsonIgnore]
     public string? Secret { get; } = secret;
 
-    public override string ToString() => "Connection credentials (redacted)";
+    public override string ToString() => UiText.Invariant("Diagnostic_ISshSessionFactory_ConnectionCredentialsRedacted");
 }
 
 public sealed record SshSessionRequest(RemoteServer Server, ForwardMode Mode,

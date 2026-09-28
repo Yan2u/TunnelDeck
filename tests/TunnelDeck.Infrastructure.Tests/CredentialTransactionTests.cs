@@ -191,7 +191,7 @@ public sealed class CredentialTransactionTests
         Guid reference = Guid.NewGuid();
         fixture.Credentials.Write(reference, "fixture-protected");
         await fixture.Cleanup.AddAsync([reference]);
-        await File.WriteAllTextAsync(fixture.Directory.StatePath, "{\"schemaVersion\":2}");
+        await File.WriteAllTextAsync(fixture.Directory.StatePath, $"{{\"schemaVersion\":{AppState.CurrentSchemaVersion + 1}}}");
         await fixture.Service().InitializeAsync();
         Assert.NotNull(fixture.Credentials.Read(reference));
         Assert.Contains(reference, await fixture.Cleanup.ReadAsync());

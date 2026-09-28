@@ -19,7 +19,7 @@ public sealed class JsonCredentialCleanupStore : ICredentialCleanupStore
     public Task AddAsync(IEnumerable<Guid> references, CancellationToken cancellationToken = default)
     {
         ImmutableHashSet<Guid> added = references.ToImmutableHashSet();
-        if (added.Contains(Guid.Empty)) { throw new ArgumentException("Credential references cannot be empty.", nameof(references)); }
+        if (added.Contains(Guid.Empty)) { throw new ArgumentException(UiText.Invariant("Diagnostic_JsonCredentialCleanupStore_CredentialReferencesCannotBeEmpty"), nameof(references)); }
         return UpdateAsync(pending => pending.Union(added), cancellationToken);
     }
 

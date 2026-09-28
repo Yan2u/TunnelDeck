@@ -14,7 +14,7 @@ public sealed partial class TunnelManager
     {
         lock (_sync)
         {
-            if (enabled && _reconnectEnabled) { throw new InvalidOperationException("A reconnect coordinator is already attached."); }
+            if (enabled && _reconnectEnabled) { throw new InvalidOperationException(UiText.Invariant("Diagnostic_TunnelManagerReconnect_AReconnectCoordinatorIsAlreadyAttached")); }
             _reconnectEnabled = enabled;
         }
     }
@@ -118,5 +118,5 @@ public sealed partial class TunnelManager
     }
 
     internal static TunnelFailure RecoveryExpired => new(TunnelFailureKind.Connectivity,
-        "Automatic reconnect reached its time limit. Check the network, then retry this forward.");
+        UiText.Invariant("Diagnostic_TunnelManagerReconnect_AutomaticReconnectReachedItsTimeLimitCheckThe"));
 }

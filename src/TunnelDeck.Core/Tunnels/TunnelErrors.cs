@@ -9,7 +9,7 @@ internal static class TunnelErrors
     public static TunnelFailure From(Exception error) => error switch
     {
         ForwardException forward => forward.Failure,
-        DomainValidationException => new(TunnelFailureKind.Input, "Check the forwarding rule and server fields."),
+        DomainValidationException => new(TunnelFailureKind.Input, UiText.Invariant("Diagnostic_TunnelErrors_CheckTheForwardingRuleAndServerFields")),
         ConnectionException connection => new(connection.Failure switch
         {
             ConnectionFailure.CredentialRequired or ConnectionFailure.CredentialUnavailable or ConnectionFailure.AuthenticationFailed or ConnectionFailure.KeyFileUnreadable or ConnectionFailure.KeyUnlockFailed => TunnelFailureKind.Credentials,
@@ -20,13 +20,13 @@ internal static class TunnelErrors
             ConnectionFailure.ShuttingDown => TunnelFailureKind.Cancelled,
             _ => TunnelFailureKind.Connectivity,
         }, connection.Message),
-        OperationCanceledException => new(TunnelFailureKind.Cancelled, "The forwarding request was cancelled."),
+        OperationCanceledException => new(TunnelFailureKind.Cancelled, UiText.Invariant("Diagnostic_TunnelErrors_TheForwardingRequestWasCancelled")),
         TimeoutException => UnknownOutcome,
-        _ => new(TunnelFailureKind.Unknown, "The forwarding operation could not complete. Check the server and retry."),
+        _ => new(TunnelFailureKind.Unknown, UiText.Invariant("Diagnostic_TunnelErrors_TheForwardingOperationCouldNotCompleteCheckThe")),
     };
 
     public static TunnelFailure UnknownOutcome => new(TunnelFailureKind.TimeoutUnknownOutcome,
-        "The listening operation did not finish within its budget. Its SSH transport has been retired and late work is being cleaned up.");
-    public static TunnelFailure Disconnected => new(TunnelFailureKind.Connectivity, "The SSH connection ended. This listener is being stopped.");
-    public static TunnelFailure Cleanup => new(TunnelFailureKind.Cleanup, "Cleanup did not finish. Retry Stop; this tunnel still reserves its server and request until cleanup succeeds.");
+        UiText.Invariant("Diagnostic_TunnelErrors_TheListeningOperationDidNotFinishWithinIts"));
+    public static TunnelFailure Disconnected => new(TunnelFailureKind.Connectivity, UiText.Invariant("Diagnostic_TunnelErrors_TheSSHConnectionEndedThisListenerIsBeing"));
+    public static TunnelFailure Cleanup => new(TunnelFailureKind.Cleanup, UiText.Invariant("Diagnostic_TunnelErrors_CleanupDidNotFinishRetryStopThisTunnel"));
 }

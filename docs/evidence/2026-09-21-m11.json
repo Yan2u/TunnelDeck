@@ -1,0 +1,1000 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M11",
+  "capturedAtUtc": "2026-09-21T04:49:13.5565080+00:00",
+  "status": "Implementation and automated verification complete; GUI G pending user evaluation",
+  "git": {
+    "head": "8665720da5a09bbffa99b1a1b2a11894cd287d9e",
+    "branch": "codex/m0-m1-foundation",
+    "workingTree": "Uncommitted M10 completion and M11 changes retained; no commit created in this task"
+  },
+  "resumedContexts": [
+    "01a0bd71-6bc3-76c0-8fc3-23d0378196fe",
+    "01a0c192-3ed2-70e5-b497-2bc7ffc215c1"
+  ],
+  "build": {
+    "configuration": "Release",
+    "platform": "x64",
+    "lockedRestore": true,
+    "warnings": 0,
+    "errors": 0,
+    "binaries": [
+      {
+        "path": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.exe",
+        "bytes": 165376,
+        "sha256": "9e10a221bf0315933dcf95e438074b6df2f6bfb401e21456831983abcc06c33a"
+      },
+      {
+        "path": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.dll",
+        "bytes": 505856,
+        "sha256": "eead43eb3f1839232cdc66ff27d2b44edb793afda8d2971d20deab7e61020887"
+      },
+      {
+        "path": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.Core.dll",
+        "bytes": 435200,
+        "sha256": "e6bc09d3d584a5bc4c3c98519414f5985e6d06bcbabf5c7b71caa6714b49986c"
+      },
+      {
+        "path": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.Infrastructure.dll",
+        "bytes": 87552,
+        "sha256": "030f9e2f6f324469dd0b5f138a9ab138c9e2b02cdc213dd143e7a2c26fadb72d"
+      }
+    ]
+  },
+  "tests": {
+    "total": 606,
+    "passed": 606,
+    "failed": 0,
+    "skipped": 0,
+    "suites": [
+      {
+        "suite": "TunnelDeck.Core.Tests",
+        "total": 387,
+        "passed": 387,
+        "failed": 0,
+        "skipped": 0,
+        "report": {
+          "path": "artifacts/m11-review/test-results/TunnelDeck.Core.Tests.trx",
+          "bytes": 568211,
+          "sha256": "29e54c3c273216e0d5128cfc027d2753fc23d29c26d7b913b858463ab91e3932"
+        }
+      },
+      {
+        "suite": "TunnelDeck.Infrastructure.Tests",
+        "total": 136,
+        "passed": 136,
+        "failed": 0,
+        "skipped": 0,
+        "report": {
+          "path": "artifacts/m11-review/test-results/TunnelDeck.Infrastructure.Tests.trx",
+          "bytes": 214945,
+          "sha256": "8b9bf1c813070c7bae65cded8ff629f711dd0ecf1ee3985682ec591e7776332c"
+        }
+      },
+      {
+        "suite": "TunnelDeck.Ssh.Tests",
+        "total": 83,
+        "passed": 83,
+        "failed": 0,
+        "skipped": 0,
+        "report": {
+          "path": "artifacts/m11-review/test-results/TunnelDeck.Ssh.Tests.trx",
+          "bytes": 127774,
+          "sha256": "621bd7051d5b886b70a577f7eacbfeabc80d0601a84e155c8e8e1ac9ba243c1a"
+        }
+      }
+    ],
+    "finalM11SshChecks": {
+      "passed": 5,
+      "report": {
+        "path": "artifacts/m11-review/m11-ssh-targeted-final.trx",
+        "bytes": 9120,
+        "sha256": "81c3a9fcf798293e93c37e5bb6e3bad8f23a51c7805a9defeae8fb9701a845ca"
+      }
+    }
+  },
+  "acceptanceCoverage": {
+    "IO-01": [
+      "TransferPlannerTests",
+      "TransferFileTests",
+      "TransferForwardingTests"
+    ],
+    "IO-02": [
+      "TransferPlannerTests",
+      "ImportTransactionTests",
+      "TransferFileTests",
+      "Verify-Transfer.ps1"
+    ],
+    "IO-03": [
+      "SshConfigImportTests",
+      "SshConfigCompatibilityTests"
+    ],
+    "TERM-01": [
+      "TerminalLauncherTests",
+      "TunnelDeck.ProcessProbe actual argv receiver and Windows Terminal"
+    ],
+    "TERM-02": [
+      "TerminalLauncherTests",
+      "ExternalTerminalTests",
+      "Verify-Transfer.ps1"
+    ]
+  },
+  "nativeVerification": [
+    {
+      "name": "transfer",
+      "exitCode": 0,
+      "checks": {
+        "nativeExportPickerAndCancel": "Passed",
+        "profileDependenciesAndSecretExclusion": "Passed",
+        "previewCancelIsReadOnly": "Passed",
+        "invalidJsonIsNotPartiallyImported": "Passed",
+        "atomicFailureRetryAndFreshReferences": "Passed",
+        "sameNamesRemainSeparate": "Passed",
+        "sshWarningsAcknowledgementAndSkip": "Passed",
+        "narrowScrollablePreviewAndFixedActions": "Passed",
+        "darkTheme": "Passed",
+        "terminalEntryMissingKeyAndUnsavedDraft": "Passed",
+        "restartWithoutAutomaticConnections": "Passed"
+      },
+      "report": {
+        "path": "artifacts/m11-review/native-transfer/result.json",
+        "bytes": 996,
+        "sha256": "b2083c9333ec6309eabcc33daa0b072fdc694c08fba5bff7e80873a73348a6de"
+      },
+      "log": {
+        "path": "artifacts/m11-review/native-transfer.log",
+        "bytes": 1248,
+        "sha256": "5bf3ff1a7825231e2414be1968d05e79f8c38e0448763287c8f986c504efe245"
+      }
+    },
+    {
+      "name": "shell",
+      "exitCode": 0,
+      "checks": {
+        "dashboard": "Passed",
+        "saveDoesNotStealNavigation": "Passed",
+        "localPortOption": "Passed",
+        "searchAndBack": "Passed",
+        "fixedSidebar": "Passed",
+        "resourceEditsAndPinOrder": "Passed",
+        "adaptiveLayouts": "Passed (900, 640 and 500 epx)",
+        "emptyAndAddFlows": "Passed",
+        "restartPersistence": "Passed"
+      },
+      "report": {
+        "path": "artifacts/m11-review/regressions/shell/result.json",
+        "bytes": 680,
+        "sha256": "0f2552aaa609983500431ad6cf9477f3ab86e33f97ea02c7956da44f0f0287d2"
+      },
+      "log": {
+        "path": "artifacts/m11-review/native-shell.log",
+        "bytes": 682,
+        "sha256": "751674d894dec29265b12455f18be498fa624f6dc37f4c27694073b1f09b51c8"
+      }
+    },
+    {
+      "name": "resources",
+      "exitCode": 0,
+      "checks": {
+        "nativePinnedProfileDrag": "Passed",
+        "keyboardMoveAndCrossListRejection": "Passed",
+        "pinAppendAndUnpinAtOtherHead": "Passed",
+        "failedDragRollsBackAndRetries": "Passed",
+        "emptyPinnedCollapsesWithoutEmptyCollection": "Passed",
+        "newResourceAndLiveSearchRename": "Passed",
+        "nativePinnedServerDrag": "Passed",
+        "sidebarLimitsAndAdaptiveLists": "Passed",
+        "restartPreservesOrderAndVisitsDoNotReorder": "Passed"
+      },
+      "report": {
+        "path": "artifacts/m11-review/regressions/resources/resources-verification.json",
+        "bytes": 751,
+        "sha256": "f86ae6f3aa899a0bc898d4f2ffeeba4005927dcf45175342405ced6f13a59979"
+      },
+      "log": {
+        "path": "artifacts/m11-review/native-resources.log",
+        "bytes": 291,
+        "sha256": "c965c0b3553fbd36c28011651dca9f0040716038b318b1fbc191bd811cc055aa"
+      }
+    },
+    {
+      "name": "connections",
+      "exitCode": 0,
+      "checks": {
+        "formValidation": "Passed",
+        "unsavedTestAndHostApproval": "Passed",
+        "rememberAndRestart": "Passed",
+        "authenticationErrorAndMissingCredential": "Passed",
+        "cancelNavigationAndIdentityGuard": "Passed",
+        "encryptedKeyAndCredentialReplacement": "Passed",
+        "unencryptedKeyForgetAndUnreadableFile": "Passed",
+        "narrowDarkForm": "Passed",
+        "closeDuringHostApproval": "Passed",
+        "closeMilliseconds": 444
+      },
+      "report": {
+        "path": "artifacts/m11-review/regressions/connections/verification.json",
+        "bytes": 577,
+        "sha256": "f83236ff429dcd8db24dd8d9408db89f90815aa755511141976060bda9b62a70"
+      },
+      "log": {
+        "path": "artifacts/m11-review/native-connections.log",
+        "bytes": 254,
+        "sha256": "2478265766587402e9770f11d86866949aa00825b1ddf00ae9e95ba6206d3967"
+      }
+    },
+    {
+      "name": "forwards",
+      "exitCode": 0,
+      "checks": {
+        "emptyAddAndPinnedSelection": "Passed",
+        "rawTextAndEnterValidation": "Passed",
+        "localAllocationPayloadDuplicateAndDetails": "Passed",
+        "advancedDraftNavigationAndIndependentStop": "Passed",
+        "remotePayloadAndAdaptiveUi": "Passed",
+        "remoteRefusalAndManualRetry": "Passed",
+        "liveLocalAndRemoteShutdown": "Passed",
+        "shutdownMilliseconds": 271,
+        "ephemeralCredentialsAndActivityPersistence": "Passed"
+      },
+      "report": {
+        "path": "artifacts/m11-review/regressions/forwards/verification.json",
+        "bytes": 691,
+        "sha256": "4729ca0fe31b4136853e4d209eb0fa5d19a17cfd326a0718dbd259159607dfcd"
+      },
+      "log": {
+        "path": "artifacts/m11-review/native-forwards.log",
+        "bytes": 501,
+        "sha256": "8239b96e0770b2842a8112485b311886b17a00bb69bb9a50a140b87224755e3a"
+      }
+    },
+    {
+      "name": "lifecycle",
+      "exitCode": 0,
+      "checks": {
+        "singleInstanceBeforeConfiguration": "Passed; same-directory alias redirected while the configuration lock was held",
+        "minimizedWindowRestored": "Passed",
+        "separateIsolatedDirectories": "Passed",
+        "normalClose": "Passed",
+        "realProfileForwardsBeforeFault": "Passed",
+        "reconnectPresentationCountdownAndStop": "Passed",
+        "recoveryRestoresRowsPayloadAndCounters": "Passed",
+        "stopDuringBackoffPreventsRevival": "Passed",
+        "closingSaveFailureEscapeAndRetry": "Passed",
+        "explicitExitWithoutSavingReleasesListeners": "Passed",
+        "repeatedCloseCoalescesAndReleases": "Passed; exited in 0.3 s"
+      },
+      "report": {
+        "path": "artifacts/m11-review/regressions/lifecycle/result.json",
+        "bytes": 830,
+        "sha256": "5bdc80dbd953945b2b07a5aab1e344098dbd5e2888b1dc07c3b578183c3b27e8"
+      },
+      "log": {
+        "path": "artifacts/m11-review/native-lifecycle.log",
+        "bytes": 1290,
+        "sha256": "02642be5b12e74536d6940673f34f80474f5e6bee50315fd2438240eaf43be3d"
+      }
+    }
+  ],
+  "sshEnvironment": {
+    "sshdVersion": "1:8.9p1-3ubuntu0.17",
+    "imageId": "sha256:845607f5d2506165dbe71f7537e3db000f62ccc9fb3935dbe06bde9765fbffca",
+    "distribution": "Ubuntu",
+    "runId": "1c05637828204a6bbf50c695f96951cc",
+    "windowsClient": "OpenSSH_for_Windows_9.5p2, LibreSSL 3.8.2"
+  },
+  "isolation": "All network tests used disposable OpenSSH fixtures and credentials. Fixtures were stopped and their credentials removed. GUI review uses its own data directory and reserved .example hosts.",
+  "humanReview": {
+    "previouslyAccepted": [
+      "GUI A",
+      "GUI B",
+      "GUI C",
+      "GUI D",
+      "GUI E",
+      "GUI F"
+    ],
+    "previousConfirmation": "GUI 测试通过，继续 M11.",
+    "current": "GUI G pending; the user confirmed the export picker was visible, not full M11 acceptance",
+    "reviewWindow": {
+      "capturedAtUtc": "2026-09-21T12:41:31.1797109+08:00",
+      "processId": 37248,
+      "windowHandle": 11537062,
+      "dataPath": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m11-review\\f7cbe97602894fc484da7e956fa7afb7\\data",
+      "jsonSample": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m11-review\\f7cbe97602894fc484da7e956fa7afb7\\samples\\tunneldeck-sample.json",
+      "sshConfigSample": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m11-review\\f7cbe97602894fc484da7e956fa7afb7\\samples\\ssh-sample.config",
+      "isolation": "Dedicated data and credential namespace; reserved .example hosts; zero connections started",
+      "guiReview": "M11 GUI G pending user evaluation"
+    },
+    "repeatCommand": "./scripts/Show-TransferReview.ps1",
+    "criteria": [
+      "Import / Export are easy to find in All page More",
+      "Preview distinguishes new resources and unavailable entries",
+      "Warnings and explicit skip acknowledgement are understandable",
+      "Cancel and narrow-window actions remain clear; terminal independence is explained"
+    ]
+  },
+  "boundaries": [
+    "Only the documented static SSH config subset is imported; unsupported options are not silently discarded.",
+    "JSON is an all-or-nothing portable resource import, with new IDs. Settings, usage, credentials, trust and running tunnels are excluded.",
+    "Private-key paths must point to existing absolute files on the importing computer.",
+    "Terminal uses the system OpenSSH Client with -F none; semicolon or quote arguments bypass wt command parsing through a direct console.",
+    "The Windows 9.5 keyscan sntrup issue is confined to the fixture trust bootstrap; product terminal launch does not depend on keyscan.",
+    "M12 complete statistics and settings, and M13 full DPI/accessibility/performance/release acceptance remain pending."
+  ],
+  "documentation": [
+    "docs/transfer.md",
+    "docs/terminal.md",
+    "docs/milestones.md",
+    ".codex/history/2026-09-21-m11-transfer-and-terminal.md",
+    ".codex/docs/handoff.md"
+  ],
+  "sourceSnapshot": [
+    {
+      "path": ".codex/docs/handoff.md",
+      "bytes": 17889,
+      "sha256": "d284b37a1952533d11cc978bac9057158151ad4784974891bd3cd15b0a5a295a"
+    },
+    {
+      "path": ".codex/docs/implementation-plan.md",
+      "bytes": 56625,
+      "sha256": "184ea63ec02e541446bd3c09f6cc7205054798c954c53dd65a18338c705deecc"
+    },
+    {
+      "path": ".codex/docs/ui-ux-spec.md",
+      "bytes": 38308,
+      "sha256": "13c787d1a533622e15b836478b831797189a208c8a44f7765756e2eb7a09e521"
+    },
+    {
+      "path": ".codex/history/2026-09-20-m10-gui-accepted.md",
+      "bytes": 402,
+      "sha256": "f6f87d5fa18fd52f07748076d10447e2f4b580feb48870ea2d0aca550aaf86db"
+    },
+    {
+      "path": ".codex/history/2026-09-20-m10-reconnect-shutdown-instance.md",
+      "bytes": 5986,
+      "sha256": "aa4b24d19fdfbef10972fb9dac42f5936938c1c45505771b65e299fb7f082046"
+    },
+    {
+      "path": ".codex/history/2026-09-21-m11-transfer-and-terminal.md",
+      "bytes": 3534,
+      "sha256": "f1b4432d0876246dca21ff4e918f8d4b80b8b702acdb2408b86ae73f3cbe7021"
+    },
+    {
+      "path": "docs/deletion.md",
+      "bytes": 6510,
+      "sha256": "99fc7e671567ee109bcfcc4c5dac633cd241a0249a554ac6bc1350d1c767a057"
+    },
+    {
+      "path": "docs/evidence/2026-09-20-m10.json",
+      "bytes": 14737,
+      "sha256": "bb44d08e8b9cbaa5c44b202fb49d05ae17d34051184a36fc5c32d1ac79ecf00e"
+    },
+    {
+      "path": "docs/lifecycle.md",
+      "bytes": 5453,
+      "sha256": "9d242316a65fc2ece921a7f89eee64631bcb2bd05ab47fe8f3a7fd0b423eb611"
+    },
+    {
+      "path": "docs/milestones.md",
+      "bytes": 12862,
+      "sha256": "e3c0984ef84e1ed779b1dfbbc42e8bae7586f4e13864316edd29219d44d77862"
+    },
+    {
+      "path": "docs/shell-and-navigation.md",
+      "bytes": 8907,
+      "sha256": "f4491c2ea4df1faa0bebfd85fd7383e1a2a2e004cbda7a9c442fa6fe832b7c8b"
+    },
+    {
+      "path": "docs/storage.md",
+      "bytes": 9921,
+      "sha256": "614d18bc9b57aca4a7c9e0b6e9f5ce523f4f231ebb3f84bc2f566e607da97983"
+    },
+    {
+      "path": "docs/terminal.md",
+      "bytes": 2561,
+      "sha256": "7a5c1b4e2d20a9cda056f886dbccbf099d432feac01f7ff31171d36f2d594bf5"
+    },
+    {
+      "path": "docs/transfer.md",
+      "bytes": 5340,
+      "sha256": "332e2d2d57466fd5f87f271c72a882cba7a6f8827caecc12ffce3db79927d8c3"
+    },
+    {
+      "path": "docs/tunnels.md",
+      "bytes": 12152,
+      "sha256": "418a74d0329a49b5a4b95a9930f344cbdf5afa29d5d1f4533e4def993d058d3d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8051,
+      "sha256": "94cfe26cf3964986a385729db4e0c8cfc253222c720352cfaa14043a58950dc2"
+    },
+    {
+      "path": "scripts/Desktop-TestSupport.ps1",
+      "bytes": 12520,
+      "sha256": "38e89ac566d7d72b9258dfd64272ddf4f14943068040d0c091b01cbe74109ab1"
+    },
+    {
+      "path": "scripts/Lifecycle-ForwardingChecks.ps1",
+      "bytes": 10163,
+      "sha256": "7b06303ba0ba764e03cdcff4a8469b89d0acdf76d2cc7ecb0b67ede6f730daa3"
+    },
+    {
+      "path": "scripts/Lifecycle-TestSupport.ps1",
+      "bytes": 7034,
+      "sha256": "ba4f018741bc1f827ed133dee8fe1ae151e6397674c9cd2aa5bc4429bb689978"
+    },
+    {
+      "path": "scripts/Show-TransferReview.ps1",
+      "bytes": 3622,
+      "sha256": "1d3ca0e62daeff8b97e2d34c08a8731a4c2aca86fb5bde1255c41d7f3e724ed2"
+    },
+    {
+      "path": "scripts/Transfer-TestSupport.ps1",
+      "bytes": 6135,
+      "sha256": "28a9d8c90018b05adfe7367bae31c6ef9ed5285fcf0f3c4210238fd2c47daa48"
+    },
+    {
+      "path": "scripts/Verify-Connections.ps1",
+      "bytes": 15627,
+      "sha256": "8f9b05dbe9872359857cc88ecf6a5ec031aafd5f8a976e917d0a42ed95404211"
+    },
+    {
+      "path": "scripts/Verify-Forwards.ps1",
+      "bytes": 14297,
+      "sha256": "76d7858cfc183ffcc75e6d7fced72137d860b983780e7b15deefd1f0b0f46a29"
+    },
+    {
+      "path": "scripts/Verify-Lifecycle.ps1",
+      "bytes": 2453,
+      "sha256": "933100328211ce50a54c33b1f85ce1761e83d48a911b3872e5f85fa2469f35db"
+    },
+    {
+      "path": "scripts/Verify-Resources.ps1",
+      "bytes": 11689,
+      "sha256": "936ca439f5d37f7f50da45a89a50ab5f74dafae9b2da52de39d2a2dbfb51f202"
+    },
+    {
+      "path": "scripts/Verify-Shell.ps1",
+      "bytes": 14385,
+      "sha256": "8bfedeb0d4d83f2cee88bd520ee6134a05b281f5d7dafef264563fcaf17c84dd"
+    },
+    {
+      "path": "scripts/Verify-Transfer.ps1",
+      "bytes": 10787,
+      "sha256": "67c77e1447991e92e6456bb548eb23e538806ca09e646b5b6f065feac7e928a7"
+    },
+    {
+      "path": "src/TunnelDeck.Core/Abstractions/TerminalLaunchException.cs",
+      "bytes": 123,
+      "sha256": "bf01dfb8f9eccc51a2c02c814374d9e68b7b24b74ffbad46adc752b88e726633"
+    },
+    {
+      "path": "src/TunnelDeck.Core/Navigation/AppRoute.cs",
+      "bytes": 2372,
+      "sha256": "e96a9f33622071280459ca9ef2e4d85647af2f68e437f7fe35d72001dee6c3e2"
+    },
+    {
+      "path": "src/TunnelDeck.Core/Operations/ServerWorkRegistry.cs",
+      "bytes": 8978,
+      "sha256": "56250a145fe273466d203be4c97565db3a84ac98af5672e08196b0544429ad2f"
+    },
+    {
+      "path": "src/TunnelDeck.Core/Presentation/ResourceDisplay.cs",
+      "bytes": 1255,
+      "sha256": "efa4de84435b824bf8fd55df1cca01d922debc5dd413774822dcc08e46f8240b"
+    },
+    {
+      "path": "src/TunnelDeck.Core/Transfer/ExportBuilder.cs",
+      "bytes": 2204,
+      "sha256": "c5052c89897b3911003dad660bde0f2c7b2b23c256eb843268b298408d408a0a"
+    },
+    {
+      "path": "src/TunnelDeck.Core/Transfer/ImportPlan.cs",
+      "bytes": 1584,
+      "sha256": "92bfcc1025658d39ca8e8a82ffe6c5e14fae3eb93ad8f91cff1b8649fc3b2ad4"
+    },
+    {
+      "path": "src/TunnelDeck.Core/Transfer/ImportPlanner.cs",
+      "bytes": 7027,
+      "sha256": "3e191267b49a4bd00a746cbadf94fd77870b2b9d0548d4d5bd28f49dcc269436"
+    },
+    {
+      "path": "src/TunnelDeck.Core/Transfer/ResourceImportService.cs",
+      "bytes": 2783,
+      "sha256": "4c1017f4bd62edcab9ed09d32ea2060d33fd87b1977c9b905c8500565d47ffdf"
+    },
+    {
+      "path": "src/TunnelDeck.Core/Transfer/SshConfigParser.cs",
+      "bytes": 7622,
+      "sha256": "0ccbdb0ac66569b277c0509c8217258b30e322b5661a25a83e7473718596e5e8"
+    },
+    {
+      "path": "src/TunnelDeck.Core/Transfer/SshConfigParser.Syntax.cs",
+      "bytes": 5928,
+      "sha256": "1bff7dbf3b4ec1c0f351d85cf318f6ef978d1f69827a18f8540acd182cd13a67"
+    },
+    {
+      "path": "src/TunnelDeck.Core/Transfer/TunnelDeckExport.cs",
+      "bytes": 3621,
+      "sha256": "dc767033cad684cf49fffee03766f728f59ac6dda333a49c70ef8ccb0cb285db"
+    },
+    {
+      "path": "src/TunnelDeck.Infrastructure/Terminal/TerminalCommandBuilder.cs",
+      "bytes": 2634,
+      "sha256": "e86345d3a1a67ef16517d2646be1c5168f74d7350eac180425c6c16cedf3cb96"
+    },
+    {
+      "path": "src/TunnelDeck.Infrastructure/Terminal/WindowsTerminalLauncher.cs",
+      "bytes": 2687,
+      "sha256": "78dba1493ec5ebae52f13463fe708497fd721eb8504017e2ada2396072cab5bf"
+    },
+    {
+      "path": "src/TunnelDeck.Infrastructure/Transfer/ExportJsonCodec.cs",
+      "bytes": 3072,
+      "sha256": "74dc571c73d44de0521388df0ebe1d83288b9c8ae2d56f081b54041a6ba10e0d"
+    },
+    {
+      "path": "src/TunnelDeck.Infrastructure/Transfer/ResourceTransferFiles.cs",
+      "bytes": 3788,
+      "sha256": "87e49304edc80a8781a93b13e40e24eff73365183347a88f0c872e4cef84d0ee"
+    },
+    {
+      "path": "src/TunnelDeck.Infrastructure/Transfer/ResourceTransferFiles.Lifetime.cs",
+      "bytes": 2487,
+      "sha256": "5b4776007df69038b98cb991bb5d2003b9dff604f9c65dcc2043d6ec71d0527b"
+    },
+    {
+      "path": "test-infra/TunnelDeck.ProcessProbe/packages.lock.json",
+      "bytes": 66,
+      "sha256": "a4364d81a6de2707d66fbced18fbbc926c882ab96e1d1aebbb17e871285b9d75"
+    },
+    {
+      "path": "test-infra/TunnelDeck.ProcessProbe/Program.cs",
+      "bytes": 311,
+      "sha256": "c1511295d9ce3b5de89373ca96c016863d9fe9845d4ea3aeb9494dbd98a68999"
+    },
+    {
+      "path": "test-infra/TunnelDeck.ProcessProbe/TunnelDeck.ProcessProbe.csproj",
+      "bytes": 197,
+      "sha256": "08242ae7386c4c3ebdc48793d0906b320fe398dfc24ed35caa5f8e6ac311caa7"
+    },
+    {
+      "path": "tests/TunnelDeck.Core.Tests/ImportTransactionTests.cs",
+      "bytes": 5790,
+      "sha256": "7e1385f02ef2a2ee746c812afcb2c4df85e515d681eefc4cc962c6f30ac751e6"
+    },
+    {
+      "path": "tests/TunnelDeck.Core.Tests/SshConfigImportTests.cs",
+      "bytes": 5880,
+      "sha256": "4545c42539f1c4ca553b285a80ecd59f8d8b59c2227e62cee8782c3390910ae4"
+    },
+    {
+      "path": "tests/TunnelDeck.Core.Tests/TransferPlannerTests.cs",
+      "bytes": 6123,
+      "sha256": "e583f481b54f76bdcfcaab52fbcd86e05b4cbf0f0859852f004a2d8e194d237e"
+    },
+    {
+      "path": "tests/TunnelDeck.Infrastructure.Tests/Fixtures/ProcessProbeFixture.cs",
+      "bytes": 2649,
+      "sha256": "55392169927f85eb70bf324a5619d1eb289863b5709454d50c9ce0a3326fd25c"
+    },
+    {
+      "path": "tests/TunnelDeck.Infrastructure.Tests/SshConfigCompatibilityTests.cs",
+      "bytes": 2272,
+      "sha256": "6d2f5ff6c0639b84fa0188b469be552fc4c334e196386f0bd155dd013ccbdbcf"
+    },
+    {
+      "path": "tests/TunnelDeck.Infrastructure.Tests/TerminalLauncherTests.cs",
+      "bytes": 7271,
+      "sha256": "71d68dde8d2a13c313e4029668c0cd844b90c8bf61974f8218752ad32db7c143"
+    },
+    {
+      "path": "tests/TunnelDeck.Infrastructure.Tests/TransferFileTests.cs",
+      "bytes": 9685,
+      "sha256": "d8b724b2f81bdb7ab3fc2ea7251d9486c123b394c2fbcaae982759a8dcce1e26"
+    },
+    {
+      "path": "tests/TunnelDeck.Infrastructure.Tests/TunnelDeck.Infrastructure.Tests.csproj",
+      "bytes": 773,
+      "sha256": "708c54afa2acc6baed98c3aa3d6ce7fdeb7f53fcbee573fe39b36ee00a379acb"
+    },
+    {
+      "path": "tests/TunnelDeck.Ssh.Tests/ExternalTerminalTests.cs",
+      "bytes": 2882,
+      "sha256": "62cab18f10a5cda0af1eac3d22ba023cd63dd3098022f97175453956bfd0ea34"
+    },
+    {
+      "path": "tests/TunnelDeck.Ssh.Tests/Fixture/ExternalSshProcess.cs",
+      "bytes": 3881,
+      "sha256": "498ed62cb73f5bba408d41f70894468d1223c644ca992bb50daf8a0928390eef"
+    },
+    {
+      "path": "tests/TunnelDeck.Ssh.Tests/ResourceCycleTests.cs",
+      "bytes": 4404,
+      "sha256": "059c3c2f2aa9cbb8b7d9b0b4becc197880d400f72b535908cf543bf2eb69f992"
+    },
+    {
+      "path": "tests/TunnelDeck.Ssh.Tests/TransferForwardingTests.cs",
+      "bytes": 5652,
+      "sha256": "9f68e17ad4fc5d547c5a9177f87fff19240a213ee3ed502cf0094c7b53c098c5"
+    },
+    {
+      "path": "TunnelDeck.slnx",
+      "bytes": 1194,
+      "sha256": "90118ca6a3a0700d98170eab1eed5b5b2a0841575b5a815b5afb50f400134a01"
+    },
+    {
+      "path": "TunnelDeck/Controls/ResourceListView.xaml",
+      "bytes": 10378,
+      "sha256": "2cfd3244d0ce8de5c4a8ef2861a6dc06f2033e34b1eb5aadd6f237e989083d32"
+    },
+    {
+      "path": "TunnelDeck/Controls/ResourceListView.xaml.cs",
+      "bytes": 4175,
+      "sha256": "be7f3c7d7c9e02160ef3f04968c98a1825afc2b950ee7e4f92d8d3b38134b621"
+    },
+    {
+      "path": "TunnelDeck/MainWindow.Navigation.cs",
+      "bytes": 7037,
+      "sha256": "82802f1a4ed8c74b42c5e908e999af93fa3dda576299b5fbec8904ad1eb0193f"
+    },
+    {
+      "path": "TunnelDeck/Pages/DashboardPage.xaml",
+      "bytes": 16533,
+      "sha256": "01cc31a108a33835cf83cd695c7b28347efad70955c69c89d13ec705837b441f"
+    },
+    {
+      "path": "TunnelDeck/Pages/DashboardPage.xaml.cs",
+      "bytes": 7393,
+      "sha256": "16b34fcacd044762bad353784196640444dd9668bd71942ca624dede5e698770"
+    },
+    {
+      "path": "TunnelDeck/Pages/ExportPage.xaml",
+      "bytes": 4565,
+      "sha256": "482bcc2110a5d8b57afbca37b71ba16ac4ec719682bb05cdcba5ddd04142345e"
+    },
+    {
+      "path": "TunnelDeck/Pages/ExportPage.xaml.cs",
+      "bytes": 1717,
+      "sha256": "3bb0674928e3ebc8cef621ce7aaf2cf0014790797b2bf6ec4ae2a51a492f814c"
+    },
+    {
+      "path": "TunnelDeck/Pages/ImportPage.xaml",
+      "bytes": 6279,
+      "sha256": "f18ee9d0c5dbdb53b495c4e2850c2ff7cd65feb3009dbb5c508d7e59debe9ec2"
+    },
+    {
+      "path": "TunnelDeck/Pages/ImportPage.xaml.cs",
+      "bytes": 1928,
+      "sha256": "e372c4f548604276c85f1d734aae7a904a9994a9539d7039506729d7bf983c2c"
+    },
+    {
+      "path": "TunnelDeck/Pages/ServerDetailPage.xaml",
+      "bytes": 11365,
+      "sha256": "0f06a28406bccf612886882fc2001e097b91b6123714b658d0cddb1e02a28558"
+    },
+    {
+      "path": "TunnelDeck/Pages/ServerDetailPage.xaml.cs",
+      "bytes": 2179,
+      "sha256": "056e27b45ba2d9be043da74feb268dd978145c2ade5e92f37f3f4ce613841ddc"
+    },
+    {
+      "path": "TunnelDeck/Services/AppServices.cs",
+      "bytes": 4626,
+      "sha256": "31501e22dc2c82bfbc3880b9613c3f86533d7aa49bc9d8281458ced45aaf8103"
+    },
+    {
+      "path": "TunnelDeck/ViewModels/ExportViewModel.cs",
+      "bytes": 3423,
+      "sha256": "add0080fbd1cef5c2961cc3af21202c726b66676eec40c6d104c315222e10b7e"
+    },
+    {
+      "path": "TunnelDeck/ViewModels/ImportViewModel.cs",
+      "bytes": 4710,
+      "sha256": "8f61551fafc9d57bc0cd73260cb9ba94ec466c5be7f2b2df25119157a0525813"
+    },
+    {
+      "path": "TunnelDeck/ViewModels/ResourceListViewModel.cs",
+      "bytes": 2937,
+      "sha256": "5c871691d8795325f660ba6cb8d2dc52aeb1c15f34c15257aca044b19ec44fb4"
+    },
+    {
+      "path": "TunnelDeck/ViewModels/ServerDetailViewModel.cs",
+      "bytes": 10108,
+      "sha256": "b7d30c3f48ec769dd7a3838a8c10979765a80a5bfa75e7c45823043d43341b4d"
+    },
+    {
+      "path": "TunnelDeck/ViewModels/ShellViewModel.cs",
+      "bytes": 11282,
+      "sha256": "c64fb0de613e6cf24fe1fc5096faacbef32289e8a6d921e2b1298931d5242d4a"
+    },
+    {
+      "path": "TunnelDeck/ViewModels/ShellViewModel.Transfer.cs",
+      "bytes": 2513,
+      "sha256": "07f92e2ced653086c985207db26e12ce31bd7fd52dbf036e6c57729a090e082c"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/m11-review/build.log",
+      "bytes": 4850,
+      "sha256": "aad67c0bbb52ba7c4f775bf01b0703efc7e1492ce402f7a91fa00e1240bd0672"
+    },
+    {
+      "path": "artifacts/m11-review/gui-review/import-preview.png",
+      "bytes": 87497,
+      "sha256": "1e0b27c5680c0210aa9be6a832b52fdef5a0639aabf3cc1c98aeffc9e4f05ee1"
+    },
+    {
+      "path": "artifacts/m11-review/gui-review/review.json",
+      "bytes": 746,
+      "sha256": "38303f3c660b031c5bf48bec7069ac173ab190888d9a3bd0f40367a42c47c9fe"
+    },
+    {
+      "path": "artifacts/m11-review/m11-ssh-targeted-final.trx",
+      "bytes": 9120,
+      "sha256": "81c3a9fcf798293e93c37e5bb6e3bad8f23a51c7805a9defeae8fb9701a845ca"
+    },
+    {
+      "path": "artifacts/m11-review/native-regressions.json",
+      "bytes": 1787,
+      "sha256": "d151ea3c4f9e4a74fc6ed46915ba5a1dfc81cda9b2fefc8fead886d470462ef2"
+    },
+    {
+      "path": "artifacts/m11-review/native-transfer/export-preview-light.png",
+      "bytes": 67629,
+      "sha256": "0e76b757a7e0c3141fe61f4efdca063bfd2abda8942844092092c32aa0736be6"
+    },
+    {
+      "path": "artifacts/m11-review/native-transfer/import-save-failure.png",
+      "bytes": 82230,
+      "sha256": "25d9c982cb25b83f2813eac12799461a44b9e4cbff39ce226ff1c439042686a5"
+    },
+    {
+      "path": "artifacts/m11-review/native-transfer/json-preview-light.png",
+      "bytes": 80308,
+      "sha256": "f113c40c5a8afe8228f3e3f81034f87004e0a69d6b5618d200220f443bd6f2d3"
+    },
+    {
+      "path": "artifacts/m11-review/native-transfer/result.json",
+      "bytes": 996,
+      "sha256": "b2083c9333ec6309eabcc33daa0b072fdc694c08fba5bff7e80873a73348a6de"
+    },
+    {
+      "path": "artifacts/m11-review/native-transfer/ssh-warnings-dark.png",
+      "bytes": 93625,
+      "sha256": "cc3b4d51538258a469d0bfd2519c7f96f5c723533f541a2ba9beb616fc545fb8"
+    },
+    {
+      "path": "artifacts/m11-review/native-transfer/ssh-warnings-light.png",
+      "bytes": 89034,
+      "sha256": "5b164be9105fc69182ad2af31c725eae6a49aa1c3c4c1fa96d24ecfba0245d21"
+    },
+    {
+      "path": "artifacts/m11-review/native-transfer/ssh-warnings-narrow.png",
+      "bytes": 39847,
+      "sha256": "6dda05dbec91620747f3185f4a9b3dde9a62318818e666393613b137264ff766"
+    },
+    {
+      "path": "artifacts/m11-review/native-transfer/terminal-missing-key.png",
+      "bytes": 81388,
+      "sha256": "7d8b1c766ff1af2578cc22ab0f07d1b1a40bfcfbcceae881da3aec972914ba40"
+    },
+    {
+      "path": "artifacts/m11-review/native-transfer/unsupported-json.png",
+      "bytes": 64791,
+      "sha256": "219942816e058be839e93feb5c0fb45d47fdc3b4d40924e97a45e81e8ffbd277"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/connections/authentication-error.png",
+      "bytes": 70488,
+      "sha256": "95d52e0c384e338137bfd832a0b756d0460155f506c515531dc7097c327b5be5"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/connections/encrypted-key-dark.png",
+      "bytes": 80553,
+      "sha256": "0a318c1f102538fe282fbdf581f26ca49f94c052eb06dbffa85e9601b97e7de1"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/connections/host-key-approval.png",
+      "bytes": 91753,
+      "sha256": "220f39dcc73d0e5307a8df020adf7cfe068799893a80d3643f76c6f0d7212b2f"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/connections/password-test-success.png",
+      "bytes": 74122,
+      "sha256": "424c5396020981e5e02927a21fd7d1a260476767e9a1435d959a8e2e5f528ebc"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/connections/private-key-640-dark.png",
+      "bytes": 43539,
+      "sha256": "fd2b9cdf49ea4b31c3432f071ea3db7d5dd4627946af6cdf773d05646343b780"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/connections/private-key-900-dark.png",
+      "bytes": 53836,
+      "sha256": "02af5f1b6666f4b9fd8239718d6bf9add2946ea7fdbb8a96745c47d9f23436d9"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/connections/verification.json",
+      "bytes": 577,
+      "sha256": "f83236ff429dcd8db24dd8d9408db89f90815aa755511141976060bda9b62a70"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/forwards/advanced-640-dark.png",
+      "bytes": 56952,
+      "sha256": "abf920a85a6f1f63d32ebbadd156f40c0bcca0cb3f6bf54caf25071b8d42524b"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/forwards/advanced-900-dark.png",
+      "bytes": 90599,
+      "sha256": "eb4a40cbb04a7d81db4e36c582c7bb2fad1f6d0600d0662944944814246c58a2"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/forwards/local-port-adjusted.png",
+      "bytes": 179174,
+      "sha256": "42bb6bfffd0992bddc185e3f0d6386a9c3fa123280a455ff01dc4bf5f89793ac"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/forwards/mixed-running-dark.png",
+      "bytes": 113396,
+      "sha256": "356900443f94128863bcebfcce4069e7e0baf1dc0c22b9457d552bf0b31d5060"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/forwards/remote-refusal.png",
+      "bytes": 117230,
+      "sha256": "660fc2b542c5b6c6ba04be4b77878b73f5be75dfec77412732e82106419829eb"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/forwards/running-details.png",
+      "bytes": 263097,
+      "sha256": "e9e50b49f75e22f00e42baa7385509e1cc10dd2c6c229d23c2443470fc9bbea0"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/forwards/verification.json",
+      "bytes": 691,
+      "sha256": "4729ca0fe31b4136853e4d209eb0fa5d19a17cfd326a0718dbd259159607dfcd"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/lifecycle/closing-paused-dark.png",
+      "bytes": 115183,
+      "sha256": "51951bec2ddd74222e299016401da3b62623935303cdd145cf5b9a4285ab998e"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/lifecycle/closing-save-failed-dark.png",
+      "bytes": 120549,
+      "sha256": "71be5a4d71fec8048d36b2835c0f9aa775f80df714749d14b939460fdb257bc8"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/lifecycle/reconnecting-details-light.png",
+      "bytes": 261792,
+      "sha256": "f2cb680fd176e005f91fa5be4400cb3c68f3fb4e0e037175feb00a21603ec883"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/lifecycle/reconnecting-light.png",
+      "bytes": 98954,
+      "sha256": "99bf41398b086bda20b07befa9909e416a639a00ee65cbcd7d94a99ee077aa56"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/lifecycle/recovered-details-light.png",
+      "bytes": 305016,
+      "sha256": "f6fe5ddb565ae126421bcfab8846ad3af0bc2ec3047e31b99f17d19401e43477"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/lifecycle/result.json",
+      "bytes": 830,
+      "sha256": "5bdc80dbd953945b2b07a5aab1e344098dbd5e2888b1dc07c3b578183c3b27e8"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/lifecycle/single-instance-restored.png",
+      "bytes": 133004,
+      "sha256": "18fed0842221dc15370eff404c74320610aac7c85c13f4d3523a53c9ed746c13"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/lifecycle/stopped-during-backoff-light.png",
+      "bytes": 157599,
+      "sha256": "6650e63521e947c75061813235ecd9df21decc490278c7d32e8eb1c18b9e4a6e"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/resources/last-resource-drag.json",
+      "bytes": 808,
+      "sha256": "6ec0db3129b700d0e77bd9f222670f091755963d586b3d9d3d5d2ba87fb686d6"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/resources/profiles-no-pinned-light.png",
+      "bytes": 145002,
+      "sha256": "7feb88285b21a6472d1d6c7b4ccca0d84361af2afe5916703ab84760f8901ad0"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/resources/profiles-reordered-light.png",
+      "bytes": 145913,
+      "sha256": "e7a7596222a6e180a8214183c1fc668b2d80f1862f4e392a9f7ac878511a389c"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/resources/resource-order-save-error.png",
+      "bytes": 150223,
+      "sha256": "e570edc95028201b2e4cda858f364b60990322d37074681eb1f0c2b3c983f4df"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/resources/resources-verification.json",
+      "bytes": 751,
+      "sha256": "f86ae6f3aa899a0bc898d4f2ffeeba4005927dcf45175342405ced6f13a59979"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/resources/servers-500-dark.png",
+      "bytes": 54883,
+      "sha256": "4d51192987c14d3337121fea52b5e45dff6b8bdce5db9087e90984357026d2ee"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/resources/servers-900-dark.png",
+      "bytes": 75568,
+      "sha256": "af5ff614ef35e4edd91c07d971f63cc9f857cee45e2f99e41a3a8983ddf1a664"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/dashboard-500.png",
+      "bytes": 54518,
+      "sha256": "250176b31f5d53916b98317caa0651d7882452fa778d4b81761bfd2c550710d5"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/dashboard-640.png",
+      "bytes": 46645,
+      "sha256": "ee64734fcc0a645b5fa2f645feda983abef6bf689beb035363963cbe0ad4405b"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/dashboard-900.png",
+      "bytes": 62204,
+      "sha256": "671b394088489d073a884844029478411930246d1222186ccfaccd143ab50ad7"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/dashboard-dark.png",
+      "bytes": 104731,
+      "sha256": "3e9b05e9a093dbdfad95064f384a668a41d74ebaf009193bb61b6e893f54b18a"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/dashboard-light.png",
+      "bytes": 113385,
+      "sha256": "30989c38e326402ff08b895a0bf88b5a43f83746715b3a86ff89b12e6f6fed3f"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/profile-detail.png",
+      "bytes": 94622,
+      "sha256": "dcee6fdaf02dd2ed6a316660aca3d37733c839c05f38580ab4385fd8b6d221cb"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/profiles-empty.png",
+      "bytes": 40873,
+      "sha256": "0ef4149bf6a90c7cb079d2906e9d3fef6efe96e502e24b2b614840a9c762ec00"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/profiles-stress.png",
+      "bytes": 141029,
+      "sha256": "b68448889f119bdeb765ccc7a76026f1848109e301ed0482eddf95913388039d"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/result.json",
+      "bytes": 680,
+      "sha256": "0f2552aaa609983500431ad6cf9477f3ab86e33f97ea02c7956da44f0f0287d2"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/server-detail.png",
+      "bytes": 92789,
+      "sha256": "8dd3c253f35c7d45358194b6e02376daf42717fdae9f8c6c107f032397461eb1"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/servers-light.png",
+      "bytes": 103341,
+      "sha256": "79a833b6b78dd923354d2815e78514ccaa560fda2b53a484b90538692ae22501"
+    },
+    {
+      "path": "artifacts/m11-review/regressions/shell/settings-dark.png",
+      "bytes": 85848,
+      "sha256": "a3ebc4c8d6e8aa8ee91ba6f32c084441a490e9961537b06b8e3b6c3bbc6d1151"
+    },
+    {
+      "path": "artifacts/m11-review/ssh-environment.json",
+      "bytes": 277,
+      "sha256": "40bcc4abb3d1b40e4f36f21dcb8c17e6abd36453d51bb0c2ef50473650f8e79a"
+    }
+  ]
+}

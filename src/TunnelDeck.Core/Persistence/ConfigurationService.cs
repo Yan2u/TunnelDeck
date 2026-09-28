@@ -101,7 +101,7 @@ public sealed partial class ConfigurationService(IStateStore stateStore, ICreden
         {
             if (!_accepting)
             {
-                return Task.FromException<T>(new StateStoreException(StateStoreFailure.ShuttingDown, "TunnelDeck is closing. New edits cannot be saved."));
+                return Task.FromException<T>(new StateStoreException(StateStoreFailure.ShuttingDown, UiText.Invariant("Diagnostic_ConfigurationService_TunnelDeckIsClosingNewEditsCannotBeSaved")));
             }
             Task previous = _tail;
             Task<T> next = Task.Run(async () =>
@@ -124,8 +124,8 @@ public sealed partial class ConfigurationService(IStateStore stateStore, ICreden
     private AppState RequireWritable(long? expectedRevision)
     {
         StateLoadResult? loaded = Loaded;
-        if (loaded is null) { throw new StateStoreException(StateStoreFailure.NotInitialized, "Load saved data before editing it."); }
-        if (IsReadOnly || loaded.State is null) { throw new StateStoreException(StateStoreFailure.ReadOnly, "Saved data is read-only. Resolve the load error before saving."); }
+        if (loaded is null) { throw new StateStoreException(StateStoreFailure.NotInitialized, UiText.Invariant("Diagnostic_ConfigurationService_LoadSavedDataBeforeEditingIt")); }
+        if (IsReadOnly || loaded.State is null) { throw new StateStoreException(StateStoreFailure.ReadOnly, UiText.Invariant("Diagnostic_ConfigurationService_SavedDataIsReadOnlyResolveTheLoad")); }
         if (expectedRevision is long expected && loaded.State.Revision != expected)
         {
             throw new StateRevisionConflictException(expected, loaded.State.Revision);
@@ -141,7 +141,7 @@ public sealed partial class ConfigurationService(IStateStore stateStore, ICreden
             if (server.CredentialReference is Guid reference &&
                 !before.Servers.Any(old => old.Id == server.Id && old.CredentialReference == reference))
             {
-                throw new ArgumentException("Use SaveServerAsync to remember a new credential.", nameof(candidate));
+                throw new ArgumentException(UiText.Invariant("Diagnostic_ConfigurationService_UseSaveServerAsyncToRememberANewCredential"), nameof(candidate));
             }
         }
     }

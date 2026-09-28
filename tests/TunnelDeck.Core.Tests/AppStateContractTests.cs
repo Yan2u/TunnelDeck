@@ -50,7 +50,9 @@ public sealed class AppStateContractTests
 
     [Theory]
     [InlineData(0)]
+    [InlineData(1)]
     [InlineData(2)]
+    [InlineData(AppState.CurrentSchemaVersion + 1)]
     [InlineData(int.MaxValue)]
     public void UnsupportedSchemaIsReportedWithoutResetOrMutation(int version)
     {

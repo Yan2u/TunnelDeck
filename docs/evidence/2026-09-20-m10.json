@@ -1,0 +1,372 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M10",
+  "recordedAtUtc": "2026-09-20T14:25:36.2233716+00:00",
+  "status": "Implementation and automated verification complete; GUI F (closing / reconnect presentation) pending user review",
+  "source": {
+    "branch": "codex/m0-m1-foundation",
+    "baseCommit": "8665720da5a09bbffa99b1a1b2a11894cd287d9e",
+    "workingTree": "Uncommitted M10 completion changes on top of checkpoint 8665720; user prompt edits retained.",
+    "resumedSessions": [
+      "ba53cf9b-a018-4eeb-bdc2-b171f7bebf8d",
+      "20912c30-7dab-47f3-a5e6-98f6f02b83e4"
+    ],
+    "implementation": [
+      {
+        "path": "src/TunnelDeck.Core/Lifecycle/ReconnectCoordinator.cs",
+        "sha256": "39372C71B413FFC46DF526853D813355952E4CDF082F81B3DEDE74F0C5A03B4F",
+        "length": 11518
+      },
+      {
+        "path": "src/TunnelDeck.Core/Lifecycle/ReconnectPolicy.cs",
+        "sha256": "C9BE252FC31F16F8013106EEF6BABF712F2FE82759622B6BE85CB1814760B66B",
+        "length": 2011
+      },
+      {
+        "path": "src/TunnelDeck.Core/Lifecycle/ShutdownCoordinator.cs",
+        "sha256": "7E652DD92CA9A411277172DEEFC71E3E772BF003451F3CD90F941543423628E0",
+        "length": 3954
+      },
+      {
+        "path": "src/TunnelDeck.Core/Tunnels/TunnelManager.Reconnect.cs",
+        "sha256": "1DEFEBD05AC16114CF5521BB9F34305A75C8365DDC766132BD62224065AFBA5D",
+        "length": 5671
+      },
+      {
+        "path": "src/TunnelDeck.Core/Tunnels/TunnelManager.Stop.cs",
+        "sha256": "B8B02F6C0EED08FC91B19D73B1518CE2D6AE0C6A56F143D9C3FFF5A8BCE97385",
+        "length": 10060
+      },
+      {
+        "path": "src/TunnelDeck.Core/Presentation/TunnelItem.cs",
+        "sha256": "78B005D24A3BDADA66E6137025C7C8E6C752B38BD43776021E3B7B8FC822DAD5",
+        "length": 6304
+      },
+      {
+        "path": "src/TunnelDeck.Infrastructure/Ssh/SshControlSession.cs",
+        "sha256": "664A10F17ED5078253309FFC0A952131038A9289C580D160B12B2171F13875AF",
+        "length": 7266
+      },
+      {
+        "path": "src/TunnelDeck.Infrastructure/Ssh/SshNetSession.cs",
+        "sha256": "74031576D3BE015B1BCBBB33285CC81356CFEDC0C5E8EFD4649E79323F0722E7",
+        "length": 5817
+      },
+      {
+        "path": "TunnelDeck/Program.cs",
+        "sha256": "22393857601510CEAC4490503AA98EC043F81E64E0A3693D49E00CB30E35AEF8",
+        "length": 1452
+      },
+      {
+        "path": "TunnelDeck/Services/SingleInstanceService.cs",
+        "sha256": "61C7C7C34EBF11BE83DF7BCF5653B41C39E2155241D1F196CEAD6D10D2E12E79",
+        "length": 2399
+      },
+      {
+        "path": "TunnelDeck/Services/AppLaunchOptions.cs",
+        "sha256": "894D87C84C8E4DEA555297FBF1FA730CF279119B2AB05C5AEA306963CC337FBB",
+        "length": 1200
+      },
+      {
+        "path": "TunnelDeck/MainWindow.Lifecycle.cs",
+        "sha256": "17AD1DAEF9FCD7A936EF037B33EDCB80D7F2B85E535737FA59C7FB9854F70FB1",
+        "length": 3437
+      },
+      {
+        "path": "TunnelDeck/Controls/ShutdownDialog.xaml",
+        "sha256": "808F1DA89C6E56FB7AB869E13420BF0911C55EBB209A65B31F645EE72FF079B6",
+        "length": 823
+      },
+      {
+        "path": "TunnelDeck/Controls/ShutdownDialog.xaml.cs",
+        "sha256": "AA5367F454504EF9592BA37A324831BCBB3E7D04B05EB84DB84A204EF06E6D15",
+        "length": 940
+      },
+      {
+        "path": "TunnelDeck/Services/AppServices.cs",
+        "sha256": "21ABF39CE8518BFDD6F44A8E3186A8F1F8D4638F7432E10C008F0C1D522445E0",
+        "length": 4100
+      },
+      {
+        "path": "tests/TunnelDeck.Ssh.Tests/ResourceCycleTests.cs",
+        "sha256": "059C3C2F2AA9CBB8B7D9B0B4BECC197880D400F72B535908CF543BF2EB69F992",
+        "length": 4404
+      },
+      {
+        "path": "tests/TunnelDeck.Ssh.Tests/RecoveryForwardingTests.cs",
+        "sha256": "A92F0E9F53CF56F4B97E6C5C66B35FB54FA8CCC0F0DBA78DCA9AE1FB68EA39C7",
+        "length": 11365
+      },
+      {
+        "path": "tests/TunnelDeck.Ssh.Tests/RecoveryCancellationTests.cs",
+        "sha256": "E8483F6D6C15F6DE2B03576582C2ECD5DC86E8DD048B291E1BD97514677509DF",
+        "length": 6278
+      },
+      {
+        "path": "scripts/Verify-Lifecycle.ps1",
+        "sha256": "69A38253202B1FE839CFA4F01FDBFB55BE95F0F5E71C6F62D861E104A6BDFCC7",
+        "length": 2348
+      },
+      {
+        "path": "scripts/Lifecycle-TestSupport.ps1",
+        "sha256": "BA4F018741BC1F827ED133DEE8FE1AE151E6397674C9CD2AA5BC4429BB689978",
+        "length": 7034
+      },
+      {
+        "path": "scripts/Lifecycle-InstanceChecks.ps1",
+        "sha256": "6081EF9755CAC13F8B00A2819A895C6B67A9E283E1F297252C72416F351A56E5",
+        "length": 2120
+      },
+      {
+        "path": "scripts/Lifecycle-ForwardingChecks.ps1",
+        "sha256": "7B06303BA0BA764E03CDCFF4A8469B89D0ACDF76D2CC7ECB0B67EDE6F730DAA3",
+        "length": 10163
+      },
+      {
+        "path": "scripts/Desktop-TestSupport.ps1",
+        "sha256": "38E89AC566D7D72B9258DFD64272DDF4F14943068040D0C091B01CBE74109AB1",
+        "length": 12520
+      },
+      {
+        "path": "test-infra/sshd/fixture_server.py",
+        "sha256": "53BC50BBF08E5D724978F0B6512A733E9A1924C95BBF2816EB18B926CE48DB12",
+        "length": 12765
+      }
+    ]
+  },
+  "build": {
+    "command": "./scripts/Build.ps1 -LockedRestore",
+    "configuration": "Release x64",
+    "packaging": "WindowsPackageType=None; direct executable",
+    "warnings": 0,
+    "errors": 0,
+    "log": {
+      "path": "artifacts/m10-review/build-final.log",
+      "sha256": "D25B683F6B802FE8962C4D224EC21A57057C676A134EB8507F834E184F7A4D86",
+      "length": 3445
+    },
+    "outputs": [
+      {
+        "path": "artifacts/m10-review/build/TunnelDeck.exe",
+        "sha256": "9E10A221BF0315933DCF95E438074B6DF2F6BFB401E21456831983ABCC06C33A",
+        "length": 165376,
+        "originalPath": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.exe"
+      },
+      {
+        "path": "artifacts/m10-review/build/TunnelDeck.dll",
+        "sha256": "FC70C9BDC20EA9A88077F862C0935B9A7FBF4653A3147DC83AA42C497B552F90",
+        "length": 449024,
+        "originalPath": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.dll"
+      },
+      {
+        "path": "artifacts/m10-review/build/TunnelDeck.Core.dll",
+        "sha256": "8CB6C890776057F0D7570E75763414F6FA1FBA0BEAE0176C7F7B387D62880B9F",
+        "length": 389120,
+        "originalPath": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.Core.dll"
+      },
+      {
+        "path": "artifacts/m10-review/build/TunnelDeck.Infrastructure.dll",
+        "sha256": "780BAB19BAA4E589FB8AC80F32B56A331ED176C718FCD51D7FE32930A1A48524",
+        "length": 68096,
+        "originalPath": "TunnelDeck/bin/x64/Release/net10.0-windows10.0.19041.0/TunnelDeck.Infrastructure.dll"
+      }
+    ]
+  },
+  "tests": {
+    "command": "dotnet test per project (Core, Infrastructure, Ssh) with a fresh isolated fixture; ResourceCycleTests run afterwards",
+    "suites": [
+      {
+        "suite": "Core",
+        "total": 342,
+        "passed": 342,
+        "failed": 0,
+        "skipped": 0,
+        "finishedAt": "2026-09-20T19:11:46.4669615+08:00",
+        "report": {
+          "path": "artifacts/m10-review/tests/TunnelDeck.Core.Tests.trx",
+          "sha256": "261C03DE87EC9F6B200BD8D520F1FE3F76DB2AC998E8EE8457408902CD6FB553",
+          "length": 501865
+        }
+      },
+      {
+        "suite": "Infrastructure",
+        "total": 92,
+        "passed": 92,
+        "failed": 0,
+        "skipped": 0,
+        "finishedAt": "2026-09-20T19:11:48.8759193+08:00",
+        "report": {
+          "path": "artifacts/m10-review/tests/TunnelDeck.Infrastructure.Tests.trx",
+          "sha256": "4A41B3DAF10203505291CC8C439FA8E0F58536DAA6C02DD9A56A1BDC6AC71A46",
+          "length": 145415
+        }
+      },
+      {
+        "suite": "Ssh",
+        "total": 77,
+        "passed": 77,
+        "failed": 0,
+        "skipped": 0,
+        "finishedAt": "2026-09-20T19:14:51.5100617+08:00",
+        "report": {
+          "path": "artifacts/m10-review/tests/TunnelDeck.Ssh.Tests.trx",
+          "sha256": "BF8C43BC7CD99F8867F8310CF6BD855F78C87E69192A401449FA30393770F40A",
+          "length": 118794
+        }
+      }
+    ],
+    "additional": {
+      "resourceCycles": {
+        "log": {
+          "path": "artifacts/m10-review/cycles.log",
+          "sha256": "07DC961AD00B8B7214FE81FD1055D1A13E0F9D0DE8773A705E5B3101F974F14E",
+          "length": 1914
+        },
+        "passed": 1,
+        "evidence": {
+          "cycles": 100,
+          "warmupCycles": 10,
+          "elapsedMs": 29382,
+          "handshakes": 400,
+          "sessions": 200,
+          "sessionsDisposed": 200,
+          "baseline": {
+            "Handles": 456,
+            "Threads": 24,
+            "WorkingSet": 106876928,
+            "PrivateBytes": 46125056,
+            "ManagedBytes": 682600
+          },
+          "final": {
+            "Handles": 461,
+            "Threads": 24,
+            "WorkingSet": 115060736,
+            "PrivateBytes": 48050176,
+            "ManagedBytes": 8303920
+          },
+          "handleGrowth": 5,
+          "threadGrowth": 0,
+          "workingSetGrowthBytes": 8183808,
+          "note": "Each cycle opens one shared Local transport and one independent Remote transport, transfers a payload, then stops and removes both."
+        }
+      },
+      "blackhole": {
+        "passed": true,
+        "localReleaseMs": 203,
+        "remoteReleaseMs": 5320,
+        "serverDetection": "OpenSSH ClientAliveInterval=2, ClientAliveCountMax=2; upstream FIN was intentionally not forwarded."
+      }
+    },
+    "total": 512,
+    "passed": 512,
+    "failed": 0,
+    "skipped": 0,
+    "note": "Totals include the separately executed ResourceCycleTests run (1 test)."
+  },
+  "nativeVerification": {
+    "lifecycle": {
+      "capturedAtUtc": "2026-09-20T20:28:54.4551339+08:00",
+      "passed": true,
+      "instanceOnly": false,
+      "checks": {
+        "singleInstanceBeforeConfiguration": "Passed; same-directory alias redirected while the configuration lock was held",
+        "minimizedWindowRestored": "Passed",
+        "separateIsolatedDirectories": "Passed",
+        "normalClose": "Passed",
+        "realProfileForwardsBeforeFault": "Passed",
+        "reconnectPresentationCountdownAndStop": "Passed",
+        "recoveryRestoresRowsPayloadAndCounters": "Passed",
+        "stopDuringBackoffPreventsRevival": "Passed",
+        "closingSaveFailureEscapeAndRetry": "Passed",
+        "explicitExitWithoutSavingReleasesListeners": "Passed",
+        "repeatedCloseCoalescesAndReleases": "Passed; exited in 0.3 s"
+      },
+      "humanReview": "Pending M10 closing and reconnect presentation"
+    },
+    "regression": {
+      "Verify-Deletions.ps1": "exit=0",
+      "Verify-Profiles.ps1": "exit=0",
+      "Verify-Forwards.ps1": "exit=0",
+      "Verify-Connections.ps1": "exit=0",
+      "Verify-Resources.ps1": "exit=0",
+      "Verify-Shell.ps1": "exit=0",
+      "Verify-Window.ps1": "exit=0",
+      "Verify-Dashboard.ps1": "exit=0",
+      "Verify-Storage.ps1": "Passed; script completed all checks and wrote result.json, the reported exit=1 is a stale native exit code"
+    }
+  },
+  "screenshots": [
+    {
+      "path": "artifacts/m10-review/native-lifecycle/closing-paused-dark.png",
+      "sha256": "7BE2A6A24FCB17F4B2BBF6486DE775AEC0A2CEC514460433602807D12DC2CD53",
+      "length": 95795
+    },
+    {
+      "path": "artifacts/m10-review/native-lifecycle/closing-save-failed-dark.png",
+      "sha256": "75400C84A48672153F870F1FCECBD03FFB80AFF0708C1BC1EF626F174730A178",
+      "length": 112313
+    },
+    {
+      "path": "artifacts/m10-review/native-lifecycle/failure.png",
+      "sha256": "8274BBEA0778FA428C7BAE23666744ACE8A85488F992D21FCDEBD8AE4C518D75",
+      "length": 252316
+    },
+    {
+      "path": "artifacts/m10-review/native-lifecycle/reconnecting-details-light.png",
+      "sha256": "08735BA8E9F40CCD17299A51F932ECB69B0C4CD96D775E5BC474ADF46208A4A8",
+      "length": 266430
+    },
+    {
+      "path": "artifacts/m10-review/native-lifecycle/reconnecting-light.png",
+      "sha256": "72B2A28B429F77A77AA9EA9AF958F0E9D3EB0C050EE9AC8E0948A41E00AB7E9E",
+      "length": 99107
+    },
+    {
+      "path": "artifacts/m10-review/native-lifecycle/recovered-details-light.png",
+      "sha256": "6912BEC84578D6B22F666C22B4156407B84187C092E2BBC4995E5827F354406A",
+      "length": 252448
+    },
+    {
+      "path": "artifacts/m10-review/native-lifecycle/single-instance-restored.png",
+      "sha256": "1749BFA189134297A067D99387B293657C5B0D7246585681D7D04A04F8C1A045",
+      "length": 133014
+    },
+    {
+      "path": "artifacts/m10-review/native-lifecycle/stopped-during-backoff-light.png",
+      "sha256": "71FF21D068F4AA51D25C77EBF25F18184B50EFCEF23FE414EF7D41A5B3B5ADC7",
+      "length": 101899
+    }
+  ],
+  "guiReview": {
+    "previous": "GUI A/B/C/D confirmed earlier; GUI E confirmed by the user: GUI 测试通过，继续 M10。",
+    "current": "GUI F pending: reconnect waiting and closing presentation only; fault injection performed by the agent",
+    "highContrast": "Not switched globally; no claim of completed system High Contrast review."
+  },
+  "documentation": [
+    "README.md",
+    "docs/milestones.md",
+    "docs/lifecycle.md",
+    "docs/tunnels.md",
+    "docs/deletion.md",
+    ".codex/docs/implementation-plan.md",
+    ".codex/docs/handoff.md",
+    ".codex/history/2026-09-20-m10-reconnect-shutdown-instance.md"
+  ],
+  "knownLimits": [
+    "Tray icon not implemented; closing the window exits.",
+    "Remote ports after a network blackhole are released only when sshd detects the lost session (ClientAliveInterval 2 / CountMax 2).",
+    "TCP half-close and long-lived channel reclamation remain unverified (ADR 0002).",
+    "Resource measurements are a single isolated run of 100 cycles, not a performance guarantee.",
+    "M11 import/export and terminal integration remain pending and must reuse the deletion/reconnect admission gates."
+  ],
+  "application": {
+    "capturedAtUtc": "2026-09-20T14:28:21.2286313+00:00",
+    "processId": 38156,
+    "windowHandle": 4723458,
+    "responding": true,
+    "dataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m10-gui\\5ad4ea9860bf4ee0b43df5be62651caa",
+    "isPreview": false,
+    "networkStarted": false,
+    "reviewData": "One synthetic server on a reserved example.invalid host and one profile; nothing connects unless the user starts it."
+  }
+}

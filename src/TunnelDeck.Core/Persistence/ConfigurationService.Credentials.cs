@@ -22,7 +22,7 @@ public sealed partial class ConfigurationService
                 try { credentials.Write(reference, secret!); }
                 catch (Exception)
                 {
-                    throw new StateStoreException(StateStoreFailure.CredentialWriteFailed, "The credential could not be saved. The server edit has not been saved.");
+                    throw new StateStoreException(StateStoreFailure.CredentialWriteFailed, UiText.Invariant("Diagnostic_ConfigurationServiceCredentials_TheCredentialCouldNotBeSavedTheServer"));
                 }
             }
 
@@ -86,5 +86,5 @@ public sealed partial class ConfigurationService
         .Where(server => server.CredentialReference.HasValue).Select(server => server.CredentialReference!.Value).ToImmutableHashSet();
 
     private static ValidationIssue CleanupPending() => new("Credentials",
-        "Some saved credentials could not be reconciled. Their references remain in the local cleanup journal for retry.");
+        UiText.Invariant("Diagnostic_ConfigurationServiceCredentials_SomeSavedCredentialsCouldNotBeReconciledTheir"));
 }

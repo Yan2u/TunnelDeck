@@ -1,0 +1,129 @@
+<Window
+    x:Class="TunnelDeck.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:TunnelDeck.ViewModels"
+    xmlns:pages="using:TunnelDeck.Pages"
+    Title="TunnelDeck">
+    <Window.SystemBackdrop><MicaBackdrop /></Window.SystemBackdrop>
+    <Grid x:Name="LayoutRoot" Loaded="OnRootLoaded" SizeChanged="OnRootSizeChanged" KeyboardAcceleratorPlacementMode="Hidden"
+          Language="{Binding Language, Source={StaticResource Strings}, Mode=OneWay}">
+        <Grid.Resources>
+            <DataTemplate x:Key="SearchResultTemplate" x:DataType="vm:SearchSuggestion">
+                <Grid ColumnSpacing="12" Padding="4,8" AutomationProperties.Name="{x:Bind AccessibleName}" AutomationProperties.AutomationId="{x:Bind AutomationId}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                    <FontIcon Glyph="{x:Bind Glyph}" VerticalAlignment="Center" />
+                    <StackPanel Grid.Column="1" Spacing="4">
+                        <TextBlock Text="{x:Bind Name}" TextTrimming="CharacterEllipsis" Style="{ThemeResource BodyStrongTextBlockStyle}" />
+                        <TextBlock Text="{x:Bind Description}" TextTrimming="CharacterEllipsis" Style="{ThemeResource CaptionTextBlockStyle}"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+        </Grid.Resources>
+        <Grid.KeyboardAccelerators>
+            <KeyboardAccelerator Key="K" Modifiers="Control" Invoked="OnSearchAccelerator" />
+            <KeyboardAccelerator Key="Left" Modifiers="Menu" Invoked="OnBackAccelerator" />
+        </Grid.KeyboardAccelerators>
+        <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+        <TitleBar x:Name="AppTitleBar" Title="TunnelDeck" IsPaneToggleButtonVisible="True" Foreground="{ThemeResource TextFillColorPrimaryBrush}"
+                  IsBackButtonVisible="{x:Bind Shell.CanGoBack, Mode=OneWay}"
+                  IsBackButtonEnabled="{x:Bind Shell.CanGoBack, Mode=OneWay}"
+                  BackRequested="OnBackRequested" PaneToggleRequested="OnPaneToggleRequested">
+            <TitleBar.RightHeader>
+                <Grid>
+                    <AutoSuggestBox x:Name="GlobalSearch" Width="288" QueryIcon="Find"
+                                    PlaceholderText="{Binding Values[MainWindow_SearchProfilesAndServers], Source={StaticResource Strings}, Mode=OneWay}" UpdateTextOnSelect="False"
+                                    ItemTemplate="{StaticResource SearchResultTemplate}" MaxSuggestionListHeight="400"
+                                    AutomationProperties.AutomationId="GlobalSearch" AutomationProperties.Name="{Binding Values[MainWindow_SearchProfilesAndServers], Source={StaticResource Strings}, Mode=OneWay}"
+                                    TextChanged="OnSearchTextChanged" SuggestionChosen="OnSuggestionChosen" QuerySubmitted="OnSearchSubmitted" />
+                    <Button x:Name="CompactSearchButton" Visibility="Collapsed" Style="{ThemeResource SubtleButtonStyle}"
+                            AutomationProperties.AutomationId="CompactSearchButton" AutomationProperties.Name="{Binding Values[MainWindow_SearchProfilesAndServers], Source={StaticResource Strings}, Mode=OneWay}"
+                            ToolTipService.ToolTip="{Binding Values[MainWindow_SearchProfilesAndServersCtrlK], Source={StaticResource Strings}, Mode=OneWay}">
+                        <FontIcon Glyph="&#xE721;" />
+                        <Button.Flyout>
+                            <Flyout x:Name="CompactSearchFlyout" Placement="BottomEdgeAlignedRight" Opened="OnCompactSearchOpened">
+                                <AutoSuggestBox x:Name="CompactSearch" Width="288" Header="{Binding Values[MainWindow_SearchProfilesAndServers], Source={StaticResource Strings}, Mode=OneWay}" QueryIcon="Find"
+                                                UpdateTextOnSelect="False" ItemTemplate="{StaticResource SearchResultTemplate}"
+                                                AutomationProperties.AutomationId="CompactSearch" AutomationProperties.Name="{Binding Values[MainWindow_SearchProfilesAndServers], Source={StaticResource Strings}, Mode=OneWay}"
+                                                TextChanged="OnSearchTextChanged" SuggestionChosen="OnSuggestionChosen" QuerySubmitted="OnSearchSubmitted" />
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
+                </Grid>
+            </TitleBar.RightHeader>
+        </TitleBar>
+        <NavigationView x:Name="Navigation" Grid.Row="1" IsBackButtonVisible="Collapsed" IsPaneToggleButtonVisible="False"
+                        IsTitleBarAutoPaddingEnabled="False" IsSettingsVisible="False" OpenPaneLength="248" CompactPaneLength="64"
+                        PaneDisplayMode="Auto" SelectionChanged="OnNavigationSelectionChanged" ItemInvoked="OnNavigationItemInvoked">
+            <NavigationView.MenuItems>
+                <NavigationViewItem x:Name="DashboardButton" Content="{Binding Values[MainWindow_Dashboard], Source={StaticResource Strings}, Mode=OneWay}" Icon="Home"
+                                    AutomationProperties.AutomationId="DashboardButton" AutomationProperties.Name="{Binding Values[MainWindow_Dashboard], Source={StaticResource Strings}, Mode=OneWay}" />
+                <NavigationViewItemSeparator />
+                <NavigationViewItemHeader Content="{Binding Values[MainWindow_Profiles], Source={StaticResource Strings}, Mode=OneWay}" />
+                <NavigationViewItem x:Name="AllProfilesItem" Content="{Binding Values[MainWindow_AllProfiles], Source={StaticResource Strings}, Mode=OneWay}" Icon="Library" AutomationProperties.AutomationId="AllProfiles" />
+                <NavigationViewItemHeader Content="{Binding Values[MainWindow_Servers], Source={StaticResource Strings}, Mode=OneWay}" />
+                <NavigationViewItem x:Name="AllServersItem" Content="{Binding Values[MainWindow_AllServers], Source={StaticResource Strings}, Mode=OneWay}" Icon="Remote" AutomationProperties.AutomationId="AllServers" />
+            </NavigationView.MenuItems>
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem x:Name="SettingsItem" Content="{Binding Values[MainWindow_Settings], Source={StaticResource Strings}, Mode=OneWay}" Icon="Setting"
+                                    AutomationProperties.AutomationId="Settings" AutomationProperties.Name="{Binding Values[MainWindow_Settings], Source={StaticResource Strings}, Mode=OneWay}" />
+            </NavigationView.FooterMenuItems>
+            <NavigationView.PaneFooter>
+                <Grid x:Name="RuntimeStatusLayout" Height="48" HorizontalAlignment="Stretch">
+                    <TextBlock x:Name="RuntimeStatus" Text="{x:Bind Shell.RuntimeStatus, Mode=OneWay}" AutomationProperties.AutomationId="RuntimeStatus"
+                               Margin="16,0" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                    <Border x:Name="CompactRuntimeBadge" Width="32" Height="32" CornerRadius="16" BorderThickness="1"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"
+                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                            ToolTipService.ToolTip="{x:Bind Shell.RuntimeStatus, Mode=OneWay}">
+                        <TextBlock Text="{x:Bind Shell.CompactRuntimeStatus, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="SemiBold"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" AutomationProperties.AutomationId="CompactRuntimeStatus"
+                                   AutomationProperties.Name="{x:Bind Shell.RuntimeStatus, Mode=OneWay}" />
+                    </Border>
+                </Grid>
+            </NavigationView.PaneFooter>
+            <Grid>
+                <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+                <StackPanel x:Name="Notices" Spacing="8" Margin="24,8,24,0">
+                    <InfoBar x:Name="PreviewNotice" IsOpen="False" IsClosable="False" Severity="Informational"
+                             Title="{Binding Values[MainWindow_DesignPreview], Source={StaticResource Strings}, Mode=OneWay}" Message="{Binding Values[MainWindow_SampleDataNoSSHConnectionsAreOpened], Source={StaticResource Strings}, Mode=OneWay}">
+                        <InfoBar.ActionButton>
+                            <DropDownButton x:Name="PreviewSelector" Content="{Binding Values[MainWindow_Sample], Source={StaticResource Strings}, Mode=OneWay}"
+                                      AutomationProperties.AutomationId="PreviewSelector" AutomationProperties.Name="{Binding Values[MainWindow_PreviewDataScenario], Source={StaticResource Strings}, Mode=OneWay}">
+                                <DropDownButton.Flyout><MenuFlyout>
+                                    <MenuFlyoutItem Text="{Binding Values[MainWindow_Sample], Source={StaticResource Strings}, Mode=OneWay}" Tag="Sample" Click="OnPreviewChoiceClick" AutomationProperties.AutomationId="PreviewSample" />
+                                    <MenuFlyoutItem Text="{Binding Values[MainWindow_LongLists], Source={StaticResource Strings}, Mode=OneWay}" Tag="Stress" Click="OnPreviewChoiceClick" AutomationProperties.AutomationId="PreviewStress" />
+                                    <MenuFlyoutItem Text="{Binding Values[MainWindow_Empty], Source={StaticResource Strings}, Mode=OneWay}" Tag="Empty" Click="OnPreviewChoiceClick" AutomationProperties.AutomationId="PreviewEmpty" />
+                                </MenuFlyout></DropDownButton.Flyout>
+                            </DropDownButton>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar x:Name="StorageNotice" IsOpen="True" IsClosable="False" Severity="Informational"
+                             Title="{Binding Values[MainWindow_LoadingSavedData], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="StorageNotice">
+                        <InfoBar.ActionButton>
+                            <Button x:Name="StorageRetry" Content="{Binding Values[ResourceListView_Retry], Source={StaticResource Strings}, Mode=OneWay}" Visibility="Collapsed" Click="OnStorageRetryClick"
+                                    AutomationProperties.AutomationId="StorageRetry" AutomationProperties.Name="{Binding Values[MainWindow_RetryLoadingSavedData], Source={StaticResource Strings}, Mode=OneWay}" />
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar x:Name="EditErrorNotice" IsOpen="{x:Bind Shell.HasError, Mode=OneWay}" Visibility="Collapsed" Severity="Error" Title="{Binding Values[MainWindow_TheChangeNeedsAttention], Source={StaticResource Strings}, Mode=OneWay}"
+                             Message="{x:Bind Shell.Error, Mode=OneWay}" Closed="OnEditErrorClosed" AutomationProperties.AutomationId="EditError">
+                        <InfoBar.ActionButton>
+                            <Button Content="{x:Bind Shell.DeletionRetryLabel, Mode=OneWay}" Click="OnRetryDeletion" IsEnabled="{x:Bind Shell.CanEdit, Mode=OneWay}"
+                                    Visibility="{x:Bind pages:ShellPage.Visible(Shell.HasDeletionRetry), Mode=OneWay}" AutomationProperties.AutomationId="RetryDeletion" />
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar x:Name="DeletionProgressNotice" IsOpen="{x:Bind Shell.IsDeleting, Mode=OneWay}" Visibility="Collapsed" Severity="Informational" IsClosable="False"
+                             Message="{x:Bind Shell.DeletionStatus, Mode=OneWay}" AutomationProperties.AutomationId="DeletionProgress">
+                        <ProgressRing IsActive="{x:Bind Shell.IsDeleting, Mode=OneWay}" Width="20" Height="20" HorizontalAlignment="Left" />
+                    </InfoBar>
+                    <InfoBar x:Name="ClosingNotice" IsOpen="False" Visibility="Collapsed" Severity="Informational" IsClosable="False"
+                             Title="{Binding Values[MainWindow_ClosingTunnelDeck], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="ShutdownProgress">
+                        <ProgressRing x:Name="ClosingProgress" IsActive="False" Width="20" Height="20" HorizontalAlignment="Left" />
+                    </InfoBar>
+                </StackPanel>
+                <Frame x:Name="ContentFrame" Grid.Row="1" IsNavigationStackEnabled="False" />
+            </Grid>
+        </NavigationView>
+    </Grid>
+</Window>

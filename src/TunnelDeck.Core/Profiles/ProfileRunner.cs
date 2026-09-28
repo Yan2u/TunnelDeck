@@ -42,11 +42,11 @@ public sealed partial class ProfileRunner : IShutdownParticipant, IDisposable
         ProfileRunSnapshot initial;
         lock (_sync)
         {
-            if (_closing || !_networkAllowed || _configuration.IsReadOnly) { throw new InvalidOperationException("Profile forwarding is currently unavailable."); }
+            if (_closing || !_networkAllowed || _configuration.IsReadOnly) { throw new InvalidOperationException(UiText.Invariant("Diagnostic_ProfileRunner_ProfileForwardingIsCurrentlyUnavailable")); }
             if (_operations.TryGetValue(profileId, out Operation? running)) { return running.Work; }
             AppState state = _configuration.Current!;
             ForwardProfile profile = state.Profiles.FirstOrDefault(item => item.Id == profileId)
-                ?? throw new InvalidOperationException("This profile is no longer available.");
+                ?? throw new InvalidOperationException(UiText.Invariant("Diagnostic_ProfileRunner_ThisProfileIsNoLongerAvailable"));
             ProfileLaunchSnapshot launch = ProfileSnapshotFactory.Capture(profile, state.Servers, _clock);
             ProfileRunSnapshot? previous = _current.GetValueOrDefault(profileId);
             var selected = launch.Rules.Where(rule => ruleId is null || rule.Requested.Id == ruleId)

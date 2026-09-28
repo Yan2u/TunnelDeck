@@ -49,15 +49,15 @@ public sealed class QuickForwardModel : ObservableModel
     public bool IsBusy { get => _busy; internal set { if (SetProperty(ref _busy, value)) { AvailabilityChanged(); } } }
     public bool CanStart => _enabled && !IsBusy && _state.Servers.Any(server => server.Id == SelectedServerId) &&
         (UseAdvanced ? !string.IsNullOrWhiteSpace(LocalPortText) && !string.IsNullOrWhiteSpace(RemotePortText) : !string.IsNullOrWhiteSpace(PortText));
-    public string Direction => IsLocal ? "Listen on this computer → connect from the SSH server to the target." : "Listen on the SSH server → connect from this computer to the target.";
-    public string LocalHostLabel => IsLocal ? "Local listen address" : "Local target host";
-    public string RemoteHostLabel => IsLocal ? "Remote target host" : "Remote listen address";
+    public string Direction => IsLocal ? UiText.Get("QuickForwardModel_ListenOnThisComputerConnectFromTheSSH") : UiText.Get("QuickForwardModel_ListenOnTheSSHServerConnectFromThis");
+    public string LocalHostLabel => IsLocal ? UiText.Get("QuickForwardModel_LocalListenAddress") : UiText.Get("QuickForwardModel_LocalTargetHost");
+    public string RemoteHostLabel => IsLocal ? UiText.Get("QuickForwardModel_RemoteTargetHost") : UiText.Get("QuickForwardModel_RemoteListenAddress");
     public string PortError => UseAdvanced ? string.Empty : Issue("LocalPort");
     public string LocalPortError => UseAdvanced ? Issue("LocalPort") : string.Empty;
     public string RemotePortError => UseAdvanced ? Issue("RemotePort") : string.Empty;
     public string LocalHostError => Issue("LocalHost");
     public string RemoteHostError => Issue("RemoteHost");
-    public string ServerError => Issue("ServerId").Length == 0 ? string.Empty : "Select an SSH server.";
+    public string ServerError => Issue("ServerId").Length == 0 ? string.Empty : UiText.Get("QuickForwardModel_SelectAnSSHServer");
     public bool HasErrors => !_issues.IsEmpty;
 
     public void Reconcile(AppState state, bool preview, bool enabled)
@@ -96,7 +96,7 @@ public sealed class QuickForwardModel : ObservableModel
     }
 
     internal void Disable() { _enabled = false; AvailabilityChanged(); }
-    private string Issue(string path) => _issues.FirstOrDefault(issue => issue.Path.EndsWith(path, StringComparison.OrdinalIgnoreCase))?.Message ?? string.Empty;
+    private string Issue(string path) => UiText.Translate(_issues.FirstOrDefault(issue => issue.Path.EndsWith(path, StringComparison.OrdinalIgnoreCase))?.Message);
     private void ClearErrors() { if (_issues.IsEmpty) { return; } _issues = []; ErrorsChanged(); }
     private void ErrorsChanged()
     {

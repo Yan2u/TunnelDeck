@@ -27,11 +27,11 @@ public sealed class SshControlSession : IAsyncDisposable
         if (operationBudget <= TimeSpan.Zero || operationBudget >= client.ConnectionInfo.Timeout)
         {
             throw new ArgumentOutOfRangeException(nameof(operationBudget),
-                "The control deadline must be positive and shorter than SSH.NET's internal timeout, which can silently complete Remote Stop on timeout.");
+                UiText.Invariant("Diagnostic_SshControlSession_TheControlDeadlineMustBePositiveAndShorter"));
         }
         if (client.ForwardedPorts.Any())
         {
-            throw new ArgumentException("A control session must own a transport with no existing forwarded ports.", nameof(client));
+            throw new ArgumentException(UiText.Invariant("Diagnostic_SshControlSession_AControlSessionMustOwnATransportWith"), nameof(client));
         }
         _client = client;
         _operationBudget = operationBudget;
@@ -48,11 +48,11 @@ public sealed class SshControlSession : IAsyncDisposable
             bool remote = forward is ForwardedPortRemote;
             if (!remote && forward is not ForwardedPortLocal)
             {
-                throw new NotSupportedException("Only TCP local and remote forwarding are supported.");
+                throw new NotSupportedException(UiText.Invariant("Diagnostic_SshControlSession_OnlyTCPLocalAndRemoteForwardingAreSupported"));
             }
             if ((_remoteTransport && _forwards.Count > 0) || (remote && _forwards.Count > 0))
             {
-                throw new InvalidOperationException("Remote forwarding requires its own SSH transport. Local forwards can share a local-only transport.");
+                throw new InvalidOperationException(UiText.Invariant("Diagnostic_SshControlSession_RemoteForwardingRequiresItsOwnSSHTransportLocal"));
             }
             _remoteTransport = remote;
             _client.AddForwardedPort(forward);
@@ -96,7 +96,7 @@ public sealed class SshControlSession : IAsyncDisposable
             long started = Stopwatch.GetTimestamp();
             lock (_disposeLock)
             {
-                if (IsRetired) { throw new InvalidOperationException("The SSH session has been retired. Create a new session before issuing further requests."); }
+                if (IsRetired) { throw new InvalidOperationException(UiText.Invariant("Diagnostic_SshControlSession_TheSSHSessionHasBeenRetiredCreateA")); }
                 cancellationToken.ThrowIfCancellationRequested();
                 // Retirement and dispatch share a boundary: Dispose cannot miss a newly dispatched worker.
                 _inFlight = work = Task.Run(operation, CancellationToken.None);
@@ -108,7 +108,7 @@ public sealed class SshControlSession : IAsyncDisposable
                 // timeout into a confirmed result merely because its timer lost that race.
                 if (Stopwatch.GetElapsedTime(started) >= _operationBudget)
                 {
-                    throw new TimeoutException("The SSH control operation exceeded its confirmation deadline.");
+                    throw new TimeoutException(UiText.Invariant("Diagnostic_SshControlSession_TheSSHControlOperationExceededItsConfirmationDeadline"));
                 }
             }
             catch (Exception error) when (error is TimeoutException or OperationCanceledException or SshOperationTimeoutException or SshConnectionException ||

@@ -28,11 +28,11 @@ public sealed partial class TunnelWorkspace : ObservableModel, IShutdownParticip
     public bool IsPreview { get; }
     public QuickForwardModel Quick { get; } = new();
     public ReadOnlyObservableCollection<TunnelItem> Items { get; }
-    public string RuntimeStatus => $"{_items.Count(item => item.Value.IsRunning)} active";
+    public string RuntimeStatus => UiText.Get("TunnelWorkspace_Active", _items.Count(item => item.Value.IsRunning));
     public bool HasTunnels => _items.Count > 0;
     public bool CanStopAll => !_closing && _items.Any(item => item.CanStop);
-    public string CommandError { get => _commandError; private set => SetProperty(ref _commandError, value); }
-    public string ActivityError { get => _activityError; private set => SetProperty(ref _activityError, value); }
+    public string CommandError { get => UiText.Translate(_commandError); private set => SetProperty(ref _commandError, value); }
+    public string ActivityError { get => UiText.Translate(_activityError); private set => SetProperty(ref _activityError, value); }
     public event Action? RuntimeChanged;
 
     public TunnelWorkspace(TunnelManager tunnels, TunnelActivityRecorder activity, ConfigurationService configuration,
@@ -73,7 +73,7 @@ public sealed partial class TunnelWorkspace : ObservableModel, IShutdownParticip
 
     public void SetPreview(IEnumerable<ActiveTunnel> items)
     {
-        if (!IsPreview) { throw new InvalidOperationException("Only an isolated preview can supply sample rows."); }
+        if (!IsPreview) { throw new InvalidOperationException(UiText.Get("TunnelWorkspace_OnlyAnIsolatedPreviewCanSupplySampleRows")); }
         UpdateItems(items);
     }
 

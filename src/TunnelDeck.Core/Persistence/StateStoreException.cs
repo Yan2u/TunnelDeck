@@ -25,7 +25,7 @@ public class StateStoreException(StateStoreFailure failure, string message,
 }
 
 public sealed class StateRevisionConflictException(long expectedRevision, long actualRevision)
-    : StateStoreException(StateStoreFailure.RevisionConflict, "Saved data changed. Reload it before saving this edit.")
+    : StateStoreException(StateStoreFailure.RevisionConflict, UiText.Invariant("Diagnostic_StateStoreException_SavedDataChangedReloadItBeforeSavingThis"))
 {
     public long ExpectedRevision { get; } = expectedRevision;
     public long ActualRevision { get; } = actualRevision;

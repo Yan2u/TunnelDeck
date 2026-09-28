@@ -46,7 +46,7 @@ public sealed class TunnelActivityRecorder : IShutdownParticipant, IDisposable
 
     private void Enqueue(ActiveTunnel tunnel, ActivityOutcome outcome, DateTimeOffset occurred) => _pending.Enqueue(new(new()
     {
-        Id = Guid.NewGuid(), OccurredAt = occurred, Outcome = outcome,
+        Id = Guid.NewGuid(), OccurredAt = occurred.ToUniversalTime(), Outcome = outcome,
         Requested = tunnel.Requested with { AutoFindAvailablePort = tunnel.Requested.Mode == ForwardMode.Local && tunnel.Requested.AutoFindAvailablePort },
         Actual = tunnel.Actual, Source = tunnel.Source, Error = outcome == ActivityOutcome.Started ? null : tunnel.LastError,
     }, Guid.Empty, occurred));
@@ -80,7 +80,7 @@ public sealed class TunnelActivityRecorder : IShutdownParticipant, IDisposable
             try { await _configuration.UpdateAsync(state => Append(state, next)).ConfigureAwait(false); }
             catch (Exception)
             {
-                lock (_sync) { _draining = false; _error = "Recent activity could not be saved. Your tunnels are unchanged. Retry saving activity."; }
+                lock (_sync) { _draining = false; _error = UiText.Invariant("Diagnostic_TunnelActivityRecorder_RecentActivityCouldNotBeSavedYourTunnels"); }
                 NotifyError();
                 return;
             }
@@ -104,7 +104,8 @@ public sealed class TunnelActivityRecorder : IShutdownParticipant, IDisposable
     private static AppState AppendActivity(AppState state, ActivityEntry activity)
     {
         if (state.RecentActivity.Any(item => item.Id == activity.Id)) { return state; }
-        state = state with { RecentActivity = state.RecentActivity.Insert(0, activity).Take(200).ToImmutableArray() };
+        state = state with { RecentActivity = state.RecentActivity.Insert(0, activity)
+            .OrderByDescending(item => item.OccurredAt).Take(AppState.MaximumRecentEntries).ToImmutableArray() };
         if (activity.Outcome != ActivityOutcome.Started) { return state; }
         Guid serverId = activity.Requested.ServerId;
         return state with
@@ -129,7 +130,7 @@ public sealed class TunnelActivityRecorder : IShutdownParticipant, IDisposable
 
     public async Task ShutdownAsync(CancellationToken cancellationToken)
     {
-        if (!await FlushAsync(cancellationToken).ConfigureAwait(false)) { throw new IOException("Recent activity is still waiting to be saved."); }
+        if (!await FlushAsync(cancellationToken).ConfigureAwait(false)) { throw new IOException(UiText.Invariant("Diagnostic_TunnelActivityRecorder_RecentActivityIsStillWaitingToBeSaved")); }
         Dispose();
     }
     private void NotifyError()

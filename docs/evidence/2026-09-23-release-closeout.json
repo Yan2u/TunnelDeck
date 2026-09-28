@@ -1,0 +1,178 @@
+{
+  "capturedAtUtc": "2026-09-23T07:27:45.1209725+00:00",
+  "version": "1.0.0",
+  "build": {
+    "errors": 0,
+    "lockedRestore": true,
+    "configuration": "Release",
+    "platform": "x64",
+    "warnings": 0
+  },
+  "tests": {
+    "infrastructure": {
+      "failed": 0,
+      "skipped": 0,
+      "passed": 148
+    },
+    "core": {
+      "failed": 0,
+      "skipped": 0,
+      "passed": 428
+    },
+    "totalPassed": 576
+  },
+  "ui": {
+    "shell": {
+      "dashboard": "Passed",
+      "saveDoesNotStealNavigation": "Passed",
+      "localPortOption": "Passed",
+      "searchAndBack": "Passed",
+      "fixedSidebarFooterAndDashboardAccess": "Passed",
+      "resourceEditsAndPinOrder": "Passed",
+      "adaptiveLayouts": "Passed (900, 640 and 500 epx)",
+      "emptyAndAddFlows": "Passed",
+      "restartPersistence": "Passed"
+    },
+    "transfer": {
+      "nativeExportPickerAndCancel": "Passed",
+      "profileDependenciesAndSecretExclusion": "Passed",
+      "previewCancelIsReadOnly": "Passed",
+      "invalidJsonIsNotPartiallyImported": "Passed",
+      "atomicFailureRetryAndFreshReferences": "Passed",
+      "sameNamesRemainSeparate": "Passed",
+      "sshWarningsAcknowledgementAndSkip": "Passed",
+      "narrowScrollablePreviewAndFixedActions": "Passed",
+      "darkTheme": "Passed",
+      "terminalEntryMissingKeyAndUnsavedDraft": "Passed",
+      "restartWithoutAutomaticConnections": "Passed"
+    },
+    "authenticationDefaults": {
+      "defaultPasswordMigrationAndIdRsaDetection": "Passed",
+      "nativeKeyPickerAndCancel": "Passed",
+      "newServerPrefillAndExistingServerIsolation": "Passed",
+      "sshDefaultAndExplicitIdentityPrecedence": "Passed",
+      "passwordDefaultAndConditionalKeyFields": "Passed",
+      "invalidKeyAndFailedSaveRetry": "Passed",
+      "narrowAuthenticationSettings": "Passed",
+      "restartAndSourcePreservation": "Passed"
+    },
+    "forwards": {
+      "emptyAddAndPinnedSelection": "Passed",
+      "rawTextAndEnterValidation": "Passed",
+      "localAllocationPayloadDuplicateAndDetails": "Passed",
+      "advancedDraftNavigationAndIndependentStop": "Passed",
+      "remotePayloadAndAdaptiveUi": "Passed",
+      "remoteRefusalAndManualRetry": "Passed",
+      "liveLocalAndRemoteShutdown": "Passed",
+      "shutdownMilliseconds": 321,
+      "ephemeralCredentialsAndActivityPersistence": "Passed"
+    },
+    "profiles": {
+      "editorDefaultsValidationAndAtomicSave": "Passed",
+      "ruleMovesAndRemovalCanBeDiscarded": "Passed",
+      "crossServerPartialSuccessAndScopedCredentials": "Passed",
+      "retryFailedAndRepeatedStart": "Passed",
+      "savedEditsDoNotChangeRunningSnapshotsAndIndependentStop": "Passed",
+      "lightDarkAndAdaptiveProfileUi": "Passed",
+      "shutdownPersistenceAndNoAutomaticResume": "Passed"
+    },
+    "resourceDrag": {
+      "nativePinnedProfileDrag": "Passed"
+    },
+    "uiRefresh": {
+      "activityDetails": "Passed: the compact row exposes complete history in its keyboard-accessible flyout.",
+      "rightClickPinAndUnpin": "Passed: context-menu unpin and card pin persist the original order rules.",
+      "keyboardContextMenu": "Passed: Shift+F10, Unpin and Pin on profile cards.",
+      "sidebarDeletionCancel": "Passed: sidebar Remove opens the shared confirmation and Cancel does not write.",
+      "adaptiveCards": "Passed at 1200, 900, 640 and 480 DIP: title and action buttons fit.",
+      "adaptiveSettings": "Passed: narrow cards stack vertically; key controls appear only in key mode and remain reachable.",
+      "importPreview": "Passed: required-field skipping stays explicit; narrow footer is visible; Cancel does not write."
+    },
+    "packagedLayouts": {
+      "settingsCases": [
+        {
+          "windowWidthDip": 1198,
+          "expectedHeadingInset": 42.0,
+          "actualHeadingInset": 42,
+          "sidebarCollapsed": true
+        },
+        {
+          "windowWidthDip": 1200,
+          "expectedHeadingInset": 43.0,
+          "actualHeadingInset": 43,
+          "sidebarCollapsed": true
+        },
+        {
+          "windowWidthDip": 1360,
+          "expectedHeadingInset": 183.0,
+          "actualHeadingInset": 183,
+          "sidebarCollapsed": true
+        },
+        {
+          "windowWidthDip": 1200,
+          "expectedHeadingInset": 43.0,
+          "actualHeadingInset": 43,
+          "sidebarCollapsed": true
+        }
+      ],
+      "checks": {
+        "settingsWidthThreshold": true,
+        "lazyAdvancedDraft": true,
+        "forwardingMode": true,
+        "quickForwardLayout": true
+      },
+      "passed": true
+    },
+    "ruleDialog": {
+      "cycles": 15,
+      "packagedCycles": 3,
+      "packagedPassed": true,
+      "passed": true
+    }
+  },
+  "correctedFailures": [
+    {
+      "detail": "Dashboard is now a scrolling native menu item. The Shell test checks fixed footer regions and access to Dashboard after scrolling back.",
+      "kind": "Obsolete test assertion"
+    },
+    {
+      "detail": "ContentDialog.Opened could run before the rule model binding. A full isolated-process dump identified RuleEditorView.FocusEditor reading a null Model. RuleEditorDialog now initializes compiled bindings immediately after InitializeComponent. Repeated dialogs, full Profile flow, and packaged rule checks passed.",
+      "kind": "Application defect"
+    }
+  ],
+  "package": {
+    "version": "1.0.0",
+    "configuration": "Release",
+    "architecture": "win-x64",
+    "packagePath": "artifacts/release/TunnelDeck-1.0.0-win-x64",
+    "archivePath": "artifacts/release/TunnelDeck-1.0.0-win-x64.zip",
+    "archiveBytes": 34099724,
+    "unpackedBytes": 96253494,
+    "sha256": "766cd0232b29c3d71f0f4585949a1a5510a02fda8e62d7dbaf23470afc703153",
+    "signed": false,
+    "publishedExternally": false
+  },
+  "packageVerification": {
+    "passed": true,
+    "files": 84,
+    "normalUserDataModified": false,
+    "checks": {
+      "upgradeThroughRealUiAndOriginalBackup": true,
+      "packagedRestartAndNormalExit": true,
+      "noAutomaticConnections": true
+    },
+    "compiledXamlFiles": 23,
+    "prerequisitesReady": true
+  },
+  "performance": "2026-09-23-release-performance.json",
+  "cleanup": "2026-09-23-release-cleanup.json",
+  "validationScope": "Representative current UI regressions and real SSH forwarding were restored. Historical long-running stress, all 87 SSH unit scenarios, system contrast/text scale changes, multi-monitor DPI and Narrator speech were not repeated. Clean-machine dependency installation and publisher signing remain unverified.",
+  "generatedEvidencePolicy": "Temporary logs, screenshots, dumps, isolated state and build outputs are removed after verification. This summary and historical docs/evidence records remain with the final local release package.",
+  "cleanupSummary": {
+    "allTargetDeletionsCompleted": true,
+    "workspaceTemporaryDirectoriesRemoved": true,
+    "preservedPackage": true,
+    "removedBytes": 4401408887,
+    "deletedFiles": 8793
+  }
+}

@@ -6,7 +6,7 @@ namespace TunnelDeck.Core.Models;
 /// <summary>Persistence root: deliberately excludes active tunnels, credentials and host trust.</summary>
 public sealed record AppState
 {
-    public const int CurrentSchemaVersion = 1;
+    public const int CurrentSchemaVersion = 3;
     public const int MaximumRecentEntries = 200;
 
     [JsonRequired]

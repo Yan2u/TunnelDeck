@@ -1,0 +1,538 @@
+{
+  "capturedAtUtc": "2026-09-23T07:27:45.0916375+00:00",
+  "units": "Bytes unless the property specifies otherwise; MiB = 1048576 bytes",
+  "navigation": {
+    "before": {
+      "servers": 250,
+      "profiles": 250,
+      "navigationCycles": 12,
+      "methodology": "Release GUI, no SSH. One warm-up traversal then repeated Servers / Profiles / Settings / Dashboard navigation. gcdump induces a full GC; after-gc samples represent retention, not ordinary idle memory.",
+      "samples": [
+        {
+          "privateBytes": 157044736,
+          "workingSetBytes": 215990272,
+          "handles": 1309,
+          "threads": 89,
+          "phase": "startup",
+          "cpuSeconds": 1.75,
+          "capturedAtUtc": "2026-09-23T06:12:07.9023740+00:00"
+        },
+        {
+          "privateBytes": 193355776,
+          "workingSetBytes": 253001728,
+          "handles": 1462,
+          "threads": 89,
+          "phase": "warm-after-gc",
+          "cpuSeconds": 4.890625,
+          "capturedAtUtc": "2026-09-23T06:12:12.0576024+00:00"
+        },
+        {
+          "privateBytes": 216879104,
+          "workingSetBytes": 275816448,
+          "handles": 1482,
+          "threads": 89,
+          "phase": "navigation-1",
+          "cpuSeconds": 6.671875,
+          "capturedAtUtc": "2026-09-23T06:12:14.7793450+00:00"
+        },
+        {
+          "privateBytes": 232812544,
+          "workingSetBytes": 287924224,
+          "handles": 1485,
+          "threads": 89,
+          "phase": "navigation-2",
+          "cpuSeconds": 8.21875,
+          "capturedAtUtc": "2026-09-23T06:12:17.2626377+00:00"
+        },
+        {
+          "privateBytes": 248635392,
+          "workingSetBytes": 300716032,
+          "handles": 1494,
+          "threads": 89,
+          "phase": "navigation-3",
+          "cpuSeconds": 9.84375,
+          "capturedAtUtc": "2026-09-23T06:12:19.7856015+00:00"
+        },
+        {
+          "privateBytes": 255258624,
+          "workingSetBytes": 307912704,
+          "handles": 1498,
+          "threads": 89,
+          "phase": "navigation-4",
+          "cpuSeconds": 11.59375,
+          "capturedAtUtc": "2026-09-23T06:12:22.2045337+00:00"
+        },
+        {
+          "privateBytes": 259584000,
+          "workingSetBytes": 310411264,
+          "handles": 1505,
+          "threads": 90,
+          "phase": "navigation-5",
+          "cpuSeconds": 13.390625,
+          "capturedAtUtc": "2026-09-23T06:12:24.7846866+00:00"
+        },
+        {
+          "privateBytes": 258985984,
+          "workingSetBytes": 311402496,
+          "handles": 1506,
+          "threads": 89,
+          "phase": "navigation-6",
+          "cpuSeconds": 15.28125,
+          "capturedAtUtc": "2026-09-23T06:12:27.1492906+00:00"
+        },
+        {
+          "privateBytes": 260399104,
+          "workingSetBytes": 314613760,
+          "handles": 1504,
+          "threads": 89,
+          "phase": "navigation-7",
+          "cpuSeconds": 17.234375,
+          "capturedAtUtc": "2026-09-23T06:12:29.2884321+00:00"
+        },
+        {
+          "privateBytes": 262619136,
+          "workingSetBytes": 315973632,
+          "handles": 1504,
+          "threads": 89,
+          "phase": "navigation-8",
+          "cpuSeconds": 19.078125,
+          "capturedAtUtc": "2026-09-23T06:12:31.4599068+00:00"
+        },
+        {
+          "privateBytes": 248983552,
+          "workingSetBytes": 305565696,
+          "handles": 1504,
+          "threads": 89,
+          "phase": "navigation-9",
+          "cpuSeconds": 21.15625,
+          "capturedAtUtc": "2026-09-23T06:12:33.6200725+00:00"
+        },
+        {
+          "privateBytes": 254758912,
+          "workingSetBytes": 309870592,
+          "handles": 1501,
+          "threads": 89,
+          "phase": "navigation-10",
+          "cpuSeconds": 23.25,
+          "capturedAtUtc": "2026-09-23T06:12:35.8383998+00:00"
+        },
+        {
+          "privateBytes": 257458176,
+          "workingSetBytes": 312639488,
+          "handles": 1496,
+          "threads": 88,
+          "phase": "navigation-11",
+          "cpuSeconds": 24.578125,
+          "capturedAtUtc": "2026-09-23T06:12:38.1013883+00:00"
+        },
+        {
+          "privateBytes": 259661824,
+          "workingSetBytes": 315781120,
+          "handles": 1496,
+          "threads": 88,
+          "phase": "navigation-12",
+          "cpuSeconds": 26.15625,
+          "capturedAtUtc": "2026-09-23T06:12:40.4079409+00:00"
+        },
+        {
+          "privateBytes": 260222976,
+          "workingSetBytes": 316620800,
+          "handles": 1485,
+          "threads": 88,
+          "phase": "final-after-gc",
+          "cpuSeconds": 26.46875,
+          "capturedAtUtc": "2026-09-23T06:12:41.5321645+00:00"
+        }
+      ],
+      "retained": {
+        "bytes": 4972831,
+        "TunnelDeck.ViewModels.ResourceRow": 750,
+        "Microsoft.UI.Xaml.Controls.NumberBox": 8,
+        "Microsoft.UI.Xaml.Controls.TextBox": 9,
+        "TunnelDeck.Pages.DashboardPage": 2,
+        "TunnelDeck.Pages.SettingsPage": 2
+      }
+    },
+    "optimizedBuild": {
+      "servers": 250,
+      "profiles": 250,
+      "navigationCycles": 12,
+      "methodology": "Release GUI, no SSH. One warm-up traversal then repeated Servers / Profiles / Settings / Dashboard navigation. gcdump induces a full GC; after-gc samples represent retention, not ordinary idle memory.",
+      "samples": [
+        {
+          "privateBytes": 154845184,
+          "workingSetBytes": 213487616,
+          "handles": 1307,
+          "threads": 90,
+          "phase": "startup",
+          "cpuSeconds": 1.75,
+          "capturedAtUtc": "2026-09-23T06:31:28.7200566+00:00"
+        },
+        {
+          "privateBytes": 206532608,
+          "workingSetBytes": 265379840,
+          "handles": 1463,
+          "threads": 90,
+          "phase": "warm-after-gc",
+          "cpuSeconds": 4.5,
+          "capturedAtUtc": "2026-09-23T06:31:32.2378989+00:00"
+        },
+        {
+          "privateBytes": 219054080,
+          "workingSetBytes": 275652608,
+          "handles": 1487,
+          "threads": 90,
+          "phase": "navigation-1",
+          "cpuSeconds": 6.71875,
+          "capturedAtUtc": "2026-09-23T06:31:34.5725254+00:00"
+        },
+        {
+          "privateBytes": 232321024,
+          "workingSetBytes": 285761536,
+          "handles": 1487,
+          "threads": 90,
+          "phase": "navigation-2",
+          "cpuSeconds": 8.90625,
+          "capturedAtUtc": "2026-09-23T06:31:36.9688206+00:00"
+        },
+        {
+          "privateBytes": 251785216,
+          "workingSetBytes": 301486080,
+          "handles": 1491,
+          "threads": 90,
+          "phase": "navigation-3",
+          "cpuSeconds": 11.375,
+          "capturedAtUtc": "2026-09-23T06:31:39.4263386+00:00"
+        },
+        {
+          "privateBytes": 265940992,
+          "workingSetBytes": 310591488,
+          "handles": 1502,
+          "threads": 91,
+          "phase": "navigation-4",
+          "cpuSeconds": 13.25,
+          "capturedAtUtc": "2026-09-23T06:31:41.9518909+00:00"
+        },
+        {
+          "privateBytes": 267341824,
+          "workingSetBytes": 314507264,
+          "handles": 1506,
+          "threads": 91,
+          "phase": "navigation-5",
+          "cpuSeconds": 15.03125,
+          "capturedAtUtc": "2026-09-23T06:31:44.5129167+00:00"
+        },
+        {
+          "privateBytes": 263409664,
+          "workingSetBytes": 313876480,
+          "handles": 1506,
+          "threads": 91,
+          "phase": "navigation-6",
+          "cpuSeconds": 17.046875,
+          "capturedAtUtc": "2026-09-23T06:31:46.9005230+00:00"
+        },
+        {
+          "privateBytes": 245506048,
+          "workingSetBytes": 299360256,
+          "handles": 1502,
+          "threads": 89,
+          "phase": "navigation-7",
+          "cpuSeconds": 18.90625,
+          "capturedAtUtc": "2026-09-23T06:31:49.3623553+00:00"
+        },
+        {
+          "privateBytes": 248348672,
+          "workingSetBytes": 300793856,
+          "handles": 1493,
+          "threads": 89,
+          "phase": "navigation-8",
+          "cpuSeconds": 20.75,
+          "capturedAtUtc": "2026-09-23T06:31:51.8224565+00:00"
+        },
+        {
+          "privateBytes": 256745472,
+          "workingSetBytes": 305291264,
+          "handles": 1493,
+          "threads": 89,
+          "phase": "navigation-9",
+          "cpuSeconds": 22.8125,
+          "capturedAtUtc": "2026-09-23T06:31:54.5173736+00:00"
+        },
+        {
+          "privateBytes": 258883584,
+          "workingSetBytes": 308097024,
+          "handles": 1491,
+          "threads": 88,
+          "phase": "navigation-10",
+          "cpuSeconds": 24.84375,
+          "capturedAtUtc": "2026-09-23T06:31:56.8368952+00:00"
+        },
+        {
+          "privateBytes": 269058048,
+          "workingSetBytes": 314630144,
+          "handles": 1491,
+          "threads": 88,
+          "phase": "navigation-11",
+          "cpuSeconds": 27.046875,
+          "capturedAtUtc": "2026-09-23T06:31:59.3928560+00:00"
+        },
+        {
+          "privateBytes": 271450112,
+          "workingSetBytes": 317353984,
+          "handles": 1491,
+          "threads": 88,
+          "phase": "navigation-12",
+          "cpuSeconds": 29.625,
+          "capturedAtUtc": "2026-09-23T06:32:01.9190585+00:00"
+        },
+        {
+          "privateBytes": 254353408,
+          "workingSetBytes": 308748288,
+          "handles": 1475,
+          "threads": 87,
+          "phase": "final-after-gc",
+          "cpuSeconds": 30.234375,
+          "capturedAtUtc": "2026-09-23T06:32:03.0575026+00:00"
+        }
+      ],
+      "retained": {
+        "bytes": 4980851,
+        "TunnelDeck.ViewModels.ResourceRow": 540,
+        "Microsoft.UI.Xaml.Controls.NumberBox": 4,
+        "Microsoft.UI.Xaml.Controls.TextBox": 1,
+        "TunnelDeck.Pages.DashboardPage": 2,
+        "TunnelDeck.Pages.SettingsPage": 2
+      }
+    },
+    "release": {
+      "servers": 250,
+      "profiles": 250,
+      "navigationCycles": 12,
+      "methodology": "Release GUI, no SSH. One warm-up traversal then repeated Servers / Profiles / Settings / Dashboard navigation. gcdump induces a full GC; after-gc samples represent retention, not ordinary idle memory.",
+      "samples": [
+        {
+          "privateBytes": 157433856,
+          "workingSetBytes": 215048192,
+          "handles": 1293,
+          "threads": 88,
+          "phase": "startup",
+          "cpuSeconds": 1.71875,
+          "capturedAtUtc": "2026-09-23T07:23:57.9001567+00:00"
+        },
+        {
+          "privateBytes": 209006592,
+          "workingSetBytes": 267595776,
+          "handles": 1442,
+          "threads": 88,
+          "phase": "warm-after-gc",
+          "cpuSeconds": 4.296875,
+          "capturedAtUtc": "2026-09-23T07:24:01.3458079+00:00"
+        },
+        {
+          "privateBytes": 223342592,
+          "workingSetBytes": 277438464,
+          "handles": 1474,
+          "threads": 89,
+          "phase": "navigation-1",
+          "cpuSeconds": 6.3125,
+          "capturedAtUtc": "2026-09-23T07:24:03.6812404+00:00"
+        },
+        {
+          "privateBytes": 233369600,
+          "workingSetBytes": 286466048,
+          "handles": 1477,
+          "threads": 89,
+          "phase": "navigation-2",
+          "cpuSeconds": 8.484375,
+          "capturedAtUtc": "2026-09-23T07:24:06.0082955+00:00"
+        },
+        {
+          "privateBytes": 248307712,
+          "workingSetBytes": 296693760,
+          "handles": 1480,
+          "threads": 89,
+          "phase": "navigation-3",
+          "cpuSeconds": 10.84375,
+          "capturedAtUtc": "2026-09-23T07:24:08.3744102+00:00"
+        },
+        {
+          "privateBytes": 240730112,
+          "workingSetBytes": 292646912,
+          "handles": 1488,
+          "threads": 89,
+          "phase": "navigation-4",
+          "cpuSeconds": 13.171875,
+          "capturedAtUtc": "2026-09-23T07:24:10.7577930+00:00"
+        },
+        {
+          "privateBytes": 245125120,
+          "workingSetBytes": 295170048,
+          "handles": 1487,
+          "threads": 89,
+          "phase": "navigation-5",
+          "cpuSeconds": 15.390625,
+          "capturedAtUtc": "2026-09-23T07:24:13.1965307+00:00"
+        },
+        {
+          "privateBytes": 248930304,
+          "workingSetBytes": 298430464,
+          "handles": 1487,
+          "threads": 89,
+          "phase": "navigation-6",
+          "cpuSeconds": 17.265625,
+          "capturedAtUtc": "2026-09-23T07:24:15.7254025+00:00"
+        },
+        {
+          "privateBytes": 260694016,
+          "workingSetBytes": 306688000,
+          "handles": 1487,
+          "threads": 88,
+          "phase": "navigation-7",
+          "cpuSeconds": 19.015625,
+          "capturedAtUtc": "2026-09-23T07:24:18.1869936+00:00"
+        },
+        {
+          "privateBytes": 261033984,
+          "workingSetBytes": 306876416,
+          "handles": 1479,
+          "threads": 88,
+          "phase": "navigation-8",
+          "cpuSeconds": 21.0625,
+          "capturedAtUtc": "2026-09-23T07:24:20.8590538+00:00"
+        },
+        {
+          "privateBytes": 263208960,
+          "workingSetBytes": 308514816,
+          "handles": 1488,
+          "threads": 88,
+          "phase": "navigation-9",
+          "cpuSeconds": 23.0,
+          "capturedAtUtc": "2026-09-23T07:24:23.4679217+00:00"
+        },
+        {
+          "privateBytes": 264282112,
+          "workingSetBytes": 309485568,
+          "handles": 1484,
+          "threads": 87,
+          "phase": "navigation-10",
+          "cpuSeconds": 25.046875,
+          "capturedAtUtc": "2026-09-23T07:24:26.3345466+00:00"
+        },
+        {
+          "privateBytes": 265879552,
+          "workingSetBytes": 311554048,
+          "handles": 1475,
+          "threads": 87,
+          "phase": "navigation-11",
+          "cpuSeconds": 27.15625,
+          "capturedAtUtc": "2026-09-23T07:24:29.0633645+00:00"
+        },
+        {
+          "privateBytes": 267493376,
+          "workingSetBytes": 313872384,
+          "handles": 1475,
+          "threads": 87,
+          "phase": "navigation-12",
+          "cpuSeconds": 29.53125,
+          "capturedAtUtc": "2026-09-23T07:24:32.0536820+00:00"
+        },
+        {
+          "privateBytes": 266985472,
+          "workingSetBytes": 313556992,
+          "handles": 1470,
+          "threads": 87,
+          "phase": "final-after-gc",
+          "cpuSeconds": 29.90625,
+          "capturedAtUtc": "2026-09-23T07:24:33.1923035+00:00"
+        }
+      ],
+      "retained": {
+        "bytes": 4972883,
+        "TunnelDeck.ViewModels.ResourceRow": 540,
+        "Microsoft.UI.Xaml.Controls.NumberBox": 4,
+        "Microsoft.UI.Xaml.Controls.TextBox": 1,
+        "TunnelDeck.Pages.DashboardPage": 2,
+        "TunnelDeck.Pages.SettingsPage": 2
+      }
+    }
+  },
+  "application": {
+    "passed": true,
+    "capturedAtUtc": "2026-09-23T07:23:51.7389240+00:00",
+    "startup": [
+      {
+        "launch": 1,
+        "kind": "First process launch; OS file cache not flushed",
+        "toResponsiveWindowMs": 1054.4928,
+        "readyIncludingUiAutomationMs": 1496.9649
+      },
+      {
+        "launch": 2,
+        "kind": "Warm process launch",
+        "toResponsiveWindowMs": 1014.828,
+        "readyIncludingUiAutomationMs": 1434.2444
+      },
+      {
+        "launch": 3,
+        "kind": "Warm process launch",
+        "toResponsiveWindowMs": 819.1036,
+        "readyIncludingUiAutomationMs": 1242.3245
+      },
+      {
+        "launch": 4,
+        "kind": "Warm process launch",
+        "toResponsiveWindowMs": 806.6666,
+        "readyIncludingUiAutomationMs": 1292.7692
+      }
+    ],
+    "executable": "artifacts/release/TunnelDeck-1.0.0-win-x64/TunnelDeck.exe",
+    "executableSha256": "044042c60169c50858c2a44ecc295c3974b66417b3931241d04f6aa25c75a552",
+    "rendererModules": [
+      {
+        "ModuleName": "coreclr.dll",
+        "version": "10,0,926,27113 @Commit: 901ca941248413c79832d2fdbd709da0c4386353"
+      },
+      {
+        "ModuleName": "RTSSHooks64.dll",
+        "version": null
+      },
+      {
+        "ModuleName": "Microsoft.UI.Xaml.dll",
+        "version": "2.0"
+      }
+    ],
+    "idle": {
+      "cpuSeconds": 0.015625,
+      "logicalProcessors": 24,
+      "seconds": 60.0845565,
+      "corePercent": 0.02600501844429858,
+      "machinePercent": 0.0010835424351791074
+    },
+    "beforeTunnels": {
+      "privateBytes": 149999616,
+      "workingSetBytes": 209186816,
+      "handles": 1286,
+      "threads": 80
+    },
+    "twentyTunnels": {
+      "privateBytes": 211824640,
+      "workingSetBytes": 285069312,
+      "handles": 1868,
+      "threads": 116
+    },
+    "afterStop": {
+      "privateBytes": 218927104,
+      "workingSetBytes": 292536320,
+      "handles": 1681,
+      "threads": 106
+    },
+    "incrementalPrivateBytes": 61825024,
+    "incrementalWorkingSetBytes": 75882496,
+    "credentialPrompts": 1,
+    "payloadsVerified": 20,
+    "allListenersReleased": true,
+    "normalCloseMs": 292.0533,
+    "notes": "Release GUI process; shared runtimes. Ten Local plus ten Remote forwards use an isolated SSH fixture. Memory after Stop is not a forced-GC or leak measurement; see the separate 100-cycle test."
+  },
+  "conclusion": "Fewer hidden controls and duplicated rows. No clear reduction in whole-process private bytes across these runs. Page counts remained bounded in the measured navigation scenario; this is not a long-duration leak guarantee."
+}

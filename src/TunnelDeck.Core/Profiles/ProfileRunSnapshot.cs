@@ -18,11 +18,11 @@ public sealed record ProfileRunSnapshot(Guid ProfileId, Guid OperationId, string
     public int CancelledCount => Rules.Count(rule => rule.Outcome == ProfileRuleOutcome.Cancelled);
     public string Summary => string.Join(" · ", new[]
     {
-        IsBusy ? $"{Rules.Count(rule => rule.Outcome == ProfileRuleOutcome.Starting)} starting" : null,
-        StartedCount > 0 ? $"{StartedCount} started" : null,
-        AlreadyRunningCount > 0 ? $"{AlreadyRunningCount} already running" : null,
-        AlreadyReconnectingCount > 0 ? $"{AlreadyReconnectingCount} already reconnecting" : null,
-        FailedCount > 0 ? $"{FailedCount} failed" : null,
-        CancelledCount > 0 ? $"{CancelledCount} cancelled" : null,
+        IsBusy ? UiText.Get("Diagnostic_ProfileRunSnapshot_Starting", Rules.Count(rule => rule.Outcome == ProfileRuleOutcome.Starting)) : null,
+        StartedCount > 0 ? UiText.Get("Diagnostic_ProfileRunSnapshot_Started", StartedCount) : null,
+        AlreadyRunningCount > 0 ? UiText.Get("Diagnostic_ProfileRunSnapshot_AlreadyRunning", AlreadyRunningCount) : null,
+        AlreadyReconnectingCount > 0 ? UiText.Get("Diagnostic_ProfileRunSnapshot_AlreadyReconnecting", AlreadyReconnectingCount) : null,
+        FailedCount > 0 ? UiText.Get("Diagnostic_ProfileRunSnapshot_Failed", FailedCount) : null,
+        CancelledCount > 0 ? UiText.Get("Diagnostic_ProfileRunSnapshot_Cancelled", CancelledCount) : null,
     }.Where(text => text is not null));
 }

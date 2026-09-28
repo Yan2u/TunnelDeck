@@ -28,7 +28,7 @@ public sealed partial class TunnelManager
             entry.Token.ThrowIfCancellationRequested();
             if (!ServerIdentity.Matches(entry.Reservation.Server, entry.Launch.Server))
             {
-                throw new ForwardException(new(TunnelFailureKind.Input, "The server's connection settings changed after this rule was captured. Reopen the rule and retry."));
+                throw new ForwardException(new(TunnelFailureKind.Input, UiText.Invariant("Diagnostic_TunnelManagerStart_TheServerSConnectionSettingsChangedAfterThis")));
             }
             await _startSlots.WaitAsync(entry.Token).ConfigureAwait(false);
             slot = true;
@@ -111,9 +111,9 @@ public sealed partial class TunnelManager
         if (search.StopReason == PortSearchStopReason.DeadlineExceeded) { throw new ForwardException(TunnelErrors.UnknownOutcome); }
         if (search.StopReason is PortSearchStopReason.AttemptLimitReached or PortSearchStopReason.PortLimitReached)
         {
-            last = new(TunnelFailureKind.LocalAddressInUse, $"No local listening port was available in {search.AttemptsIssued} attempts. The search stopped at its configured limit.");
+            last = new(TunnelFailureKind.LocalAddressInUse, UiText.Invariant("Diagnostic_TunnelManagerStart_NoLocalListeningPortWasAvailableInAttempts", search.AttemptsIssued));
         }
-        throw new ForwardException(last ?? new(TunnelFailureKind.Unknown, "The listening request could not be completed."));
+        throw new ForwardException(last ?? new(TunnelFailureKind.Unknown, UiText.Invariant("Diagnostic_TunnelManagerStart_TheListeningRequestCouldNotBeCompleted")));
     }
 
     private async Task StartCandidateAsync(Entry entry, PortSearchAttempt attempt)
@@ -225,7 +225,7 @@ public sealed partial class TunnelManager
             };
             if (activity.ListenerStopped)
             {
-                entry.TerminalFailure = new(TunnelFailureKind.Connectivity, "The listener stopped unexpectedly. Retry this forward after cleanup.");
+                entry.TerminalFailure = new(TunnelFailureKind.Connectivity, UiText.Invariant("Diagnostic_TunnelManagerStart_TheListenerStoppedUnexpectedlyRetryThisForwardAfter"));
                 entry.RecoverRequested = _reconnectEnabled && _accepting && !entry.Value.StopRequested;
                 entry.Value = entry.Value with { State = entry.RecoverRequested ? TunnelState.Reconnecting : TunnelState.Stopping, LastError = entry.TerminalFailure };
                 EnsureCleanupUnderLock(entry);

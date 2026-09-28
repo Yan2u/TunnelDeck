@@ -11,20 +11,20 @@ public sealed class AppDataDirectory
     public AppDataDirectory(string rootPath)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(rootPath);
-        if (!Path.IsPathFullyQualified(rootPath)) { throw new ArgumentException("Use an absolute data directory.", nameof(rootPath)); }
+        if (!Path.IsPathFullyQualified(rootPath)) { throw new ArgumentException(UiText.Invariant("Diagnostic_AppDataDirectory_UseAnAbsoluteDataDirectory"), nameof(rootPath)); }
         RootPath = Path.TrimEndingDirectorySeparator(Path.GetFullPath(rootPath));
         string installation = Path.TrimEndingDirectorySeparator(Path.GetFullPath(AppContext.BaseDirectory));
         if (StringComparer.OrdinalIgnoreCase.Equals(RootPath, installation) ||
             RootPath.StartsWith(installation + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase))
         {
-            throw new ArgumentException("User data cannot be stored in the installation directory.", nameof(rootPath));
+            throw new ArgumentException(UiText.Invariant("Diagnostic_AppDataDirectory_UserDataCannotBeStoredInTheInstallation"), nameof(rootPath));
         }
     }
 
     public static AppDataDirectory ForCurrentUser()
     {
         string local = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-        if (string.IsNullOrWhiteSpace(local)) { throw new IOException("The user data directory is unavailable."); }
+        if (string.IsNullOrWhiteSpace(local)) { throw new IOException(UiText.Invariant("Diagnostic_AppDataDirectory_TheUserDataDirectoryIsUnavailable")); }
         return new(Path.Combine(local, "TunnelDeck"));
     }
 

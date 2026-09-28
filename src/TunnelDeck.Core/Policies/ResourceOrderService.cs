@@ -18,7 +18,7 @@ public static class ResourceOrderService
         RequireId(id);
         var (pinned, other) = Get(order, kind);
         if (pinned.Contains(id)) { return order; }
-        if (!other.Contains(id)) { throw new KeyNotFoundException("The resource is not in this order."); }
+        if (!other.Contains(id)) { throw new KeyNotFoundException(UiText.Invariant("Diagnostic_ResourceOrderService_TheResourceIsNotInThisOrder")); }
         return With(order, kind, pinned.Add(id), other.Remove(id));
     }
 
@@ -28,7 +28,7 @@ public static class ResourceOrderService
         var (pinned, other) = Get(order, kind);
         if (!pinned.Contains(id))
         {
-            if (!other.Contains(id)) { throw new KeyNotFoundException("The resource is not in this order."); }
+            if (!other.Contains(id)) { throw new KeyNotFoundException(UiText.Invariant("Diagnostic_ResourceOrderService_TheResourceIsNotInThisOrder")); }
             return order;
         }
         return With(order, kind, pinned.Remove(id), other.Insert(0, id));
@@ -48,7 +48,7 @@ public static class ResourceOrderService
         ImmutableArray<Guid> replacement = ids.ToImmutableArray();
         if (replacement.Length != pinned.Length || replacement.Distinct().Count() != pinned.Length || !pinned.ToHashSet().SetEquals(replacement))
         {
-            throw new ArgumentException("Reordering must preserve exactly the existing Pinned IDs; Other items cannot be dragged into it.", nameof(ids));
+            throw new ArgumentException(UiText.Invariant("Diagnostic_ResourceOrderService_ReorderingMustPreserveExactlyTheExistingPinnedIDs"), nameof(ids));
         }
         return With(order, kind, replacement, other);
     }
@@ -70,9 +70,9 @@ public static class ResourceOrderService
             ResourceKind.Server => (order.PinnedServerIds, order.OtherServerIds),
             _ => throw new ArgumentOutOfRangeException(nameof(kind)),
         };
-        if (group.Item1.IsDefault || group.Item2.IsDefault) { throw new ArgumentException("Order collections must be initialized.", nameof(order)); }
+        if (group.Item1.IsDefault || group.Item2.IsDefault) { throw new ArgumentException(UiText.Invariant("Diagnostic_ResourceOrderService_OrderCollectionsMustBeInitialized"), nameof(order)); }
         Guid[] all = [.. group.Item1, .. group.Item2];
-        if (all.Contains(Guid.Empty) || all.Length != all.Distinct().Count()) { throw new ArgumentException("Order contains empty or duplicate IDs.", nameof(order)); }
+        if (all.Contains(Guid.Empty) || all.Length != all.Distinct().Count()) { throw new ArgumentException(UiText.Invariant("Diagnostic_ResourceOrderService_OrderContainsEmptyOrDuplicateIDs"), nameof(order)); }
         return group;
     }
 
@@ -85,6 +85,6 @@ public static class ResourceOrderService
 
     private static void RequireId(Guid id)
     {
-        if (id == Guid.Empty) { throw new ArgumentException("An ID is required.", nameof(id)); }
+        if (id == Guid.Empty) { throw new ArgumentException(UiText.Invariant("Diagnostic_ResourceOrderService_AnIDIsRequired"), nameof(id)); }
     }
 }

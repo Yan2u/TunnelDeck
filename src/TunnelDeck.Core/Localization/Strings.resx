@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="DeletionDialog_Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="DeletionDialog_ImpactUpdated" xml:space="preserve"><value>Impact updated</value></data>
+  <data name="DeletionDialog_AffectedForwardingRules" xml:space="preserve"><value>Affected forwarding rules</value></data>
+  <data name="DeletionDialog_ThisActionCanTBeUndone" xml:space="preserve"><value>This action can't be undone.</value></data>
+  <data name="ImportPreviewItem_SourceLine" xml:space="preserve"><value>Source line</value></data>
+  <data name="ImportPreviewItem_ImportNote" xml:space="preserve"><value>Import note</value></data>
+  <data name="ResourceListView_DragToReorder" xml:space="preserve"><value>Drag to reorder</value></data>
+  <data name="ResourceListView_ReorderPinnedItem" xml:space="preserve"><value>Reorder pinned item</value></data>
+  <data name="ResourceListView_MoreActions" xml:space="preserve"><value>More actions</value></data>
+  <data name="ResourceListView_Retry" xml:space="preserve"><value>Retry</value></data>
+  <data name="RuleEditorDialog_ApplyRule" xml:space="preserve"><value>Apply rule</value></data>
+  <data name="RuleEditorView_Server" xml:space="preserve"><value>Server</value></data>
+  <data name="RuleEditorView_SelectAServer" xml:space="preserve"><value>Select a server</value></data>
+  <data name="RuleEditorView_RuleServer" xml:space="preserve"><value>Rule server</value></data>
+  <data name="RuleEditorView_RuleForwardingMode" xml:space="preserve"><value>Rule forwarding mode</value></data>
+  <data name="RuleEditorView_LocalForwarding" xml:space="preserve"><value>Local forwarding</value></data>
+  <data name="RuleEditorView_RemoteForwarding" xml:space="preserve"><value>Remote forwarding</value></data>
+  <data name="RuleEditorView_LocalPort" xml:space="preserve"><value>Local port</value></data>
+  <data name="RuleEditorView_RemotePort" xml:space="preserve"><value>Remote port</value></data>
+  <data name="RuleEditorView_FindNextAvailableLocalPortIfOccupied" xml:space="preserve"><value>Find next available local port if occupied</value></data>
+  <data name="RuleEditorView_IfRemoteListeningFailsEditThePortOr" xml:space="preserve"><value>If remote listening fails, edit the port or server policy and retry.</value></data>
+  <data name="TunnelListItem_PortAutomaticallyAdjusted" xml:space="preserve"><value>Port automatically adjusted</value></data>
+  <data name="TunnelListItem_PortAdjusted" xml:space="preserve"><value>Port adjusted</value></data>
+  <data name="TunnelListItem_RequestFailedSeeDetails" xml:space="preserve"><value>Request failed · See details</value></data>
+  <data name="TunnelListItem_StopForward" xml:space="preserve"><value>Stop forward</value></data>
+  <data name="TunnelListItem_TunnelDetails" xml:space="preserve"><value>Tunnel details</value></data>
+  <data name="TunnelListItem_Requested" xml:space="preserve"><value>Requested</value></data>
+  <data name="TunnelListItem_Started" xml:space="preserve"><value>Started</value></data>
+  <data name="TunnelListItem_Duration" xml:space="preserve"><value>Duration</value></data>
+  <data name="TunnelListItem_StartedFrom" xml:space="preserve"><value>Started from</value></data>
+  <data name="TunnelListItem_Profile" xml:space="preserve"><value>Profile</value></data>
+  <data name="TunnelListItem_MoreTunnelActions" xml:space="preserve"><value>More tunnel actions</value></data>
+  <data name="TunnelListItem_Remove" xml:space="preserve"><value>Remove</value></data>
+  <data name="MainWindow_SearchProfilesAndServers" xml:space="preserve"><value>Search profiles and servers</value></data>
+  <data name="MainWindow_SearchProfilesAndServersCtrlK" xml:space="preserve"><value>Search profiles and servers (Ctrl+K)</value></data>
+  <data name="MainWindow_Dashboard" xml:space="preserve"><value>Dashboard</value></data>
+  <data name="MainWindow_Profiles" xml:space="preserve"><value>Profiles</value></data>
+  <data name="MainWindow_AllProfiles" xml:space="preserve"><value>All profiles</value></data>
+  <data name="MainWindow_Servers" xml:space="preserve"><value>Servers</value></data>
+  <data name="MainWindow_AllServers" xml:space="preserve"><value>All servers</value></data>
+  <data name="MainWindow_Settings" xml:space="preserve"><value>Settings</value></data>
+  <data name="MainWindow_DesignPreview" xml:space="preserve"><value>Design preview</value></data>
+  <data name="MainWindow_SampleDataNoSSHConnectionsAreOpened" xml:space="preserve"><value>Sample data. No SSH connections are opened.</value></data>
+  <data name="MainWindow_Sample" xml:space="preserve"><value>Sample</value></data>
+  <data name="MainWindow_PreviewDataScenario" xml:space="preserve"><value>Preview data scenario</value></data>
+  <data name="MainWindow_LongLists" xml:space="preserve"><value>Long lists</value></data>
+  <data name="MainWindow_Empty" xml:space="preserve"><value>Empty</value></data>
+  <data name="MainWindow_LoadingSavedData" xml:space="preserve"><value>Loading saved data…</value></data>
+  <data name="MainWindow_RetryLoadingSavedData" xml:space="preserve"><value>Retry loading saved data</value></data>
+  <data name="MainWindow_TheChangeNeedsAttention" xml:space="preserve"><value>The change needs attention</value></data>
+  <data name="MainWindow_ClosingTunnelDeck" xml:space="preserve"><value>Closing TunnelDeck</value></data>
+  <data name="DashboardPage_QuickForward" xml:space="preserve"><value>Quick forward</value></data>
+  <data name="DashboardPage_ForwardingHelp" xml:space="preserve"><value>Forwarding help</value></data>
+  <data name="DashboardPage_LocalListensOnThisPCAndReachesA" xml:space="preserve"><value>Local listens on this PC and reaches a service from the SSH server. Remote listens on the SSH server and reaches a service from this PC.</value></data>
+  <data name="DashboardPage_AdvancedLetsYouSetDifferentPortsAndHosts" xml:space="preserve"><value>Advanced lets you set different ports and hosts. Remote listening requires permission on the SSH server and uses the requested port.</value></data>
+  <data name="DashboardPage_RunningMeansTheListenerIsReadyTheTarget" xml:space="preserve"><value>Running means the listener is ready; the target service must also be available.</value></data>
+  <data name="DashboardPage_QuickForwardServer" xml:space="preserve"><value>Quick forward server</value></data>
+  <data name="DashboardPage_PinThisServerForQuickForward" xml:space="preserve"><value>Pin this server for quick forward</value></data>
+  <data name="DashboardPage_Forwarding" xml:space="preserve"><value>Forwarding</value></data>
+  <data name="DashboardPage_ForwardingMode" xml:space="preserve"><value>Forwarding mode</value></data>
+  <data name="DashboardPage_Local" xml:space="preserve"><value>Local</value></data>
+  <data name="DashboardPage_Remote" xml:space="preserve"><value>Remote</value></data>
+  <data name="DashboardPage_Port" xml:space="preserve"><value>Port</value></data>
+  <data name="DashboardPage_Forward" xml:space="preserve"><value>Forward</value></data>
+  <data name="DashboardPage_FindAnAvailablePort" xml:space="preserve"><value>Find an available port</value></data>
+  <data name="DashboardPage_UseTheNextAvailableLocalPortIfThe" xml:space="preserve"><value>Use the next available local port if the requested port is occupied. The actual port appears in Active tunnels.</value></data>
+  <data name="DashboardPage_Advanced" xml:space="preserve"><value>Advanced</value></data>
+  <data name="DashboardPage_AdvancedForwardingOptions" xml:space="preserve"><value>Advanced forwarding options</value></data>
+  <data name="DashboardPage_SetDifferentLocalAndRemoteHostsOrPorts" xml:space="preserve"><value>Set different local and remote hosts or ports</value></data>
+  <data name="DashboardPage_OpenTerminal" xml:space="preserve"><value>Open terminal</value></data>
+  <data name="DashboardPage_OpensASeparateSSHSessionSignInAnd" xml:space="preserve"><value>Opens a separate SSH session. Sign in and verify the host in the terminal; closing it does not stop your forwards.</value></data>
+  <data name="DashboardPage_AddAnSSHServerToStartForwarding" xml:space="preserve"><value>Add an SSH server to start forwarding.</value></data>
+  <data name="DashboardPage_AddServer" xml:space="preserve"><value>Add server</value></data>
+  <data name="DashboardPage_RetrySaving" xml:space="preserve"><value>Retry saving</value></data>
+  <data name="DashboardPage_ActiveTunnels" xml:space="preserve"><value>Active tunnels</value></data>
+  <data name="DashboardPage_StopAll" xml:space="preserve"><value>Stop all</value></data>
+  <data name="DashboardPage_NoActiveTunnels" xml:space="preserve"><value>No active tunnels</value></data>
+  <data name="DashboardPage_RecentActivity" xml:space="preserve"><value>Recent activity</value></data>
+  <data name="DashboardPage_NoRecentActivity" xml:space="preserve"><value>No recent activity</value></data>
+  <data name="DashboardPage_LifetimeTotalsIncludeDeletedResourcesRankingsShowCurrent" xml:space="preserve"><value>Lifetime totals include deleted resources. Rankings show current servers and profiles.</value></data>
+  <data name="DashboardPage_TotalForwards" xml:space="preserve"><value>Total forwards</value></data>
+  <data name="DashboardPage_EachNewSuccessfulForwardCountsOnceReconnectsAnd" xml:space="preserve"><value>Each new successful forward counts once. Reconnects and duplicate commands do not add to this total.</value></data>
+  <data name="DashboardPage_MostUsedProfile" xml:space="preserve"><value>Most used profile</value></data>
+  <data name="DashboardPage_AProfileUseRequiresAtLeastOneNewly" xml:space="preserve"><value>A profile use requires at least one newly started forward.</value></data>
+  <data name="DashboardPage_MostUsedServer" xml:space="preserve"><value>Most used server</value></data>
+  <data name="ExportPage_Export" xml:space="preserve"><value>Export</value></data>
+  <data name="ExportPage_ServersOnly" xml:space="preserve"><value>Servers only</value></data>
+  <data name="ExportPage_ProfilesAndRequiredServers" xml:space="preserve"><value>Profiles and required servers</value></data>
+  <data name="ExportPage_AllServersAndProfiles" xml:space="preserve"><value>All servers and profiles</value></data>
+  <data name="ExportPage_TunnelDeckJSONCredentialsExcluded" xml:space="preserve"><value>TunnelDeck JSON · Credentials excluded</value></data>
+  <data name="ExportPage_AboutThisExport" xml:space="preserve"><value>About this export</value></data>
+  <data name="ExportPage_ProfilesIncludeTheirRequiredServersAndResourceOrder" xml:space="preserve"><value>Profiles include their required servers and resource order. Optional private-key paths are included. Passwords, key contents, host trust, activity, running tunnels and local settings are excluded.</value></data>
+  <data name="ExportPage_ChooseFileAndExport" xml:space="preserve"><value>Choose file and export…</value></data>
+  <data name="ExportPage_ExportInProgress" xml:space="preserve"><value>Export in progress</value></data>
+  <data name="ImportPage_Import" xml:space="preserve"><value>Import</value></data>
+  <data name="ImportPage_AboutImporting" xml:space="preserve"><value>About importing</value></data>
+  <data name="ImportPage_ExistingNamesAreKeptAsSeparateEntriesExpand" xml:space="preserve"><value>Existing names are kept as separate entries. Expand an entry to review ignored SSH options and authentication. Passwords, saved credentials, host trust and active tunnels are never imported. Your SSH config is not modified.</value></data>
+  <data name="ImportPage_File" xml:space="preserve"><value>File</value></data>
+  <data name="ImportPage_EnterTheFullPathOrBrowse" xml:space="preserve"><value>Enter the full path or browse</value></data>
+  <data name="ImportPage_EnterAFilePathPressEnterToReload" xml:space="preserve"><value>Enter a file path. Press Enter to reload the file.</value></data>
+  <data name="ImportPage_FileFormat" xml:space="preserve"><value>File format</value></data>
+  <data name="ImportPage_SSHConfig" xml:space="preserve"><value>SSH config</value></data>
+  <data name="ImportPage_Browse" xml:space="preserve"><value>Browse…</value></data>
+  <data name="ImportPage_ImportPreview" xml:space="preserve"><value>Import preview</value></data>
+  <data name="ProfileDetailPage_SaveProfile" xml:space="preserve"><value>Save profile</value></data>
+  <data name="ProfileDetailPage_RetrySavingActivity" xml:space="preserve"><value>Retry saving activity</value></data>
+  <data name="ProfileDetailPage_Name" xml:space="preserve"><value>Name</value></data>
+  <data name="ProfileDetailPage_EGWebDevelopment" xml:space="preserve"><value>e.g. Web Development</value></data>
+  <data name="ProfileDetailPage_LatestStart" xml:space="preserve"><value>Latest start</value></data>
+  <data name="ProfileDetailPage_ForwardingRules" xml:space="preserve"><value>Forwarding rules</value></data>
+  <data name="ProfileDetailPage_EachRuleCanUseADifferentServerRemoving" xml:space="preserve"><value>Each rule can use a different server. Removing a rule changes the saved profile; existing forwards keep running.</value></data>
+  <data name="ProfileDetailPage_NoForwardingRules" xml:space="preserve"><value>No forwarding rules</value></data>
+  <data name="ProfileDetailPage_StartRule" xml:space="preserve"><value>Start rule</value></data>
+  <data name="ProfileDetailPage_StopRule" xml:space="preserve"><value>Stop rule</value></data>
+  <data name="ProfileDetailPage_EditRule" xml:space="preserve"><value>Edit rule</value></data>
+  <data name="ProfileDetailPage_RuleActions" xml:space="preserve"><value>Rule actions</value></data>
+  <data name="ProfileDetailPage_MoveUp" xml:space="preserve"><value>Move up</value></data>
+  <data name="ProfileDetailPage_MoveDown" xml:space="preserve"><value>Move down</value></data>
+  <data name="ProfileDetailPage_RemoveRule" xml:space="preserve"><value>Remove rule</value></data>
+  <data name="ProfileDetailPage_AddRule" xml:space="preserve"><value>Add rule</value></data>
+  <data name="ServerDetailPage_SaveServer" xml:space="preserve"><value>Save server</value></data>
+  <data name="ServerDetailPage_SaveConnectionChangesFirstOpensASeparateSSH" xml:space="preserve"><value>Save connection changes first. Opens a separate SSH session using saved settings; authenticate in the terminal.</value></data>
+  <data name="ServerDetailPage_ConnectionTestInProgress" xml:space="preserve"><value>Connection test in progress</value></data>
+  <data name="ServerDetailPage_ThisServerIsInUseStopItsTunnels" xml:space="preserve"><value>This server is in use. Stop its tunnels or cancel pending connections to edit connection details. Its display name can still be changed.</value></data>
+  <data name="ServerDetailPage_DisplayName" xml:space="preserve"><value>Display name</value></data>
+  <data name="ServerDetailPage_OptionalDefaultsToHost" xml:space="preserve"><value>Optional — defaults to host</value></data>
+  <data name="ServerDetailPage_HostIP" xml:space="preserve"><value>Host / IP</value></data>
+  <data name="ServerDetailPage_SSHPort" xml:space="preserve"><value>SSH port</value></data>
+  <data name="ServerDetailPage_Username" xml:space="preserve"><value>Username</value></data>
+  <data name="ServerDetailPage_YourSSHUsername" xml:space="preserve"><value>Your SSH username</value></data>
+  <data name="ServerDetailPage_AuthenticationMethod" xml:space="preserve"><value>Authentication method</value></data>
+  <data name="ServerDetailPage_Password" xml:space="preserve"><value>Password</value></data>
+  <data name="ServerDetailPage_PrivateKeyIdentityFile" xml:space="preserve"><value>Private key / Identity file</value></data>
+  <data name="ServerDetailPage_IdentityFilePath" xml:space="preserve"><value>Identity file path</value></data>
+  <data name="ServerDetailPage_YourPrivateKeyStaysOnThisComputerOnly" xml:space="preserve"><value>Your private key stays on this computer. Only its path is saved.</value></data>
+  <data name="ServerDetailPage_RememberInWindowsCredentialManager" xml:space="preserve"><value>Remember in Windows Credential Manager</value></data>
+  <data name="ServerDetailPage_PreviewDataDoesNotOpenNetworkConnectionsLaunch" xml:space="preserve"><value>Preview data does not open network connections. Launch TunnelDeck normally to test a real server.</value></data>
+  <data name="SettingsPage_Appearance" xml:space="preserve"><value>Appearance</value></data>
+  <data name="SettingsPage_Theme" xml:space="preserve"><value>Theme</value></data>
+  <data name="SettingsPage_WindowTheme" xml:space="preserve"><value>Window theme</value></data>
+  <data name="SettingsPage_UseSystemSetting" xml:space="preserve"><value>Use system setting</value></data>
+  <data name="SettingsPage_Light" xml:space="preserve"><value>Light</value></data>
+  <data name="SettingsPage_Dark" xml:space="preserve"><value>Dark</value></data>
+  <data name="SettingsPage_Sidebar" xml:space="preserve"><value>Sidebar</value></data>
+  <data name="SettingsPage_MaximumItemsPerSection" xml:space="preserve"><value>Maximum items per section</value></data>
+  <data name="SettingsPage_Show310ItemsPerSectionPinnedItems" xml:space="preserve"><value>Show 3–10 items per section. Pinned items appear first, then recently used resources.</value></data>
+  <data name="SettingsPage_DefaultServer" xml:space="preserve"><value>Default server</value></data>
+  <data name="SettingsPage_UsedByQuickForward" xml:space="preserve"><value>Used by Quick forward</value></data>
+  <data name="SettingsPage_UsedWhenNoServerIsSelectedOrPinned" xml:space="preserve"><value>Used when no server is selected or pinned for Quick forward. Resource-list pins are separate.</value></data>
+  <data name="SettingsPage_ForNewLocalForwardingRules" xml:space="preserve"><value>For new local forwarding rules</value></data>
+  <data name="SettingsPage_TryTheNextLocalPortWhenOccupiedExisting" xml:space="preserve"><value>Try the next local port when occupied. Existing rules and the current draft keep their settings; remote forwards use the requested port.</value></data>
+  <data name="SettingsPage_FindNextAvailableLocalPortWhenOccupied" xml:space="preserve"><value>Find next available local port when occupied</value></data>
+  <data name="SettingsPage_ServerAuthentication" xml:space="preserve"><value>Server authentication</value></data>
+  <data name="SettingsPage_DefaultMethod" xml:space="preserve"><value>Default method</value></data>
+  <data name="SettingsPage_ForNewServersAndSSHImportsWithoutAn" xml:space="preserve"><value>For new servers and SSH imports without an IdentityFile</value></data>
+  <data name="SettingsPage_ExistingServersAndEditedDraftsKeepTheirAuthentication" xml:space="preserve"><value>Existing servers and edited drafts keep their authentication. An explicit IdentityFile in SSH config takes precedence.</value></data>
+  <data name="SettingsPage_DefaultAuthenticationMethod" xml:space="preserve"><value>Default authentication method</value></data>
+  <data name="SettingsPage_DefaultPrivateKey" xml:space="preserve"><value>Default private key</value></data>
+  <data name="SettingsPage_KeyFile" xml:space="preserve"><value>Key file</value></data>
+  <data name="SettingsPage_FullPathToAPrivateKeyFile" xml:space="preserve"><value>Full path to a private-key file</value></data>
+  <data name="SettingsPage_SavePath" xml:space="preserve"><value>Save path</value></data>
+  <data name="SettingsPage_PressEnterOrSavePathToSaveA" xml:space="preserve"><value>Press Enter or Save path to save a typed path. Choosing a file saves immediately.</value></data>
+  <data name="ResourceListViewxaml_TheChangeCouldNotBeSavedRetryOr" xml:space="preserve"><value>The change could not be saved. Retry or make a new change.</value></data>
+  <data name="ShutdownDialogxaml_ChangesCouldNotBeSaved" xml:space="preserve"><value>Changes could not be saved</value></data>
+  <data name="ShutdownDialogxaml_CleanupDidNotFinish" xml:space="preserve"><value>Cleanup did not finish</value></data>
+  <data name="ShutdownDialogxaml_ExitWithoutSaving" xml:space="preserve"><value>Exit without saving</value></data>
+  <data name="ShutdownDialogxaml_ExitNow" xml:space="preserve"><value>Exit now</value></data>
+  <data name="ShutdownDialogxaml_YourForwardsHaveStoppedButSomeActivityOr" xml:space="preserve"><value>Your forwards have stopped, but some activity or configuration is still waiting to be saved. Retry saving, or exit without saving the remaining changes.</value></data>
+  <data name="ShutdownDialogxaml_SomeForwardsOrConnectionsHaveNotFinishedClosing" xml:space="preserve"><value>Some forwards or connections have not finished closing. Retry cleanup, or exit now. Remote ports may remain in use until the SSH server detects the disconnected session.</value></data>
+  <data name="MainWindowLifecycle_Closing" xml:space="preserve"><value>Closing…</value></data>
+  <data name="MainWindowLifecycle_CancellingPendingWork" xml:space="preserve"><value>Cancelling pending work…</value></data>
+  <data name="MainWindowLifecycle_ClosingPaused" xml:space="preserve"><value>Closing paused</value></data>
+  <data name="MainWindowLifecycle_NewCommandsArePausedCloseTheWindowAgain" xml:space="preserve"><value>New commands are paused. Close the window again to retry cleanup or exit.</value></data>
+  <data name="MainWindowNavigation_CurrentPage" xml:space="preserve"><value>Current page</value></data>
+  <data name="MainWindowNavigation_OpenDashboard" xml:space="preserve"><value>Open dashboard</value></data>
+  <data name="MainWindowNavigation_OpenSettings" xml:space="preserve"><value>Open settings</value></data>
+  <data name="MainWindowStorage_SavedDataIsReadOnly" xml:space="preserve"><value>Saved data is read-only</value></data>
+  <data name="MainWindowStorage_LoadedASavedBackup" xml:space="preserve"><value>Loaded a saved backup</value></data>
+  <data name="MainWindowStorage_SavedDataNeedsAttention" xml:space="preserve"><value>Saved data needs attention</value></data>
+  <data name="MainWindowStorage_DataFolder" xml:space="preserve"><value> Data folder: {0}</value></data>
+  <data name="MainWindowStorage_CheckAccessToTheDataFolderThenRetry" xml:space="preserve"><value>Check access to the data folder, then retry.</value></data>
+  <data name="MainWindowStorage_SavedDataCouldNotBeLoaded" xml:space="preserve"><value>Saved data could not be loaded</value></data>
+  <data name="MainWindowStorage_DataFolder_182" xml:space="preserve"><value>{0} Data folder: {1}</value></data>
+  <data name="MainWindowxaml_Search" xml:space="preserve"><value>Search…</value></data>
+  <data name="DashboardPagexaml_UnpinQuickForwardServer" xml:space="preserve"><value>Unpin quick forward server</value></data>
+  <data name="DashboardPagexaml_UseThisServerForQuickForward" xml:space="preserve"><value>Use this server for quick forward</value></data>
+  <data name="ExportPagexaml_TunnelDeckExport" xml:space="preserve"><value>TunnelDeck export</value></data>
+  <data name="SettingsPagexaml_None" xml:space="preserve"><value>None</value></data>
+  <data name="Program_TunnelDeckCouldNotStartCheckTheApplicationInstallation" xml:space="preserve"><value>TunnelDeck could not start. Check the application installation and data directory.
+
+Error code: 0x{0:X8}</value></data>
+  <data name="AppServices_FinishingImportAndExport" xml:space="preserve"><value>Finishing import and export…</value></data>
+  <data name="AppServices_FinishingResourceChanges" xml:space="preserve"><value>Finishing resource changes…</value></data>
+  <data name="AppServices_StoppingAutomaticReconnect" xml:space="preserve"><value>Stopping automatic reconnect…</value></data>
+  <data name="AppServices_FinishingProfileCommands" xml:space="preserve"><value>Finishing profile commands…</value></data>
+  <data name="AppServices_FinishingForwardingCommands" xml:space="preserve"><value>Finishing forwarding commands…</value></data>
+  <data name="AppServices_StoppingForwards" xml:space="preserve"><value>Stopping forwards…</value></data>
+  <data name="AppServices_ClosingSSHConnections" xml:space="preserve"><value>Closing SSH connections…</value></data>
+  <data name="AppServices_SavingRecentActivity" xml:space="preserve"><value>Saving recent activity…</value></data>
+  <data name="AppServices_SavingConfiguration" xml:space="preserve"><value>Saving configuration…</value></data>
+  <data name="AppServices_FinishingWindowVerification" xml:space="preserve"><value>Finishing window verification…</value></data>
+  <data name="DialogServiceCredentials_PrivateKeyPassphrase" xml:space="preserve"><value>Private-key passphrase</value></data>
+  <data name="DialogServiceCredentials_UsedForThisConnectionOnlyToRememberA" xml:space="preserve"><value>Used for this connection only. To remember a credential, edit and save the server.</value></data>
+  <data name="DialogServiceCredentials_LeaveThePassphraseBlankForAnUnencryptedKey" xml:space="preserve"><value> Leave the passphrase blank for an unencrypted key. Check the server's identity-file path if it could not be read.</value></data>
+  <data name="DialogServiceCredentials_ConnectToForward" xml:space="preserve"><value>Connect to forward</value></data>
+  <data name="DialogServiceCredentials_EnterTheSSHPassword" xml:space="preserve"><value>Enter the SSH password.</value></data>
+  <data name="DialogService_TheWindowIsNoLongerAvailable" xml:space="preserve"><value>The window is no longer available.</value></data>
+  <data name="DialogService_ThisIsTheFirstConnectionToThisHost" xml:space="preserve"><value>This is the first connection to this host key. Compare its fingerprint with a trusted source before allowing SSH authentication.</value></data>
+  <data name="DialogService_HostKey" xml:space="preserve"><value>Host key: {0}
+{1}</value></data>
+  <data name="DialogService_TrustingSavesThisHostKeyOnThisComputer" xml:space="preserve"><value>Trusting saves this host key on this computer and reconnects to verify it. A different key will be refused.</value></data>
+  <data name="DialogService_TrustThisSSHHost" xml:space="preserve"><value>Trust this SSH host?</value></data>
+  <data name="DialogService_TrustAndConnect" xml:space="preserve"><value>Trust and connect</value></data>
+  <data name="SingleInstanceService_TheExistingInstanceDidNotAcceptActivation" xml:space="preserve"><value>The existing instance did not accept activation.</value></data>
+  <data name="DashboardViewModel_ShowLess" xml:space="preserve"><value>Show less</value></data>
+  <data name="DashboardViewModel_ShowAllRecentActivity" xml:space="preserve"><value>Show all recent activity</value></data>
+  <data name="DashboardViewModel_ShowingOfRecentEvents" xml:space="preserve"><value>Showing {0} of {1} recent events</value></data>
+  <data name="ExportViewModel_RequiredServersIncluded" xml:space="preserve"><value>{0} · required servers included</value></data>
+  <data name="ExportViewModel_ExportSavedTo" xml:space="preserve"><value>Export saved to {0}</value></data>
+  <data name="ExportViewModel_TheExportFileCouldNotBeSelectedOr" xml:space="preserve"><value>The export file could not be selected or saved. Try again.</value></data>
+  <data name="ImportPreviewEntry_Note" xml:space="preserve"><value>Note</value></data>
+  <data name="ImportViewModel_ImportingResources" xml:space="preserve"><value>Importing resources</value></data>
+  <data name="ImportViewModel_ReadingImportFile" xml:space="preserve"><value>Reading import file</value></data>
+  <data name="ImportViewModel_SkipTheUnavailableListedInThisPreview" xml:space="preserve"><value>Skip the {0} unavailable {1} listed in this preview</value></data>
+  <data name="ImportViewModel_Skipped" xml:space="preserve"><value>{0} · {1} · {2} skipped</value></data>
+  <data name="ImportViewModel_SavedConfigurationChangedUpdatingThePreview" xml:space="preserve"><value>Saved configuration changed. Updating the preview…</value></data>
+  <data name="ImportViewModel_ImportAvailableEntries" xml:space="preserve"><value>Import available entries</value></data>
+  <data name="ImportViewModel_ImportIsUnavailableWhileSavedDataIsLoading" xml:space="preserve"><value>Import is unavailable while saved data is loading, read-only or being updated.</value></data>
+  <data name="ImportViewModel_ChooseAFileToSeeItsImportPreview" xml:space="preserve"><value>Choose a file to see its import preview.</value></data>
+  <data name="ImportViewModel_UpdatingThePreview" xml:space="preserve"><value>Updating the preview…</value></data>
+  <data name="ImportViewModel_NoEntriesCanBeImportedFixTheConnection" xml:space="preserve"><value>No entries can be imported. Fix the connection fields listed below, then choose the file again or press Enter in the file path.</value></data>
+  <data name="ImportViewModel_ConfirmThatTheUnavailableEntriesCanBeSkipped" xml:space="preserve"><value>Confirm that the unavailable entries can be skipped to import the remaining resources.</value></data>
+  <data name="ImportViewModel_TheFilePickerCouldNotBeOpenedEnter" xml:space="preserve"><value>The file picker could not be opened. Enter the full file path instead.</value></data>
+  <data name="ImportViewModel_TheFileCouldNotBePreviewedCheckIts" xml:space="preserve"><value>The file could not be previewed. Check its format and try again.</value></data>
+  <data name="ProfileDetailViewModel_TheProfileOperationCouldNotFinishCheckIts" xml:space="preserve"><value>The profile operation could not finish. Check its rules and try again.</value></data>
+  <data name="ResourceDetailRows_FindNextAvailableLocalPort" xml:space="preserve"><value>Find next available local port</value></data>
+  <data name="ResourceDetailRows_UseRequestedPort" xml:space="preserve"><value>Use requested port</value></data>
+  <data name="ResourceListViewModel_AddProfile" xml:space="preserve"><value>Add profile</value></data>
+  <data name="ResourceListViewModel_Pinned" xml:space="preserve"><value>Pinned · {0}</value></data>
+  <data name="ResourceListViewModel_Other" xml:space="preserve"><value>Other · {0}</value></data>
+  <data name="ResourceListViewModel_All" xml:space="preserve"><value>All · {0}</value></data>
+  <data name="ResourceListViewModel_DeleteAllProfiles" xml:space="preserve"><value>Delete all profiles</value></data>
+  <data name="ResourceListViewModel_DeleteAllServers" xml:space="preserve"><value>Delete all servers</value></data>
+  <data name="ResourceListViewModel_NoProfilesYet" xml:space="preserve"><value>No profiles yet</value></data>
+  <data name="ResourceListViewModel_NoServersYet" xml:space="preserve"><value>No servers yet</value></data>
+  <data name="ResourceListViewModel_SaveGroupsOfForwardingRulesAndStartThem" xml:space="preserve"><value>Save groups of forwarding rules and start them together.</value></data>
+  <data name="ResourceListViewModel_AddARemoteSSHServerToStartForwarding" xml:space="preserve"><value>Add a remote SSH server to start forwarding ports.</value></data>
+  <data name="ResourceRow_Unpin" xml:space="preserve"><value>Unpin</value></data>
+  <data name="ResourceRow_Pin" xml:space="preserve"><value>Pin</value></data>
+  <data name="ResourceRow_ActionsFor" xml:space="preserve"><value>Actions for {0}</value></data>
+  <data name="ResourceRow_PrivateKey" xml:space="preserve"><value>Private key</value></data>
+  <data name="ResourceRow_Forwarding" xml:space="preserve"><value>{0} forwarding {1}</value></data>
+  <data name="SearchSuggestion_NoMatchingProfilesOrServers" xml:space="preserve"><value>No matching profiles or servers</value></data>
+  <data name="SearchSuggestion_TryANameHostOrUsername" xml:space="preserve"><value>Try a name, host or username.</value></data>
+  <data name="ServerDetailViewModelConnection_CancelTest" xml:space="preserve"><value>Cancel test</value></data>
+  <data name="ServerDetailViewModelConnection_TestConnection" xml:space="preserve"><value>Test connection</value></data>
+  <data name="ServerDetailViewModelConnection_CancellingConnectionTest" xml:space="preserve"><value>Cancelling connection test…</value></data>
+  <data name="ServerDetailViewModelConnection_EnterTheSSHPasswordToTestThisConnection" xml:space="preserve"><value>Enter the SSH password to test this connection.</value></data>
+  <data name="ServerDetailViewModelConnection_Connecting" xml:space="preserve"><value>Connecting…</value></data>
+  <data name="ServerDetailViewModelConnection_TheTestUsesTheseFormValuesServerEdits" xml:space="preserve"><value>The test uses these form values. Server edits are saved only when you select Save.</value></data>
+  <data name="ServerDetailViewModelConnection_ReadingCredentials" xml:space="preserve"><value>Reading credentials…</value></data>
+  <data name="ServerDetailViewModelConnection_WaitingForHostKeyConfirmation" xml:space="preserve"><value>Waiting for host-key confirmation…</value></data>
+  <data name="ServerDetailViewModelConnection_VerifyingTheTrustedHostAndAuthenticating" xml:space="preserve"><value>Verifying the trusted host and authenticating…</value></data>
+  <data name="ServerDetailViewModelConnection_ClosingTheTestConnection" xml:space="preserve"><value>Closing the test connection…</value></data>
+  <data name="ServerDetailViewModelConnection_ConnectionSuccessful" xml:space="preserve"><value>Connection successful</value></data>
+  <data name="ServerDetailViewModelConnection_AuthenticationSucceededTheTemporaryTestConnectionHasBeen" xml:space="preserve"><value>Authentication succeeded. The temporary test connection has been closed.</value></data>
+  <data name="ServerDetailViewModelConnection_VerifiedHostKey" xml:space="preserve"><value>Verified host key · {0}
+{1}</value></data>
+  <data name="ServerDetailViewModelConnection_ConnectionTestCancelled" xml:space="preserve"><value>Connection test cancelled</value></data>
+  <data name="ServerDetailViewModelConnection_YouCanEditTheFormOrTryAgain" xml:space="preserve"><value>You can edit the form or try again.</value></data>
+  <data name="ServerDetailViewModelConnection_ConnectionFailed" xml:space="preserve"><value>Connection failed</value></data>
+  <data name="ServerDetailViewModelConnection_TheConnectionTestCouldNotFinishCheckThe" xml:space="preserve"><value>The connection test could not finish. Check the form and try again.</value></data>
+  <data name="ServerDetailViewModel_NewServer" xml:space="preserve"><value>New server</value></data>
+  <data name="ServerDetailViewModel_TheSavedCredentialIsUnavailableEnterItAgain" xml:space="preserve"><value>The saved credential is unavailable. Enter it again, then save to replace the missing credential.</value></data>
+  <data name="ServerDetailViewModel_ASavedIsAvailableLeaveThisFieldBlank" xml:space="preserve"><value>A saved {0} is available. Leave this field blank to keep it, or enter a replacement. Clear Remember and save to remove it.</value></data>
+  <data name="ServerDetailViewModel_LeaveBlankForAnUnencryptedKeyPassphrasesAre" xml:space="preserve"><value>Leave blank for an unencrypted key. Passphrases are saved only when Remember is selected.</value></data>
+  <data name="ServerDetailViewModel_EnterThePasswordToTestThisConnectionSaving" xml:space="preserve"><value>Enter the password to test this connection. Saving it in Windows Credential Manager is optional.</value></data>
+  <data name="ServerDetailViewModel_EnterAToRememberOrClearRememberTo" xml:space="preserve"><value>Enter a {0} to remember, or clear Remember to save without it.</value></data>
+  <data name="ServerDetailViewModel_TheFilePickerCouldNotBeOpenedEnter" xml:space="preserve"><value>The file picker could not be opened. Enter the private-key path directly.</value></data>
+  <data name="SettingsViewModel_PressEnterOrSavePathToSaveThis" xml:space="preserve"><value>Press Enter or Save path to save this key. Leave blank to use the detected id_rsa file.</value></data>
+  <data name="SettingsViewModel_UsedForNewServersAndSSHConfigEntries" xml:space="preserve"><value>Used for new servers and SSH config entries that do not specify IdentityFile.</value></data>
+  <data name="SettingsViewModel_NoIdRsaFileWasFoundInYour" xml:space="preserve"><value>No id_rsa file was found in your .ssh folder. Choose a private-key file before importing with key authentication.</value></data>
+  <data name="SettingsViewModel_ChooseAnExistingPrivateKeyFileUsingIts" xml:space="preserve"><value>Choose an existing private-key file using its full path. Your saved default is unchanged.</value></data>
+  <data name="SettingsViewModel_TheFilePickerCouldNotBeOpenedEnter" xml:space="preserve"><value>The file picker could not be opened. Enter the full private-key path instead.</value></data>
+  <data name="SettingsViewModel_ChooseAWholeNumberFrom3To10" xml:space="preserve"><value>Choose a whole number from 3 to 10 for sidebar items. Your saved setting is unchanged.</value></data>
+  <data name="ShellViewModel_TheOperationWasCancelledBeforeSaving" xml:space="preserve"><value>The operation was cancelled before saving.</value></data>
+  <data name="ShellViewModel_TheChangeCouldNotBeSavedYourPrevious" xml:space="preserve"><value>The change could not be saved. Your previous configuration is still available. Try saving again.</value></data>
+  <data name="ShellViewModelDeletion_RetryCredentialCleanup" xml:space="preserve"><value>Retry credential cleanup</value></data>
+  <data name="ShellViewModelDeletion_ReviewAndRetry" xml:space="preserve"><value>Review and retry</value></data>
+  <data name="ShellViewModelDeletion_StoppingAffectedForwardsAndDeletingServers" xml:space="preserve"><value>Stopping affected forwards and deleting servers…</value></data>
+  <data name="ShellViewModelDeletion_DeletingProfiles" xml:space="preserve"><value>Deleting profiles…</value></data>
+  <data name="ShellViewModelDeletion_DeletedSuccessfully" xml:space="preserve"><value>Deleted successfully. </value></data>
+  <data name="ShellViewModelDeletion_TheDeletionCouldNotBeCompletedReviewThe" xml:space="preserve"><value>The deletion could not be completed. Review the resources and try again.</value></data>
+  <data name="ShellViewModelDeletion_TheResourcesWereDeletedSavedCredentialCleanupStill" xml:space="preserve"><value>The resources were deleted. Saved credential cleanup still needs a retry.</value></data>
+  <data name="ShellViewModelTransfer_ImportedAnd" xml:space="preserve"><value>Imported {0} and {1}.</value></data>
+  <data name="ShellViewModelTransfer_SkippedUnavailable" xml:space="preserve"><value> Skipped {0} unavailable {1}.</value></data>
+  <data name="ShellViewModelTransfer_ReviewAuthenticationAndKeyPathsInTheNew" xml:space="preserve"><value> Review authentication and key paths in the new server details before connecting.</value></data>
+  <data name="ShellViewModelTransfer_ThisServerNoLongerExistsSelectAnotherServer" xml:space="preserve"><value>This server no longer exists. Select another server.</value></data>
+  <data name="ShellViewModelTransfer_TheSSHTerminalCouldNotBeOpenedCheck" xml:space="preserve"><value>The SSH terminal could not be opened. Check the saved server settings and try again.</value></data>
+  <data name="Diagnostic_ISshSessionFactory_ConnectionCredentialsRedacted" xml:space="preserve"><value>Connection credentials (redacted)</value></data>
+  <data name="Diagnostic_ConnectionException_EnterAPasswordOrThePassphraseForYour" xml:space="preserve"><value>Enter a password or the passphrase for your encrypted private key, then try again.</value></data>
+  <data name="Diagnostic_ConnectionException_TheSavedCredentialCouldNotBeReadEnter" xml:space="preserve"><value>The saved credential could not be read. Enter it again to connect.</value></data>
+  <data name="Diagnostic_ConnectionException_SSHAuthenticationFailedCheckTheUsernameAndPassword" xml:space="preserve"><value>SSH authentication failed. Check the username and password or the authorized private key.</value></data>
+  <data name="Diagnostic_ConnectionException_ThePrivateKeyFileCouldNotBeRead" xml:space="preserve"><value>The private-key file could not be read. Check its path and file permissions.</value></data>
+  <data name="Diagnostic_ConnectionException_ThePrivateKeyCouldNotBeOpenedCheck" xml:space="preserve"><value>The private key could not be opened. Check the file format and passphrase.</value></data>
+  <data name="Diagnostic_ConnectionException_TheHostKeyWasNotTrustedTheConnection" xml:space="preserve"><value>The host key was not trusted. The connection was cancelled before authentication.</value></data>
+  <data name="Diagnostic_ConnectionException_TheServerSHostKeyDiffersFromThe" xml:space="preserve"><value>The server's host key differs from the trusted key. Connection refused. Verify the change with your server administrator.</value></data>
+  <data name="Diagnostic_ConnectionException_SavedHostTrustCouldNotBeReadOr" xml:space="preserve"><value>Saved host trust could not be read or written. Check the TunnelDeck data folder and try again.</value></data>
+  <data name="Diagnostic_ConnectionException_TheHostnameCouldNotBeResolvedCheckThe" xml:space="preserve"><value>The hostname could not be resolved. Check the host and your network connection.</value></data>
+  <data name="Diagnostic_ConnectionException_TheSSHConnectionTimedOutCheckTheHost" xml:space="preserve"><value>The SSH connection timed out. Check the host, SSH port and network, then retry.</value></data>
+  <data name="Diagnostic_ConnectionException_ThisServerIsInUseStopItsTunnels" xml:space="preserve"><value>This server is in use. Stop its tunnels and pending connections before changing the host, port, username, authentication or credentials. You can still change its display name.</value></data>
+  <data name="Diagnostic_ConnectionException_TheServerIsNoLongerAvailableSelectA" xml:space="preserve"><value>The server is no longer available. Select a saved server and try again.</value></data>
+  <data name="Diagnostic_ConnectionException_TunnelDeckIsClosingNewConnectionsAndServerEdits" xml:space="preserve"><value>TunnelDeck is closing. New connections and server edits are unavailable.</value></data>
+  <data name="Diagnostic_ConnectionException_ConnectionTestingIsDisabledForPreviewDataOpen" xml:space="preserve"><value>Connection testing is disabled for preview data. Open TunnelDeck normally to connect to a real server.</value></data>
+  <data name="Diagnostic_ConnectionException_TheSSHConnectionFailedCheckTheServerAnd" xml:space="preserve"><value>The SSH connection failed. Check the server and network, then retry.</value></data>
+  <data name="Diagnostic_ConnectionException_TheSSHHostKeyWasNotTrusted" xml:space="preserve"><value>The SSH host key was not trusted.</value></data>
+  <data name="Diagnostic_ResourceDeletionService_DeletionRequiresNonEmptyResourceIDs" xml:space="preserve"><value>Deletion requires non-empty resource IDs.</value></data>
+  <data name="Diagnostic_ResourceDeletionService_LoadSavedDataBeforeDeletingResources" xml:space="preserve"><value>Load saved data before deleting resources.</value></data>
+  <data name="Diagnostic_ResourceDeletionService_TunnelDeckIsClosingNothingWasDeleted" xml:space="preserve"><value>TunnelDeck is closing. Nothing was deleted.</value></data>
+  <data name="Diagnostic_ResourceDeletionService_TheAffectedResourcesOrRunningWorkChangedReview" xml:space="preserve"><value>The affected resources or running work changed. Review the updated impact before deleting.</value></data>
+  <data name="Diagnostic_ResourceDeletionService_NothingWasDeletedCouldNotBeFullyStopped" xml:space="preserve"><value>Nothing was deleted. {0}; {1} could not be fully stopped. Check their states, then review and retry.</value></data>
+  <data name="Diagnostic_ResourceDeletionService_NothingWasDeletedButSSHConnectionCleanupIs" xml:space="preserve"><value>Nothing was deleted. {0}, but SSH connection cleanup is incomplete. Review and retry.</value></data>
+  <data name="Diagnostic_ResourceDeletionService_DeletionWasCancelledConfigurationWasKept" xml:space="preserve"><value>Deletion was cancelled. Configuration was kept; {0}.</value></data>
+  <data name="Diagnostic_ResourceDeletionService_DeletionWasCancelledNothingWasDeleted" xml:space="preserve"><value>Deletion was cancelled. Nothing was deleted.</value></data>
+  <data name="Diagnostic_ResourceDeletionService_NothingWasDeletedButTheConfigurationCouldNot" xml:space="preserve"><value>Nothing was deleted. {0}, but the configuration could not be saved. Review and retry.</value></data>
+  <data name="Diagnostic_ResourceDeletionService_NothingWasDeletedTheConfigurationCouldNotBe" xml:space="preserve"><value>Nothing was deleted. The configuration could not be saved. Review and retry.</value></data>
+  <data name="Diagnostic_ResourceDeletionService_ForwardStopped" xml:space="preserve"><value>{0} forward{1} stopped</value></data>
+  <data name="Diagnostic_ReconnectCoordinator_TheForwardCouldNotBeRestoredRetryIt" xml:space="preserve"><value>The forward could not be restored. Retry it manually.</value></data>
+  <data name="Diagnostic_ReconnectCoordinator_AutomaticReconnectCouldNotCompleteCheckTheForward" xml:space="preserve"><value>Automatic reconnect could not complete. Check the forward and retry.</value></data>
+  <data name="Diagnostic_ReconnectPolicy_ReconnectDelaysAndRecoveryWindowMustBePositive" xml:space="preserve"><value>Reconnect delays and recovery window must be positive, with jitter between zero and one.</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_ClosingTunnelDeck" xml:space="preserve"><value>Closing TunnelDeck…</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_ReadyToClose" xml:space="preserve"><value>Ready to close.</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_SavingIsStillInProgress" xml:space="preserve"><value>Saving is still in progress.</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_SomeCleanupIsStillInProgress" xml:space="preserve"><value>Some cleanup is still in progress.</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_ChangesCouldNotBeSaved" xml:space="preserve"><value>Changes could not be saved.</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_CleanupCouldNotFinish" xml:space="preserve"><value>Cleanup could not finish.</value></data>
+  <data name="Diagnostic_AppRoute_OnlyResourceDetailsCanCarryANonemptyResource" xml:space="preserve"><value>Only resource details can carry a nonempty resource ID.</value></data>
+  <data name="Diagnostic_ServerWorkRegistry_TheForwardingOperationIsNoLongerRegistered" xml:space="preserve"><value>The forwarding operation is no longer registered.</value></data>
+  <data name="Diagnostic_ServerWorkRegistry_ADeletionOfTheseResourcesIsAlreadyIn" xml:space="preserve"><value>A deletion of these resources is already in progress.</value></data>
+  <data name="Diagnostic_ConfigurationServiceCredentials_TheCredentialCouldNotBeSavedTheServer" xml:space="preserve"><value>The credential could not be saved. The server edit has not been saved.</value></data>
+  <data name="Diagnostic_ConfigurationServiceCredentials_SomeSavedCredentialsCouldNotBeReconciledTheir" xml:space="preserve"><value>Some saved credentials could not be reconciled. Their references remain in the local cleanup journal for retry.</value></data>
+  <data name="Diagnostic_ConfigurationService_TunnelDeckIsClosingNewEditsCannotBeSaved" xml:space="preserve"><value>TunnelDeck is closing. New edits cannot be saved.</value></data>
+  <data name="Diagnostic_ConfigurationService_LoadSavedDataBeforeEditingIt" xml:space="preserve"><value>Load saved data before editing it.</value></data>
+  <data name="Diagnostic_ConfigurationService_SavedDataIsReadOnlyResolveTheLoad" xml:space="preserve"><value>Saved data is read-only. Resolve the load error before saving.</value></data>
+  <data name="Diagnostic_ConfigurationService_UseSaveServerAsyncToRememberANewCredential" xml:space="preserve"><value>Use SaveServerAsync to remember a new credential.</value></data>
+  <data name="Diagnostic_ConfigurationServiceProfiles_ThisProfileChangedWhileYouWereEditingReopen" xml:space="preserve"><value>This profile changed while you were editing. Reopen it before saving.</value></data>
+  <data name="Diagnostic_ConfigurationServiceProfiles_PinnedItemsChangedReorderTheCurrentListAgain" xml:space="preserve"><value>Pinned items changed. Reorder the current list again.</value></data>
+  <data name="Diagnostic_ConfigurationServiceServers_ChooseRememberOrForgetWhenChangingTheAuthentication" xml:space="preserve"><value>Choose Remember or Forget when changing the authentication method.</value></data>
+  <data name="Diagnostic_CredentialChange_CredentialChangeKind" xml:space="preserve"><value>CredentialChange {{ Kind = {0} }}</value></data>
+  <data name="Diagnostic_StateLoadRepair_SavedConfigurationContainsInvalidDataRestoreAValid" xml:space="preserve"><value>Saved configuration contains invalid data. Restore a valid configuration or backup.</value></data>
+  <data name="Diagnostic_StateLoadRepair_RemovedDuplicateOrMissingResourceOrderEntriesAnd" xml:space="preserve"><value>Removed duplicate or missing-resource order entries and appended omitted resources to Other.</value></data>
+  <data name="Diagnostic_StateLoadRepair_ClearedADefaultSelectionWhoseServerNoLonger" xml:space="preserve"><value>Cleared a default selection whose server no longer exists.</value></data>
+  <data name="Diagnostic_StateStoreException_SavedDataChangedReloadItBeforeSavingThis" xml:space="preserve"><value>Saved data changed. Reload it before saving this edit.</value></data>
+  <data name="Diagnostic_PortSearchPolicy_PortSearchTimeoutsMustBePositive" xml:space="preserve"><value>Port-search timeouts must be positive.</value></data>
+  <data name="Diagnostic_PortSearchPolicy_ThereIsNoPreviousAttempt" xml:space="preserve"><value>There is no previous attempt.</value></data>
+  <data name="Diagnostic_ResourceOrderService_TheResourceIsNotInThisOrder" xml:space="preserve"><value>The resource is not in this order.</value></data>
+  <data name="Diagnostic_ResourceOrderService_ReorderingMustPreserveExactlyTheExistingPinnedIDs" xml:space="preserve"><value>Reordering must preserve exactly the existing Pinned IDs; Other items cannot be dragged into it.</value></data>
+  <data name="Diagnostic_ResourceOrderService_OrderCollectionsMustBeInitialized" xml:space="preserve"><value>Order collections must be initialized.</value></data>
+  <data name="Diagnostic_ResourceOrderService_OrderContainsEmptyOrDuplicateIDs" xml:space="preserve"><value>Order contains empty or duplicate IDs.</value></data>
+  <data name="Diagnostic_ResourceOrderService_AnIDIsRequired" xml:space="preserve"><value>An ID is required.</value></data>
+  <data name="Diagnostic_ServerDefaultsResolver_UnknownDefaultAuthenticationMethod" xml:space="preserve"><value>Unknown default authentication method.</value></data>
+  <data name="ActivityTimeFormatter_JustNow" xml:space="preserve"><value>Just now</value></data>
+  <data name="ActivityTimeFormatter_MinAgo" xml:space="preserve"><value>{0} min ago</value></data>
+  <data name="ActivityTimeFormatter_HrAgo" xml:space="preserve"><value>{0} hr ago</value></data>
+  <data name="DeletionConfirmationModel_Delete" xml:space="preserve"><value>Delete {0} {1}?</value></data>
+  <data name="DeletionConfirmationModel_Delete_361" xml:space="preserve"><value>Delete “{0}”?</value></data>
+  <data name="DeletionConfirmationModel_DeleteAll" xml:space="preserve"><value>Delete all</value></data>
+  <data name="DeletionConfirmationModel_Delete_363" xml:space="preserve"><value>Delete</value></data>
+  <data name="DeletionConfirmationModel_WillBeDeleted" xml:space="preserve"><value>{0} will be deleted.</value></data>
+  <data name="DeletionConfirmationModel_TheSavedProfileAndItsRulesWillBe" xml:space="preserve"><value>The saved profile and its rules will be deleted. Any unsaved edits will be discarded.</value></data>
+  <data name="DeletionConfirmationModel_WillBeStopped" xml:space="preserve"><value>{0} will be stopped.</value></data>
+  <data name="DeletionConfirmationModel_WillKeepRunning" xml:space="preserve"><value>{0} will keep running.</value></data>
+  <data name="DeletionConfirmationModel_WillBeCancelled" xml:space="preserve"><value>{0} will be cancelled.</value></data>
+  <data name="DeletionConfirmationModel_WillContinueFromSavedSettings" xml:space="preserve"><value>{0} will continue from saved settings.</value></data>
+  <data name="DeletionConfirmationModel_InWillBeRemoved" xml:space="preserve"><value>{0} in {1} will be removed.</value></data>
+  <data name="DeletionConfirmationModel_ProfilesAreKeptIncludingAnyThatBecomeEmpty" xml:space="preserve"><value>Profiles are kept, including any that become empty.</value></data>
+  <data name="DeletionConfirmationModel_ServersAreKept" xml:space="preserve"><value>Servers are kept.</value></data>
+  <data name="DeletionConfirmationModel_YouCanStopForwardsFromActiveTunnels" xml:space="preserve"><value> You can stop forwards from Active tunnels.</value></data>
+  <data name="DeletionConfirmationModel_TheDefaultServerAndPinnedQuickForwardSelections" xml:space="preserve"><value>The default server and pinned Quick Forward selections will be cleared.</value></data>
+  <data name="DeletionConfirmationModel_TheDefaultServerSelectionWillBeCleared" xml:space="preserve"><value>The default server selection will be cleared.</value></data>
+  <data name="DeletionConfirmationModel_ThePinnedQuickForwardSelectionWillBeCleared" xml:space="preserve"><value>The pinned Quick Forward selection will be cleared.</value></data>
+  <data name="ProfileEditorModel_NewProfile" xml:space="preserve"><value>New profile</value></data>
+  <data name="ProfileEditorModel_AddForwardingRule" xml:space="preserve"><value>Add forwarding rule</value></data>
+  <data name="ProfileEditorModel_EditForwardingRule" xml:space="preserve"><value>Edit forwarding rule</value></data>
+  <data name="ProfileEditorModel_ApplyOrCancelThisRuleThenSaveThe" xml:space="preserve"><value>Apply or cancel this rule, then save the profile.</value></data>
+  <data name="ProfileEditorModel_SaveThisProfileBeforeStartingItsRulesRunning" xml:space="preserve"><value>Save this profile before starting its rules. Running forwards keep their original settings.</value></data>
+  <data name="ProfileEditorModel_ApplyOrCancelTheRuleBeforeSaving" xml:space="preserve"><value>Apply or cancel the rule before saving.</value></data>
+  <data name="ProfileRuleItem_ServerUnavailable" xml:space="preserve"><value>Server unavailable</value></data>
+  <data name="ProfileRuleItem_FindTheNextLocalPortIfOccupied" xml:space="preserve"><value>Find the next local port if occupied</value></data>
+  <data name="ProfileRuleItem_AlreadyRunning" xml:space="preserve"><value>Already running</value></data>
+  <data name="ProfileRuleItem_Running" xml:space="preserve"><value>Running</value></data>
+  <data name="ProfileRuleItem_ReconnectingRetryAt" xml:space="preserve"><value>Reconnecting · retry at {0:T}</value></data>
+  <data name="ProfileRuleItem_Starting" xml:space="preserve"><value>Starting</value></data>
+  <data name="ProfileRuleItem_Failed" xml:space="preserve"><value>Failed</value></data>
+  <data name="ProfileRuleItem_Cancelled" xml:space="preserve"><value>Cancelled</value></data>
+  <data name="ProfileRuleItem_Reconnecting" xml:space="preserve"><value>Reconnecting</value></data>
+  <data name="ProfileRuleItem_Stopped" xml:space="preserve"><value>Stopped</value></data>
+  <data name="QuickForwardModel_ListenOnThisComputerConnectFromTheSSH" xml:space="preserve"><value>Listen on this computer → connect from the SSH server to the target.</value></data>
+  <data name="QuickForwardModel_ListenOnTheSSHServerConnectFromThis" xml:space="preserve"><value>Listen on the SSH server → connect from this computer to the target.</value></data>
+  <data name="QuickForwardModel_LocalListenAddress" xml:space="preserve"><value>Local listen address</value></data>
+  <data name="QuickForwardModel_LocalTargetHost" xml:space="preserve"><value>Local target host</value></data>
+  <data name="QuickForwardModel_RemoteTargetHost" xml:space="preserve"><value>Remote target host</value></data>
+  <data name="QuickForwardModel_RemoteListenAddress" xml:space="preserve"><value>Remote listen address</value></data>
+  <data name="QuickForwardModel_SelectAnSSHServer" xml:space="preserve"><value>Select an SSH server.</value></data>
+  <data name="RecentActivityItem_Requested" xml:space="preserve"><value>{0}
+{1}
+Requested: {2}</value></data>
+  <data name="RecentActivityItem_Actual" xml:space="preserve"><value>
+Actual: {0}</value></data>
+  <data name="RecentActivityItem_ServerDeleted" xml:space="preserve"><value>Server deleted</value></data>
+  <data name="RecentActivityItem_ServerRenamedSinceThisEvent" xml:space="preserve"><value>Server renamed since this event</value></data>
+  <data name="RecentActivityItem_ProfileDeleted" xml:space="preserve"><value>Profile deleted</value></data>
+  <data name="RecentActivityItem_ProfileRenamedSinceThisEvent" xml:space="preserve"><value>Profile renamed since this event</value></data>
+  <data name="ResourceDisplay_LocalRemote" xml:space="preserve"><value>Local :{0} → Remote :{1}</value></data>
+  <data name="ResourceDisplay_RemoteLocal" xml:space="preserve"><value>Remote :{0} → Local :{1}</value></data>
+  <data name="ResourceSearch_Profile" xml:space="preserve"><value>Profile · {0} {1}</value></data>
+  <data name="TunnelItem_NotEstablished" xml:space="preserve"><value>Not established</value></data>
+  <data name="TunnelItem_Local" xml:space="preserve"><value>Local :{0}</value></data>
+  <data name="TunnelItem_Remote" xml:space="preserve"><value>Remote :{0}</value></data>
+  <data name="TunnelItem_Remote_412" xml:space="preserve"><value>→ Remote :{0}</value></data>
+  <data name="TunnelItem_Local_413" xml:space="preserve"><value>→ Local :{0}</value></data>
+  <data name="TunnelItem_LocalPortWasAlreadyInUseThePrevious" xml:space="preserve"><value>Local port {0} was already in use. The previous listener used {1}; recovery will try that port first.</value></data>
+  <data name="TunnelItem_LocalPortWasAlreadyInUseListeningOn" xml:space="preserve"><value>Local port {0} was already in use. Listening on {1} instead. The target port and saved rule are unchanged.</value></data>
+  <data name="TunnelItem_PreviousListener" xml:space="preserve"><value>Previous listener</value></data>
+  <data name="TunnelItem_Actual" xml:space="preserve"><value>Actual</value></data>
+  <data name="TunnelItem_ForwardIsOfflineRetryInSAttemptStop" xml:space="preserve"><value>Forward is offline. Retry in {0:0} s · attempt {1}. Stop cancels recovery.</value></data>
+  <data name="TunnelItem_RestoringTheForwardAttemptStopCancelsRecovery" xml:space="preserve"><value>Restoring the forward · attempt {0}. Stop cancels recovery.</value></data>
+  <data name="TunnelItem_ConnectionLostPreparingToReconnectStopCancelsRecovery" xml:space="preserve"><value>Connection lost. Preparing to reconnect. Stop cancels recovery.</value></data>
+  <data name="TunnelItem_AutomaticRecoveries" xml:space="preserve"><value>Automatic recoveries: {0:N0}.</value></data>
+  <data name="TunnelItem_LastRestored" xml:space="preserve"><value> Last restored: {0:G}.</value></data>
+  <data name="TunnelItem_ObservedRequestsObservedFailures" xml:space="preserve"><value>Observed requests: {0:N0}; observed failures: {1:N0}.</value></data>
+  <data name="TunnelItem_NotStarted" xml:space="preserve"><value>Not started</value></data>
+  <data name="TunnelItem_Stop" xml:space="preserve"><value>Stop {0}, {1}</value></data>
+  <data name="TunnelItem_DetailsFor" xml:space="preserve"><value>Details for {0}, {1}</value></data>
+  <data name="TunnelWorkspaceCommands_ThisServerIsBeingDeletedOrIsNo" xml:space="preserve"><value>This server is being deleted or is no longer available.</value></data>
+  <data name="TunnelWorkspaceCommands_ThisServerIsNoLongerAvailableRemoveThe" xml:space="preserve"><value>This server is no longer available. Remove the failed forward or select another server.</value></data>
+  <data name="TunnelWorkspaceCommands_EnterTheSSHPasswordToStartThisForward" xml:space="preserve"><value>Enter the SSH password to start this forward.</value></data>
+  <data name="TunnelWorkspaceCommands_TheOperationCouldNotFinishCheckTheTunnel" xml:space="preserve"><value>The operation could not finish. Check the tunnel state and try again.</value></data>
+  <data name="TunnelWorkspace_Active" xml:space="preserve"><value>{0} active</value></data>
+  <data name="TunnelWorkspace_OnlyAnIsolatedPreviewCanSupplySampleRows" xml:space="preserve"><value>Only an isolated preview can supply sample rows.</value></data>
+  <data name="UsageStatisticsProjection_NoUsageYet" xml:space="preserve"><value>No usage yet</value></data>
+  <data name="Diagnostic_ProfileRunner_ProfileForwardingIsCurrentlyUnavailable" xml:space="preserve"><value>Profile forwarding is currently unavailable.</value></data>
+  <data name="Diagnostic_ProfileRunner_ThisProfileIsNoLongerAvailable" xml:space="preserve"><value>This profile is no longer available.</value></data>
+  <data name="Diagnostic_ProfileRunnerStart_EnterTheSSHPasswordForThisProfileS" xml:space="preserve"><value>Enter the SSH password for this profile's rules.</value></data>
+  <data name="Diagnostic_ProfileRunnerStart_StartingThisRuleWasCancelled" xml:space="preserve"><value>Starting this rule was cancelled.</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_Starting" xml:space="preserve"><value>{0} starting</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_Started" xml:space="preserve"><value>{0} started</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_AlreadyRunning" xml:space="preserve"><value>{0} already running</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_AlreadyReconnecting" xml:space="preserve"><value>{0} already reconnecting</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_Failed" xml:space="preserve"><value>{0} failed</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_Cancelled" xml:space="preserve"><value>{0} cancelled</value></data>
+  <data name="Diagnostic_HostKeyIdentity_AHostKeyCannotBeEmpty" xml:space="preserve"><value>A host key cannot be empty.</value></data>
+  <data name="Diagnostic_ImportPlan_New" xml:space="preserve"><value>New {0}</value></data>
+  <data name="Diagnostic_ImportPlan_Skipped" xml:space="preserve"><value>Skipped</value></data>
+  <data name="Diagnostic_ImportPlanner_ThisEndpointAlreadyExistsASeparateServerWill" xml:space="preserve"><value>This endpoint already exists. A separate server will be created.</value></data>
+  <data name="Diagnostic_ImportPlanner_ThisNameAlreadyExistsExistingServersWillKeep" xml:space="preserve"><value>This name already exists. Existing servers will keep their settings.</value></data>
+  <data name="Diagnostic_ImportPlanner_ThisNameAlreadyExistsASeparateProfileWill" xml:space="preserve"><value>This name already exists. A separate profile will be created.</value></data>
+  <data name="Diagnostic_ImportPlanner_ServerReferencesIncluded" xml:space="preserve"><value>{0} {1} · server references included</value></data>
+  <data name="Diagnostic_ImportPlanner_ChooseATunnelDeckExportNotAnApplicationState" xml:space="preserve"><value>Choose a TunnelDeck export, not an application state file.</value></data>
+  <data name="Diagnostic_ImportPlanner_ThisExportVersionIsNotSupportedUseA" xml:space="preserve"><value>This export version is not supported. Use a compatible version of TunnelDeck.</value></data>
+  <data name="Diagnostic_ImportPlanner_TheExportMustIncludeServersProfilesAndTheir" xml:space="preserve"><value>The export must include servers, profiles and their order.</value></data>
+  <data name="Diagnostic_ImportPlanner_ThisExportIsTooLargeExportFewerResources" xml:space="preserve"><value>This export is too large. Export fewer resources at a time.</value></data>
+  <data name="Diagnostic_ImportPlanner_TheExportContainsAnEmptyServerProfileOr" xml:space="preserve"><value>The export contains an empty server, profile or rule.</value></data>
+  <data name="Diagnostic_ImportPlanner_NothingWasImportedFixTheseFieldsInThe" xml:space="preserve"><value>Nothing was imported. Fix these fields in the export and preview it again:
+</value></data>
+  <data name="Diagnostic_ImportPlanner_ResourceAndRuleIDsMustBeUniqueWithin" xml:space="preserve"><value>Resource and rule IDs must be unique within the export. Nothing was imported.</value></data>
+  <data name="Diagnostic_ImportPlanner_ThePrivateKeyPathMustPointToAn" xml:space="preserve"><value>{0}: the private-key path must point to an existing file on this computer. Update the path in the source file and preview again. Nothing was imported.</value></data>
+  <data name="Diagnostic_ResourceImportService_ThereAreNoUsableResourcesToImport" xml:space="preserve"><value>There are no usable resources to import.</value></data>
+  <data name="Diagnostic_ResourceImportService_PreviewThisFileAgainImportedResourcesMustHave" xml:space="preserve"><value>Preview this file again. Imported resources must have new IDs and no saved credentials or usage.</value></data>
+  <data name="Diagnostic_ResourceImportService_PreviewThisFileAgainImportedRulesMustHave" xml:space="preserve"><value>Preview this file again. Imported rules must have new IDs.</value></data>
+  <data name="Diagnostic_SshConfigParser_TheSSHConfigIsTooLargeOrContains" xml:space="preserve"><value>The SSH config is too large or contains unsupported control characters.</value></data>
+  <data name="Diagnostic_SshConfigParser_LineIsNotSupportedAndWasIgnored" xml:space="preserve"><value>Line {0}: {1} is not supported and was ignored.</value></data>
+  <data name="Diagnostic_SshConfigParser_Line" xml:space="preserve"><value>Line {0}: {1}: {2}</value></data>
+  <data name="Diagnostic_SshConfigParser_LineNeedsOneStaticValue" xml:space="preserve"><value>Line {0}: {1} needs one static value.</value></data>
+  <data name="Diagnostic_SshConfigParser_LinePortMustBeBetween1And65535" xml:space="preserve"><value>Line {0}: Port must be between 1 and 65535.</value></data>
+  <data name="Diagnostic_SshConfigParser_LineAddAnExplicitUserBeforeImportingThis" xml:space="preserve"><value>Line {0}: add an explicit User before importing this server.</value></data>
+  <data name="Diagnostic_SshConfigParser_TheDefaultPrivateKeyFileIsMissingChoose" xml:space="preserve"><value>The default private-key file is missing. Choose an existing default key in Settings, then preview again.</value></data>
+  <data name="Diagnostic_SshConfigParser_NoIdentityFileIsSpecifiedUsingTheDefaultPrivate" xml:space="preserve"><value>No IdentityFile is specified. Using the default private-key file from Settings: {0}</value></data>
+  <data name="Diagnostic_SshConfigParser_LineHostNameTokenOrEnvironmentExpansionIsNot" xml:space="preserve"><value>Line {0}: HostName token or environment expansion is not supported.</value></data>
+  <data name="Diagnostic_SshConfigParser_LineUserTokenOrEnvironmentExpansionIsNot" xml:space="preserve"><value>Line {0}: User token or environment expansion is not supported.</value></data>
+  <data name="Diagnostic_SshConfigParser_Line_472" xml:space="preserve"><value>Line {0}: {1}</value></data>
+  <data name="Diagnostic_SshConfigParser_NoIdentityFileIsSpecifiedUsingTheDefaultPassword" xml:space="preserve"><value>No IdentityFile is specified. Using the default password authentication from Settings. OpenSSH agent settings are not imported.</value></data>
+  <data name="Diagnostic_SshConfigParser_ImportedWithPasswordAuthenticationAfterTheExplicitIdentityFile" xml:space="preserve"><value>Imported with password authentication after the explicit IdentityFile option could not be used. Saved authentication defaults were not substituted; review authentication in the server details.</value></data>
+  <data name="Diagnostic_SshConfigParser_UsingPrivateKeyAuthenticationFromIdentityFile" xml:space="preserve"><value>Using private-key authentication from IdentityFile: {0}</value></data>
+  <data name="Diagnostic_SshConfigParser_AMatchingNameOrEndpointAlreadyExistsA" xml:space="preserve"><value>A matching name or endpoint already exists. A separate server will be created.</value></data>
+  <data name="Diagnostic_SshConfigParser_Line_477" xml:space="preserve"><value>{0} · line {1}</value></data>
+  <data name="Diagnostic_SshConfigParser_NoConcreteHostAliasesWereFoundHostSupplies" xml:space="preserve"><value>No concrete Host aliases were found. Host * supplies defaults but does not create a server.</value></data>
+  <data name="Diagnostic_SshConfigParser_ServerBeSkippedBecauseRequiredConnectionFieldsAre" xml:space="preserve"><value>{0} server {1} be skipped because required connection fields are missing or invalid.</value></data>
+  <data name="Diagnostic_SshConfigParser_SomeSSHOptionsWereIgnoredReviewEachEntry" xml:space="preserve"><value>Some SSH options were ignored. Review each entry's notes; only the displayed connection fields will be imported.</value></data>
+  <data name="Diagnostic_SshConfigParser_LinesMultipleIdentityFileValuesWereIgnoredChooseOne" xml:space="preserve"><value>Lines {0}: multiple IdentityFile values were ignored; choose one key in the server details after import.</value></data>
+  <data name="Diagnostic_SshConfigParser_IdentityFileNeedsOneStaticValue" xml:space="preserve"><value>IdentityFile needs one static value.</value></data>
+  <data name="Diagnostic_SshConfigParser_ThePrivateKeyFileIsMissingOnThis" xml:space="preserve"><value>The private-key file is missing on this computer.</value></data>
+  <data name="Diagnostic_SshConfigParser_LineIdentityFileWasIgnoredSetAuthenticationInThe" xml:space="preserve"><value>Line {0}: IdentityFile was ignored. {1} Set authentication in the server details after import.</value></data>
+  <data name="Diagnostic_SshConfigParser_IdentityFileNeedsOneExplicitFilePathNoneTokens" xml:space="preserve"><value>IdentityFile needs one explicit file path; none, tokens and environment expansion are not supported.</value></data>
+  <data name="Diagnostic_SshConfigParser_IdentityFileNeedsAnAbsolutePathOrRelativeTo" xml:space="preserve"><value>IdentityFile needs an absolute path or ~/ relative to your home directory.</value></data>
+  <data name="Diagnostic_SshConfigParser_IdentityFileIsNotAUsableFilePath" xml:space="preserve"><value>IdentityFile is not a usable file path.</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_TheSSHConfigHasTooManyLines" xml:space="preserve"><value>The SSH config has too many lines.</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_LineTheHostDeclarationCouldNotBeParsed" xml:space="preserve"><value>Line {0}: the Host declaration could not be parsed. This block was ignored.</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_LineHostPatternDoesNotCreateAServer" xml:space="preserve"><value>Line {0}: Host pattern '{1}' does not create a server. Supported static fields apply only to matching concrete aliases.</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_TheSSHConfigContainsTooManyServerAliases" xml:space="preserve"><value>The SSH config contains too many server aliases.</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_LineMatchAndItsConditionalSettingsWereIgnored" xml:space="preserve"><value>Line {0}: Match and its conditional settings were ignored. Review the imported static connection fields.</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_LineInsideMatchWasIgnored" xml:space="preserve"><value>Line {0}: {1} inside Match was ignored.</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_LineIncludeWasIgnoredReferencedFilesWereNot" xml:space="preserve"><value>Line {0}: Include was ignored; referenced files were not read.</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_AnOpeningQuoteHasNoClosingQuote" xml:space="preserve"><value>An opening quote has no closing quote.</value></data>
+  <data name="Diagnostic_TunnelActivityRecorder_RecentActivityCouldNotBeSavedYourTunnels" xml:space="preserve"><value>Recent activity could not be saved. Your tunnels are unchanged. Retry saving activity.</value></data>
+  <data name="Diagnostic_TunnelActivityRecorder_RecentActivityIsStillWaitingToBeSaved" xml:space="preserve"><value>Recent activity is still waiting to be saved.</value></data>
+  <data name="Diagnostic_TunnelErrors_CheckTheForwardingRuleAndServerFields" xml:space="preserve"><value>Check the forwarding rule and server fields.</value></data>
+  <data name="Diagnostic_TunnelErrors_TheForwardingRequestWasCancelled" xml:space="preserve"><value>The forwarding request was cancelled.</value></data>
+  <data name="Diagnostic_TunnelErrors_TheForwardingOperationCouldNotCompleteCheckThe" xml:space="preserve"><value>The forwarding operation could not complete. Check the server and retry.</value></data>
+  <data name="Diagnostic_TunnelErrors_TheListeningOperationDidNotFinishWithinIts" xml:space="preserve"><value>The listening operation did not finish within its budget. Its SSH transport has been retired and late work is being cleaned up.</value></data>
+  <data name="Diagnostic_TunnelErrors_TheSSHConnectionEndedThisListenerIsBeing" xml:space="preserve"><value>The SSH connection ended. This listener is being stopped.</value></data>
+  <data name="Diagnostic_TunnelErrors_CleanupDidNotFinishRetryStopThisTunnel" xml:space="preserve"><value>Cleanup did not finish. Retry Stop; this tunnel still reserves its server and request until cleanup succeeds.</value></data>
+  <data name="Diagnostic_TunnelManager_TheRuleAndServerSnapshotMustHaveThe" xml:space="preserve"><value>The rule and server snapshot must have the same server ID.</value></data>
+  <data name="Diagnostic_TunnelManager_TunnelDeckIsClosingNewForwardsAreUnavailable" xml:space="preserve"><value>TunnelDeck is closing. New forwards are unavailable.</value></data>
+  <data name="Diagnostic_TunnelManager_TunnelsAreBeingStoppedRetryStartingAfterCleanup" xml:space="preserve"><value>Tunnels are being stopped. Retry starting after cleanup finishes.</value></data>
+  <data name="Diagnostic_TunnelManagerReconnect_AReconnectCoordinatorIsAlreadyAttached" xml:space="preserve"><value>A reconnect coordinator is already attached.</value></data>
+  <data name="Diagnostic_TunnelManagerReconnect_AutomaticReconnectReachedItsTimeLimitCheckThe" xml:space="preserve"><value>Automatic reconnect reached its time limit. Check the network, then retry this forward.</value></data>
+  <data name="Diagnostic_TunnelManagerStart_TheServerSConnectionSettingsChangedAfterThis" xml:space="preserve"><value>The server's connection settings changed after this rule was captured. Reopen the rule and retry.</value></data>
+  <data name="Diagnostic_TunnelManagerStart_NoLocalListeningPortWasAvailableInAttempts" xml:space="preserve"><value>No local listening port was available in {0} attempts. The search stopped at its configured limit.</value></data>
+  <data name="Diagnostic_TunnelManagerStart_TheListeningRequestCouldNotBeCompleted" xml:space="preserve"><value>The listening request could not be completed.</value></data>
+  <data name="Diagnostic_TunnelManagerStart_TheListenerStoppedUnexpectedlyRetryThisForwardAfter" xml:space="preserve"><value>The listener stopped unexpectedly. Retry this forward after cleanup.</value></data>
+  <data name="Diagnostic_TunnelResults_TunnelConcurrencyLimitsAndTimeBudgetsMustBe" xml:space="preserve"><value>Tunnel concurrency limits and time budgets must be positive.</value></data>
+  <data name="Diagnostic_AppStateValidator_ThisSchemaVersionIsNotSupportedDoNot" xml:space="preserve"><value>This schema version is not supported; do not overwrite the file.</value></data>
+  <data name="Diagnostic_AppStateValidator_RevisionCannotBeNegative" xml:space="preserve"><value>Revision cannot be negative.</value></data>
+  <data name="Diagnostic_AppStateValidator_TheServersCollectionIsRequired" xml:space="preserve"><value>The servers collection is required.</value></data>
+  <data name="Diagnostic_AppStateValidator_TheProfilesCollectionIsRequired" xml:space="preserve"><value>The profiles collection is required.</value></data>
+  <data name="Diagnostic_AppStateValidator_AServerCannotBeNull" xml:space="preserve"><value>A server cannot be null.</value></data>
+  <data name="Diagnostic_AppStateValidator_ServerIDsMustBeUnique" xml:space="preserve"><value>Server IDs must be unique.</value></data>
+  <data name="Diagnostic_AppStateValidator_AProfileCannotBeNull" xml:space="preserve"><value>A profile cannot be null.</value></data>
+  <data name="Diagnostic_AppStateValidator_ProfileIDsMustBeUnique" xml:space="preserve"><value>Profile IDs must be unique.</value></data>
+  <data name="Diagnostic_AppStateValidator_RuleIDsMustBeUniqueAcrossProfiles" xml:space="preserve"><value>Rule IDs must be unique across profiles.</value></data>
+  <data name="Diagnostic_AppStateValidator_SettingsAreRequired" xml:space="preserve"><value>Settings are required.</value></data>
+  <data name="Diagnostic_AppStateValidator_ResourceOrderIsRequired" xml:space="preserve"><value>Resource order is required.</value></data>
+  <data name="Diagnostic_AppStateValidator_BothOrderCollectionsAreRequired" xml:space="preserve"><value>Both order collections are required.</value></data>
+  <data name="Diagnostic_AppStateValidator_AnIDMayOccurOnlyOnceAcrossPinned" xml:space="preserve"><value>An ID may occur only once across Pinned and Other.</value></data>
+  <data name="Diagnostic_AppStateValidator_OrderMustContainEveryExistingResourceExactlyOnce" xml:space="preserve"><value>Order must contain every existing resource exactly once and no missing-resource IDs.</value></data>
+  <data name="Diagnostic_AppStateValidator_StatisticsAreRequired" xml:space="preserve"><value>Statistics are required.</value></data>
+  <data name="Diagnostic_AppStateValidator_CountsCannotBeNegative" xml:space="preserve"><value>Counts cannot be negative.</value></data>
+  <data name="Diagnostic_AppStateValidator_TheCountsCollectionIsRequired" xml:space="preserve"><value>The counts collection is required.</value></data>
+  <data name="Diagnostic_AppStateValidator_TheRecentActivityCollectionIsRequired" xml:space="preserve"><value>The recent activity collection is required.</value></data>
+  <data name="Diagnostic_AppStateValidator_KeepAtMost200RecentEntriesCumulativeStatistics" xml:space="preserve"><value>Keep at most 200 recent entries; cumulative statistics are separate.</value></data>
+  <data name="Diagnostic_AppStateValidator_AnActivityEntryCannotBeNull" xml:space="preserve"><value>An activity entry cannot be null.</value></data>
+  <data name="Diagnostic_AppStateValidator_ActivityIDsMustBeUnique" xml:space="preserve"><value>Activity IDs must be unique.</value></data>
+  <data name="Diagnostic_AppStateValidator_ChooseASupportedOutcome" xml:space="preserve"><value>Choose a supported outcome.</value></data>
+  <data name="Diagnostic_AppStateValidator_ARequestedRouteSnapshotIsRequired" xml:space="preserve"><value>A requested route snapshot is required.</value></data>
+  <data name="Diagnostic_AppStateValidator_ASourceSnapshotIsRequired" xml:space="preserve"><value>A source snapshot is required.</value></data>
+  <data name="Diagnostic_AppStateValidator_AServerNameSnapshotIsRequired" xml:space="preserve"><value>A server name snapshot is required.</value></data>
+  <data name="Diagnostic_AppStateValidator_AProfileNameSnapshotIsRequired" xml:space="preserve"><value>A profile name snapshot is required.</value></data>
+  <data name="Diagnostic_AppStateValidator_UnknownErrorCategory" xml:space="preserve"><value>Unknown error category.</value></data>
+  <data name="Diagnostic_AppStateValidator_AnErrorExplanationIsRequired" xml:space="preserve"><value>An error explanation is required.</value></data>
+  <data name="Diagnostic_AppStateValidator_AnEndpointIsRequired" xml:space="preserve"><value>An endpoint is required.</value></data>
+  <data name="Diagnostic_AppStateValidator_EnterAValidHost" xml:space="preserve"><value>Enter a valid host.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_EnterAnIPAddressOrHostnameWithoutA" xml:space="preserve"><value>Enter an IP address or hostname without a port, URI scheme or whitespace.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_EnterAnSSHUsernameWithoutWhitespaceOrControl" xml:space="preserve"><value>Enter an SSH username without whitespace or control characters.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheDisplayNameCannotContainControlCharacters" xml:space="preserve"><value>The display name cannot contain control characters.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ChooseASupportedAuthenticationMethod" xml:space="preserve"><value>Choose a supported authentication method.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_SelectAPrivateKeyFile" xml:space="preserve"><value>Select a private-key file.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheKeyPathCannotContainControlCharacters" xml:space="preserve"><value>The key path cannot contain control characters.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_SelectAnExistingServer" xml:space="preserve"><value>Select an existing server.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ChooseLocalOrRemoteForwarding" xml:space="preserve"><value>Choose Local or Remote forwarding.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_EnterAValidLocalHostWithoutAPort" xml:space="preserve"><value>Enter a valid local host without a port or URI scheme.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_EnterAValidRemoteHostWithoutAPort" xml:space="preserve"><value>Enter a valid remote host without a port or URI scheme.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheLocalListeningAddressMustBeAnExplicit" xml:space="preserve"><value>The local listening address must be an explicit IP address.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheRemoteListeningAddressMustBeAnExplicit" xml:space="preserve"><value>The remote listening address must be an explicit IP address.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_AutomaticPortSearchIsAvailableForLocalForwarding" xml:space="preserve"><value>Automatic port search is available for Local forwarding only.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_EnterAProfileNameWithoutControlCharacters" xml:space="preserve"><value>Enter a profile name without control characters.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheRulesCollectionIsRequired" xml:space="preserve"><value>The rules collection is required.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ARuleCannotBeNull" xml:space="preserve"><value>A rule cannot be null.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_RuleIDsMustBeUnique" xml:space="preserve"><value>Rule IDs must be unique.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ChooseFrom3To10ItemsPerSection" xml:space="preserve"><value>Choose from 3 to 10 items per section.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ChooseASupportedDefaultAuthenticationMethod" xml:space="preserve"><value>Choose a supported default authentication method.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ChooseAnAbsolutePathForTheDefaultPrivate" xml:space="preserve"><value>Choose an absolute path for the default private-key file.</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheReferencedServerNoLongerExists" xml:space="preserve"><value>The referenced server no longer exists.</value></data>
+  <data name="Diagnostic_ValidationBuilder_ANonEmptyIDIsRequired" xml:space="preserve"><value>A non-empty ID is required.</value></data>
+  <data name="Diagnostic_ValidationBuilder_EnterAWholeNumberPortFrom1To" xml:space="preserve"><value>Enter a whole-number port from 1 to 65535.</value></data>
+  <data name="Diagnostic_ValidationBuilder_StoreTimestampsInUTC" xml:space="preserve"><value>Store timestamps in UTC.</value></data>
+  <data name="Diagnostic_AppDataDirectory_UseAnAbsoluteDataDirectory" xml:space="preserve"><value>Use an absolute data directory.</value></data>
+  <data name="Diagnostic_AppDataDirectory_UserDataCannotBeStoredInTheInstallation" xml:space="preserve"><value>User data cannot be stored in the installation directory.</value></data>
+  <data name="Diagnostic_AppDataDirectory_TheUserDataDirectoryIsUnavailable" xml:space="preserve"><value>The user data directory is unavailable.</value></data>
+  <data name="Diagnostic_AppStateJsonCodec_MigrationsMustAdvanceToASupportedSchema" xml:space="preserve"><value>Migrations must advance to a supported schema.</value></data>
+  <data name="Diagnostic_AppStateJsonCodec_MigratedSchemaToInMemoryTheOriginalIs" xml:space="preserve"><value>Migrated schema {0} to {1} in memory; the original is retained until a successful edit.</value></data>
+  <data name="Diagnostic_AtomicJsonFile_SavedDataCouldNotBeReadCheckAccess" xml:space="preserve"><value>Saved data could not be read. Check access to the data directory and retry.</value></data>
+  <data name="Diagnostic_AtomicJsonFile_SavedDataCouldNotBeWrittenTheEdit" xml:space="preserve"><value>Saved data could not be written. The edit has not been published; retry after checking the data directory.</value></data>
+  <data name="Diagnostic_FileConfigurationLock_SavedDataIsUnavailableOrInUseCheck" xml:space="preserve"><value>Saved data is unavailable or in use. Check the data directory and retry.</value></data>
+  <data name="Diagnostic_JsonCredentialCleanupStore_CredentialReferencesCannotBeEmpty" xml:space="preserve"><value>Credential references cannot be empty.</value></data>
+  <data name="Diagnostic_JsonStateStore_SavedDataIsReadOnlyBecauseItsFormat" xml:space="preserve"><value>Saved data is read-only because its format is not supported.</value></data>
+  <data name="Diagnostic_JsonStateStore_TheSavedRevisionCannotBeAdvancedTheFile" xml:space="preserve"><value>The saved revision cannot be advanced. The file has been kept.</value></data>
+  <data name="Diagnostic_JsonStateStore_LoadedTheLastValidBackupBecauseTheMain" xml:space="preserve"><value>Loaded the last valid backup because the main file was missing or invalid. Both files are retained until the next successful edit.</value></data>
+  <data name="Diagnostic_JsonStateStore_NeitherTheMainConfigurationNorItsBackupCan" xml:space="preserve"><value>Neither the main configuration nor its backup can be loaded. Restore a valid file and retry.</value></data>
+  <data name="Diagnostic_JsonStateStore_ThisSavedDataFormatIsNotSupportedUpdate" xml:space="preserve"><value>This saved data format is not supported. Update TunnelDeck or restore a compatible file, then retry.</value></data>
+  <data name="Diagnostic_VersionedJson_ASavedDataFileIsInvalidRestoreA" xml:space="preserve"><value>A saved data file is invalid. Restore a valid file or backup and retry.</value></data>
+  <data name="Diagnostic_VersionedJson_ThisSavedDataFormatIsNotSupportedBy" xml:space="preserve"><value>This saved data format is not supported by this version of TunnelDeck. The file must not be overwritten.</value></data>
+  <data name="Diagnostic_JsonHostKeyStore_AValidHostSSHPortAndHostKey" xml:space="preserve"><value>A valid host, SSH port and host-key algorithm are required.</value></data>
+  <data name="Diagnostic_WindowsCredentialStore_TheCredentialExceedsWindowsStorageLimit" xml:space="preserve"><value>The credential exceeds Windows' storage limit.</value></data>
+  <data name="Diagnostic_WindowsCredentialStore_ACredentialReferenceIsRequired" xml:space="preserve"><value>A credential reference is required.</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_TheLocalListeningPortIsAlreadyInUse" xml:space="preserve"><value>The local listening port is already in use.</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_WindowsDeniedAccessToTheLocalListeningAddress" xml:space="preserve"><value>Windows denied access to the local listening address or port. Choose another port or check local policy.</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_TheListeningRequestWasNotConfirmedBeforeIts" xml:space="preserve"><value>The listening request was not confirmed before its deadline. Its SSH transport has been retired.</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_TheSSHConnectionEndedWhileStartingTheListener" xml:space="preserve"><value>The SSH connection ended while starting the listener.</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_TheSSHServerRefusedRemoteListeningCheckThe" xml:space="preserve"><value>The SSH server refused remote listening. Check the requested address, port and forwarding policy; the server did not provide a specific reason.</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_TheListenerCouldNotBeStartedCheckThe" xml:space="preserve"><value>The listener could not be started. Check the addresses and SSH connection.</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_AForwardedConnectionFailedCheckTheTargetService" xml:space="preserve"><value>A forwarded connection failed. Check the target service and the connecting client. The listener can accept another request.</value></data>
+  <data name="Diagnostic_SshConnectionOptions_SSHDeadlinesMustBePositiveTheLibraryTimeout" xml:space="preserve"><value>SSH deadlines must be positive; the library timeout must cover connect and exceed the control deadline.</value></data>
+  <data name="Diagnostic_SshControlSession_TheControlDeadlineMustBePositiveAndShorter" xml:space="preserve"><value>The control deadline must be positive and shorter than SSH.NET's internal timeout, which can silently complete Remote Stop on timeout.</value></data>
+  <data name="Diagnostic_SshControlSession_AControlSessionMustOwnATransportWith" xml:space="preserve"><value>A control session must own a transport with no existing forwarded ports.</value></data>
+  <data name="Diagnostic_SshControlSession_OnlyTCPLocalAndRemoteForwardingAreSupported" xml:space="preserve"><value>Only TCP local and remote forwarding are supported.</value></data>
+  <data name="Diagnostic_SshControlSession_RemoteForwardingRequiresItsOwnSSHTransportLocal" xml:space="preserve"><value>Remote forwarding requires its own SSH transport. Local forwards can share a local-only transport.</value></data>
+  <data name="Diagnostic_SshControlSession_TheSSHSessionHasBeenRetiredCreateA" xml:space="preserve"><value>The SSH session has been retired. Create a new session before issuing further requests.</value></data>
+  <data name="Diagnostic_SshControlSession_TheSSHControlOperationExceededItsConfirmationDeadline" xml:space="preserve"><value>The SSH control operation exceeded its confirmation deadline.</value></data>
+  <data name="Diagnostic_SshNetSession_TheRuleMustBelongToThisServerAnd" xml:space="preserve"><value>The rule must belong to this server and transport mode.</value></data>
+  <data name="Diagnostic_SshNetSession_TheListenerDidNotStart" xml:space="preserve"><value>The listener did not start.</value></data>
+  <data name="Diagnostic_TerminalCommandBuilder_SaveAValidHostUsernameAndSSHPort" xml:space="preserve"><value>Save a valid host, username and SSH port before opening a terminal.</value></data>
+  <data name="Diagnostic_TerminalCommandBuilder_OpenSSHClientWasNotFoundInstallItFrom" xml:space="preserve"><value>OpenSSH Client was not found. Install it from Windows Optional Features, then try again.</value></data>
+  <data name="Diagnostic_TerminalCommandBuilder_ThePrivateKeyFileWasNotFoundSelect" xml:space="preserve"><value>The private-key file was not found. Select an existing absolute key path and save the server.</value></data>
+  <data name="Diagnostic_WindowsTerminalLauncher_ProcessCreationDidNotReturnAProcess" xml:space="preserve"><value>Process creation did not return a process.</value></data>
+  <data name="Diagnostic_WindowsTerminalLauncher_TheSSHTerminalCouldNotBeOpenedCheck" xml:space="preserve"><value>The SSH terminal could not be opened. Check that OpenSSH Client is installed and available, then try again.</value></data>
+  <data name="Diagnostic_ExportJsonCodec_ChooseAnExportSmallerThan8MiB" xml:space="preserve"><value>Choose an export smaller than 8 MiB.</value></data>
+  <data name="Diagnostic_ExportJsonCodec_ThisExportVersionIsMissingOrUnsupportedUse" xml:space="preserve"><value>This export version is missing or unsupported. Use a compatible TunnelDeck export.</value></data>
+  <data name="Diagnostic_ExportJsonCodec_TheExportIsEmpty" xml:space="preserve"><value>The export is empty.</value></data>
+  <data name="Diagnostic_ExportJsonCodec_TheExportIsNotValidJSONForThis" xml:space="preserve"><value>The export is not valid JSON for this format. Check required fields, value types and unknown properties. Nothing was imported.</value></data>
+  <data name="Diagnostic_ExportJsonCodec_TheExportHasAnInvalidFieldTypeNothing" xml:space="preserve"><value>The export has an invalid field type. Nothing was imported.</value></data>
+  <data name="Diagnostic_ExportJsonCodec_ExportFewerResourcesAtATimeThisFile" xml:space="preserve"><value>Export fewer resources at a time; this file exceeds 8 MiB.</value></data>
+  <data name="Diagnostic_ExportJsonCodec_TheExportRepeatsAJSONPropertyRemoveThe" xml:space="preserve"><value>The export repeats a JSON property. Remove the duplicate and preview again.</value></data>
+  <data name="Diagnostic_ResourceTransferFiles_TheFileCouldNotBeReadChooseAn" xml:space="preserve"><value>The file could not be read. Choose an accessible UTF-8 file and preview again.</value></data>
+  <data name="Diagnostic_ResourceTransferFiles_SaveTheExportAsASeparateJsonFile" xml:space="preserve"><value>Save the export as a separate .json file. SSH config files cannot be overwritten.</value></data>
+  <data name="Diagnostic_ResourceTransferFiles_ChooseALocationOutsideTunnelDeckSDataDirectory" xml:space="preserve"><value>Choose a location outside TunnelDeck's data directory for this export.</value></data>
+  <data name="Diagnostic_ResourceTransferFiles_TheExportCouldNotBeSavedCheckThe" xml:space="preserve"><value>The export could not be saved. Check the destination and available disk space, then try again. The previous file was kept.</value></data>
+  <data name="Diagnostic_ResourceTransferFiles_ChooseAFileSmallerThan8MiB" xml:space="preserve"><value>Choose a file smaller than 8 MiB.</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>Language</value></data>
+  <data name="Settings_LanguageHint" xml:space="preserve"><value>Changes apply immediately</value></data>
+  <data name="Language_English" xml:space="preserve"><value>English</value></data>
+  <data name="Language_Chinese" xml:space="preserve"><value>简体中文</value></data>
+  <data name="Diagnostic_ChooseSupportedLanguage" xml:space="preserve"><value>Choose English or Simplified Chinese.</value></data>
+  <data name="Common_On" xml:space="preserve"><value>On</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Off</value></data>
+  <data name="Common_Open" xml:space="preserve"><value>Open</value></data>
+  <data name="Common_Passphrase" xml:space="preserve"><value>passphrase</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>password</value></data>
+  <data name="Time_Yesterday" xml:space="preserve"><value>Yesterday, {0}</value></data>
+  <data name="Duration_Days" xml:space="preserve"><value>{0}d {1:00}:{2:00}:{3:00}</value></data>
+  <data name="Search_Server" xml:space="preserve"><value>Server · {0}</value></data>
+  <data name="Search_Profile" xml:space="preserve"><value>Profile · {0}</value></data>
+  <data name="Deletion_AllServersTitle" xml:space="preserve"><value>Delete all servers?</value></data>
+  <data name="Deletion_AllProfilesTitle" xml:space="preserve"><value>Delete all profiles?</value></data>
+  <data name="Deletion_SelectedTitle" xml:space="preserve"><value>Delete {0}?</value></data>
+  <data name="Import_NewServer" xml:space="preserve"><value>New server</value></data>
+  <data name="Import_NewProfile" xml:space="preserve"><value>New profile</value></data>
+  <data name="Import_SkipOne" xml:space="preserve"><value>Skip the {0} unavailable entry listed in this preview</value></data>
+  <data name="Import_SkipOther" xml:space="preserve"><value>Skip the {0} unavailable entries listed in this preview</value></data>
+  <data name="Import_Lines" xml:space="preserve"><value>Lines {0}</value></data>
+  <data name="Import_Line" xml:space="preserve"><value>Line {0}</value></data>
+  <data name="Import_ProfileDescription" xml:space="preserve"><value>{0} · server references included</value></data>
+  <data name="Diagnostic_ImportSkippedOne" xml:space="preserve"><value>{0} server entry will be skipped because required connection fields are missing or invalid.</value></data>
+  <data name="Diagnostic_ImportSkippedOther" xml:space="preserve"><value>{0} server entries will be skipped because required connection fields are missing or invalid.</value></data>
+  <data name="Diagnostic_StoppedOne" xml:space="preserve"><value>{0} forward stopped</value></data>
+  <data name="Diagnostic_StoppedOther" xml:space="preserve"><value>{0} forwards stopped</value></data>
+  <data name="Transfer_SkippedOne" xml:space="preserve"><value> Skipped {0} unavailable entry.</value></data>
+  <data name="Transfer_SkippedOther" xml:space="preserve"><value> Skipped {0} unavailable entries.</value></data>
+  <data name="Usage_ForwardsOne" xml:space="preserve"><value>{0} forward · {1}</value></data>
+  <data name="Usage_ForwardsOther" xml:space="preserve"><value>{0} forwards · {1}</value></data>
+  <data name="Usage_UsesOne" xml:space="preserve"><value>{0} use</value></data>
+  <data name="Usage_UsesOther" xml:space="preserve"><value>{0} uses</value></data>
+  <data name="Shell_Back" xml:space="preserve"><value>Back</value></data>
+  <data name="Shell_Navigation" xml:space="preserve"><value>Toggle navigation</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Close</value></data>
+  <data name="Count_ServerOne" xml:space="preserve"><value>{0} server</value></data>
+  <data name="Count_ServerOther" xml:space="preserve"><value>{0} servers</value></data>
+  <data name="Count_ProfileOne" xml:space="preserve"><value>{0} profile</value></data>
+  <data name="Count_ProfileOther" xml:space="preserve"><value>{0} profiles</value></data>
+  <data name="Count_RuleOne" xml:space="preserve"><value>{0} rule</value></data>
+  <data name="Count_RuleOther" xml:space="preserve"><value>{0} rules</value></data>
+  <data name="Count_ForwardOne" xml:space="preserve"><value>{0} forward</value></data>
+  <data name="Count_ForwardOther" xml:space="preserve"><value>{0} forwards</value></data>
+  <data name="Count_NewServerOne" xml:space="preserve"><value>{0} new server</value></data>
+  <data name="Count_NewServerOther" xml:space="preserve"><value>{0} new servers</value></data>
+  <data name="Count_NewProfileOne" xml:space="preserve"><value>{0} new profile</value></data>
+  <data name="Count_NewProfileOther" xml:space="preserve"><value>{0} new profiles</value></data>
+  <data name="Count_ForwardingRuleOne" xml:space="preserve"><value>{0} forwarding rule</value></data>
+  <data name="Count_ForwardingRuleOther" xml:space="preserve"><value>{0} forwarding rules</value></data>
+  <data name="Count_ExistingForwardOne" xml:space="preserve"><value>{0} existing forward</value></data>
+  <data name="Count_ExistingForwardOther" xml:space="preserve"><value>{0} existing forwards</value></data>
+  <data name="Count_PendingForwardOne" xml:space="preserve"><value>{0} pending forward</value></data>
+  <data name="Count_PendingForwardOther" xml:space="preserve"><value>{0} pending forwards</value></data>
+  <data name="Count_ConnectionTestOne" xml:space="preserve"><value>{0} connection test</value></data>
+  <data name="Count_ConnectionTestOther" xml:space="preserve"><value>{0} connection tests</value></data>
+  <data name="Count_UseOne" xml:space="preserve"><value>{0} use</value></data>
+  <data name="Count_UseOther" xml:space="preserve"><value>{0} uses</value></data>
+  <data name="Count_EntryOne" xml:space="preserve"><value>{0} entry</value></data>
+  <data name="Count_EntryOther" xml:space="preserve"><value>{0} entries</value></data>
+  <data name="State_Starting" xml:space="preserve"><value>Starting</value></data>
+  <data name="State_Running" xml:space="preserve"><value>Running</value></data>
+  <data name="State_Reconnecting" xml:space="preserve"><value>Reconnecting</value></data>
+  <data name="State_Stopping" xml:space="preserve"><value>Stopping</value></data>
+  <data name="State_Stopped" xml:space="preserve"><value>Stopped</value></data>
+  <data name="State_Failed" xml:space="preserve"><value>Failed</value></data>
+  <data name="State_Cancelled" xml:space="preserve"><value>Cancelled</value></data>
+  <data name="Outcome_Started" xml:space="preserve"><value>Started</value></data>
+  <data name="Outcome_Stopped" xml:space="preserve"><value>Stopped</value></data>
+  <data name="Outcome_Failed" xml:space="preserve"><value>Failed</value></data>
+  <data name="Outcome_Cancelled" xml:space="preserve"><value>Cancelled</value></data>
+  <data name="Common_Add" xml:space="preserve"><value>Add</value></data>
+  <data name="Dashboard_Usage" xml:space="preserve"><value>Usage</value></data>
+  <data name="Common_StartAll" xml:space="preserve"><value>Start all</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Save</value></data>
+  <data name="Common_CancelStart" xml:space="preserve"><value>Cancel start</value></data>
+  <data name="Common_RetryFailed" xml:space="preserve"><value>Retry failed</value></data>
+  <data name="Common_Resources" xml:space="preserve"><value>Resources</value></data>
+  <data name="Common_DeleteProfile" xml:space="preserve"><value>Delete profile</value></data>
+  <data name="Common_DeleteServer" xml:space="preserve"><value>Delete server</value></data>
+  <data name="Field_Name" xml:space="preserve"><value>Name</value></data>
+  <data name="Field_Host" xml:space="preserve"><value>Host</value></data>
+  <data name="Field_Port" xml:space="preserve"><value>Port</value></data>
+  <data name="Field_Username" xml:space="preserve"><value>Username</value></data>
+  <data name="Field_DisplayName" xml:space="preserve"><value>DisplayName</value></data>
+  <data name="Field_IdentityFilePath" xml:space="preserve"><value>IdentityFilePath</value></data>
+  <data name="Field_ServerId" xml:space="preserve"><value>ServerId</value></data>
+  <data name="Field_Mode" xml:space="preserve"><value>Mode</value></data>
+  <data name="Field_LocalHost" xml:space="preserve"><value>LocalHost</value></data>
+  <data name="Field_RemoteHost" xml:space="preserve"><value>RemoteHost</value></data>
+  <data name="Field_LocalPort" xml:space="preserve"><value>LocalPort</value></data>
+  <data name="Field_RemotePort" xml:space="preserve"><value>RemotePort</value></data>
+  <data name="Field_Rules" xml:space="preserve"><value>Rules</value></data>
+  <data name="Field_Servers" xml:space="preserve"><value>Servers</value></data>
+  <data name="Field_Profiles" xml:space="preserve"><value>Profiles</value></data>
+  <data name="Field_Settings" xml:space="preserve"><value>Settings</value></data>
+  <data name="Field_Language" xml:space="preserve"><value>Language</value></data>
+  <data name="Field_DefaultIdentityFilePath" xml:space="preserve"><value>DefaultIdentityFilePath</value></data>
+  <data name="Field_DefaultAuthenticationMethod" xml:space="preserve"><value>DefaultAuthenticationMethod</value></data>
+  <data name="Field_SidebarMaximumItems" xml:space="preserve"><value>SidebarMaximumItems</value></data>
+  <data name="Field_AutoFindAvailablePort" xml:space="preserve"><value>AutoFindAvailablePort</value></data>
+</root>

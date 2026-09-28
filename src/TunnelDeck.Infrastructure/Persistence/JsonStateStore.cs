@@ -33,12 +33,12 @@ public sealed class JsonStateStore : IStateStore
         StateLoadResult loaded = await LoadUnderLockAsync(cancellationToken).ConfigureAwait(false);
         if (loaded.IsReadOnly || loaded.State is null)
         {
-            throw new StateStoreException(StateStoreFailure.ReadOnly, "Saved data is read-only because its format is not supported.", loaded.Diagnostics);
+            throw new StateStoreException(StateStoreFailure.ReadOnly, UiText.Invariant("Diagnostic_JsonStateStore_SavedDataIsReadOnlyBecauseItsFormat"), loaded.Diagnostics);
         }
         if (loaded.State.Revision != expectedRevision) { throw new StateRevisionConflictException(expectedRevision, loaded.State.Revision); }
         if (expectedRevision == long.MaxValue)
         {
-            throw new StateStoreException(StateStoreFailure.ReadOnly, "The saved revision cannot be advanced. The file has been kept.");
+            throw new StateStoreException(StateStoreFailure.ReadOnly, UiText.Invariant("Diagnostic_JsonStateStore_TheSavedRevisionCannotBeAdvancedTheFile"));
         }
         AppState committed = candidate with { Revision = expectedRevision + 1 };
         byte[] bytes = _codec.Encode(committed);
@@ -70,14 +70,14 @@ public sealed class JsonStateStore : IStateStore
                 {
                     RecoveredFromBackup = true,
                     Diagnostics = recovered.Diagnostics.Insert(0, new("StateFile",
-                        "Loaded the last valid backup because the main file was missing or invalid. Both files are retained until the next successful edit.")),
+                        UiText.Invariant("Diagnostic_JsonStateStore_LoadedTheLastValidBackupBecauseTheMain"))),
                 };
             }
             catch (StateStoreException exception) when (exception.Failure == StateStoreFailure.UnsupportedSchema) { return UnsupportedResult(); }
             catch (StateStoreException exception) when (exception.Failure == StateStoreFailure.InvalidData)
             {
                 throw new StateStoreException(StateStoreFailure.InvalidData,
-                    "Neither the main configuration nor its backup can be loaded. Restore a valid file and retry.",
+                    UiText.Invariant("Diagnostic_JsonStateStore_NeitherTheMainConfigurationNorItsBackupCan"),
                     (primaryError?.Diagnostics ?? []).AddRange(exception.Diagnostics));
             }
         }
@@ -86,5 +86,5 @@ public sealed class JsonStateStore : IStateStore
     }
 
     private static StateLoadResult UnsupportedResult() => new(null,
-        [new("SchemaVersion", "This saved data format is not supported. Update TunnelDeck or restore a compatible file, then retry.")], IsReadOnly: true);
+        [new("SchemaVersion", UiText.Invariant("Diagnostic_JsonStateStore_ThisSavedDataFormatIsNotSupportedUpdate"))], IsReadOnly: true);
 }

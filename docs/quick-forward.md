@@ -4,7 +4,9 @@
 
 ## 输入与提交
 
-`QuickForwardModel` 持有窗口生命周期的草稿。默认单端口映射两端同一端口，地址均为 `127.0.0.1`；展开 Advanced endpoints 后分别编辑 Local / Remote 的地址与端口。首次展开复制当前单端口值，后续收起、展开和页面导航保留各自草稿。Local 的地址标签表示本机监听和远端目标；Remote 表示本机目标和远端监听，方向说明随模式变化。
+2026-09-23 UI 调整：宽屏主操作行依次为 Server、Pin、Local / Remote 模式下拉框、Port、Forward；卡片变窄后按组换行。Advanced 使用开关，Open terminal 作为可直接点击的按钮显示在选项行。
+
+`QuickForwardModel` 持有窗口生命周期的草稿。默认单端口映射两端同一端口，地址均为 `127.0.0.1`；打开 Advanced 开关后分别编辑 Local / Remote 的地址与端口。首次展开复制当前单端口值，后续收起、展开和页面导航保留各自草稿。Local 的地址标签表示本机监听和远端目标；Remote 表示本机目标和远端监听，方向说明随模式变化。
 
 当前 Server 选择跨页面保留；Quick 固定选择单独保存到 `PinnedQuickServerId`，与资源列表的 Pin 无关。初始化优先使用有效固定选择，其次 Settings 默认；配置更新不覆盖仍然有效的当前选择。ComboBox 更换 ItemsSource 期间的临时空选择不清除草稿，真正的资源失效由 Core 的 Reconcile 处理。全局自动找端口设置只在首次数据加载后初始化草稿，不覆盖已编辑值。
 
@@ -35,9 +37,22 @@ Local 自动搜索只处理引擎确认的 `AddressAlreadyInUse`。Remote 隐藏
 - duration 仅在 Details 打开时每秒刷新，关闭或控件卸载即停 timer。`EndedAt` 在实际清理完成后记录，终态 duration 固定；tick 和请求计数不写盘。
 - 来源名称始终保留快照。当前资源仍存在时提供 Server / Profile 导航，资源已删除时移除或禁用对应入口。
 
-Active Tunnels 使用有高度上限的 ListView：页面高度的 45%，限制在 180–420 epx，并受可用空间约束。长列表在自己的 viewport 滚动，Quick Forward 不随列表内容移动。页面 ScrollViewer 负责其余正文；Recent 最多显示五条。24 行预览覆盖列表滚动、键盘焦点与 1200 / 900 / 640 / 500 epx 的 Light / Dark 布局。
+Active Tunnels 使用有高度上限的 ListView：页面高度的 45%，限制在 180–420 epx，并受可用空间约束。长列表在自己的 viewport 滚动，Quick Forward 不随列表内容移动。页面 ScrollViewer 负责其余正文；Recent 默认显示五条，M12 可展开最多 200 条，见 [活动与设置](activity-and-settings.md)。24 行预览覆盖列表滚动、键盘焦点与 1200 / 900 / 640 / 500 epx 的 Light / Dark 布局。
 
 Running 只表示监听建立。请求异常与监听异常分开显示；SSH.NET 对 Local direct-tcpip OpenFailed 的公共通知不完整，不能据此承诺每次目标拒绝都有应用诊断，也不能把请求数当作目标成功数或字节流量。
+
+## Web 服务转发排查
+
+本机浏览器访问 SSH 服务器上的 Web 服务应使用 Local forwarding。Remote forwarding 在 SSH 服务器上监听，目标是本机服务；它不会在本机创建供浏览器访问的监听端口。
+
+当命令行可访问而 Quick Forward 不可访问时，按以下顺序核对：
+
+1. 对比实际 SSH Host、Port、Username。应用的 Server 显示名只是标签，不自动应用系统 SSH config 中的同名 Host 配置；导入后的资源也是独立快照。Windows 和 WSL 使用的 SSH 配置可能不同。
+2. 对比远端目标地址。Quick 的基本模式使用 `127.0.0.1`；`ssh -L 3001:localhost:3001 ...` 使用由 SSH 服务器解析的 `localhost`。若服务仅监听 `::1`，两者可能有不同结果。要匹配命令中的远端目标，展开 Advanced endpoints，将 Remote target host 设为 `localhost`，Local listen address 保持 `127.0.0.1`，两端端口设为 `3001`。目标确定只使用 IPv6 时也可显式填写 `::1`。
+3. 在同一 SSH 目标上确认服务仍在监听相应地址与端口，并能从该服务器访问。Local 监听已启动而目标拒绝连接时，浏览器可能显示 EMPTY_RESPONSE；Running 不代表 Web 服务健康。
+4. 从活动行或 Details 读取 Actual 本地端口。自动找端口可能将本地监听调整为下一个可用端口，浏览器应访问 `http://127.0.0.1:<Actual local port>/`；远端目标端口不会随之改变。
+
+`QuickForwardHttpTests` 使用隔离 OpenSSH、真实 Quick 草稿快照和 HTTP 响应，验证 Advanced 的 `localhost` 目标可以访问分别绑定 IPv4 / IPv6 loopback 的 Web 服务。真实用户服务的地址与运行状态仍须独立核实。
 
 ## Recent、累计次数与关闭
 
@@ -54,8 +69,8 @@ M8 的关闭顺序为 **Profiles → Forwarding → Tunnels → Connections → 
 ```powershell
 ./scripts/Build.ps1 -LockedRestore
 ./scripts/Test.ps1 -Ssh
-./scripts/Verify-Forwards.ps1 -NoFixtureBuild
-./scripts/Verify-Dashboard.ps1
+./scripts/debug/Verify-Forwards.ps1 -NoFixtureBuild
+./scripts/debug/Verify-Dashboard.ps1
 ```
 
 | 计划用例 | 自动化证据 |

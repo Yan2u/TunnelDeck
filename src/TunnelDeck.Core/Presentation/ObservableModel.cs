@@ -3,8 +3,10 @@ using System.Runtime.CompilerServices;
 
 namespace TunnelDeck.Core.Presentation;
 
-public abstract class ObservableModel : INotifyPropertyChanged
+public abstract class ObservableModel : INotifyPropertyChanged, ILocalizable
 {
+    protected ObservableModel() => UiText.Observe(this);
+    public virtual void RefreshLanguage() => OnPropertyChanged(string.Empty);
     public event PropertyChangedEventHandler? PropertyChanged;
     protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string? name = null)
     {

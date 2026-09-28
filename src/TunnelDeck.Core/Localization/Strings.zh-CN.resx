@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="DeletionDialog_Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="DeletionDialog_ImpactUpdated" xml:space="preserve"><value>影响范围已更新</value></data>
+  <data name="DeletionDialog_AffectedForwardingRules" xml:space="preserve"><value>受影响的转发规则</value></data>
+  <data name="DeletionDialog_ThisActionCanTBeUndone" xml:space="preserve"><value>此操作无法撤销。</value></data>
+  <data name="ImportPreviewItem_SourceLine" xml:space="preserve"><value>来源行</value></data>
+  <data name="ImportPreviewItem_ImportNote" xml:space="preserve"><value>导入说明</value></data>
+  <data name="ResourceListView_DragToReorder" xml:space="preserve"><value>拖动以调整顺序</value></data>
+  <data name="ResourceListView_ReorderPinnedItem" xml:space="preserve"><value>调整固定项目的顺序</value></data>
+  <data name="ResourceListView_MoreActions" xml:space="preserve"><value>更多操作</value></data>
+  <data name="ResourceListView_Retry" xml:space="preserve"><value>重试</value></data>
+  <data name="RuleEditorDialog_ApplyRule" xml:space="preserve"><value>应用规则</value></data>
+  <data name="RuleEditorView_Server" xml:space="preserve"><value>服务器</value></data>
+  <data name="RuleEditorView_SelectAServer" xml:space="preserve"><value>选择服务器</value></data>
+  <data name="RuleEditorView_RuleServer" xml:space="preserve"><value>规则使用的服务器</value></data>
+  <data name="RuleEditorView_RuleForwardingMode" xml:space="preserve"><value>规则的转发方式</value></data>
+  <data name="RuleEditorView_LocalForwarding" xml:space="preserve"><value>本地转发</value></data>
+  <data name="RuleEditorView_RemoteForwarding" xml:space="preserve"><value>远程转发</value></data>
+  <data name="RuleEditorView_LocalPort" xml:space="preserve"><value>本地端口</value></data>
+  <data name="RuleEditorView_RemotePort" xml:space="preserve"><value>远程端口</value></data>
+  <data name="RuleEditorView_FindNextAvailableLocalPortIfOccupied" xml:space="preserve"><value>本地端口被占用时自动查找下一个可用端口</value></data>
+  <data name="RuleEditorView_IfRemoteListeningFailsEditThePortOr" xml:space="preserve"><value>如果远程监听失败，请修改端口或服务器策略后重试。</value></data>
+  <data name="TunnelListItem_PortAutomaticallyAdjusted" xml:space="preserve"><value>端口已自动调整</value></data>
+  <data name="TunnelListItem_PortAdjusted" xml:space="preserve"><value>端口已调整</value></data>
+  <data name="TunnelListItem_RequestFailedSeeDetails" xml:space="preserve"><value>请求失败 · 查看详情</value></data>
+  <data name="TunnelListItem_StopForward" xml:space="preserve"><value>停止转发</value></data>
+  <data name="TunnelListItem_TunnelDetails" xml:space="preserve"><value>隧道详情</value></data>
+  <data name="TunnelListItem_Requested" xml:space="preserve"><value>请求的地址</value></data>
+  <data name="TunnelListItem_Started" xml:space="preserve"><value>开始时间</value></data>
+  <data name="TunnelListItem_Duration" xml:space="preserve"><value>运行时长</value></data>
+  <data name="TunnelListItem_StartedFrom" xml:space="preserve"><value>来源</value></data>
+  <data name="TunnelListItem_Profile" xml:space="preserve"><value>配置组</value></data>
+  <data name="TunnelListItem_MoreTunnelActions" xml:space="preserve"><value>更多隧道操作</value></data>
+  <data name="TunnelListItem_Remove" xml:space="preserve"><value>移除</value></data>
+  <data name="MainWindow_SearchProfilesAndServers" xml:space="preserve"><value>搜索配置组和服务器</value></data>
+  <data name="MainWindow_SearchProfilesAndServersCtrlK" xml:space="preserve"><value>搜索配置组和服务器 (Ctrl+K)</value></data>
+  <data name="MainWindow_Dashboard" xml:space="preserve"><value>概览</value></data>
+  <data name="MainWindow_Profiles" xml:space="preserve"><value>配置组</value></data>
+  <data name="MainWindow_AllProfiles" xml:space="preserve"><value>全部配置组</value></data>
+  <data name="MainWindow_Servers" xml:space="preserve"><value>服务器</value></data>
+  <data name="MainWindow_AllServers" xml:space="preserve"><value>全部服务器</value></data>
+  <data name="MainWindow_Settings" xml:space="preserve"><value>设置</value></data>
+  <data name="MainWindow_DesignPreview" xml:space="preserve"><value>设计预览</value></data>
+  <data name="MainWindow_SampleDataNoSSHConnectionsAreOpened" xml:space="preserve"><value>示例数据，不会建立 SSH 连接。</value></data>
+  <data name="MainWindow_Sample" xml:space="preserve"><value>示例</value></data>
+  <data name="MainWindow_PreviewDataScenario" xml:space="preserve"><value>预览数据场景</value></data>
+  <data name="MainWindow_LongLists" xml:space="preserve"><value>长列表</value></data>
+  <data name="MainWindow_Empty" xml:space="preserve"><value>空白</value></data>
+  <data name="MainWindow_LoadingSavedData" xml:space="preserve"><value>正在加载已保存的数据…</value></data>
+  <data name="MainWindow_RetryLoadingSavedData" xml:space="preserve"><value>重新加载已保存的数据</value></data>
+  <data name="MainWindow_TheChangeNeedsAttention" xml:space="preserve"><value>此更改需要处理</value></data>
+  <data name="MainWindow_ClosingTunnelDeck" xml:space="preserve"><value>正在关闭 TunnelDeck</value></data>
+  <data name="DashboardPage_QuickForward" xml:space="preserve"><value>快速转发</value></data>
+  <data name="DashboardPage_ForwardingHelp" xml:space="preserve"><value>转发帮助</value></data>
+  <data name="DashboardPage_LocalListensOnThisPCAndReachesA" xml:space="preserve"><value>本地转发在本机监听，通过 SSH 服务器访问目标服务。远程转发在 SSH 服务器上监听，通过本机访问目标服务。</value></data>
+  <data name="DashboardPage_AdvancedLetsYouSetDifferentPortsAndHosts" xml:space="preserve"><value>高级选项可分别设置两端的主机和端口。远程监听需要 SSH 服务器允许，并使用指定的端口。</value></data>
+  <data name="DashboardPage_RunningMeansTheListenerIsReadyTheTarget" xml:space="preserve"><value>“运行中”表示监听已就绪；目标服务仍需能够正常访问。</value></data>
+  <data name="DashboardPage_QuickForwardServer" xml:space="preserve"><value>快速转发服务器</value></data>
+  <data name="DashboardPage_PinThisServerForQuickForward" xml:space="preserve"><value>将此服务器固定用于快速转发</value></data>
+  <data name="DashboardPage_Forwarding" xml:space="preserve"><value>端口转发</value></data>
+  <data name="DashboardPage_ForwardingMode" xml:space="preserve"><value>转发方式</value></data>
+  <data name="DashboardPage_Local" xml:space="preserve"><value>本地</value></data>
+  <data name="DashboardPage_Remote" xml:space="preserve"><value>远程</value></data>
+  <data name="DashboardPage_Port" xml:space="preserve"><value>端口</value></data>
+  <data name="DashboardPage_Forward" xml:space="preserve"><value>开始转发</value></data>
+  <data name="DashboardPage_FindAnAvailablePort" xml:space="preserve"><value>查找可用端口</value></data>
+  <data name="DashboardPage_UseTheNextAvailableLocalPortIfThe" xml:space="preserve"><value>指定的本地端口被占用时，使用下一个可用端口。实际端口会显示在活动隧道中。</value></data>
+  <data name="DashboardPage_Advanced" xml:space="preserve"><value>高级</value></data>
+  <data name="DashboardPage_AdvancedForwardingOptions" xml:space="preserve"><value>高级转发选项</value></data>
+  <data name="DashboardPage_SetDifferentLocalAndRemoteHostsOrPorts" xml:space="preserve"><value>分别设置本地和远程的主机或端口</value></data>
+  <data name="DashboardPage_OpenTerminal" xml:space="preserve"><value>打开终端</value></data>
+  <data name="DashboardPage_OpensASeparateSSHSessionSignInAnd" xml:space="preserve"><value>打开独立的 SSH 会话，请在终端中登录并验证主机。关闭终端不会停止转发。</value></data>
+  <data name="DashboardPage_AddAnSSHServerToStartForwarding" xml:space="preserve"><value>添加 SSH 服务器以开始转发。</value></data>
+  <data name="DashboardPage_AddServer" xml:space="preserve"><value>添加服务器</value></data>
+  <data name="DashboardPage_RetrySaving" xml:space="preserve"><value>重新保存</value></data>
+  <data name="DashboardPage_ActiveTunnels" xml:space="preserve"><value>活动隧道</value></data>
+  <data name="DashboardPage_StopAll" xml:space="preserve"><value>全部停止</value></data>
+  <data name="DashboardPage_NoActiveTunnels" xml:space="preserve"><value>暂无活动隧道</value></data>
+  <data name="DashboardPage_RecentActivity" xml:space="preserve"><value>最近活动</value></data>
+  <data name="DashboardPage_NoRecentActivity" xml:space="preserve"><value>暂无最近活动</value></data>
+  <data name="DashboardPage_LifetimeTotalsIncludeDeletedResourcesRankingsShowCurrent" xml:space="preserve"><value>累计次数包含已删除的资源；排名仅显示现有的服务器和配置组。</value></data>
+  <data name="DashboardPage_TotalForwards" xml:space="preserve"><value>累计转发</value></data>
+  <data name="DashboardPage_EachNewSuccessfulForwardCountsOnceReconnectsAnd" xml:space="preserve"><value>每个新启动成功的转发计数一次，重连和重复启动不会增加次数。</value></data>
+  <data name="DashboardPage_MostUsedProfile" xml:space="preserve"><value>最常用的配置组</value></data>
+  <data name="DashboardPage_AProfileUseRequiresAtLeastOneNewly" xml:space="preserve"><value>配置组至少新启动一个转发，才计为一次使用。</value></data>
+  <data name="DashboardPage_MostUsedServer" xml:space="preserve"><value>最常用的服务器</value></data>
+  <data name="ExportPage_Export" xml:space="preserve"><value>导出</value></data>
+  <data name="ExportPage_ServersOnly" xml:space="preserve"><value>仅服务器</value></data>
+  <data name="ExportPage_ProfilesAndRequiredServers" xml:space="preserve"><value>配置组及其所需服务器</value></data>
+  <data name="ExportPage_AllServersAndProfiles" xml:space="preserve"><value>全部服务器和配置组</value></data>
+  <data name="ExportPage_TunnelDeckJSONCredentialsExcluded" xml:space="preserve"><value>TunnelDeck JSON · 不含凭据</value></data>
+  <data name="ExportPage_AboutThisExport" xml:space="preserve"><value>关于导出</value></data>
+  <data name="ExportPage_ProfilesIncludeTheirRequiredServersAndResourceOrder" xml:space="preserve"><value>导出的配置组包含其所需服务器及资源顺序，并保留已设置的私钥路径。不包含密码、密钥内容、受信任主机、活动记录、运行中的隧道或本地设置。</value></data>
+  <data name="ExportPage_ChooseFileAndExport" xml:space="preserve"><value>选择文件并导出…</value></data>
+  <data name="ExportPage_ExportInProgress" xml:space="preserve"><value>正在导出</value></data>
+  <data name="ImportPage_Import" xml:space="preserve"><value>导入</value></data>
+  <data name="ImportPage_AboutImporting" xml:space="preserve"><value>关于导入</value></data>
+  <data name="ImportPage_ExistingNamesAreKeptAsSeparateEntriesExpand" xml:space="preserve"><value>同名条目会作为独立资源保留。展开条目可查看被忽略的 SSH 选项和认证方式。不会导入密码、已保存的凭据、受信任主机或活动隧道，也不会修改本地 SSH 配置。</value></data>
+  <data name="ImportPage_File" xml:space="preserve"><value>文件</value></data>
+  <data name="ImportPage_EnterTheFullPathOrBrowse" xml:space="preserve"><value>输入完整路径或浏览文件</value></data>
+  <data name="ImportPage_EnterAFilePathPressEnterToReload" xml:space="preserve"><value>输入文件路径，按 Enter 重新加载文件。</value></data>
+  <data name="ImportPage_FileFormat" xml:space="preserve"><value>文件格式</value></data>
+  <data name="ImportPage_SSHConfig" xml:space="preserve"><value>SSH 配置</value></data>
+  <data name="ImportPage_Browse" xml:space="preserve"><value>浏览…</value></data>
+  <data name="ImportPage_ImportPreview" xml:space="preserve"><value>导入预览</value></data>
+  <data name="ProfileDetailPage_SaveProfile" xml:space="preserve"><value>保存配置组</value></data>
+  <data name="ProfileDetailPage_RetrySavingActivity" xml:space="preserve"><value>重新保存活动记录</value></data>
+  <data name="ProfileDetailPage_Name" xml:space="preserve"><value>名称</value></data>
+  <data name="ProfileDetailPage_EGWebDevelopment" xml:space="preserve"><value>例如：Web 开发</value></data>
+  <data name="ProfileDetailPage_LatestStart" xml:space="preserve"><value>最近一次启动</value></data>
+  <data name="ProfileDetailPage_ForwardingRules" xml:space="preserve"><value>转发规则</value></data>
+  <data name="ProfileDetailPage_EachRuleCanUseADifferentServerRemoving" xml:space="preserve"><value>每条规则可以使用不同的服务器。移除规则会更改已保存的配置组，已有转发仍会继续运行。</value></data>
+  <data name="ProfileDetailPage_NoForwardingRules" xml:space="preserve"><value>暂无转发规则</value></data>
+  <data name="ProfileDetailPage_StartRule" xml:space="preserve"><value>启动规则</value></data>
+  <data name="ProfileDetailPage_StopRule" xml:space="preserve"><value>停止规则</value></data>
+  <data name="ProfileDetailPage_EditRule" xml:space="preserve"><value>编辑规则</value></data>
+  <data name="ProfileDetailPage_RuleActions" xml:space="preserve"><value>规则操作</value></data>
+  <data name="ProfileDetailPage_MoveUp" xml:space="preserve"><value>上移</value></data>
+  <data name="ProfileDetailPage_MoveDown" xml:space="preserve"><value>下移</value></data>
+  <data name="ProfileDetailPage_RemoveRule" xml:space="preserve"><value>移除规则</value></data>
+  <data name="ProfileDetailPage_AddRule" xml:space="preserve"><value>添加规则</value></data>
+  <data name="ServerDetailPage_SaveServer" xml:space="preserve"><value>保存服务器</value></data>
+  <data name="ServerDetailPage_SaveConnectionChangesFirstOpensASeparateSSH" xml:space="preserve"><value>请先保存连接设置。终端使用已保存的设置打开独立 SSH 会话，请在终端中完成认证。</value></data>
+  <data name="ServerDetailPage_ConnectionTestInProgress" xml:space="preserve"><value>正在测试连接</value></data>
+  <data name="ServerDetailPage_ThisServerIsInUseStopItsTunnels" xml:space="preserve"><value>此服务器正在使用中。停止其隧道或取消待处理的连接后，才能修改连接信息。显示名称仍可修改。</value></data>
+  <data name="ServerDetailPage_DisplayName" xml:space="preserve"><value>显示名称</value></data>
+  <data name="ServerDetailPage_OptionalDefaultsToHost" xml:space="preserve"><value>可选，默认使用主机地址</value></data>
+  <data name="ServerDetailPage_HostIP" xml:space="preserve"><value>主机 / IP</value></data>
+  <data name="ServerDetailPage_SSHPort" xml:space="preserve"><value>SSH 端口</value></data>
+  <data name="ServerDetailPage_Username" xml:space="preserve"><value>用户名</value></data>
+  <data name="ServerDetailPage_YourSSHUsername" xml:space="preserve"><value>SSH 用户名</value></data>
+  <data name="ServerDetailPage_AuthenticationMethod" xml:space="preserve"><value>认证方式</value></data>
+  <data name="ServerDetailPage_Password" xml:space="preserve"><value>密码</value></data>
+  <data name="ServerDetailPage_PrivateKeyIdentityFile" xml:space="preserve"><value>私钥 / 密钥文件</value></data>
+  <data name="ServerDetailPage_IdentityFilePath" xml:space="preserve"><value>密钥文件路径</value></data>
+  <data name="ServerDetailPage_YourPrivateKeyStaysOnThisComputerOnly" xml:space="preserve"><value>私钥始终保存在本机，应用只保存其路径。</value></data>
+  <data name="ServerDetailPage_RememberInWindowsCredentialManager" xml:space="preserve"><value>在 Windows 凭据管理器中记住凭据</value></data>
+  <data name="ServerDetailPage_PreviewDataDoesNotOpenNetworkConnectionsLaunch" xml:space="preserve"><value>预览数据不会建立网络连接。请正常启动 TunnelDeck 来测试真实服务器。</value></data>
+  <data name="SettingsPage_Appearance" xml:space="preserve"><value>外观</value></data>
+  <data name="SettingsPage_Theme" xml:space="preserve"><value>主题</value></data>
+  <data name="SettingsPage_WindowTheme" xml:space="preserve"><value>窗口主题</value></data>
+  <data name="SettingsPage_UseSystemSetting" xml:space="preserve"><value>使用系统设置</value></data>
+  <data name="SettingsPage_Light" xml:space="preserve"><value>浅色</value></data>
+  <data name="SettingsPage_Dark" xml:space="preserve"><value>深色</value></data>
+  <data name="SettingsPage_Sidebar" xml:space="preserve"><value>侧边栏</value></data>
+  <data name="SettingsPage_MaximumItemsPerSection" xml:space="preserve"><value>每个分区的最大项目数</value></data>
+  <data name="SettingsPage_Show310ItemsPerSectionPinnedItems" xml:space="preserve"><value>每个分区显示 3–10 项，优先显示固定项目，其次是最近使用的资源。</value></data>
+  <data name="SettingsPage_DefaultServer" xml:space="preserve"><value>默认服务器</value></data>
+  <data name="SettingsPage_UsedByQuickForward" xml:space="preserve"><value>用于快速转发</value></data>
+  <data name="SettingsPage_UsedWhenNoServerIsSelectedOrPinned" xml:space="preserve"><value>快速转发未选择或固定服务器时使用此项；资源列表中的固定设置与此独立。</value></data>
+  <data name="SettingsPage_ForNewLocalForwardingRules" xml:space="preserve"><value>用于新建的本地转发规则</value></data>
+  <data name="SettingsPage_TryTheNextLocalPortWhenOccupiedExisting" xml:space="preserve"><value>本地端口被占用时尝试下一个端口。现有规则和当前草稿保留原设置，远程转发使用指定端口。</value></data>
+  <data name="SettingsPage_FindNextAvailableLocalPortWhenOccupied" xml:space="preserve"><value>本地端口被占用时查找下一个可用端口</value></data>
+  <data name="SettingsPage_ServerAuthentication" xml:space="preserve"><value>服务器认证</value></data>
+  <data name="SettingsPage_DefaultMethod" xml:space="preserve"><value>默认认证方式</value></data>
+  <data name="SettingsPage_ForNewServersAndSSHImportsWithoutAn" xml:space="preserve"><value>用于新建服务器及未指定 IdentityFile 的 SSH 导入条目</value></data>
+  <data name="SettingsPage_ExistingServersAndEditedDraftsKeepTheirAuthentication" xml:space="preserve"><value>现有服务器和已编辑的草稿保留原认证方式。SSH 配置中明确指定的 IdentityFile 优先。</value></data>
+  <data name="SettingsPage_DefaultAuthenticationMethod" xml:space="preserve"><value>默认认证方式</value></data>
+  <data name="SettingsPage_DefaultPrivateKey" xml:space="preserve"><value>默认私钥</value></data>
+  <data name="SettingsPage_KeyFile" xml:space="preserve"><value>密钥文件</value></data>
+  <data name="SettingsPage_FullPathToAPrivateKeyFile" xml:space="preserve"><value>私钥文件的完整路径</value></data>
+  <data name="SettingsPage_SavePath" xml:space="preserve"><value>保存路径</value></data>
+  <data name="SettingsPage_PressEnterOrSavePathToSaveA" xml:space="preserve"><value>手动输入路径后，按 Enter 或“保存路径”保存；浏览并选择文件后会立即保存。</value></data>
+  <data name="ResourceListViewxaml_TheChangeCouldNotBeSavedRetryOr" xml:space="preserve"><value>更改未能保存，请重试或进行新的更改。</value></data>
+  <data name="ShutdownDialogxaml_ChangesCouldNotBeSaved" xml:space="preserve"><value>更改未能保存</value></data>
+  <data name="ShutdownDialogxaml_CleanupDidNotFinish" xml:space="preserve"><value>清理尚未完成</value></data>
+  <data name="ShutdownDialogxaml_ExitWithoutSaving" xml:space="preserve"><value>不保存并退出</value></data>
+  <data name="ShutdownDialogxaml_ExitNow" xml:space="preserve"><value>立即退出</value></data>
+  <data name="ShutdownDialogxaml_YourForwardsHaveStoppedButSomeActivityOr" xml:space="preserve"><value>转发已停止，但部分活动记录或配置尚未保存。可以重试保存，或放弃剩余更改并退出。</value></data>
+  <data name="ShutdownDialogxaml_SomeForwardsOrConnectionsHaveNotFinishedClosing" xml:space="preserve"><value>部分转发或连接尚未关闭。可以重试清理或立即退出；远程端口可能要等 SSH 服务器检测到会话断开后才会释放。</value></data>
+  <data name="MainWindowLifecycle_Closing" xml:space="preserve"><value>正在关闭…</value></data>
+  <data name="MainWindowLifecycle_CancellingPendingWork" xml:space="preserve"><value>正在取消待处理的任务…</value></data>
+  <data name="MainWindowLifecycle_ClosingPaused" xml:space="preserve"><value>关闭已暂停</value></data>
+  <data name="MainWindowLifecycle_NewCommandsArePausedCloseTheWindowAgain" xml:space="preserve"><value>新命令已暂停。再次关闭窗口可重试清理或退出。</value></data>
+  <data name="MainWindowNavigation_CurrentPage" xml:space="preserve"><value>当前页面</value></data>
+  <data name="MainWindowNavigation_OpenDashboard" xml:space="preserve"><value>打开概览</value></data>
+  <data name="MainWindowNavigation_OpenSettings" xml:space="preserve"><value>打开设置</value></data>
+  <data name="MainWindowStorage_SavedDataIsReadOnly" xml:space="preserve"><value>已保存的数据为只读</value></data>
+  <data name="MainWindowStorage_LoadedASavedBackup" xml:space="preserve"><value>已加载备份</value></data>
+  <data name="MainWindowStorage_SavedDataNeedsAttention" xml:space="preserve"><value>已保存的数据需要处理</value></data>
+  <data name="MainWindowStorage_DataFolder" xml:space="preserve"><value> 数据目录：{0}</value></data>
+  <data name="MainWindowStorage_CheckAccessToTheDataFolderThenRetry" xml:space="preserve"><value>请检查数据目录的访问权限后重试。</value></data>
+  <data name="MainWindowStorage_SavedDataCouldNotBeLoaded" xml:space="preserve"><value>无法加载已保存的数据</value></data>
+  <data name="MainWindowStorage_DataFolder_182" xml:space="preserve"><value>{0} 数据目录：{1}</value></data>
+  <data name="MainWindowxaml_Search" xml:space="preserve"><value>搜索…</value></data>
+  <data name="DashboardPagexaml_UnpinQuickForwardServer" xml:space="preserve"><value>取消固定快速转发服务器</value></data>
+  <data name="DashboardPagexaml_UseThisServerForQuickForward" xml:space="preserve"><value>将此服务器用于快速转发</value></data>
+  <data name="ExportPagexaml_TunnelDeckExport" xml:space="preserve"><value>TunnelDeck 导出文件</value></data>
+  <data name="SettingsPagexaml_None" xml:space="preserve"><value>无</value></data>
+  <data name="Program_TunnelDeckCouldNotStartCheckTheApplicationInstallation" xml:space="preserve"><value>TunnelDeck 无法启动。请检查应用安装和数据目录。
+
+错误代码：0x{0:X8}</value></data>
+  <data name="AppServices_FinishingImportAndExport" xml:space="preserve"><value>正在完成导入和导出…</value></data>
+  <data name="AppServices_FinishingResourceChanges" xml:space="preserve"><value>正在完成资源更改…</value></data>
+  <data name="AppServices_StoppingAutomaticReconnect" xml:space="preserve"><value>正在停止自动重连…</value></data>
+  <data name="AppServices_FinishingProfileCommands" xml:space="preserve"><value>正在完成配置组命令…</value></data>
+  <data name="AppServices_FinishingForwardingCommands" xml:space="preserve"><value>正在完成转发命令…</value></data>
+  <data name="AppServices_StoppingForwards" xml:space="preserve"><value>正在停止转发…</value></data>
+  <data name="AppServices_ClosingSSHConnections" xml:space="preserve"><value>正在关闭 SSH 连接…</value></data>
+  <data name="AppServices_SavingRecentActivity" xml:space="preserve"><value>正在保存最近活动…</value></data>
+  <data name="AppServices_SavingConfiguration" xml:space="preserve"><value>正在保存配置…</value></data>
+  <data name="AppServices_FinishingWindowVerification" xml:space="preserve"><value>正在完成窗口验证…</value></data>
+  <data name="DialogServiceCredentials_PrivateKeyPassphrase" xml:space="preserve"><value>私钥口令</value></data>
+  <data name="DialogServiceCredentials_UsedForThisConnectionOnlyToRememberA" xml:space="preserve"><value>仅用于本次连接。如需记住凭据，请编辑并保存服务器。</value></data>
+  <data name="DialogServiceCredentials_LeaveThePassphraseBlankForAnUnencryptedKey" xml:space="preserve"><value> 未加密的私钥可以留空；若无法读取私钥，请检查服务器的密钥文件路径。</value></data>
+  <data name="DialogServiceCredentials_ConnectToForward" xml:space="preserve"><value>连接并转发</value></data>
+  <data name="DialogServiceCredentials_EnterTheSSHPassword" xml:space="preserve"><value>请输入 SSH 密码。</value></data>
+  <data name="DialogService_TheWindowIsNoLongerAvailable" xml:space="preserve"><value>窗口已不可用。</value></data>
+  <data name="DialogService_ThisIsTheFirstConnectionToThisHost" xml:space="preserve"><value>这是首次连接到使用此主机密钥的服务器。允许 SSH 认证前，请通过可信渠道核对指纹。</value></data>
+  <data name="DialogService_HostKey" xml:space="preserve"><value>主机密钥：{0}
+{1}</value></data>
+  <data name="DialogService_TrustingSavesThisHostKeyOnThisComputer" xml:space="preserve"><value>信任后会将此主机密钥保存在本机，并重新连接以验证。密钥不同的连接会被拒绝。</value></data>
+  <data name="DialogService_TrustThisSSHHost" xml:space="preserve"><value>信任此 SSH 主机？</value></data>
+  <data name="DialogService_TrustAndConnect" xml:space="preserve"><value>信任并连接</value></data>
+  <data name="SingleInstanceService_TheExistingInstanceDidNotAcceptActivation" xml:space="preserve"><value>已有实例未接受激活请求。</value></data>
+  <data name="DashboardViewModel_ShowLess" xml:space="preserve"><value>收起</value></data>
+  <data name="DashboardViewModel_ShowAllRecentActivity" xml:space="preserve"><value>查看全部最近活动</value></data>
+  <data name="DashboardViewModel_ShowingOfRecentEvents" xml:space="preserve"><value>显示 {1} 条最近活动中的 {0} 条</value></data>
+  <data name="ExportViewModel_RequiredServersIncluded" xml:space="preserve"><value>{0} · 已包含所需服务器</value></data>
+  <data name="ExportViewModel_ExportSavedTo" xml:space="preserve"><value>已导出至 {0}</value></data>
+  <data name="ExportViewModel_TheExportFileCouldNotBeSelectedOr" xml:space="preserve"><value>无法选择或保存导出文件，请重试。</value></data>
+  <data name="ImportPreviewEntry_Note" xml:space="preserve"><value>说明</value></data>
+  <data name="ImportViewModel_ImportingResources" xml:space="preserve"><value>正在导入资源</value></data>
+  <data name="ImportViewModel_ReadingImportFile" xml:space="preserve"><value>正在读取导入文件</value></data>
+  <data name="ImportViewModel_SkipTheUnavailableListedInThisPreview" xml:space="preserve"><value>跳过预览中无法导入的 {0} 个{1}</value></data>
+  <data name="ImportViewModel_Skipped" xml:space="preserve"><value>{0} · {1} · 跳过 {2} 项</value></data>
+  <data name="ImportViewModel_SavedConfigurationChangedUpdatingThePreview" xml:space="preserve"><value>已保存的配置发生变化，正在更新预览…</value></data>
+  <data name="ImportViewModel_ImportAvailableEntries" xml:space="preserve"><value>导入可用条目</value></data>
+  <data name="ImportViewModel_ImportIsUnavailableWhileSavedDataIsLoading" xml:space="preserve"><value>数据正在加载、处于只读状态或正在更新，暂时无法导入。</value></data>
+  <data name="ImportViewModel_ChooseAFileToSeeItsImportPreview" xml:space="preserve"><value>选择文件以查看导入预览。</value></data>
+  <data name="ImportViewModel_UpdatingThePreview" xml:space="preserve"><value>正在更新预览…</value></data>
+  <data name="ImportViewModel_NoEntriesCanBeImportedFixTheConnection" xml:space="preserve"><value>没有可导入的条目。请修正下方列出的连接字段后重新选择文件，或在文件路径中按 Enter。</value></data>
+  <data name="ImportViewModel_ConfirmThatTheUnavailableEntriesCanBeSkipped" xml:space="preserve"><value>请确认跳过无法导入的条目，以导入剩余资源。</value></data>
+  <data name="ImportViewModel_TheFilePickerCouldNotBeOpenedEnter" xml:space="preserve"><value>无法打开文件选择器，请直接输入文件的完整路径。</value></data>
+  <data name="ImportViewModel_TheFileCouldNotBePreviewedCheckIts" xml:space="preserve"><value>无法预览此文件，请检查格式后重试。</value></data>
+  <data name="ProfileDetailViewModel_TheProfileOperationCouldNotFinishCheckIts" xml:space="preserve"><value>配置组操作未能完成，请检查规则后重试。</value></data>
+  <data name="ResourceDetailRows_FindNextAvailableLocalPort" xml:space="preserve"><value>查找下一个可用的本地端口</value></data>
+  <data name="ResourceDetailRows_UseRequestedPort" xml:space="preserve"><value>使用指定端口</value></data>
+  <data name="ResourceListViewModel_AddProfile" xml:space="preserve"><value>添加配置组</value></data>
+  <data name="ResourceListViewModel_Pinned" xml:space="preserve"><value>已固定 · {0}</value></data>
+  <data name="ResourceListViewModel_Other" xml:space="preserve"><value>其他 · {0}</value></data>
+  <data name="ResourceListViewModel_All" xml:space="preserve"><value>全部 · {0}</value></data>
+  <data name="ResourceListViewModel_DeleteAllProfiles" xml:space="preserve"><value>删除全部配置组</value></data>
+  <data name="ResourceListViewModel_DeleteAllServers" xml:space="preserve"><value>删除全部服务器</value></data>
+  <data name="ResourceListViewModel_NoProfilesYet" xml:space="preserve"><value>暂无配置组</value></data>
+  <data name="ResourceListViewModel_NoServersYet" xml:space="preserve"><value>暂无服务器</value></data>
+  <data name="ResourceListViewModel_SaveGroupsOfForwardingRulesAndStartThem" xml:space="preserve"><value>将转发规则保存到配置组，一起启动。</value></data>
+  <data name="ResourceListViewModel_AddARemoteSSHServerToStartForwarding" xml:space="preserve"><value>添加远程 SSH 服务器以开始端口转发。</value></data>
+  <data name="ResourceRow_Unpin" xml:space="preserve"><value>取消固定</value></data>
+  <data name="ResourceRow_Pin" xml:space="preserve"><value>固定</value></data>
+  <data name="ResourceRow_ActionsFor" xml:space="preserve"><value>{0} 的操作</value></data>
+  <data name="ResourceRow_PrivateKey" xml:space="preserve"><value>私钥</value></data>
+  <data name="ResourceRow_Forwarding" xml:space="preserve"><value>{0} 条转发{1}</value></data>
+  <data name="SearchSuggestion_NoMatchingProfilesOrServers" xml:space="preserve"><value>没有匹配的配置组或服务器</value></data>
+  <data name="SearchSuggestion_TryANameHostOrUsername" xml:space="preserve"><value>尝试输入名称、主机地址或用户名。</value></data>
+  <data name="ServerDetailViewModelConnection_CancelTest" xml:space="preserve"><value>取消测试</value></data>
+  <data name="ServerDetailViewModelConnection_TestConnection" xml:space="preserve"><value>测试连接</value></data>
+  <data name="ServerDetailViewModelConnection_CancellingConnectionTest" xml:space="preserve"><value>正在取消连接测试…</value></data>
+  <data name="ServerDetailViewModelConnection_EnterTheSSHPasswordToTestThisConnection" xml:space="preserve"><value>请输入 SSH 密码以测试连接。</value></data>
+  <data name="ServerDetailViewModelConnection_Connecting" xml:space="preserve"><value>正在连接…</value></data>
+  <data name="ServerDetailViewModelConnection_TheTestUsesTheseFormValuesServerEdits" xml:space="preserve"><value>测试使用当前表单中的值；只有点击“保存”后才会保存服务器更改。</value></data>
+  <data name="ServerDetailViewModelConnection_ReadingCredentials" xml:space="preserve"><value>正在读取凭据…</value></data>
+  <data name="ServerDetailViewModelConnection_WaitingForHostKeyConfirmation" xml:space="preserve"><value>正在等待主机密钥确认…</value></data>
+  <data name="ServerDetailViewModelConnection_VerifyingTheTrustedHostAndAuthenticating" xml:space="preserve"><value>正在验证受信任主机并进行认证…</value></data>
+  <data name="ServerDetailViewModelConnection_ClosingTheTestConnection" xml:space="preserve"><value>正在关闭测试连接…</value></data>
+  <data name="ServerDetailViewModelConnection_ConnectionSuccessful" xml:space="preserve"><value>连接成功</value></data>
+  <data name="ServerDetailViewModelConnection_AuthenticationSucceededTheTemporaryTestConnectionHasBeen" xml:space="preserve"><value>认证成功，临时测试连接已关闭。</value></data>
+  <data name="ServerDetailViewModelConnection_VerifiedHostKey" xml:space="preserve"><value>已验证主机密钥 · {0}
+{1}</value></data>
+  <data name="ServerDetailViewModelConnection_ConnectionTestCancelled" xml:space="preserve"><value>连接测试已取消</value></data>
+  <data name="ServerDetailViewModelConnection_YouCanEditTheFormOrTryAgain" xml:space="preserve"><value>可以修改表单或重试。</value></data>
+  <data name="ServerDetailViewModelConnection_ConnectionFailed" xml:space="preserve"><value>连接失败</value></data>
+  <data name="ServerDetailViewModelConnection_TheConnectionTestCouldNotFinishCheckThe" xml:space="preserve"><value>连接测试未能完成，请检查表单后重试。</value></data>
+  <data name="ServerDetailViewModel_NewServer" xml:space="preserve"><value>新服务器</value></data>
+  <data name="ServerDetailViewModel_TheSavedCredentialIsUnavailableEnterItAgain" xml:space="preserve"><value>已保存的凭据不可用。请重新输入并保存，以替换丢失的凭据。</value></data>
+  <data name="ServerDetailViewModel_ASavedIsAvailableLeaveThisFieldBlank" xml:space="preserve"><value>已有保存的{0}。留空以保留，或输入新值以替换。取消勾选“记住凭据”并保存可将其移除。</value></data>
+  <data name="ServerDetailViewModel_LeaveBlankForAnUnencryptedKeyPassphrasesAre" xml:space="preserve"><value>未加密的私钥可以留空。只有勾选“记住凭据”才会保存口令。</value></data>
+  <data name="ServerDetailViewModel_EnterThePasswordToTestThisConnectionSaving" xml:space="preserve"><value>输入密码以测试连接，可选择将其保存在 Windows 凭据管理器中。</value></data>
+  <data name="ServerDetailViewModel_EnterAToRememberOrClearRememberTo" xml:space="preserve"><value>请输入要记住的{0}，或取消勾选“记住凭据”以保存服务器而不保存凭据。</value></data>
+  <data name="ServerDetailViewModel_TheFilePickerCouldNotBeOpenedEnter" xml:space="preserve"><value>无法打开文件选择器，请直接输入私钥路径。</value></data>
+  <data name="SettingsViewModel_PressEnterOrSavePathToSaveThis" xml:space="preserve"><value>按 Enter 或“保存路径”保存此密钥。留空以使用自动检测到的 id_rsa 文件。</value></data>
+  <data name="SettingsViewModel_UsedForNewServersAndSSHConfigEntries" xml:space="preserve"><value>用于新建服务器及未指定 IdentityFile 的 SSH 配置条目。</value></data>
+  <data name="SettingsViewModel_NoIdRsaFileWasFoundInYour" xml:space="preserve"><value>在 .ssh 文件夹中未找到 id_rsa。使用密钥认证导入前，请选择私钥文件。</value></data>
+  <data name="SettingsViewModel_ChooseAnExistingPrivateKeyFileUsingIts" xml:space="preserve"><value>请选择已存在的私钥文件并使用完整路径，已保存的默认值未更改。</value></data>
+  <data name="SettingsViewModel_TheFilePickerCouldNotBeOpenedEnter" xml:space="preserve"><value>无法打开文件选择器，请直接输入私钥的完整路径。</value></data>
+  <data name="SettingsViewModel_ChooseAWholeNumberFrom3To10" xml:space="preserve"><value>侧边栏项目数须为 3 到 10 的整数，已保存的设置未更改。</value></data>
+  <data name="ShellViewModel_TheOperationWasCancelledBeforeSaving" xml:space="preserve"><value>操作已在保存前取消。</value></data>
+  <data name="ShellViewModel_TheChangeCouldNotBeSavedYourPrevious" xml:space="preserve"><value>无法保存更改。原有配置仍然可用，请重试保存。</value></data>
+  <data name="ShellViewModelDeletion_RetryCredentialCleanup" xml:space="preserve"><value>重试清理凭据</value></data>
+  <data name="ShellViewModelDeletion_ReviewAndRetry" xml:space="preserve"><value>查看并重试</value></data>
+  <data name="ShellViewModelDeletion_StoppingAffectedForwardsAndDeletingServers" xml:space="preserve"><value>正在停止受影响的转发并删除服务器…</value></data>
+  <data name="ShellViewModelDeletion_DeletingProfiles" xml:space="preserve"><value>正在删除配置组…</value></data>
+  <data name="ShellViewModelDeletion_DeletedSuccessfully" xml:space="preserve"><value>删除成功。</value></data>
+  <data name="ShellViewModelDeletion_TheDeletionCouldNotBeCompletedReviewThe" xml:space="preserve"><value>删除未能完成，请检查资源后重试。</value></data>
+  <data name="ShellViewModelDeletion_TheResourcesWereDeletedSavedCredentialCleanupStill" xml:space="preserve"><value>资源已删除，已保存的凭据仍需重试清理。</value></data>
+  <data name="ShellViewModelTransfer_ImportedAnd" xml:space="preserve"><value>已导入{0}和{1}。</value></data>
+  <data name="ShellViewModelTransfer_SkippedUnavailable" xml:space="preserve"><value>已跳过 {0} 个无法导入的{1}。</value></data>
+  <data name="ShellViewModelTransfer_ReviewAuthenticationAndKeyPathsInTheNew" xml:space="preserve"><value>连接前请在新服务器详情中检查认证方式和密钥路径。</value></data>
+  <data name="ShellViewModelTransfer_ThisServerNoLongerExistsSelectAnotherServer" xml:space="preserve"><value>此服务器已不存在，请选择其他服务器。</value></data>
+  <data name="ShellViewModelTransfer_TheSSHTerminalCouldNotBeOpenedCheck" xml:space="preserve"><value>无法打开 SSH 终端，请检查已保存的服务器设置后重试。</value></data>
+  <data name="Diagnostic_ISshSessionFactory_ConnectionCredentialsRedacted" xml:space="preserve"><value>连接凭据（已隐藏）</value></data>
+  <data name="Diagnostic_ConnectionException_EnterAPasswordOrThePassphraseForYour" xml:space="preserve"><value>请输入密码或加密私钥的口令后重试。</value></data>
+  <data name="Diagnostic_ConnectionException_TheSavedCredentialCouldNotBeReadEnter" xml:space="preserve"><value>无法读取已保存的凭据，请重新输入以连接。</value></data>
+  <data name="Diagnostic_ConnectionException_SSHAuthenticationFailedCheckTheUsernameAndPassword" xml:space="preserve"><value>SSH 认证失败，请检查用户名和密码，或服务器授权的私钥。</value></data>
+  <data name="Diagnostic_ConnectionException_ThePrivateKeyFileCouldNotBeRead" xml:space="preserve"><value>无法读取私钥文件，请检查路径和文件权限。</value></data>
+  <data name="Diagnostic_ConnectionException_ThePrivateKeyCouldNotBeOpenedCheck" xml:space="preserve"><value>无法打开私钥，请检查文件格式和口令。</value></data>
+  <data name="Diagnostic_ConnectionException_TheHostKeyWasNotTrustedTheConnection" xml:space="preserve"><value>未信任主机密钥，连接已在认证前取消。</value></data>
+  <data name="Diagnostic_ConnectionException_TheServerSHostKeyDiffersFromThe" xml:space="preserve"><value>服务器主机密钥与受信任的密钥不同，已拒绝连接。请向服务器管理员核实此更改。</value></data>
+  <data name="Diagnostic_ConnectionException_SavedHostTrustCouldNotBeReadOr" xml:space="preserve"><value>无法读取或保存受信任主机，请检查 TunnelDeck 数据目录后重试。</value></data>
+  <data name="Diagnostic_ConnectionException_TheHostnameCouldNotBeResolvedCheckThe" xml:space="preserve"><value>无法解析主机名，请检查主机地址和网络连接。</value></data>
+  <data name="Diagnostic_ConnectionException_TheSSHConnectionTimedOutCheckTheHost" xml:space="preserve"><value>SSH 连接超时，请检查主机、SSH 端口和网络后重试。</value></data>
+  <data name="Diagnostic_ConnectionException_ThisServerIsInUseStopItsTunnels" xml:space="preserve"><value>此服务器正在使用中。修改主机、端口、用户名、认证方式或凭据前，请先停止其隧道和待处理连接。显示名称仍可修改。</value></data>
+  <data name="Diagnostic_ConnectionException_TheServerIsNoLongerAvailableSelectA" xml:space="preserve"><value>此服务器已不可用，请选择已保存的服务器后重试。</value></data>
+  <data name="Diagnostic_ConnectionException_TunnelDeckIsClosingNewConnectionsAndServerEdits" xml:space="preserve"><value>TunnelDeck 正在关闭，无法新建连接或编辑服务器。</value></data>
+  <data name="Diagnostic_ConnectionException_ConnectionTestingIsDisabledForPreviewDataOpen" xml:space="preserve"><value>预览数据不支持连接测试，请正常启动 TunnelDeck 以连接真实服务器。</value></data>
+  <data name="Diagnostic_ConnectionException_TheSSHConnectionFailedCheckTheServerAnd" xml:space="preserve"><value>SSH 连接失败，请检查服务器和网络后重试。</value></data>
+  <data name="Diagnostic_ConnectionException_TheSSHHostKeyWasNotTrusted" xml:space="preserve"><value>SSH 主机密钥未受信任。</value></data>
+  <data name="Diagnostic_ResourceDeletionService_DeletionRequiresNonEmptyResourceIDs" xml:space="preserve"><value>删除操作需要非空的资源 ID。</value></data>
+  <data name="Diagnostic_ResourceDeletionService_LoadSavedDataBeforeDeletingResources" xml:space="preserve"><value>删除资源前请先加载已保存的数据。</value></data>
+  <data name="Diagnostic_ResourceDeletionService_TunnelDeckIsClosingNothingWasDeleted" xml:space="preserve"><value>TunnelDeck 正在关闭，未删除任何内容。</value></data>
+  <data name="Diagnostic_ResourceDeletionService_TheAffectedResourcesOrRunningWorkChangedReview" xml:space="preserve"><value>受影响的资源或运行任务已发生变化。删除前请检查更新后的影响范围。</value></data>
+  <data name="Diagnostic_ResourceDeletionService_NothingWasDeletedCouldNotBeFullyStopped" xml:space="preserve"><value>未删除任何内容。{0}；{1}未能完全停止。请检查状态后重试。</value></data>
+  <data name="Diagnostic_ResourceDeletionService_NothingWasDeletedButSSHConnectionCleanupIs" xml:space="preserve"><value>未删除任何内容。{0}，但 SSH 连接清理尚未完成，请检查后重试。</value></data>
+  <data name="Diagnostic_ResourceDeletionService_DeletionWasCancelledConfigurationWasKept" xml:space="preserve"><value>删除已取消，配置已保留；{0}。</value></data>
+  <data name="Diagnostic_ResourceDeletionService_DeletionWasCancelledNothingWasDeleted" xml:space="preserve"><value>删除已取消，未删除任何内容。</value></data>
+  <data name="Diagnostic_ResourceDeletionService_NothingWasDeletedButTheConfigurationCouldNot" xml:space="preserve"><value>未删除任何内容。{0}，但配置无法保存，请检查后重试。</value></data>
+  <data name="Diagnostic_ResourceDeletionService_NothingWasDeletedTheConfigurationCouldNotBe" xml:space="preserve"><value>未删除任何内容，配置无法保存，请检查后重试。</value></data>
+  <data name="Diagnostic_ResourceDeletionService_ForwardStopped" xml:space="preserve"><value>已停止 {0} 个转发{1}</value></data>
+  <data name="Diagnostic_ReconnectCoordinator_TheForwardCouldNotBeRestoredRetryIt" xml:space="preserve"><value>无法恢复此转发，请手动重试。</value></data>
+  <data name="Diagnostic_ReconnectCoordinator_AutomaticReconnectCouldNotCompleteCheckTheForward" xml:space="preserve"><value>自动重连未能完成，请检查转发后重试。</value></data>
+  <data name="Diagnostic_ReconnectPolicy_ReconnectDelaysAndRecoveryWindowMustBePositive" xml:space="preserve"><value>重连延迟和恢复时限必须为正值，抖动系数须在 0 到 1 之间。</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_ClosingTunnelDeck" xml:space="preserve"><value>正在关闭 TunnelDeck…</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_ReadyToClose" xml:space="preserve"><value>已准备好关闭。</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_SavingIsStillInProgress" xml:space="preserve"><value>仍在保存中。</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_SomeCleanupIsStillInProgress" xml:space="preserve"><value>部分清理仍在进行中。</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_ChangesCouldNotBeSaved" xml:space="preserve"><value>无法保存更改。</value></data>
+  <data name="Diagnostic_ShutdownCoordinator_CleanupCouldNotFinish" xml:space="preserve"><value>清理未能完成。</value></data>
+  <data name="Diagnostic_AppRoute_OnlyResourceDetailsCanCarryANonemptyResource" xml:space="preserve"><value>只有资源详情可以包含非空的资源 ID。</value></data>
+  <data name="Diagnostic_ServerWorkRegistry_TheForwardingOperationIsNoLongerRegistered" xml:space="preserve"><value>此转发操作已注销。</value></data>
+  <data name="Diagnostic_ServerWorkRegistry_ADeletionOfTheseResourcesIsAlreadyIn" xml:space="preserve"><value>这些资源的删除操作已在进行中。</value></data>
+  <data name="Diagnostic_ConfigurationServiceCredentials_TheCredentialCouldNotBeSavedTheServer" xml:space="preserve"><value>无法保存凭据，服务器更改尚未保存。</value></data>
+  <data name="Diagnostic_ConfigurationServiceCredentials_SomeSavedCredentialsCouldNotBeReconciledTheir" xml:space="preserve"><value>部分已保存的凭据无法核对，其引用仍保留在本地清理日志中以便重试。</value></data>
+  <data name="Diagnostic_ConfigurationService_TunnelDeckIsClosingNewEditsCannotBeSaved" xml:space="preserve"><value>TunnelDeck 正在关闭，无法保存新的更改。</value></data>
+  <data name="Diagnostic_ConfigurationService_LoadSavedDataBeforeEditingIt" xml:space="preserve"><value>编辑前请先加载已保存的数据。</value></data>
+  <data name="Diagnostic_ConfigurationService_SavedDataIsReadOnlyResolveTheLoad" xml:space="preserve"><value>已保存的数据为只读，请先解决加载错误再保存。</value></data>
+  <data name="Diagnostic_ConfigurationService_UseSaveServerAsyncToRememberANewCredential" xml:space="preserve"><value>请使用 SaveServerAsync 记住新凭据。</value></data>
+  <data name="Diagnostic_ConfigurationServiceProfiles_ThisProfileChangedWhileYouWereEditingReopen" xml:space="preserve"><value>此配置组在编辑期间已被更改，请重新打开后再保存。</value></data>
+  <data name="Diagnostic_ConfigurationServiceProfiles_PinnedItemsChangedReorderTheCurrentListAgain" xml:space="preserve"><value>固定项目已发生变化，请重新调整当前列表的顺序。</value></data>
+  <data name="Diagnostic_ConfigurationServiceServers_ChooseRememberOrForgetWhenChangingTheAuthentication" xml:space="preserve"><value>更改认证方式时，请选择记住或忘记凭据。</value></data>
+  <data name="Diagnostic_CredentialChange_CredentialChangeKind" xml:space="preserve"><value>CredentialChange {{ Kind = {0} }}</value></data>
+  <data name="Diagnostic_StateLoadRepair_SavedConfigurationContainsInvalidDataRestoreAValid" xml:space="preserve"><value>已保存的配置包含无效数据，请恢复有效配置或备份。</value></data>
+  <data name="Diagnostic_StateLoadRepair_RemovedDuplicateOrMissingResourceOrderEntriesAnd" xml:space="preserve"><value>已移除重复或不存在的资源顺序条目，并将遗漏的资源追加到“其他”。</value></data>
+  <data name="Diagnostic_StateLoadRepair_ClearedADefaultSelectionWhoseServerNoLonger" xml:space="preserve"><value>已清除指向不存在服务器的默认选择。</value></data>
+  <data name="Diagnostic_StateStoreException_SavedDataChangedReloadItBeforeSavingThis" xml:space="preserve"><value>已保存的数据发生变化，请重新加载后再保存此更改。</value></data>
+  <data name="Diagnostic_PortSearchPolicy_PortSearchTimeoutsMustBePositive" xml:space="preserve"><value>端口查找的超时时间必须为正值。</value></data>
+  <data name="Diagnostic_PortSearchPolicy_ThereIsNoPreviousAttempt" xml:space="preserve"><value>没有上一次尝试。</value></data>
+  <data name="Diagnostic_ResourceOrderService_TheResourceIsNotInThisOrder" xml:space="preserve"><value>此资源不在该顺序中。</value></data>
+  <data name="Diagnostic_ResourceOrderService_ReorderingMustPreserveExactlyTheExistingPinnedIDs" xml:space="preserve"><value>调整顺序必须保留现有的全部固定项目 ID，不能将其他项目拖入其中。</value></data>
+  <data name="Diagnostic_ResourceOrderService_OrderCollectionsMustBeInitialized" xml:space="preserve"><value>顺序集合必须已初始化。</value></data>
+  <data name="Diagnostic_ResourceOrderService_OrderContainsEmptyOrDuplicateIDs" xml:space="preserve"><value>顺序中包含空 ID 或重复 ID。</value></data>
+  <data name="Diagnostic_ResourceOrderService_AnIDIsRequired" xml:space="preserve"><value>必须提供 ID。</value></data>
+  <data name="Diagnostic_ServerDefaultsResolver_UnknownDefaultAuthenticationMethod" xml:space="preserve"><value>未知的默认认证方式。</value></data>
+  <data name="ActivityTimeFormatter_JustNow" xml:space="preserve"><value>刚刚</value></data>
+  <data name="ActivityTimeFormatter_MinAgo" xml:space="preserve"><value>{0} 分钟前</value></data>
+  <data name="ActivityTimeFormatter_HrAgo" xml:space="preserve"><value>{0} 小时前</value></data>
+  <data name="DeletionConfirmationModel_Delete" xml:space="preserve"><value>删除{0}{1}？</value></data>
+  <data name="DeletionConfirmationModel_Delete_361" xml:space="preserve"><value>删除“{0}”？</value></data>
+  <data name="DeletionConfirmationModel_DeleteAll" xml:space="preserve"><value>全部删除</value></data>
+  <data name="DeletionConfirmationModel_Delete_363" xml:space="preserve"><value>删除</value></data>
+  <data name="DeletionConfirmationModel_WillBeDeleted" xml:space="preserve"><value>将删除{0}。</value></data>
+  <data name="DeletionConfirmationModel_TheSavedProfileAndItsRulesWillBe" xml:space="preserve"><value>将删除已保存的配置组及其规则，未保存的更改也会丢弃。</value></data>
+  <data name="DeletionConfirmationModel_WillBeStopped" xml:space="preserve"><value>将停止{0}。</value></data>
+  <data name="DeletionConfirmationModel_WillKeepRunning" xml:space="preserve"><value>{0}将继续运行。</value></data>
+  <data name="DeletionConfirmationModel_WillBeCancelled" xml:space="preserve"><value>将取消{0}。</value></data>
+  <data name="DeletionConfirmationModel_WillContinueFromSavedSettings" xml:space="preserve"><value>{0}将继续使用已保存的设置运行。</value></data>
+  <data name="DeletionConfirmationModel_InWillBeRemoved" xml:space="preserve"><value>将从{1}中移除{0}。</value></data>
+  <data name="DeletionConfirmationModel_ProfilesAreKeptIncludingAnyThatBecomeEmpty" xml:space="preserve"><value>保留配置组，包括移除规则后变空的配置组。</value></data>
+  <data name="DeletionConfirmationModel_ServersAreKept" xml:space="preserve"><value>保留服务器。</value></data>
+  <data name="DeletionConfirmationModel_YouCanStopForwardsFromActiveTunnels" xml:space="preserve"><value>可在“活动隧道”中停止转发。</value></data>
+  <data name="DeletionConfirmationModel_TheDefaultServerAndPinnedQuickForwardSelections" xml:space="preserve"><value>将清除默认服务器和快速转发的固定服务器选择。</value></data>
+  <data name="DeletionConfirmationModel_TheDefaultServerSelectionWillBeCleared" xml:space="preserve"><value>将清除默认服务器选择。</value></data>
+  <data name="DeletionConfirmationModel_ThePinnedQuickForwardSelectionWillBeCleared" xml:space="preserve"><value>将清除快速转发的固定服务器选择。</value></data>
+  <data name="ProfileEditorModel_NewProfile" xml:space="preserve"><value>新配置组</value></data>
+  <data name="ProfileEditorModel_AddForwardingRule" xml:space="preserve"><value>添加转发规则</value></data>
+  <data name="ProfileEditorModel_EditForwardingRule" xml:space="preserve"><value>编辑转发规则</value></data>
+  <data name="ProfileEditorModel_ApplyOrCancelThisRuleThenSaveThe" xml:space="preserve"><value>请先应用或取消此规则，再保存配置组。</value></data>
+  <data name="ProfileEditorModel_SaveThisProfileBeforeStartingItsRulesRunning" xml:space="preserve"><value>启动规则前请先保存配置组，正在运行的转发保留原设置。</value></data>
+  <data name="ProfileEditorModel_ApplyOrCancelTheRuleBeforeSaving" xml:space="preserve"><value>保存前请先应用或取消此规则。</value></data>
+  <data name="ProfileRuleItem_ServerUnavailable" xml:space="preserve"><value>服务器不可用</value></data>
+  <data name="ProfileRuleItem_FindTheNextLocalPortIfOccupied" xml:space="preserve"><value>本地端口被占用时查找下一个可用端口</value></data>
+  <data name="ProfileRuleItem_AlreadyRunning" xml:space="preserve"><value>已在运行</value></data>
+  <data name="ProfileRuleItem_Running" xml:space="preserve"><value>运行中</value></data>
+  <data name="ProfileRuleItem_ReconnectingRetryAt" xml:space="preserve"><value>正在重连 · 将于 {0:T} 重试</value></data>
+  <data name="ProfileRuleItem_Starting" xml:space="preserve"><value>正在启动</value></data>
+  <data name="ProfileRuleItem_Failed" xml:space="preserve"><value>失败</value></data>
+  <data name="ProfileRuleItem_Cancelled" xml:space="preserve"><value>已取消</value></data>
+  <data name="ProfileRuleItem_Reconnecting" xml:space="preserve"><value>正在重连</value></data>
+  <data name="ProfileRuleItem_Stopped" xml:space="preserve"><value>已停止</value></data>
+  <data name="QuickForwardModel_ListenOnThisComputerConnectFromTheSSH" xml:space="preserve"><value>在本机监听 → 通过 SSH 服务器连接目标。</value></data>
+  <data name="QuickForwardModel_ListenOnTheSSHServerConnectFromThis" xml:space="preserve"><value>在 SSH 服务器上监听 → 通过本机连接目标。</value></data>
+  <data name="QuickForwardModel_LocalListenAddress" xml:space="preserve"><value>本地监听地址</value></data>
+  <data name="QuickForwardModel_LocalTargetHost" xml:space="preserve"><value>本地目标主机</value></data>
+  <data name="QuickForwardModel_RemoteTargetHost" xml:space="preserve"><value>远程目标主机</value></data>
+  <data name="QuickForwardModel_RemoteListenAddress" xml:space="preserve"><value>远程监听地址</value></data>
+  <data name="QuickForwardModel_SelectAnSSHServer" xml:space="preserve"><value>请选择 SSH 服务器。</value></data>
+  <data name="RecentActivityItem_Requested" xml:space="preserve"><value>{0}
+{1}
+请求的地址：{2}</value></data>
+  <data name="RecentActivityItem_Actual" xml:space="preserve"><value>
+实际地址：{0}</value></data>
+  <data name="RecentActivityItem_ServerDeleted" xml:space="preserve"><value>服务器已删除</value></data>
+  <data name="RecentActivityItem_ServerRenamedSinceThisEvent" xml:space="preserve"><value>服务器在此事件后已重命名</value></data>
+  <data name="RecentActivityItem_ProfileDeleted" xml:space="preserve"><value>配置组已删除</value></data>
+  <data name="RecentActivityItem_ProfileRenamedSinceThisEvent" xml:space="preserve"><value>配置组在此事件后已重命名</value></data>
+  <data name="ResourceDisplay_LocalRemote" xml:space="preserve"><value>本地 :{0} → 远程 :{1}</value></data>
+  <data name="ResourceDisplay_RemoteLocal" xml:space="preserve"><value>远程 :{0} → 本地 :{1}</value></data>
+  <data name="ResourceSearch_Profile" xml:space="preserve"><value>配置组 · {0} 条{1}</value></data>
+  <data name="TunnelItem_NotEstablished" xml:space="preserve"><value>尚未建立</value></data>
+  <data name="TunnelItem_Local" xml:space="preserve"><value>本地 :{0}</value></data>
+  <data name="TunnelItem_Remote" xml:space="preserve"><value>远程 :{0}</value></data>
+  <data name="TunnelItem_Remote_412" xml:space="preserve"><value>→ 远程 :{0}</value></data>
+  <data name="TunnelItem_Local_413" xml:space="preserve"><value>→ 本地 :{0}</value></data>
+  <data name="TunnelItem_LocalPortWasAlreadyInUseThePrevious" xml:space="preserve"><value>本地端口 {0} 已被占用。此前监听端口为 {1}，恢复时会优先尝试该端口。</value></data>
+  <data name="TunnelItem_LocalPortWasAlreadyInUseListeningOn" xml:space="preserve"><value>本地端口 {0} 已被占用，现改为监听 {1}。目标端口和已保存的规则未更改。</value></data>
+  <data name="TunnelItem_PreviousListener" xml:space="preserve"><value>上次监听地址</value></data>
+  <data name="TunnelItem_Actual" xml:space="preserve"><value>实际地址</value></data>
+  <data name="TunnelItem_ForwardIsOfflineRetryInSAttemptStop" xml:space="preserve"><value>转发已离线。{0:0} 秒后重试 · 第 {1} 次尝试。停止可取消恢复。</value></data>
+  <data name="TunnelItem_RestoringTheForwardAttemptStopCancelsRecovery" xml:space="preserve"><value>正在恢复转发 · 第 {0} 次尝试。停止可取消恢复。</value></data>
+  <data name="TunnelItem_ConnectionLostPreparingToReconnectStopCancelsRecovery" xml:space="preserve"><value>连接已断开，准备重新连接。停止可取消恢复。</value></data>
+  <data name="TunnelItem_AutomaticRecoveries" xml:space="preserve"><value>自动恢复：{0:N0} 次。</value></data>
+  <data name="TunnelItem_LastRestored" xml:space="preserve"><value>上次恢复：{0:G}。</value></data>
+  <data name="TunnelItem_ObservedRequestsObservedFailures" xml:space="preserve"><value>已观察到的请求：{0:N0}；失败：{1:N0}。</value></data>
+  <data name="TunnelItem_NotStarted" xml:space="preserve"><value>尚未启动</value></data>
+  <data name="TunnelItem_Stop" xml:space="preserve"><value>停止 {0}，{1}</value></data>
+  <data name="TunnelItem_DetailsFor" xml:space="preserve"><value>{0}，{1} 的详情</value></data>
+  <data name="TunnelWorkspaceCommands_ThisServerIsBeingDeletedOrIsNo" xml:space="preserve"><value>此服务器正在删除或已不可用。</value></data>
+  <data name="TunnelWorkspaceCommands_ThisServerIsNoLongerAvailableRemoveThe" xml:space="preserve"><value>此服务器已不可用，请移除失败的转发或选择其他服务器。</value></data>
+  <data name="TunnelWorkspaceCommands_EnterTheSSHPasswordToStartThisForward" xml:space="preserve"><value>请输入 SSH 密码以启动此转发。</value></data>
+  <data name="TunnelWorkspaceCommands_TheOperationCouldNotFinishCheckTheTunnel" xml:space="preserve"><value>操作未能完成，请检查隧道状态后重试。</value></data>
+  <data name="TunnelWorkspace_Active" xml:space="preserve"><value>{0} 个活动隧道</value></data>
+  <data name="TunnelWorkspace_OnlyAnIsolatedPreviewCanSupplySampleRows" xml:space="preserve"><value>只有隔离的预览模式可以提供示例条目。</value></data>
+  <data name="UsageStatisticsProjection_NoUsageYet" xml:space="preserve"><value>暂无使用记录</value></data>
+  <data name="Diagnostic_ProfileRunner_ProfileForwardingIsCurrentlyUnavailable" xml:space="preserve"><value>配置组转发暂不可用。</value></data>
+  <data name="Diagnostic_ProfileRunner_ThisProfileIsNoLongerAvailable" xml:space="preserve"><value>此配置组已不可用。</value></data>
+  <data name="Diagnostic_ProfileRunnerStart_EnterTheSSHPasswordForThisProfileS" xml:space="preserve"><value>请输入此配置组规则使用的 SSH 密码。</value></data>
+  <data name="Diagnostic_ProfileRunnerStart_StartingThisRuleWasCancelled" xml:space="preserve"><value>已取消启动此规则。</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_Starting" xml:space="preserve"><value>{0} 个正在启动</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_Started" xml:space="preserve"><value>{0} 个已启动</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_AlreadyRunning" xml:space="preserve"><value>{0} 个已在运行</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_AlreadyReconnecting" xml:space="preserve"><value>{0} 个正在重连</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_Failed" xml:space="preserve"><value>{0} 个失败</value></data>
+  <data name="Diagnostic_ProfileRunSnapshot_Cancelled" xml:space="preserve"><value>{0} 个已取消</value></data>
+  <data name="Diagnostic_HostKeyIdentity_AHostKeyCannotBeEmpty" xml:space="preserve"><value>主机密钥不能为空。</value></data>
+  <data name="Diagnostic_ImportPlan_New" xml:space="preserve"><value>新{0}</value></data>
+  <data name="Diagnostic_ImportPlan_Skipped" xml:space="preserve"><value>已跳过</value></data>
+  <data name="Diagnostic_ImportPlanner_ThisEndpointAlreadyExistsASeparateServerWill" xml:space="preserve"><value>此端点已存在，将创建独立的服务器。</value></data>
+  <data name="Diagnostic_ImportPlanner_ThisNameAlreadyExistsExistingServersWillKeep" xml:space="preserve"><value>此名称已存在，现有服务器将保留原设置。</value></data>
+  <data name="Diagnostic_ImportPlanner_ThisNameAlreadyExistsASeparateProfileWill" xml:space="preserve"><value>此名称已存在，将创建独立的配置组。</value></data>
+  <data name="Diagnostic_ImportPlanner_ServerReferencesIncluded" xml:space="preserve"><value>{0} 条{1} · 已包含服务器引用</value></data>
+  <data name="Diagnostic_ImportPlanner_ChooseATunnelDeckExportNotAnApplicationState" xml:space="preserve"><value>请选择 TunnelDeck 导出文件，而非应用状态文件。</value></data>
+  <data name="Diagnostic_ImportPlanner_ThisExportVersionIsNotSupportedUseA" xml:space="preserve"><value>不支持此导出版本，请使用兼容版本的 TunnelDeck。</value></data>
+  <data name="Diagnostic_ImportPlanner_TheExportMustIncludeServersProfilesAndTheir" xml:space="preserve"><value>导出文件必须包含服务器、配置组及其顺序。</value></data>
+  <data name="Diagnostic_ImportPlanner_ThisExportIsTooLargeExportFewerResources" xml:space="preserve"><value>导出文件过大，请减少每次导出的资源数量。</value></data>
+  <data name="Diagnostic_ImportPlanner_TheExportContainsAnEmptyServerProfileOr" xml:space="preserve"><value>导出文件包含空的服务器、配置组或规则。</value></data>
+  <data name="Diagnostic_ImportPlanner_NothingWasImportedFixTheseFieldsInThe" xml:space="preserve"><value>未导入任何内容。请修正导出文件中的以下字段后重新预览：
+</value></data>
+  <data name="Diagnostic_ImportPlanner_ResourceAndRuleIDsMustBeUniqueWithin" xml:space="preserve"><value>导出文件内的资源和规则 ID 必须唯一，未导入任何内容。</value></data>
+  <data name="Diagnostic_ImportPlanner_ThePrivateKeyPathMustPointToAn" xml:space="preserve"><value>{0}：私钥路径必须指向本机已存在的文件。请更新源文件中的路径后重新预览，未导入任何内容。</value></data>
+  <data name="Diagnostic_ResourceImportService_ThereAreNoUsableResourcesToImport" xml:space="preserve"><value>没有可导入的有效资源。</value></data>
+  <data name="Diagnostic_ResourceImportService_PreviewThisFileAgainImportedResourcesMustHave" xml:space="preserve"><value>请重新预览此文件。导入的资源必须使用新 ID，且不包含已保存的凭据或使用记录。</value></data>
+  <data name="Diagnostic_ResourceImportService_PreviewThisFileAgainImportedRulesMustHave" xml:space="preserve"><value>请重新预览此文件，导入的规则必须使用新 ID。</value></data>
+  <data name="Diagnostic_SshConfigParser_TheSSHConfigIsTooLargeOrContains" xml:space="preserve"><value>SSH 配置过大或包含不支持的控制字符。</value></data>
+  <data name="Diagnostic_SshConfigParser_LineIsNotSupportedAndWasIgnored" xml:space="preserve"><value>第 {0} 行：不支持 {1}，已忽略。</value></data>
+  <data name="Diagnostic_SshConfigParser_Line" xml:space="preserve"><value>第 {0} 行：{1}：{2}</value></data>
+  <data name="Diagnostic_SshConfigParser_LineNeedsOneStaticValue" xml:space="preserve"><value>第 {0} 行：{1} 需要一个静态值。</value></data>
+  <data name="Diagnostic_SshConfigParser_LinePortMustBeBetween1And65535" xml:space="preserve"><value>第 {0} 行：Port 必须在 1 到 65535 之间。</value></data>
+  <data name="Diagnostic_SshConfigParser_LineAddAnExplicitUserBeforeImportingThis" xml:space="preserve"><value>第 {0} 行：导入此服务器前，请明确设置 User。</value></data>
+  <data name="Diagnostic_SshConfigParser_TheDefaultPrivateKeyFileIsMissingChoose" xml:space="preserve"><value>默认私钥文件不存在，请在设置中选择已存在的默认密钥后重新预览。</value></data>
+  <data name="Diagnostic_SshConfigParser_NoIdentityFileIsSpecifiedUsingTheDefaultPrivate" xml:space="preserve"><value>未指定 IdentityFile，将使用设置中的默认私钥：{0}</value></data>
+  <data name="Diagnostic_SshConfigParser_LineHostNameTokenOrEnvironmentExpansionIsNot" xml:space="preserve"><value>第 {0} 行：不支持 HostName 的标记或环境变量展开。</value></data>
+  <data name="Diagnostic_SshConfigParser_LineUserTokenOrEnvironmentExpansionIsNot" xml:space="preserve"><value>第 {0} 行：不支持 User 的标记或环境变量展开。</value></data>
+  <data name="Diagnostic_SshConfigParser_Line_472" xml:space="preserve"><value>第 {0} 行：{1}</value></data>
+  <data name="Diagnostic_SshConfigParser_NoIdentityFileIsSpecifiedUsingTheDefaultPassword" xml:space="preserve"><value>未指定 IdentityFile，将使用设置中的默认密码认证。不会导入 OpenSSH 代理设置。</value></data>
+  <data name="Diagnostic_SshConfigParser_ImportedWithPasswordAuthenticationAfterTheExplicitIdentityFile" xml:space="preserve"><value>明确指定的 IdentityFile 无法使用，因此按密码认证导入，未替换为默认认证设置。请在服务器详情中检查认证方式。</value></data>
+  <data name="Diagnostic_SshConfigParser_UsingPrivateKeyAuthenticationFromIdentityFile" xml:space="preserve"><value>使用 IdentityFile 指定的私钥认证：{0}</value></data>
+  <data name="Diagnostic_SshConfigParser_AMatchingNameOrEndpointAlreadyExistsA" xml:space="preserve"><value>已存在相同名称或端点，将创建独立的服务器。</value></data>
+  <data name="Diagnostic_SshConfigParser_Line_477" xml:space="preserve"><value>{0} · 第 {1} 行</value></data>
+  <data name="Diagnostic_SshConfigParser_NoConcreteHostAliasesWereFoundHostSupplies" xml:space="preserve"><value>未找到具体的 Host 别名。Host * 仅提供默认值，不会创建服务器。</value></data>
+  <data name="Diagnostic_SshConfigParser_ServerBeSkippedBecauseRequiredConnectionFieldsAre" xml:space="preserve"><value>由于缺少必填连接字段或字段无效，将跳过 {0} 个服务器{1}</value></data>
+  <data name="Diagnostic_SshConfigParser_SomeSSHOptionsWereIgnoredReviewEachEntry" xml:space="preserve"><value>部分 SSH 选项已被忽略。请查看各条目的说明，只会导入显示的连接字段。</value></data>
+  <data name="Diagnostic_SshConfigParser_LinesMultipleIdentityFileValuesWereIgnoredChooseOne" xml:space="preserve"><value>第 {0} 行：已忽略多个 IdentityFile 值，请在导入后的服务器详情中选择一个密钥。</value></data>
+  <data name="Diagnostic_SshConfigParser_IdentityFileNeedsOneStaticValue" xml:space="preserve"><value>IdentityFile 需要一个静态值。</value></data>
+  <data name="Diagnostic_SshConfigParser_ThePrivateKeyFileIsMissingOnThis" xml:space="preserve"><value>本机不存在此私钥文件。</value></data>
+  <data name="Diagnostic_SshConfigParser_LineIdentityFileWasIgnoredSetAuthenticationInThe" xml:space="preserve"><value>第 {0} 行：已忽略 IdentityFile。{1} 请在导入后的服务器详情中设置认证方式。</value></data>
+  <data name="Diagnostic_SshConfigParser_IdentityFileNeedsOneExplicitFilePathNoneTokens" xml:space="preserve"><value>IdentityFile 需要一个明确的文件路径，不支持 none、标记或环境变量展开。</value></data>
+  <data name="Diagnostic_SshConfigParser_IdentityFileNeedsAnAbsolutePathOrRelativeTo" xml:space="preserve"><value>IdentityFile 需要绝对路径，或以 ~/ 开头的用户目录相对路径。</value></data>
+  <data name="Diagnostic_SshConfigParser_IdentityFileIsNotAUsableFilePath" xml:space="preserve"><value>IdentityFile 不是可用的文件路径。</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_TheSSHConfigHasTooManyLines" xml:space="preserve"><value>SSH 配置行数过多。</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_LineTheHostDeclarationCouldNotBeParsed" xml:space="preserve"><value>第 {0} 行：无法解析 Host 声明，已忽略此配置块。</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_LineHostPatternDoesNotCreateAServer" xml:space="preserve"><value>第 {0} 行：Host 模式“{1}”不会创建服务器，仅会将支持的静态字段应用于匹配的具体别名。</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_TheSSHConfigContainsTooManyServerAliases" xml:space="preserve"><value>SSH 配置中的服务器别名过多。</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_LineMatchAndItsConditionalSettingsWereIgnored" xml:space="preserve"><value>第 {0} 行：已忽略 Match 及其条件设置，请检查导入的静态连接字段。</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_LineInsideMatchWasIgnored" xml:space="preserve"><value>第 {0} 行：已忽略 Match 中的 {1}。</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_LineIncludeWasIgnoredReferencedFilesWereNot" xml:space="preserve"><value>第 {0} 行：已忽略 Include，未读取其引用的文件。</value></data>
+  <data name="Diagnostic_SshConfigParserSyntax_AnOpeningQuoteHasNoClosingQuote" xml:space="preserve"><value>引号未闭合。</value></data>
+  <data name="Diagnostic_TunnelActivityRecorder_RecentActivityCouldNotBeSavedYourTunnels" xml:space="preserve"><value>无法保存最近活动，隧道不受影响。请重试保存活动记录。</value></data>
+  <data name="Diagnostic_TunnelActivityRecorder_RecentActivityIsStillWaitingToBeSaved" xml:space="preserve"><value>最近活动仍等待保存。</value></data>
+  <data name="Diagnostic_TunnelErrors_CheckTheForwardingRuleAndServerFields" xml:space="preserve"><value>请检查转发规则和服务器字段。</value></data>
+  <data name="Diagnostic_TunnelErrors_TheForwardingRequestWasCancelled" xml:space="preserve"><value>转发请求已取消。</value></data>
+  <data name="Diagnostic_TunnelErrors_TheForwardingOperationCouldNotCompleteCheckThe" xml:space="preserve"><value>转发操作未能完成，请检查服务器后重试。</value></data>
+  <data name="Diagnostic_TunnelErrors_TheListeningOperationDidNotFinishWithinIts" xml:space="preserve"><value>监听操作未在限定时间内完成，其 SSH 传输已停用，正在清理未完成的任务。</value></data>
+  <data name="Diagnostic_TunnelErrors_TheSSHConnectionEndedThisListenerIsBeing" xml:space="preserve"><value>SSH 连接已结束，正在停止此监听。</value></data>
+  <data name="Diagnostic_TunnelErrors_CleanupDidNotFinishRetryStopThisTunnel" xml:space="preserve"><value>清理尚未完成，请重试停止。清理成功前，此隧道仍保留对服务器和请求的占用。</value></data>
+  <data name="Diagnostic_TunnelManager_TheRuleAndServerSnapshotMustHaveThe" xml:space="preserve"><value>规则和服务器快照必须具有相同的服务器 ID。</value></data>
+  <data name="Diagnostic_TunnelManager_TunnelDeckIsClosingNewForwardsAreUnavailable" xml:space="preserve"><value>TunnelDeck 正在关闭，无法新建转发。</value></data>
+  <data name="Diagnostic_TunnelManager_TunnelsAreBeingStoppedRetryStartingAfterCleanup" xml:space="preserve"><value>正在停止隧道，请等待清理完成后重试启动。</value></data>
+  <data name="Diagnostic_TunnelManagerReconnect_AReconnectCoordinatorIsAlreadyAttached" xml:space="preserve"><value>已连接重连协调器。</value></data>
+  <data name="Diagnostic_TunnelManagerReconnect_AutomaticReconnectReachedItsTimeLimitCheckThe" xml:space="preserve"><value>自动重连已达到时限，请检查网络后重试此转发。</value></data>
+  <data name="Diagnostic_TunnelManagerStart_TheServerSConnectionSettingsChangedAfterThis" xml:space="preserve"><value>捕获规则后，服务器连接设置已发生变化，请重新打开规则后重试。</value></data>
+  <data name="Diagnostic_TunnelManagerStart_NoLocalListeningPortWasAvailableInAttempts" xml:space="preserve"><value>尝试 {0} 次后仍未找到可用的本地监听端口，查找已达到设定上限。</value></data>
+  <data name="Diagnostic_TunnelManagerStart_TheListeningRequestCouldNotBeCompleted" xml:space="preserve"><value>监听请求未能完成。</value></data>
+  <data name="Diagnostic_TunnelManagerStart_TheListenerStoppedUnexpectedlyRetryThisForwardAfter" xml:space="preserve"><value>监听意外停止，请等待清理完成后重试此转发。</value></data>
+  <data name="Diagnostic_TunnelResults_TunnelConcurrencyLimitsAndTimeBudgetsMustBe" xml:space="preserve"><value>隧道并发限制和时间限额必须为正值。</value></data>
+  <data name="Diagnostic_AppStateValidator_ThisSchemaVersionIsNotSupportedDoNot" xml:space="preserve"><value>不支持此配置格式版本，请勿覆盖文件。</value></data>
+  <data name="Diagnostic_AppStateValidator_RevisionCannotBeNegative" xml:space="preserve"><value>修订号不能为负数。</value></data>
+  <data name="Diagnostic_AppStateValidator_TheServersCollectionIsRequired" xml:space="preserve"><value>必须提供服务器集合。</value></data>
+  <data name="Diagnostic_AppStateValidator_TheProfilesCollectionIsRequired" xml:space="preserve"><value>必须提供配置组集合。</value></data>
+  <data name="Diagnostic_AppStateValidator_AServerCannotBeNull" xml:space="preserve"><value>服务器不能为空。</value></data>
+  <data name="Diagnostic_AppStateValidator_ServerIDsMustBeUnique" xml:space="preserve"><value>服务器 ID 必须唯一。</value></data>
+  <data name="Diagnostic_AppStateValidator_AProfileCannotBeNull" xml:space="preserve"><value>配置组不能为空。</value></data>
+  <data name="Diagnostic_AppStateValidator_ProfileIDsMustBeUnique" xml:space="preserve"><value>配置组 ID 必须唯一。</value></data>
+  <data name="Diagnostic_AppStateValidator_RuleIDsMustBeUniqueAcrossProfiles" xml:space="preserve"><value>不同配置组中的规则 ID 也必须唯一。</value></data>
+  <data name="Diagnostic_AppStateValidator_SettingsAreRequired" xml:space="preserve"><value>必须提供设置。</value></data>
+  <data name="Diagnostic_AppStateValidator_ResourceOrderIsRequired" xml:space="preserve"><value>必须提供资源顺序。</value></data>
+  <data name="Diagnostic_AppStateValidator_BothOrderCollectionsAreRequired" xml:space="preserve"><value>必须提供两种顺序集合。</value></data>
+  <data name="Diagnostic_AppStateValidator_AnIDMayOccurOnlyOnceAcrossPinned" xml:space="preserve"><value>同一 ID 在“已固定”和“其他”中只能出现一次。</value></data>
+  <data name="Diagnostic_AppStateValidator_OrderMustContainEveryExistingResourceExactlyOnce" xml:space="preserve"><value>顺序中必须恰好包含一次每个现有资源，不能包含不存在的资源 ID。</value></data>
+  <data name="Diagnostic_AppStateValidator_StatisticsAreRequired" xml:space="preserve"><value>必须提供统计数据。</value></data>
+  <data name="Diagnostic_AppStateValidator_CountsCannotBeNegative" xml:space="preserve"><value>计数不能为负数。</value></data>
+  <data name="Diagnostic_AppStateValidator_TheCountsCollectionIsRequired" xml:space="preserve"><value>必须提供计数集合。</value></data>
+  <data name="Diagnostic_AppStateValidator_TheRecentActivityCollectionIsRequired" xml:space="preserve"><value>必须提供最近活动集合。</value></data>
+  <data name="Diagnostic_AppStateValidator_KeepAtMost200RecentEntriesCumulativeStatistics" xml:space="preserve"><value>最多保留 200 条最近活动，累计统计独立保留。</value></data>
+  <data name="Diagnostic_AppStateValidator_AnActivityEntryCannotBeNull" xml:space="preserve"><value>活动条目不能为空。</value></data>
+  <data name="Diagnostic_AppStateValidator_ActivityIDsMustBeUnique" xml:space="preserve"><value>活动 ID 必须唯一。</value></data>
+  <data name="Diagnostic_AppStateValidator_ChooseASupportedOutcome" xml:space="preserve"><value>请选择支持的结果类型。</value></data>
+  <data name="Diagnostic_AppStateValidator_ARequestedRouteSnapshotIsRequired" xml:space="preserve"><value>必须提供请求的转发地址快照。</value></data>
+  <data name="Diagnostic_AppStateValidator_ASourceSnapshotIsRequired" xml:space="preserve"><value>必须提供来源快照。</value></data>
+  <data name="Diagnostic_AppStateValidator_AServerNameSnapshotIsRequired" xml:space="preserve"><value>必须提供服务器名称快照。</value></data>
+  <data name="Diagnostic_AppStateValidator_AProfileNameSnapshotIsRequired" xml:space="preserve"><value>必须提供配置组名称快照。</value></data>
+  <data name="Diagnostic_AppStateValidator_UnknownErrorCategory" xml:space="preserve"><value>未知的错误类别。</value></data>
+  <data name="Diagnostic_AppStateValidator_AnErrorExplanationIsRequired" xml:space="preserve"><value>必须提供错误说明。</value></data>
+  <data name="Diagnostic_AppStateValidator_AnEndpointIsRequired" xml:space="preserve"><value>必须提供端点。</value></data>
+  <data name="Diagnostic_AppStateValidator_EnterAValidHost" xml:space="preserve"><value>请输入有效的主机地址。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_EnterAnIPAddressOrHostnameWithoutA" xml:space="preserve"><value>请输入不含端口、URI 协议或空白字符的 IP 地址或主机名。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_EnterAnSSHUsernameWithoutWhitespaceOrControl" xml:space="preserve"><value>请输入不含空白字符或控制字符的 SSH 用户名。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheDisplayNameCannotContainControlCharacters" xml:space="preserve"><value>显示名称不能包含控制字符。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ChooseASupportedAuthenticationMethod" xml:space="preserve"><value>请选择支持的认证方式。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_SelectAPrivateKeyFile" xml:space="preserve"><value>请选择私钥文件。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheKeyPathCannotContainControlCharacters" xml:space="preserve"><value>密钥路径不能包含控制字符。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_SelectAnExistingServer" xml:space="preserve"><value>请选择已存在的服务器。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ChooseLocalOrRemoteForwarding" xml:space="preserve"><value>请选择本地转发或远程转发。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_EnterAValidLocalHostWithoutAPort" xml:space="preserve"><value>请输入不含端口或 URI 协议的有效本地主机地址。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_EnterAValidRemoteHostWithoutAPort" xml:space="preserve"><value>请输入不含端口或 URI 协议的有效远程主机地址。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheLocalListeningAddressMustBeAnExplicit" xml:space="preserve"><value>本地监听地址必须是明确的 IP 地址。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheRemoteListeningAddressMustBeAnExplicit" xml:space="preserve"><value>远程监听地址必须是明确的 IP 地址。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_AutomaticPortSearchIsAvailableForLocalForwarding" xml:space="preserve"><value>只有本地转发支持自动查找端口。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_EnterAProfileNameWithoutControlCharacters" xml:space="preserve"><value>请输入不含控制字符的配置组名称。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheRulesCollectionIsRequired" xml:space="preserve"><value>必须提供规则集合。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ARuleCannotBeNull" xml:space="preserve"><value>规则不能为空。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_RuleIDsMustBeUnique" xml:space="preserve"><value>规则 ID 必须唯一。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ChooseFrom3To10ItemsPerSection" xml:space="preserve"><value>每个分区的项目数须为 3 到 10。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ChooseASupportedDefaultAuthenticationMethod" xml:space="preserve"><value>请选择支持的默认认证方式。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_ChooseAnAbsolutePathForTheDefaultPrivate" xml:space="preserve"><value>请为默认私钥选择绝对路径。</value></data>
+  <data name="Diagnostic_ConfigurationValidator_TheReferencedServerNoLongerExists" xml:space="preserve"><value>引用的服务器已不存在。</value></data>
+  <data name="Diagnostic_ValidationBuilder_ANonEmptyIDIsRequired" xml:space="preserve"><value>必须提供非空 ID。</value></data>
+  <data name="Diagnostic_ValidationBuilder_EnterAWholeNumberPortFrom1To" xml:space="preserve"><value>请输入 1 到 65535 之间的整数端口号。</value></data>
+  <data name="Diagnostic_ValidationBuilder_StoreTimestampsInUTC" xml:space="preserve"><value>时间戳必须以 UTC 保存。</value></data>
+  <data name="Diagnostic_AppDataDirectory_UseAnAbsoluteDataDirectory" xml:space="preserve"><value>请使用数据目录的绝对路径。</value></data>
+  <data name="Diagnostic_AppDataDirectory_UserDataCannotBeStoredInTheInstallation" xml:space="preserve"><value>用户数据不能存放在安装目录中。</value></data>
+  <data name="Diagnostic_AppDataDirectory_TheUserDataDirectoryIsUnavailable" xml:space="preserve"><value>用户数据目录不可用。</value></data>
+  <data name="Diagnostic_AppStateJsonCodec_MigrationsMustAdvanceToASupportedSchema" xml:space="preserve"><value>迁移必须更新到受支持的配置格式。</value></data>
+  <data name="Diagnostic_AppStateJsonCodec_MigratedSchemaToInMemoryTheOriginalIs" xml:space="preserve"><value>已在内存中将配置格式从 {0} 升级到 {1}；成功保存更改前会保留原文件。</value></data>
+  <data name="Diagnostic_AtomicJsonFile_SavedDataCouldNotBeReadCheckAccess" xml:space="preserve"><value>无法读取已保存的数据，请检查数据目录的访问权限后重试。</value></data>
+  <data name="Diagnostic_AtomicJsonFile_SavedDataCouldNotBeWrittenTheEdit" xml:space="preserve"><value>无法写入已保存的数据，更改尚未应用，请检查数据目录后重试。</value></data>
+  <data name="Diagnostic_FileConfigurationLock_SavedDataIsUnavailableOrInUseCheck" xml:space="preserve"><value>已保存的数据不可用或正在使用中，请检查数据目录后重试。</value></data>
+  <data name="Diagnostic_JsonCredentialCleanupStore_CredentialReferencesCannotBeEmpty" xml:space="preserve"><value>凭据引用不能为空。</value></data>
+  <data name="Diagnostic_JsonStateStore_SavedDataIsReadOnlyBecauseItsFormat" xml:space="preserve"><value>不支持此数据格式，已保存的数据为只读。</value></data>
+  <data name="Diagnostic_JsonStateStore_TheSavedRevisionCannotBeAdvancedTheFile" xml:space="preserve"><value>无法继续增加修订号，原文件已保留。</value></data>
+  <data name="Diagnostic_JsonStateStore_LoadedTheLastValidBackupBecauseTheMain" xml:space="preserve"><value>主配置文件缺失或无效，已加载最近一次有效备份。成功保存下一次更改前会保留两个文件。</value></data>
+  <data name="Diagnostic_JsonStateStore_NeitherTheMainConfigurationNorItsBackupCan" xml:space="preserve"><value>主配置文件及其备份均无法加载，请恢复有效文件后重试。</value></data>
+  <data name="Diagnostic_JsonStateStore_ThisSavedDataFormatIsNotSupportedUpdate" xml:space="preserve"><value>不支持此数据格式，请更新 TunnelDeck 或恢复兼容文件后重试。</value></data>
+  <data name="Diagnostic_VersionedJson_ASavedDataFileIsInvalidRestoreA" xml:space="preserve"><value>已保存的数据文件无效，请恢复有效文件或备份后重试。</value></data>
+  <data name="Diagnostic_VersionedJson_ThisSavedDataFormatIsNotSupportedBy" xml:space="preserve"><value>此版本的 TunnelDeck 不支持该数据格式，不能覆盖此文件。</value></data>
+  <data name="Diagnostic_JsonHostKeyStore_AValidHostSSHPortAndHostKey" xml:space="preserve"><value>必须提供有效的主机、SSH 端口和主机密钥算法。</value></data>
+  <data name="Diagnostic_WindowsCredentialStore_TheCredentialExceedsWindowsStorageLimit" xml:space="preserve"><value>凭据超过 Windows 的存储限制。</value></data>
+  <data name="Diagnostic_WindowsCredentialStore_ACredentialReferenceIsRequired" xml:space="preserve"><value>必须提供凭据引用。</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_TheLocalListeningPortIsAlreadyInUse" xml:space="preserve"><value>本地监听端口已被占用。</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_WindowsDeniedAccessToTheLocalListeningAddress" xml:space="preserve"><value>Windows 拒绝访问本地监听地址或端口，请选择其他端口或检查本地策略。</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_TheListeningRequestWasNotConfirmedBeforeIts" xml:space="preserve"><value>监听请求未在截止时间前得到确认，其 SSH 传输已停用。</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_TheSSHConnectionEndedWhileStartingTheListener" xml:space="preserve"><value>启动监听时 SSH 连接已结束。</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_TheSSHServerRefusedRemoteListeningCheckThe" xml:space="preserve"><value>SSH 服务器拒绝远程监听。请检查请求的地址、端口和转发策略；服务器未提供具体原因。</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_TheListenerCouldNotBeStartedCheckThe" xml:space="preserve"><value>无法启动监听，请检查地址和 SSH 连接。</value></data>
+  <data name="Diagnostic_ForwardFailureMapper_AForwardedConnectionFailedCheckTheTargetService" xml:space="preserve"><value>转发连接失败，请检查目标服务和连接的客户端。监听仍可接受新请求。</value></data>
+  <data name="Diagnostic_SshConnectionOptions_SSHDeadlinesMustBePositiveTheLibraryTimeout" xml:space="preserve"><value>SSH 时限必须为正值，库超时必须覆盖连接时限并长于控制时限。</value></data>
+  <data name="Diagnostic_SshControlSession_TheControlDeadlineMustBePositiveAndShorter" xml:space="preserve"><value>控制时限必须为正值且短于 SSH.NET 内部超时，否则远程停止可能在超时后被静默视为完成。</value></data>
+  <data name="Diagnostic_SshControlSession_AControlSessionMustOwnATransportWith" xml:space="preserve"><value>控制会话必须拥有尚未配置任何转发端口的传输。</value></data>
+  <data name="Diagnostic_SshControlSession_OnlyTCPLocalAndRemoteForwardingAreSupported" xml:space="preserve"><value>仅支持 TCP 本地转发和远程转发。</value></data>
+  <data name="Diagnostic_SshControlSession_RemoteForwardingRequiresItsOwnSSHTransportLocal" xml:space="preserve"><value>远程转发需要独立的 SSH 传输，本地转发可以共享仅用于本地转发的传输。</value></data>
+  <data name="Diagnostic_SshControlSession_TheSSHSessionHasBeenRetiredCreateA" xml:space="preserve"><value>SSH 会话已停用，请先创建新会话再发出请求。</value></data>
+  <data name="Diagnostic_SshControlSession_TheSSHControlOperationExceededItsConfirmationDeadline" xml:space="preserve"><value>SSH 控制操作超过确认时限。</value></data>
+  <data name="Diagnostic_SshNetSession_TheRuleMustBelongToThisServerAnd" xml:space="preserve"><value>规则必须属于此服务器和传输方式。</value></data>
+  <data name="Diagnostic_SshNetSession_TheListenerDidNotStart" xml:space="preserve"><value>监听未启动。</value></data>
+  <data name="Diagnostic_TerminalCommandBuilder_SaveAValidHostUsernameAndSSHPort" xml:space="preserve"><value>打开终端前，请先保存有效的主机、用户名和 SSH 端口。</value></data>
+  <data name="Diagnostic_TerminalCommandBuilder_OpenSSHClientWasNotFoundInstallItFrom" xml:space="preserve"><value>未找到 OpenSSH 客户端，请在 Windows“可选功能”中安装后重试。</value></data>
+  <data name="Diagnostic_TerminalCommandBuilder_ThePrivateKeyFileWasNotFoundSelect" xml:space="preserve"><value>未找到私钥文件，请选择已存在的密钥文件绝对路径并保存服务器。</value></data>
+  <data name="Diagnostic_WindowsTerminalLauncher_ProcessCreationDidNotReturnAProcess" xml:space="preserve"><value>创建进程时未返回进程对象。</value></data>
+  <data name="Diagnostic_WindowsTerminalLauncher_TheSSHTerminalCouldNotBeOpenedCheck" xml:space="preserve"><value>无法打开 SSH 终端，请检查 OpenSSH 客户端是否已安装且可用后重试。</value></data>
+  <data name="Diagnostic_ExportJsonCodec_ChooseAnExportSmallerThan8MiB" xml:space="preserve"><value>请选择小于 8 MiB 的导出文件。</value></data>
+  <data name="Diagnostic_ExportJsonCodec_ThisExportVersionIsMissingOrUnsupportedUse" xml:space="preserve"><value>导出文件的版本缺失或不受支持，请使用兼容的 TunnelDeck 导出文件。</value></data>
+  <data name="Diagnostic_ExportJsonCodec_TheExportIsEmpty" xml:space="preserve"><value>导出文件为空。</value></data>
+  <data name="Diagnostic_ExportJsonCodec_TheExportIsNotValidJSONForThis" xml:space="preserve"><value>此导出文件不是符合格式的有效 JSON。请检查必填字段、值类型和未知属性，未导入任何内容。</value></data>
+  <data name="Diagnostic_ExportJsonCodec_TheExportHasAnInvalidFieldTypeNothing" xml:space="preserve"><value>导出文件中的字段类型无效，未导入任何内容。</value></data>
+  <data name="Diagnostic_ExportJsonCodec_ExportFewerResourcesAtATimeThisFile" xml:space="preserve"><value>此文件超过 8 MiB，请减少每次导出的资源数量。</value></data>
+  <data name="Diagnostic_ExportJsonCodec_TheExportRepeatsAJSONPropertyRemoveThe" xml:space="preserve"><value>导出文件包含重复的 JSON 属性，请移除重复项后重新预览。</value></data>
+  <data name="Diagnostic_ResourceTransferFiles_TheFileCouldNotBeReadChooseAn" xml:space="preserve"><value>无法读取此文件，请选择可访问的 UTF-8 文件后重新预览。</value></data>
+  <data name="Diagnostic_ResourceTransferFiles_SaveTheExportAsASeparateJsonFile" xml:space="preserve"><value>请另存为独立的 .json 文件，不能覆盖 SSH 配置文件。</value></data>
+  <data name="Diagnostic_ResourceTransferFiles_ChooseALocationOutsideTunnelDeckSDataDirectory" xml:space="preserve"><value>请将导出文件保存到 TunnelDeck 数据目录以外的位置。</value></data>
+  <data name="Diagnostic_ResourceTransferFiles_TheExportCouldNotBeSavedCheckThe" xml:space="preserve"><value>无法保存导出文件。请检查目标位置和可用磁盘空间后重试，原文件已保留。</value></data>
+  <data name="Diagnostic_ResourceTransferFiles_ChooseAFileSmallerThan8MiB" xml:space="preserve"><value>请选择小于 8 MiB 的文件。</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>语言</value></data>
+  <data name="Settings_LanguageHint" xml:space="preserve"><value>即时切换，无需重启</value></data>
+  <data name="Language_English" xml:space="preserve"><value>English</value></data>
+  <data name="Language_Chinese" xml:space="preserve"><value>简体中文</value></data>
+  <data name="Diagnostic_ChooseSupportedLanguage" xml:space="preserve"><value>请选择英语或简体中文。</value></data>
+  <data name="Common_On" xml:space="preserve"><value>开</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>关</value></data>
+  <data name="Common_Open" xml:space="preserve"><value>打开</value></data>
+  <data name="Common_Passphrase" xml:space="preserve"><value>口令</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>密码</value></data>
+  <data name="Time_Yesterday" xml:space="preserve"><value>昨天 {0}</value></data>
+  <data name="Duration_Days" xml:space="preserve"><value>{0} 天 {1:00}:{2:00}:{3:00}</value></data>
+  <data name="Search_Server" xml:space="preserve"><value>服务器 · {0}</value></data>
+  <data name="Search_Profile" xml:space="preserve"><value>配置组 · {0}</value></data>
+  <data name="Deletion_AllServersTitle" xml:space="preserve"><value>删除全部服务器？</value></data>
+  <data name="Deletion_AllProfilesTitle" xml:space="preserve"><value>删除全部配置组？</value></data>
+  <data name="Deletion_SelectedTitle" xml:space="preserve"><value>删除{0}？</value></data>
+  <data name="Import_NewServer" xml:space="preserve"><value>新服务器</value></data>
+  <data name="Import_NewProfile" xml:space="preserve"><value>新配置组</value></data>
+  <data name="Import_SkipOne" xml:space="preserve"><value>跳过预览中无法导入的 {0} 个条目</value></data>
+  <data name="Import_SkipOther" xml:space="preserve"><value>跳过预览中无法导入的 {0} 个条目</value></data>
+  <data name="Import_Lines" xml:space="preserve"><value>第 {0} 行</value></data>
+  <data name="Import_Line" xml:space="preserve"><value>第 {0} 行</value></data>
+  <data name="Import_ProfileDescription" xml:space="preserve"><value>{0} · 已包含服务器引用</value></data>
+  <data name="Diagnostic_ImportSkippedOne" xml:space="preserve"><value>由于缺少必填连接字段或字段无效，将跳过 {0} 个服务器条目。</value></data>
+  <data name="Diagnostic_ImportSkippedOther" xml:space="preserve"><value>由于缺少必填连接字段或字段无效，将跳过 {0} 个服务器条目。</value></data>
+  <data name="Diagnostic_StoppedOne" xml:space="preserve"><value>已停止 {0} 个转发</value></data>
+  <data name="Diagnostic_StoppedOther" xml:space="preserve"><value>已停止 {0} 个转发</value></data>
+  <data name="Transfer_SkippedOne" xml:space="preserve"><value>已跳过 {0} 个无法导入的条目。</value></data>
+  <data name="Transfer_SkippedOther" xml:space="preserve"><value>已跳过 {0} 个无法导入的条目。</value></data>
+  <data name="Usage_ForwardsOne" xml:space="preserve"><value>{0} 次转发 · {1}</value></data>
+  <data name="Usage_ForwardsOther" xml:space="preserve"><value>{0} 次转发 · {1}</value></data>
+  <data name="Usage_UsesOne" xml:space="preserve"><value>{0} 次使用</value></data>
+  <data name="Usage_UsesOther" xml:space="preserve"><value>{0} 次使用</value></data>
+  <data name="Shell_Back" xml:space="preserve"><value>返回</value></data>
+  <data name="Shell_Navigation" xml:space="preserve"><value>展开或收起导航</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>关闭</value></data>
+  <data name="Count_ServerOne" xml:space="preserve"><value>{0} 个服务器</value></data>
+  <data name="Count_ServerOther" xml:space="preserve"><value>{0} 个服务器</value></data>
+  <data name="Count_ProfileOne" xml:space="preserve"><value>{0} 个配置组</value></data>
+  <data name="Count_ProfileOther" xml:space="preserve"><value>{0} 个配置组</value></data>
+  <data name="Count_RuleOne" xml:space="preserve"><value>{0} 条规则</value></data>
+  <data name="Count_RuleOther" xml:space="preserve"><value>{0} 条规则</value></data>
+  <data name="Count_ForwardOne" xml:space="preserve"><value>{0} 个转发</value></data>
+  <data name="Count_ForwardOther" xml:space="preserve"><value>{0} 个转发</value></data>
+  <data name="Count_NewServerOne" xml:space="preserve"><value>{0} 个新服务器</value></data>
+  <data name="Count_NewServerOther" xml:space="preserve"><value>{0} 个新服务器</value></data>
+  <data name="Count_NewProfileOne" xml:space="preserve"><value>{0} 个新配置组</value></data>
+  <data name="Count_NewProfileOther" xml:space="preserve"><value>{0} 个新配置组</value></data>
+  <data name="Count_ForwardingRuleOne" xml:space="preserve"><value>{0} 条转发规则</value></data>
+  <data name="Count_ForwardingRuleOther" xml:space="preserve"><value>{0} 条转发规则</value></data>
+  <data name="Count_ExistingForwardOne" xml:space="preserve"><value>{0} 个现有转发</value></data>
+  <data name="Count_ExistingForwardOther" xml:space="preserve"><value>{0} 个现有转发</value></data>
+  <data name="Count_PendingForwardOne" xml:space="preserve"><value>{0} 个待处理的转发</value></data>
+  <data name="Count_PendingForwardOther" xml:space="preserve"><value>{0} 个待处理的转发</value></data>
+  <data name="Count_ConnectionTestOne" xml:space="preserve"><value>{0} 个连接测试</value></data>
+  <data name="Count_ConnectionTestOther" xml:space="preserve"><value>{0} 个连接测试</value></data>
+  <data name="Count_UseOne" xml:space="preserve"><value>{0} 次使用</value></data>
+  <data name="Count_UseOther" xml:space="preserve"><value>{0} 次使用</value></data>
+  <data name="Count_EntryOne" xml:space="preserve"><value>{0} 个条目</value></data>
+  <data name="Count_EntryOther" xml:space="preserve"><value>{0} 个条目</value></data>
+  <data name="State_Starting" xml:space="preserve"><value>正在启动</value></data>
+  <data name="State_Running" xml:space="preserve"><value>运行中</value></data>
+  <data name="State_Reconnecting" xml:space="preserve"><value>正在重连</value></data>
+  <data name="State_Stopping" xml:space="preserve"><value>正在停止</value></data>
+  <data name="State_Stopped" xml:space="preserve"><value>已停止</value></data>
+  <data name="State_Failed" xml:space="preserve"><value>失败</value></data>
+  <data name="State_Cancelled" xml:space="preserve"><value>已取消</value></data>
+  <data name="Outcome_Started" xml:space="preserve"><value>已启动</value></data>
+  <data name="Outcome_Stopped" xml:space="preserve"><value>已停止</value></data>
+  <data name="Outcome_Failed" xml:space="preserve"><value>失败</value></data>
+  <data name="Outcome_Cancelled" xml:space="preserve"><value>已取消</value></data>
+  <data name="Common_Add" xml:space="preserve"><value>添加</value></data>
+  <data name="Dashboard_Usage" xml:space="preserve"><value>使用统计</value></data>
+  <data name="Common_StartAll" xml:space="preserve"><value>全部启动</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>保存</value></data>
+  <data name="Common_CancelStart" xml:space="preserve"><value>取消启动</value></data>
+  <data name="Common_RetryFailed" xml:space="preserve"><value>重试失败项</value></data>
+  <data name="Common_Resources" xml:space="preserve"><value>资源</value></data>
+  <data name="Common_DeleteProfile" xml:space="preserve"><value>删除配置组</value></data>
+  <data name="Common_DeleteServer" xml:space="preserve"><value>删除服务器</value></data>
+  <data name="Field_Name" xml:space="preserve"><value>名称</value></data>
+  <data name="Field_Host" xml:space="preserve"><value>主机</value></data>
+  <data name="Field_Port" xml:space="preserve"><value>端口</value></data>
+  <data name="Field_Username" xml:space="preserve"><value>用户名</value></data>
+  <data name="Field_DisplayName" xml:space="preserve"><value>显示名称</value></data>
+  <data name="Field_IdentityFilePath" xml:space="preserve"><value>密钥路径</value></data>
+  <data name="Field_ServerId" xml:space="preserve"><value>服务器</value></data>
+  <data name="Field_Mode" xml:space="preserve"><value>转发方式</value></data>
+  <data name="Field_LocalHost" xml:space="preserve"><value>本地主机</value></data>
+  <data name="Field_RemoteHost" xml:space="preserve"><value>远程主机</value></data>
+  <data name="Field_LocalPort" xml:space="preserve"><value>本地端口</value></data>
+  <data name="Field_RemotePort" xml:space="preserve"><value>远程端口</value></data>
+  <data name="Field_Rules" xml:space="preserve"><value>规则</value></data>
+  <data name="Field_Servers" xml:space="preserve"><value>服务器</value></data>
+  <data name="Field_Profiles" xml:space="preserve"><value>配置组</value></data>
+  <data name="Field_Settings" xml:space="preserve"><value>设置</value></data>
+  <data name="Field_Language" xml:space="preserve"><value>语言</value></data>
+  <data name="Field_DefaultIdentityFilePath" xml:space="preserve"><value>默认密钥路径</value></data>
+  <data name="Field_DefaultAuthenticationMethod" xml:space="preserve"><value>默认认证方式</value></data>
+  <data name="Field_SidebarMaximumItems" xml:space="preserve"><value>侧边栏项目数</value></data>
+  <data name="Field_AutoFindAvailablePort" xml:space="preserve"><value>自动查找可用端口</value></data>
+</root>

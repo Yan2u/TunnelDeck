@@ -1,6 +1,8 @@
 # 构建 TunnelDeck - 一个 WinUI3 的端口转发助手
 
-> 2026-09-20 实施更新：M0–M8 已完成；GUI D 已由用户「GUI 测试通过，继续 M9.」确认，GUI A / B / C 保持已确认。M9 已接入删除影响确认、共享任务门禁、停止与原子配置删除、失败重试及引用清理；GUI E 待评测。当前 Core 304、Infrastructure 92、真实 SSH 63，共 459 项测试通过。最新状态见 [里程碑](../../docs/milestones.md)、[删除契约](../../docs/deletion.md)、[Profiles 契约](../../docs/profiles.md)、[转发契约](../../docs/tunnels.md) 和 [ADR 0002](../../docs/decisions/0002-forwarded-channel-keepalive.md)。仅 Local 监听端口确认占用时自动递增；Remote 不递增。物理传输采用 Local 共享、Remote 每条独立连接。
+> 2026-09-22 用户后续要求：M13 功能总体测试通过，继续 UI / UX 迭代；功能契约不变。UI 项目迁至 `src/TunnelDeck`，本轮视觉与交互以 [统一设计](../../docs/ui-design-system.md) 为准，检查和交付见 [UI 验证](../../docs/ui-refresh-validation.md)。保留 M13 未完成的环境验证，不自动开始新功能里程碑。
+
+> 2026-09-21 实施更新：M0–M12 / GUI A–H 已由用户确认，继续 M13。663 项非 GUI / 真实 SSH 测试通过；有界资源列表、1000 + 1000 资源、实际 100/150/200% DPI、启动与空闲、20 条转发和本地发布已有证据。导入缩窗异常的真实消息为 “Focus cannot be moved while getting or losing focus.”，已将输入表单移出会同步重置的列表并回归；不是由 HRESULT 名称就能认定的图形设备故障。系统文字、无障碍、最终产物和人工验收继续收尾，真实状态见 [M13 验证](../../docs/m13-validation.md)、[性能](../../docs/performance.md) 和 [里程碑](../../docs/milestones.md)。内部配置 schema 2，可移植导出 v1；Local 共享、Remote 每条独立连接及仅 Local 占用时递增的边界不变。
 
 版本：2026-09-19 规划稿。目标：在用户已创建的空白 WinUI 3 template 上，实现轻量、原生、可靠的 Windows 11 SSH 端口转发工具。
 
@@ -42,7 +44,8 @@ tests/
   TunnelDeck.Core.Tests/          纯逻辑与用例；假时钟、假连接、故障注入
   TunnelDeck.Infrastructure.Tests/文件/Windows 凭据/进程参数集成测试
   TunnelDeck.Ssh.Tests/           受控 sshd 上的真实数据链路与故障测试
-test-infra/                      sshd fixtures、启动/清理脚本、echo 服务
+test-infra/                      编译型测试辅助程序（TunnelDeck.ProcessProbe）
+scripts/fixtures/                sshd fixtures、启动/清理脚本、echo 服务
 docs/                           规范、ADR、里程碑状态、人工验收记录
 .codex/history/                  每次较大改动的目的、模块、验证和限制
 ```
@@ -72,7 +75,7 @@ Pages 只处理视图生命周期、focus、flyout/dialog anchor 等 UI 事项�
 | RemoteServer | `Id: Guid`、DisplayName?、Host、Port、Username、AuthMethod、IdentityFilePath?、CredentialReference?、LastUsedAt?；DisplayName 允许空和重名 |
 | ForwardProfile | Id、Name、按顺序保存的 Rules、LastUsedAt?；不绑定一个 Server |
 | ForwardRule | Id、ServerId、Mode、LocalHost、LocalPort、RemoteHost、RemotePort、AutoFindAvailablePort；端口为 1–65535；自动搜索仅 Local 生效，Remote 保存为 false |
-| AppSettings | SidebarMaximumItems=5（3–10）、DefaultServerId?、AutoFindAvailablePortDefault（仅新建 Local 使用）、PinnedQuickServerId?；搜索次数/时限首先作为实现策略常量 |
+| AppSettings | SidebarMaximumItems=5（3–10）、DefaultServerId?、AutoFindAvailablePortDefault（仅新建 Local 使用）、PinnedQuickServerId?、DefaultAuthenticationMethod=Password、DefaultIdentityFilePath?；默认认证仅预填新 Server 与无显式认证的 SSH config 条目 |
 | ResourceOrder | PinnedProfileIds、OtherProfileIds、PinnedServerIds、OtherServerIds；数组顺序即 UI 顺序 |
 | ActiveTunnel | Id、ServerId、Mode、Requested/Actual 双端地址端口、状态、StartedAt、EndedAt、最近连接时间、来源快照、最后错误；运行时对象不序列化到配置 |
 | ActivityEntry / UsageStatistics | 成功/失败/停止的历史快照、UTC 时间；累计成功启动次数与 per-resource 使用次数独立于裁剪后的 Recent 列表 |
@@ -390,7 +393,7 @@ Windows AccessDenied/保留端口、认证、host key、DNS/网络错误、超�
 
 **目标**：删除 Server 前准确说明后果，失败不破坏配置引用。
 
-**实施补充（2026-09-20）**：单个 / 全量共用 ID 影响扫描；Quick、Profile 和连接测试在输入或启动前登记 ServerWorkLease。确认后按固定顺序取门禁，在配置事务内重新检查并停止，失败保留配置；成功删除的终态行仅在活动记录落盘后清理，包括上一次失败已停止的行。Profile 删除保留已接受工作和来源快照。More、原生确认、长清单滚动、默认 Cancel、失败 InfoBar 与重试已接入；窗口销毁前先关闭并排空确认对话框。详见 [deletion](../../docs/deletion.md)。GUI E 待用户评测；完整重连 / 导入交错分别留给 M10 / M11。
+**实施补充（2026-09-20）**：单个 / 全量共用 ID 影响扫描；Quick、Profile 和连接测试在输入或启动前登记 ServerWorkLease。确认后按固定顺序取门禁，在配置事务内重新检查并停止，失败保留配置；成功删除的终态行仅在活动记录落盘后清理，包括上一次失败已停止的行。Profile 删除保留已接受工作和来源快照。More、原生确认、长清单滚动、默认 Cancel、失败 InfoBar 与重试已接入；窗口销毁前先关闭并排空确认对话框。详见 [deletion](../../docs/deletion.md)。GUI E 已由用户确认；重连交错已在 M10 覆盖，导入交错已在 M11 覆盖。
 
 **实施**：
 
@@ -444,7 +447,11 @@ Windows AccessDenied/保留端口、认证、host key、DNS/网络错误、超�
 - `LIFE-06`：清理超时、存储失败、重复 Closing；UI 响应且有终态。
 - `LIFE-07`：第二实例不接管数据锁；100 次 start/stop 和一定时间循环运行后句柄/线程/内存不持续增长。
 
+**实施补充（2026-09-20）**：`ReconnectCoordinator` / `ReconnectPolicy` 按用户确认的 1 s → 30 s、±20%、2 分钟参数实现；只恢复已建立转发，不缓存临时密码，不弹主机批准。`TunnelManager.Reconnect` 保留同一实例并优先上次 Actual 端口；`ShutdownCoordinator` 命名步骤、不重复已完成步骤，窗口以 10 秒预算执行并提供 Retry / 不保存退出 / Esc 暂停；`Program.Main` 在配置打开前注册 `AppInstance`。托盘分支未实现。LIFE-01～07 由 Core 假时钟用例、真实 SSH 恢复 / 取消 / 黑洞 / 100 次循环用例和 `Verify-Lifecycle.ps1` 覆盖，详见 [lifecycle](../../docs/lifecycle.md)。
+
 **人工评测**：用户只评测关闭/重连等待时的信息是否清楚；若有托盘，验证隐藏、恢复、退出是否符合预期。网络故障注入仍由 Agent 负责。
+
+**验收状态**：GUI F 已由前一会话用户「GUI 测试通过，继续 M11.」确认。
 
 **通过标准**：所有退出入口共享有界清理流程；主动停止绝不自动恢复；实测资源回收与已声明的远端检测边界一致。
 
@@ -452,13 +459,15 @@ Windows AccessDenied/保留端口、认证、host key、DNS/网络错误、超�
 
 **目标**：能够迁移已有配置、备份资源，并快捷打开外部 SSH 终端。
 
+**实施补充（2026-09-21）**：独立导出 v1 包含完整依赖与资源顺序；JSON 严格全量校验，新 ID 映射后沿配置队列 / 删除准入门禁一次提交。SSH config 按下文用户修订的规则导入，保留忽略选项与必填字段错误的行号。Import / Export 使用独立页面，系统 picker、失败重试和重启已验证。终端用 ArgumentList、-F none，分号 / 引号参数直接使用 SSH 控制台规避 wt 二次解析；独立认证、信任与生命周期已由真实 OpenSSH 验证。M11 基线 606 项测试及六套原生检查通过；详见 [transfer](../../docs/transfer.md)、[terminal](../../docs/terminal.md) 和 [M11 evidence](../../docs/evidence/2026-09-21-m11.json)。GUI G 已由用户确认。
+
 **实施**：
 
 1. 定义 `TunnelDeckExport`：schemaVersion、资源、顺序、Profile 所需 Server 描述。导出 Profile 时附带其依赖的非秘密 Server 信息，避免生成无法使用的裸 ServerId。
 2. 排除密码、私钥内容、CredentialReference、自动授信数据、活动隧道。IdentityFilePath 只是可选路径提示，异机导入需确认文件存在。
 3. 导入分为解析 → 全量校验 → 映射/预览 → 一次性提交。默认新建 ID 并重映射所有内部引用，不凭同名覆盖已有项；单次导入的重复 ID/非法数据直接指出。
 4. SSH config 首版只支持经过测试的静态字段，例如具体 Host alias、HostName、User、Port、IdentityFile；按 OpenSSH “首次取值”规则处理支持部分。
-5. 遇到 Include/Match/ProxyJump/ProxyCommand、多 IdentityFile 或不能可靠解析的模式，列出具体警告；受影响条目要求人工补齐或跳过，不静默丢弃决定性选项。保守地保留原文件行号供定位。
+5. **用户 2026-09-21 修订**：只在 Host / Username / Port 等必要连接字段缺失或无效时阻止该条导入。其他不支持的 SSH 属性直接忽略并逐项提示原文件行号，包括 Compression、X11、转发、Include 和代理选项；不执行命令、不读取 Include、不回写原配置。Match 及其条件字段整体忽略，不能将条件值当作静态默认。一个可用 IdentityFile 可保留；不能表示或路径缺失时明确提示改用密码认证，导入后在详情中配置。HostName 缺省使用具体 alias，Port 缺省 22，User 必须明确提供。这取代最初“未知选项导致整条跳过”的规则。
 6. 不为导入执行任意配置命令，不覆盖用户 `~/.ssh/config`，不声称可无损回写。若未来支持导出 SSH config，仅输出 TunnelDeck 管理的独立片段。
 7. Import/Export 位于 All 页 More。导入是复杂预览页面/区块，不滥用 Flyout；结果有警告时用 InfoBar，成功从资源列表变化体现。
 8. Open Terminal 使用受控 `ProcessStartInfo.ArgumentList` 启动 Windows Terminal + `ssh.exe`；缺失 Terminal 时使用可用的控制台 SSH 路径。首版限制为经过验证的启动适配，不接受任意拼接 shell 模板。
@@ -488,7 +497,7 @@ Windows AccessDenied/保留端口、认证、host key、DNS/网络错误、超�
 3. Most used Server 依据成功转发次数；Profile 每次批量启动至少一条新规则成功算一次使用。浏览页面、测试连接、终端启动可影响 LastUsedAt，但不冒充成功转发统计。
 4. 累计统计独立持久化，Recent 裁剪不改变 Total forwards。活动使用 UTC 存储、本地时间显示；名称重命名/删除不破坏历史快照，当前资源与历史口径区分清楚。
 5. 不显示未实现的 Total transferred traffic，不用 0 伪装。若用户明确要求计量，先完成独立计量技术里程碑再将真实数据接入。
-6. Settings：MaximumItems 3–10、默认 Server、自动找本地端口默认值；自动搜索默认值只作用于新 Local Quick/Rule，不回写旧 Rule 或覆盖当前已编辑草稿，Remote 不使用该设置。
+6. Settings：MaximumItems 3–10、默认 Server、自动找本地端口默认值；自动搜索默认值只作用于新 Local Quick/Rule，不回写旧 Rule 或覆盖当前已编辑草稿，Remote 不使用该设置。用户 2026-09-21 后续反馈增加默认 Password / Private key 及默认密钥，仅密钥模式显示文件选项；自动检测 `%USERPROFILE%/.ssh/id_rsa`，可浏览或手输。新 Server 和无 IdentityFile 的 SSH config 预填默认值，显式 IdentityFile / JSON 认证优先，已有 Server / 草稿不改。内部配置升级 schema 2，兼容 schema 1 且加载不写盘。
 7. Default Server 被删除清空；Quick 固定/选择独立于列表 Pin。Settings 常规修改即时保存且失败可见。
 8. Recent/Statistics 宽窗并排，窄窗上下；无巨大 KPI 卡片、实时带宽或 Sidebar uptime。资源频率计数不改变 Other 排序。
 

@@ -32,7 +32,7 @@ public sealed record TunnelManagerOptions
     {
         if (MaximumConcurrentStarts < 1 || MaximumConcurrentCleanup < 1 || StopTimeout <= TimeSpan.Zero || DiagnosticNotificationInterval <= TimeSpan.Zero)
         {
-            throw new ArgumentException("Tunnel concurrency limits and time budgets must be positive.");
+            throw new ArgumentException(UiText.Invariant("Diagnostic_TunnelResults_TunnelConcurrencyLimitsAndTimeBudgetsMustBe"));
         }
     }
 }

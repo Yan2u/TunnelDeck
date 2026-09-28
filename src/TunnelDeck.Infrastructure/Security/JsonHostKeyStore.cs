@@ -19,7 +19,7 @@ public sealed class JsonHostKeyStore : IHostKeyStore
     {
         if (!HostAddress.IsValidHost(host) || port is < 1 or > 65535 || !ValidAlgorithm(algorithm))
         {
-            throw new ArgumentException("A valid host, SSH port and host-key algorithm are required.");
+            throw new ArgumentException(UiText.Invariant("Diagnostic_JsonHostKeyStore_AValidHostSSHPortAndHostKey"));
         }
         using IDisposable lease = await _file.AcquireAsync(cancellationToken).ConfigureAwait(false);
         HostKeyDocument document = await ReadUnderLockAsync(cancellationToken).ConfigureAwait(false);

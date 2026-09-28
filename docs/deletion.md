@@ -19,7 +19,7 @@ All 页面和详情页的 Delete / Delete all 均置于原生 More 菜单，使�
 5. 原子提交成功后发布配置，由 Quick、Sidebar、搜索和导航统一校正失效引用。独占凭据沿用 M3 的持久清理队列，共享凭据在仍有引用时保留。
 6. 离散活动写入排在删除事务之后，不能在持有配置队列时等待它们。停止历史保存成功后才清除相应活动行；已提交删除不因后续活动写入失败被误报为失败。
 
-`ServerWorkRegistry.Begin` 在 Quick 输入、Profile 批次和连接测试之前登记工作，已接受的操作持有 lease；门禁生效后拒绝新工作，成功删除留下 ID 墓碑，旧快照不能重新启动。未来 M10 的重连和 M11 的导入必须复用此门禁与事务顺序，不得自行恢复已删除引用。
+`ServerWorkRegistry.Begin` 在 Quick 输入、Profile 批次和连接测试之前登记工作，已接受的操作持有 lease；门禁生效后拒绝新工作，成功删除留下 ID 墓碑，旧快照不能重新启动。M10 重连组通过 `ServerWorkKind.Reconnect` 复用此门禁。M11 的 ResourceImportService 在配置队列内检查同一准入门禁及预览 revision，只追加新 ID；删除使预览失效，导入使 Delete all 的影响改变时必须重新确认，详见 [transfer](transfer.md)。
 
 ## 失败与取消
 
@@ -42,7 +42,7 @@ All 页面和详情页的 Delete / Delete all 均置于原生 More 菜单，使�
 ```powershell
 ./scripts/Build.ps1 -LockedRestore
 ./scripts/Test.ps1 -Ssh -NoFixtureBuild
-./scripts/Verify-Deletions.ps1 -NoFixtureBuild
+./scripts/debug/Verify-Deletions.ps1 -NoFixtureBuild
 ```
 
 `Verify-Deletions.ps1 -LayoutOnly` 可单独运行无网络的界面场景。完整脚本使用隔离配置、独立 OpenSSH 夹具及一次性凭据；不删除用户的服务器。原生输入脚本顺序运行，复用前台 / 坐标保护。GUI E 由用户评测，不能用自动化结果代替。

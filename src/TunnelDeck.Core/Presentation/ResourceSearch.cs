@@ -24,7 +24,7 @@ public static class ResourceSearch
         {
             if (!words.All(word => Contains(profile.Name, word))) { continue; }
             bool duplicate = state.Profiles.Count(item => StringComparer.OrdinalIgnoreCase.Equals(item.Name, profile.Name)) > 1;
-            string description = $"Profile · {profile.Rules.Length} {(profile.Rules.Length == 1 ? "rule" : "rules")}";
+            string description = UiText.Get("Search_Profile", UiText.Count(profile.Rules.Length, "rule"));
             if (duplicate) { description += $" · {profile.Id.ToString("N")[..8]}"; }
             results.Add((new(ResourceKind.Profile, profile.Id, profile.Name, description), Rank(profile.Name, text)));
         }
@@ -36,7 +36,7 @@ public static class ResourceSearch
             string endpoint = ResourceDisplay.ServerEndpoint(server);
             bool duplicate = state.Servers.Count(item => StringComparer.OrdinalIgnoreCase.Equals(ResourceDisplay.ServerName(item), name) &&
                 StringComparer.OrdinalIgnoreCase.Equals(ResourceDisplay.ServerEndpoint(item), endpoint)) > 1;
-            string description = "Server · " + endpoint + (duplicate ? $" · {server.Id.ToString("N")[..8]}" : string.Empty);
+            string description = UiText.Get("Search_Server", endpoint) + (duplicate ? $" · {server.Id.ToString("N")[..8]}" : string.Empty);
             int rank = Math.Min(Rank(name, text), 3 + Rank(server.Host, text));
             results.Add((new(ResourceKind.Server, server.Id, name, description), rank));
         }

@@ -25,19 +25,19 @@ public sealed class ResourceDeletionService(ConfigurationService configuration, 
     private static ImmutableArray<Guid> Normalize(IEnumerable<Guid> ids)
     {
         ImmutableArray<Guid> normalized = [.. ids.Distinct().Order()];
-        if (normalized.Contains(Guid.Empty)) { throw new ArgumentException("Deletion requires non-empty resource IDs.", nameof(ids)); }
+        if (normalized.Contains(Guid.Empty)) { throw new ArgumentException(UiText.Invariant("Diagnostic_ResourceDeletionService_DeletionRequiresNonEmptyResourceIDs"), nameof(ids)); }
         return normalized;
     }
 
     private DeletionImpact Calculate(DeletionRequest request, AppState? state = null) => DeletionImpactCalculator.Calculate(
-        state ?? configuration.Current ?? throw new InvalidOperationException("Load saved data before deleting resources."),
+        state ?? configuration.Current ?? throw new InvalidOperationException(UiText.Invariant("Diagnostic_ResourceDeletionService_LoadSavedDataBeforeDeletingResources")),
         tunnels.Current, connections.Work.Current, request);
 
     public Task<DeletionResult> DeleteConfirmedAsync(DeletionImpact confirmed, CancellationToken cancellationToken = default)
     {
         lock (_sync)
         {
-            if (!_accepting) { return Task.FromResult(new DeletionResult(DeletionOutcome.Cancelled, confirmed, [], "TunnelDeck is closing. Nothing was deleted.")); }
+            if (!_accepting) { return Task.FromResult(new DeletionResult(DeletionOutcome.Cancelled, confirmed, [], UiText.Invariant("Diagnostic_ResourceDeletionService_TunnelDeckIsClosingNothingWasDeleted"))); }
             Task<DeletionResult> work = Task.Run(() => ExecuteAsync(confirmed, cancellationToken));
             _work.Add(work);
             _ = work.ContinueWith(done => { lock (_sync) { _work.Remove(done); } }, CancellationToken.None,
@@ -71,7 +71,7 @@ public sealed class ResourceDeletionService(ConfigurationService configuration, 
                 IEnumerable<Guid> currentIds = latest.Request.Kind == ResourceKind.Server
                     ? latest.Servers.Select(server => server.Id) : latest.Profiles.Select(profile => profile.Id);
                 if (!barrier.Ids.SetEquals(currentIds) || !DeletionImpactCalculator.SameEffect(confirmed, latest))
-                { return new(new(DeletionOutcome.NeedsConfirmation, latest, [], "The affected resources or running work changed. Review the updated impact before deleting.")); }
+                { return new(new(DeletionOutcome.NeedsConfirmation, latest, [], UiText.Invariant("Diagnostic_ResourceDeletionService_TheAffectedResourcesOrRunningWorkChangedReview"))); }
                 if (latest.ResourceCount == 0) { return new(new(DeletionOutcome.Deleted, latest, [], string.Empty, state, [])); }
                 token.ThrowIfCancellationRequested();
                 if (confirmed.Request.Kind == ResourceKind.Server)
@@ -89,13 +89,13 @@ public sealed class ResourceDeletionService(ConfigurationService configuration, 
                     if (results.Any(result => !result.Succeeded))
                     {
                         return new(new(DeletionOutcome.StopFailed, latest, [.. stopped],
-                            $"Nothing was deleted. {StoppedSummary(stopped.Count)}; {results.Count(result => !result.Succeeded)} could not be fully stopped. Check their states, then review and retry."));
+                            UiText.Invariant("Diagnostic_ResourceDeletionService_NothingWasDeletedCouldNotBeFullyStopped", StoppedSummary(stopped.Count), results.Count(result => !result.Succeeded))));
                     }
                     try { await connections.StopConnectionsAsync(ids).ConfigureAwait(false); }
                     catch (Exception)
                     {
                         return new(new(DeletionOutcome.StopFailed, latest, [.. stopped],
-                            $"Nothing was deleted. {StoppedSummary(stopped.Count)}, but SSH connection cleanup is incomplete. Review and retry."));
+                            UiText.Invariant("Diagnostic_ResourceDeletionService_NothingWasDeletedButSSHConnectionCleanupIs", StoppedSummary(stopped.Count))));
                     }
                 }
                 token.ThrowIfCancellationRequested();
@@ -124,19 +124,19 @@ public sealed class ResourceDeletionService(ConfigurationService configuration, 
         catch (OperationCanceledException)
         {
             return new(DeletionOutcome.Cancelled, latest, [.. stopped], stoppingStarted
-                ? $"Deletion was cancelled. Configuration was kept; {StoppedSummary(stopped.Count)}."
-                : "Deletion was cancelled. Nothing was deleted.");
+                ? UiText.Invariant("Diagnostic_ResourceDeletionService_DeletionWasCancelledConfigurationWasKept", StoppedSummary(stopped.Count))
+                : UiText.Invariant("Diagnostic_ResourceDeletionService_DeletionWasCancelledNothingWasDeleted"));
         }
         catch (Exception)
         {
             return new(DeletionOutcome.SaveFailed, latest, [.. stopped], stoppingStarted
-                ? $"Nothing was deleted. {StoppedSummary(stopped.Count)}, but the configuration could not be saved. Review and retry."
-                : "Nothing was deleted. The configuration could not be saved. Review and retry.");
+                ? UiText.Invariant("Diagnostic_ResourceDeletionService_NothingWasDeletedButTheConfigurationCouldNot", StoppedSummary(stopped.Count))
+                : UiText.Invariant("Diagnostic_ResourceDeletionService_NothingWasDeletedTheConfigurationCouldNotBe"));
         }
         finally { if (held) { _execution.Release(); } }
     }
 
-    private static string StoppedSummary(int count) => $"{count} forward{(count == 1 ? string.Empty : "s")} stopped";
+    private static string StoppedSummary(int count) => UiText.Invariant(count == 1 ? "Diagnostic_StoppedOne" : "Diagnostic_StoppedOther", count);
 
     public async Task ShutdownAsync(CancellationToken cancellationToken)
     {

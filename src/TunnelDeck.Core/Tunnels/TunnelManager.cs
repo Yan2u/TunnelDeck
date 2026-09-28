@@ -58,7 +58,7 @@ public sealed partial class TunnelManager : IShutdownParticipant
         {
             AutoFindAvailablePort = launch.Requested.Mode == ForwardMode.Local && launch.Requested.AutoFindAvailablePort,
         }).ThrowIfInvalid();
-        if (launch.Server.Id != launch.Requested.ServerId) { throw new ArgumentException("The rule and server snapshot must have the same server ID.", nameof(launch)); }
+        if (launch.Server.Id != launch.Requested.ServerId) { throw new ArgumentException(UiText.Invariant("Diagnostic_TunnelManager_TheRuleAndServerSnapshotMustHaveThe"), nameof(launch)); }
         launch = launch with { Server = launch.Server with { }, Requested = launch.Requested with { }, Source = launch.Source with { } };
         ForwardRequestKey key = ForwardRequestKey.FromRule(launch.Requested);
         using ServerWorkLease? ownedWork = work is null ? Work.Begin(launch.Server, ServerWorkKind.Forward, [launch], cancellationToken) : null;
@@ -144,10 +144,10 @@ public sealed partial class TunnelManager : IShutdownParticipant
 
     private void RequireStartAllowed(Guid serverId)
     {
-        if (!_accepting) { throw new ForwardException(new(TunnelFailureKind.Cancelled, "TunnelDeck is closing. New forwards are unavailable.")); }
+        if (!_accepting) { throw new ForwardException(new(TunnelFailureKind.Cancelled, UiText.Invariant("Diagnostic_TunnelManager_TunnelDeckIsClosingNewForwardsAreUnavailable"))); }
         if (_stopAllBarriers > 0 || _serverStopBarriers.GetValueOrDefault(serverId) > 0)
         {
-            throw new ForwardException(new(TunnelFailureKind.Cleanup, "Tunnels are being stopped. Retry starting after cleanup finishes."));
+            throw new ForwardException(new(TunnelFailureKind.Cleanup, UiText.Invariant("Diagnostic_TunnelManager_TunnelsAreBeingStoppedRetryStartingAfterCleanup")));
         }
     }
 

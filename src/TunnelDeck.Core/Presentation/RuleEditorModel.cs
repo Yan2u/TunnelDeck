@@ -26,10 +26,10 @@ public sealed class RuleEditorModel : ObservableModel
     public string LocalPortText { get => _localPort; set { if (SetProperty(ref _localPort, value)) { ClearErrors(); } } }
     public string RemotePortText { get => _remotePort; set { if (SetProperty(ref _remotePort, value)) { ClearErrors(); } } }
     public bool AutoFindPort { get => _auto; set => SetProperty(ref _auto, value); }
-    public string Direction => IsLocal ? "Listen on this computer → connect from the SSH server to the target." : "Listen on the SSH server → connect from this computer to the target.";
-    public string LocalHostLabel => IsLocal ? "Local listen address" : "Local target host";
-    public string RemoteHostLabel => IsLocal ? "Remote target host" : "Remote listen address";
-    public string ServerError => Issue("ServerId").Length == 0 ? string.Empty : "Select an SSH server.";
+    public string Direction => IsLocal ? UiText.Get("QuickForwardModel_ListenOnThisComputerConnectFromTheSSH") : UiText.Get("QuickForwardModel_ListenOnTheSSHServerConnectFromThis");
+    public string LocalHostLabel => IsLocal ? UiText.Get("QuickForwardModel_LocalListenAddress") : UiText.Get("QuickForwardModel_LocalTargetHost");
+    public string RemoteHostLabel => IsLocal ? UiText.Get("QuickForwardModel_RemoteTargetHost") : UiText.Get("QuickForwardModel_RemoteListenAddress");
+    public string ServerError => Issue("ServerId").Length == 0 ? string.Empty : UiText.Get("QuickForwardModel_SelectAnSSHServer");
     public string LocalPortError => Issue("LocalPort");
     public string RemotePortError => Issue("RemotePort");
     public string LocalHostError => Issue("LocalHost");
@@ -57,7 +57,7 @@ public sealed class RuleEditorModel : ObservableModel
         catch (DomainValidationException error) { _issues = error.Result.Issues; ErrorsChanged(); return null; }
     }
 
-    private string Issue(string path) => _issues.FirstOrDefault(issue => issue.Path.EndsWith(path, StringComparison.OrdinalIgnoreCase))?.Message ?? string.Empty;
+    private string Issue(string path) => UiText.Translate(_issues.FirstOrDefault(issue => issue.Path.EndsWith(path, StringComparison.OrdinalIgnoreCase))?.Message);
     private void ClearErrors() { if (_issues.IsEmpty) { return; } _issues = []; ErrorsChanged(); }
     private void ErrorsChanged()
     {

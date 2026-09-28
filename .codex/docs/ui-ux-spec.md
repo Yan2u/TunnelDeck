@@ -1,12 +1,14 @@
 # TunnelDeck WinUI 3 UI/UX 与实现规范
 
+> 2026-09-22 视觉修订：用户明确要求统一 Windows 11 对话框、减少常驻说明、为资源提供卡片与右键菜单，并使用 DevWinUI SettingsCard / SettingsExpander / SettingsGroup。相冲突的旧布局规定由 [本轮设计规则](../../docs/ui-design-system.md) 替代；功能与安全确认规则继续适用。代码已迁至 `src/TunnelDeck`，本轮验证见 [UI 验证](../../docs/ui-refresh-validation.md)。
+
 > 2026-09-19 用户确认：当前仅支持 Local 本地监听端口占用时自动递增；Remote 转发不支持失败自动递增。以下相关控件、文案和端口标记已按此更新。
 
-> 2026-09-20 实施更新：M0–M8 已完成，GUI A / B / C / D 已确认，最新确认是「GUI 测试通过，继续 M9.」。M9 已启用 More 中的单个 / 全量删除、原生影响确认、失败后的 Review and retry、配置与导航引用清理；GUI E 待评测。Quick Forward、Requested / Actual 和 Local 调整标识保持原契约。预览通过 `Run.ps1 -Preview Sample` 打开，隔离数据且不建立 SSH 连接；Long lists 包含 24 个运行样本。详细约定见 [删除契约](../../docs/deletion.md)、[profiles](../../docs/profiles.md)、[quick-forward](../../docs/quick-forward.md) 和 [页面契约](../../docs/shell-and-navigation.md)。
+> 2026-09-21 实施更新：M0–M12 已完成，GUI A–H 已确认；M13 综合验收进行中，当前状态见 [M13 验证](../../docs/m13-validation.md)。Recent 默认 5 条并可展开保留的 200 条，统计区分累计总量与当前资源排名，设置保存失败可重试。新增默认 Password / Private key，选密钥时显示默认文件，自动检测 id_rsa 并支持浏览选择；预填新 Server 与无 IdentityFile 的 SSH config 条目，显式 IdentityFile 优先。SSH config 有效必填连接字段即可导入，其余未支持选项忽略并提示；无可导入项时在按钮旁解释原因。当前契约见 [活动与设置](../../docs/activity-and-settings.md)、[transfer](../../docs/transfer.md) 与 [页面契约](../../docs/shell-and-navigation.md)，缩窗异常跟进见 [里程碑](../../docs/milestones.md)。原始视觉规范及 Local-only 端口自动递增约定保持不变。
 
 > M8 交互补充：Apply rule 只改 Profile 草稿，Save 一次提交，Cancel 可丢弃规则编辑、移除和排序；有草稿时不启动。新规则优先继承上一条的 Server。Latest start 显示最近一次启动的逐条结果，运行状态独立呈现；Retry failed 只处理仍存在的失败规则。Pinned 的名称按钮负责导航，原生手柄负责拖排，Other 不接收拖放；写入失败恢复已保存顺序并提供 Retry。每个包含新成功实例的 Profile 启动操作计一次使用，访问、Pin 和纯 AlreadyRunning 不计数。
 
-> M7 交互补充：Quick 草稿跨页面保留、固定 Server 跨重启保留；初始化 focus 等待页面与配置就绪，后台通知不抢焦点。活动 ListView 使用有界独立滚动，Quick 不随列表滚动。正常 Stop 清理且历史提交成功后移至 Recent；失败条保留 Retry / Remove，历史写入失败单独提示并可重试。Details 只在打开时更新 duration，清理后的 EndedAt 固定终态时长，timer 与请求计数不写盘。Open Terminal 仍为禁用的次要入口，待 M11。
+> M7 交互补充：Quick 草稿跨页面保留、固定 Server 跨重启保留；初始化 focus 等待页面与配置就绪，后台通知不抢焦点。活动 ListView 使用有界独立滚动，Quick 不随列表滚动。正常 Stop 清理且历史提交成功后移至 Recent；失败条保留 Retry / Remove，历史写入失败单独提示并可重试。Details 只在打开时更新 duration，清理后的 EndedAt 固定终态时长，timer 与请求计数不写盘。Open Terminal 在 M7 时预留为禁用入口，M11 已按独立会话契约启用。
 
 > M6 诊断约定：Running 只表示监听建立；目标连接错误与监听错误分开、重复错误适度聚合。SSH.NET 的 Local 目标拒绝通知不完整，UI 不承诺每次目标失败都有通知，不根据连接请求数显示“服务健康”。Requested / Actual 和本地端口调整原因由引擎提供，界面不得自行修改配置端口。
 
@@ -1641,6 +1643,12 @@ Import / Export UI 位于 All Servers 页的 More Menu。
 # 48. Settings 页面
 
 当前至少提供：
+
+## Server authentication（2026-09-21 用户补充）
+
+Default authentication method 提供 Password 与 Private key / Identity file。只有选择 Private key 才显示默认密钥字段，首次选择时检测 `%USERPROFILE%/.ssh/id_rsa`；提供 Browse，也可输入完整路径后用 Enter / Save path 保存。选择文件后立即保存，失败保留旧默认值并提供重试。
+
+仅新建 Server 与没有声明 IdentityFile 的 SSH config 条目使用这些默认值。显式 IdentityFile 优先；现有服务器、已编辑草稿以及 JSON 文件中的显式认证不受影响。密码模式保持现有行为，并隐藏密钥配置。
 
 ## General / Sidebar
 

@@ -12,7 +12,7 @@ public sealed partial class ConfigurationService
         ForwardProfile? current = state.Profiles.FirstOrDefault(item => item.Id == profile.Id);
         if (!ProfileEditPolicy.ContentEquals(current, original))
         {
-            throw new StateStoreException(StateStoreFailure.RevisionConflict, "This profile changed while you were editing. Reopen it before saving.");
+            throw new StateStoreException(StateStoreFailure.RevisionConflict, UiText.Invariant("Diagnostic_ConfigurationServiceProfiles_ThisProfileChangedWhileYouWereEditingReopen"));
         }
         ForwardProfile saved = profile with { LastUsedAt = current?.LastUsedAt };
         return state with
@@ -31,7 +31,7 @@ public sealed partial class ConfigurationService
             ImmutableArray<Guid> current = kind == ResourceKind.Profile ? state.Order.PinnedProfileIds : state.Order.PinnedServerIds;
             if (!current.SequenceEqual(before))
             {
-                throw new StateStoreException(StateStoreFailure.RevisionConflict, "Pinned items changed. Reorder the current list again.");
+                throw new StateStoreException(StateStoreFailure.RevisionConflict, UiText.Invariant("Diagnostic_ConfigurationServiceProfiles_PinnedItemsChangedReorderTheCurrentListAgain"));
             }
             return state with { Order = ResourceOrderService.ReorderPinned(state.Order, kind, after) };
         }, cancellationToken: cancellationToken);

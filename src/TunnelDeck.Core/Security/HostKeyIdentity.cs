@@ -11,7 +11,7 @@ public sealed record HostKeyIdentity(string Host, int Port, string Algorithm, st
         ArgumentException.ThrowIfNullOrWhiteSpace(algorithm);
         ArgumentOutOfRangeException.ThrowIfLessThan(port, 1);
         ArgumentOutOfRangeException.ThrowIfGreaterThan(port, 65535);
-        if (publicKey.IsEmpty) { throw new ArgumentException("A host key cannot be empty.", nameof(publicKey)); }
+        if (publicKey.IsEmpty) { throw new ArgumentException(UiText.Invariant("Diagnostic_HostKeyIdentity_AHostKeyCannotBeEmpty"), nameof(publicKey)); }
 
         string fingerprint = "SHA256:" + Convert.ToBase64String(SHA256.HashData(publicKey)).TrimEnd('=');
         return new HostKeyIdentity(HostAddress.Normalize(host), port, algorithm, fingerprint);

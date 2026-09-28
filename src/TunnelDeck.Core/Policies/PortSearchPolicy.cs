@@ -17,7 +17,7 @@ public sealed class PortSearchPolicy
         _attemptTimeout = attemptTimeout ?? TimeSpan.FromSeconds(2);
         if (_totalTimeout <= TimeSpan.Zero || _attemptTimeout <= TimeSpan.Zero)
         {
-            throw new ArgumentOutOfRangeException(nameof(totalTimeout), "Port-search timeouts must be positive.");
+            throw new ArgumentOutOfRangeException(nameof(totalTimeout), UiText.Invariant("Diagnostic_PortSearchPolicy_PortSearchTimeoutsMustBePositive"));
         }
     }
 
@@ -74,7 +74,7 @@ public sealed class PortSearch
     public PortSearchAttempt? Next(TunnelFailureKind? previousFailure = null)
     {
         if (StopReason != PortSearchStopReason.None) { return null; }
-        if (AttemptsIssued == 0 && previousFailure is not null) { throw new ArgumentException("There is no previous attempt.", nameof(previousFailure)); }
+        if (AttemptsIssued == 0 && previousFailure is not null) { throw new ArgumentException(UiText.Invariant("Diagnostic_PortSearchPolicy_ThereIsNoPreviousAttempt"), nameof(previousFailure)); }
         if (AttemptsIssued > 0 && previousFailure is null) { return Stop(PortSearchStopReason.Completed); }
         if (_cancellationToken.IsCancellationRequested) { return Stop(PortSearchStopReason.Cancelled); }
         TimeSpan remaining = _totalTimeout - _clock.GetElapsedTime(_started);

@@ -1,5 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <ProjectReference Include="../../src/TunnelDeck.Core/TunnelDeck.Core.csproj" />
+    <None Include="../../src/TunnelDeck/**/*.xaml" Exclude="../../src/TunnelDeck/bin/**;../../src/TunnelDeck/obj/**"
+          Link="XamlSource/%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

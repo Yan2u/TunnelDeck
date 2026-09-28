@@ -23,7 +23,7 @@ public sealed partial class ProfileRunner
             ConnectionCredentials? input = null;
             if (prompted)
             {
-                input = await (pendingInput ?? RequestInput(operation, launch.Server, "Enter the SSH password for this profile's rules.")).ConfigureAwait(false);
+                input = await (pendingInput ?? RequestInput(operation, launch.Server, UiText.Invariant("Diagnostic_ProfileRunnerStart_EnterTheSSHPasswordForThisProfileS"))).ConfigureAwait(false);
                 if (input is null) { PublishCancelled(operation, launch); return; }
             }
             token.ThrowIfCancellationRequested();
@@ -57,6 +57,8 @@ public sealed partial class ProfileRunner
 
     private async Task<TunnelStartResult> StartTrackedAsync(Operation operation, RuleLaunchSnapshot launch, ConnectionCredentials? input, CancellationToken token)
     {
+        // Linked server-work cancellation can lag behind CancelAsync dispatching its callbacks.
+        operation.Cancellation.Token.ThrowIfCancellationRequested();
         Task<TunnelStartResult> start = _tunnels.StartAsync(launch, input, token, operation.ServerWork[launch.Server.Id]);
         ForwardRequestKey key = ForwardRequestKey.FromRule(launch.Requested);
         ActiveTunnel? registered = _tunnels.Current.Tunnels.LastOrDefault(tunnel => ForwardRequestKey.FromRule(tunnel.Requested) == key);
@@ -79,7 +81,7 @@ public sealed partial class ProfileRunner
     }
 
     private void PublishCancelled(Operation operation, RuleLaunchSnapshot launch) => Publish(operation,
-        new(launch, ProfileRuleOutcome.Cancelled, RegisteredId(operation, launch), new(TunnelFailureKind.Cancelled, "Starting this rule was cancelled.")));
+        new(launch, ProfileRuleOutcome.Cancelled, RegisteredId(operation, launch), new(TunnelFailureKind.Cancelled, UiText.Invariant("Diagnostic_ProfileRunnerStart_StartingThisRuleWasCancelled"))));
 
     private Guid? RegisteredId(Operation operation, RuleLaunchSnapshot launch)
     { lock (_sync) { return operation.Snapshot.Rules.First(item => item.Launch.Requested.Id == launch.Requested.Id).TunnelId; } }

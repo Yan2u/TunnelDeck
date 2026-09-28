@@ -1,0 +1,27 @@
+<UserControl x:Class="TunnelDeck.Controls.RecentActivityListItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:TunnelDeck.Controls">
+    <Button Style="{ThemeResource SubtleButtonStyle}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Padding="12"
+            AutomationProperties.AutomationId="{x:Bind Item.AutomationId, Mode=OneWay}" AutomationProperties.Name="{x:Bind Item.Details, Mode=OneWay}"
+            ToolTipService.ToolTip="{x:Bind Item.Details, Mode=OneWay}">
+        <Grid ColumnSpacing="12" RowSpacing="6">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="20" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+            <Grid.RowDefinitions><RowDefinition Height="Auto" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+            <controls:StatusIndicator Grid.RowSpan="2" State="{x:Bind Item.OutcomeKey, Mode=OneWay}" Label="{x:Bind Item.Outcome, Mode=OneWay}" ShowLabel="False" VerticalAlignment="Center" />
+            <TextBlock Grid.Column="1" Text="{x:Bind Item.Name, Mode=OneWay}" Style="{ThemeResource BodyStrongTextBlockStyle}" TextTrimming="CharacterEllipsis" />
+            <TextBlock Grid.Column="2" Text="{x:Bind Item.Time, Mode=OneWay}" Style="{StaticResource MetadataTextStyle}" ToolTipService.ToolTip="{x:Bind Item.ExactTime, Mode=OneWay}" />
+            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{x:Bind Item.CompactRoute, Mode=OneWay}" Style="{StaticResource MetadataTextStyle}" />
+        </Grid>
+        <Button.Flyout>
+            <Flyout>
+                <ScrollViewer MaxHeight="420" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel Spacing="12" MaxWidth="420">
+                        <TextBlock Text="{x:Bind Item.Name, Mode=OneWay}" Style="{ThemeResource SubtitleTextBlockStyle}" TextWrapping="Wrap" />
+                        <controls:StatusIndicator State="{x:Bind Item.OutcomeKey, Mode=OneWay}" Label="{x:Bind Item.Outcome, Mode=OneWay}" />
+                        <TextBlock Text="{x:Bind Item.Details, Mode=OneWay}" IsTextSelectionEnabled="True" TextWrapping="Wrap" AutomationProperties.AutomationId="ActivityDetails" />
+                    </StackPanel>
+                </ScrollViewer>
+            </Flyout>
+        </Button.Flyout>
+    </Button>
+</UserControl>

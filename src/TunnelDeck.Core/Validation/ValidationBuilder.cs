@@ -19,8 +19,8 @@ internal sealed class ValidationBuilder
         }
     }
 
-    public void Id(Guid id, string path) => Require(id != Guid.Empty, path, "A non-empty ID is required.");
-    public void Port(int port, string path) => Require(PortNumber.IsValid(port), path, "Enter a whole-number port from 1 to 65535.");
-    public void Utc(DateTimeOffset? value, string path) => Require(value is null || value.Value.Offset == TimeSpan.Zero, path, "Store timestamps in UTC.");
+    public void Id(Guid id, string path) => Require(id != Guid.Empty, path, UiText.Invariant("Diagnostic_ValidationBuilder_ANonEmptyIDIsRequired"));
+    public void Port(int port, string path) => Require(PortNumber.IsValid(port), path, UiText.Invariant("Diagnostic_ValidationBuilder_EnterAWholeNumberPortFrom1To"));
+    public void Utc(DateTimeOffset? value, string path) => Require(value is null || value.Value.Offset == TimeSpan.Zero, path, UiText.Invariant("Diagnostic_ValidationBuilder_StoreTimestampsInUTC"));
     public ValidationResult Build() => new(_issues.ToImmutable());
 }

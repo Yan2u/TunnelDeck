@@ -1,0 +1,56 @@
+<UserControl x:Class="TunnelDeck.Controls.ImportPreviewItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:TunnelDeck.Controls" xmlns:pages="using:TunnelDeck.Pages"
+    xmlns:dev="using:DevWinUI" xmlns:vm="using:TunnelDeck.ViewModels">
+    <UserControl.Resources>
+        <Style x:Key="ImportNoteTextStyle" TargetType="TextBox" BasedOn="{StaticResource DefaultTextBoxStyle}">
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="MinWidth" Value="0" />
+            <Setter Property="MinHeight" Value="0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="{ThemeResource ControlFillColorTransparentBrush}" />
+            <Setter Property="Foreground" Value="{ThemeResource TextFillColorPrimaryBrush}" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+    </UserControl.Resources>
+    <controls:ReadOnlyListItem AutomationProperties.Name="{x:Bind Entry.AccessibleName, Mode=OneWay}" Margin="0,0,0,8">
+        <Grid>
+            <dev:SettingsExpander ItemsSource="{x:Bind Entry.Notes, Mode=OneWay}" IsExpanded="{x:Bind Entry.IsExpanded, Mode=TwoWay}"
+                                  Visibility="{x:Bind pages:ShellPage.Visible(Entry.HasDetails), Mode=OneWay}"
+                                  AutomationProperties.Name="{x:Bind Entry.AccessibleName, Mode=OneWay}" AutomationProperties.AutomationId="{x:Bind Entry.AutomationId, Mode=OneWay}">
+                <dev:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="{x:Bind Entry.DecisionGlyph, Mode=OneWay}" ToolTipService.ToolTip="{x:Bind Entry.Item.Decision, Mode=OneWay}" />
+                </dev:SettingsExpander.HeaderIcon>
+                <dev:SettingsExpander.Header>
+                    <TextBlock Text="{x:Bind Entry.Item.Name, Mode=OneWay}" Style="{ThemeResource BodyStrongTextBlockStyle}" TextTrimming="CharacterEllipsis" />
+                </dev:SettingsExpander.Header>
+                <dev:SettingsExpander.Description>
+                    <TextBlock Text="{x:Bind Entry.Item.DisplayDescription, Mode=OneWay}" Style="{StaticResource MetadataTextStyle}"
+                               ToolTipService.ToolTip="{x:Bind Entry.Item.DisplayDescription, Mode=OneWay}" />
+                </dev:SettingsExpander.Description>
+                <dev:SettingsExpander.ItemTemplate>
+                    <DataTemplate x:DataType="vm:ImportPreviewNote">
+                        <dev:SettingsCard ContentAlignment="Vertical" HorizontalContentAlignment="Stretch" Padding="16,8" MinWidth="0" MinHeight="0">
+                            <Grid ColumnSpacing="12">
+                                <Grid.ColumnDefinitions><ColumnDefinition Width="80" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                                <TextBox Text="{x:Bind Location, Mode=OneWay}" Style="{StaticResource ImportNoteTextStyle}" FontWeight="SemiBold" AutomationProperties.Name="{Binding Values[ImportPreviewItem_SourceLine], Source={StaticResource Strings}, Mode=OneWay}" />
+                                <TextBox Grid.Column="1" Text="{x:Bind Message, Mode=OneWay}" Style="{StaticResource ImportNoteTextStyle}" AutomationProperties.Name="{Binding Values[ImportPreviewItem_ImportNote], Source={StaticResource Strings}, Mode=OneWay}" />
+                            </Grid>
+                        </dev:SettingsCard>
+                    </DataTemplate>
+                </dev:SettingsExpander.ItemTemplate>
+                <dev:SettingsExpander.ItemsFooter>
+                    <TextBlock Text="{x:Bind Entry.Footer, Mode=OneWay}" Padding="16,12" TextWrapping="Wrap" IsTextSelectionEnabled="True"
+                               Style="{StaticResource MetadataTextStyle}" TextTrimming="None" AutomationProperties.AutomationId="ImportAuthenticationNote"
+                               Visibility="{x:Bind pages:ShellPage.TextVisible(Entry.Footer), Mode=OneWay}" />
+                </dev:SettingsExpander.ItemsFooter>
+            </dev:SettingsExpander>
+            <dev:SettingsCard Visibility="{x:Bind pages:ShellPage.Hidden(Entry.HasDetails), Mode=OneWay}">
+                <dev:SettingsCard.HeaderIcon><FontIcon Glyph="{x:Bind Entry.DecisionGlyph, Mode=OneWay}" ToolTipService.ToolTip="{x:Bind Entry.Item.Decision, Mode=OneWay}" /></dev:SettingsCard.HeaderIcon>
+                <dev:SettingsCard.Header><TextBlock Text="{x:Bind Entry.Item.Name, Mode=OneWay}" Style="{ThemeResource BodyStrongTextBlockStyle}" TextTrimming="CharacterEllipsis" /></dev:SettingsCard.Header>
+                <dev:SettingsCard.Description><TextBlock Text="{x:Bind Entry.Item.DisplayDescription, Mode=OneWay}" Style="{StaticResource MetadataTextStyle}" ToolTipService.ToolTip="{x:Bind Entry.Item.DisplayDescription, Mode=OneWay}" /></dev:SettingsCard.Description>
+            </dev:SettingsCard>
+        </Grid>
+    </controls:ReadOnlyListItem>
+</UserControl>

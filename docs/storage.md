@@ -40,7 +40,7 @@ M7 的 TunnelActivityRecorder 通过此 FIFO 保存离散启动 / 结束事件�
 
 ## 加载、修复与迁移
 
-schema 1 是首个实际持久化格式，使用大小写严格的 camelCase 字段和数字枚举。必需字段、重复 JSON 属性、未知字段、未知枚举、端口、ID、规则引用、时间和计数均校验。缺少规则数组或计数不能变成空集合 / 0。
+schema 1 是首个实际持久化格式，schema 2 增加默认认证方式和默认密钥路径，当前 schema 3 增加必填的 `settings.language`（`en-US` 或 `zh-CN`）。使用大小写严格的 camelCase 字段和数字枚举。必需字段、重复 JSON 属性、未知字段、未知枚举、端口、ID、规则引用、时间和计数均校验。缺少规则数组或计数不能变成空集合 / 0。
 
 | 情况 | 结果 |
 | --- | --- |
@@ -53,7 +53,9 @@ schema 1 是首个实际持久化格式，使用大小写严格的 camelCase 字
 
 自动修复仅包含：在已确认资源 ID 唯一的前提下，去掉顺序数组的重复 / 悬空 ID，按资源原数组顺序把遗漏 ID 追加到 Other；清空已失效的 DefaultServerId / PinnedQuickServerId。每项修复都有字段路径诊断。重复资源 / Rule ID、失效的 Rule.ServerId、非法端口等不会通过删除资源来“修好”。历史快照和统计中的已删除资源 ID 保留。
 
-修复和迁移先在内存形成候选，加载不写盘，下一次成功编辑才保存标准格式。`IAppStateMigration` 提供显式、单调前进的迁移入口；当前没有已发布的旧 schema，因此生产不臆造 schema 0 语义。测试注册确定性的旧格式夹具迁移，验证重复加载、提交后重载均不会重复转换或额外递增 revision。
+修复和迁移先在内存形成候选，加载不写盘，下一次成功编辑才保存标准格式。`IAppStateMigration` 提供显式、单调前进的迁移入口。内置 `AuthenticationDefaultsMigration` 先检查 schema 1 的旧 Settings 必需字段及未知字段，再补充 `defaultAuthenticationMethod=Password` / `defaultIdentityFilePath=null`，版本升至 2；`LanguageSettingsMigration` 严格检查 schema 2 Settings 后补充 `language=en-US`，版本升至 3。其余全部数据和 revision 保留。第一次编辑使用既有原子替换并保留原版本备份；旧版应用遇到新版本只读，不降级覆盖。schema 0 仍没有生产迁移语义；测试夹具可注册明确的 0 → 1 转换，再走内置迁移。
+
+默认密钥仅保存本机路径。密码模式可以保留一个未启用的路径，Private key 模式在路径为 null 时尝试检测用户目录下的 `.ssh/id_rsa`。文件暂时缺失不损坏整份配置；新建表单提示补齐，SSH 导入和实际连接在使用时检查。变更默认值不改写已有服务器认证和凭据引用。
 
 UI 的 `StorageNotice` 对恢复 / 修复显示 Warning，对不能加载 / 未支持版本显示 Error，并提供数据目录与 Retry。正常加载不弹成功提示。配置服务自身阻止只读或未初始化状态的编辑，后续页面也应据此禁用保存。
 
@@ -89,8 +91,12 @@ M3 交付时为 Core 137 + Infrastructure 77，合计 **214 项通过、0 跳过
 ```powershell
 ./scripts/Build.ps1 -LockedRestore
 ./scripts/Test.ps1
-./scripts/Verify-Storage.ps1
-./scripts/Verify-Window.ps1
+./scripts/debug/Verify-Storage.ps1
+./scripts/debug/Verify-Window.ps1
 ```
 
 窗口测试实际启动独立数据目录，验证未来版本保护、损坏 / 备份提示、外部修复后的 Retry、正常关闭不改写配置、侧栏 / 搜索与关闭等待期间的响应。证据见 `docs/evidence/2026-09-19-m3.json`，详细报告和截图位于 `artifacts/`。M2 的真实 SSH 18 项结果保留为历史证据；M3 未修改 SSH 传输并未重复运行该套测试。正式页面和 GUI 人工评测 A 从 M4 开始。
+
+## M11 可移植资源文件
+
+All 页 More 的 Export 使用独立 TunnelDeckExport v1，包含资源、顺序及 Profile 依赖。它不替代内部 state.json / .bak 的整份配置恢复，也不复制设置、历史、统计、秘密或信任库。Import 严格校验后分配新 ID，沿同一配置队列原子提交；过期预览和删除 / 退出门禁均会拒绝提交。详见 [transfer](transfer.md)。

@@ -1,0 +1,19 @@
+<ContentDialog
+    x:Class="TunnelDeck.Controls.RuleEditorDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:TunnelDeck.Controls"
+    Title="{x:Bind Editor.RuleEditorTitle}" PrimaryButtonText="{Binding Values[RuleEditorDialog_ApplyRule], Source={StaticResource Strings}, Mode=OneWay}" CloseButtonText="{Binding Values[DeletionDialog_Cancel], Source={StaticResource Strings}, Mode=OneWay}"
+    DefaultButton="Primary" IsPrimaryButtonEnabled="{x:Bind Editor.CanApplyRule, Mode=OneWay}"
+    PrimaryButtonClick="OnPrimaryButtonClick" Opened="OnOpened" Closed="OnClosed"
+    AutomationProperties.AutomationId="RuleEditorDialog">
+    <ContentDialog.Resources>
+        <x:Double x:Key="ContentDialogMaxWidth">600</x:Double>
+    </ContentDialog.Resources>
+    <ScrollViewer x:Name="BodyScroll" MaxHeight="440" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled"
+                  AutomationProperties.AutomationId="RuleEditorScroll">
+        <controls:RuleEditorView x:Name="RuleEditor" Model="{x:Bind Editor.RuleEditor}" ServerChoices="{x:Bind Shell.ServerChoices, Mode=OneWay}"
+                                 IsEnabled="{x:Bind Editor.CanApplyRule, Mode=OneWay}" ApplyRequested="OnApplyRequested"
+                                 AutomationProperties.AutomationId="RuleEditor" />
+    </ScrollViewer>
+</ContentDialog>

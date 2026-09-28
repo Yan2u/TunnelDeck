@@ -18,7 +18,7 @@ public sealed partial class ConfigurationService
             RemoteServer? existing = before.Servers.FirstOrDefault(item => item.Id == server.Id);
             if (credentialChange.Kind == CredentialChangeKind.Keep && existing is not null && existing.AuthMethod != server.AuthMethod)
             {
-                throw new ArgumentException("Choose Remember or Forget when changing the authentication method.", nameof(credentialChange));
+                throw new ArgumentException(UiText.Invariant("Diagnostic_ConfigurationServiceServers_ChooseRememberOrForgetWhenChangingTheAuthentication"), nameof(credentialChange));
             }
             Guid? stagedReference = credentialChange.Kind == CredentialChangeKind.Remember ? Guid.NewGuid() : null;
             RemoteServer saved = server with

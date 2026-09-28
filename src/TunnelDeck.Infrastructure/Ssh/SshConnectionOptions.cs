@@ -12,7 +12,7 @@ public sealed record SshConnectionOptions
         if (ConnectTimeout <= TimeSpan.Zero || LibraryTimeout < ConnectTimeout ||
             ControlTimeout <= TimeSpan.Zero || ControlTimeout >= LibraryTimeout || KeepAliveInterval <= TimeSpan.Zero)
         {
-            throw new ArgumentException("SSH deadlines must be positive; the library timeout must cover connect and exceed the control deadline.");
+            throw new ArgumentException(UiText.Invariant("Diagnostic_SshConnectionOptions_SSHDeadlinesMustBePositiveTheLibraryTimeout"));
         }
     }
 }

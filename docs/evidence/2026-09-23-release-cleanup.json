@@ -1,0 +1,267 @@
+{
+  "capturedAtUtc": "2026-09-23T07:31:36.4661468+00:00",
+  "includeBuildOutputs": true,
+  "freedBytes": 4401408887,
+  "deletedFiles": 8793,
+  "preserved": [
+    "artifacts/release package and validation summaries",
+    "source and docs/evidence",
+    "Visual Studio preferences",
+    "user application data and SSH files",
+    "global tool and NuGet caches"
+  ],
+  "targets": [
+    {
+      "path": ".test-output",
+      "bytes": 2292014160,
+      "files": 4786,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/baseline",
+      "bytes": 152163,
+      "files": 3,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/closeout",
+      "bytes": 736583110,
+      "files": 170,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/dashboard-quick-layout",
+      "bytes": 736910,
+      "files": 6,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m10-review",
+      "bytes": 3913219,
+      "files": 60,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m11-review",
+      "bytes": 6097182,
+      "files": 71,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m12-auth-defaults",
+      "bytes": 2647498,
+      "files": 31,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m12-review",
+      "bytes": 4422963,
+      "files": 50,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m13-review",
+      "bytes": 621981419,
+      "files": 780,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m4-review",
+      "bytes": 1855079,
+      "files": 18,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m5-review",
+      "bytes": 922254,
+      "files": 12,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m6-review",
+      "bytes": 869870,
+      "files": 12,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m7-review",
+      "bytes": 3424857,
+      "files": 39,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m8-review",
+      "bytes": 3064669,
+      "files": 41,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m9-review",
+      "bytes": 7148477,
+      "files": 141,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/mobilegym-fix",
+      "bytes": 10784,
+      "files": 2,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/settings-viewport-fix",
+      "bytes": 742549,
+      "files": 12,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/storage-window-verification",
+      "bytes": 409049,
+      "files": 4,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/test-results",
+      "bytes": 1923692,
+      "files": 18,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/ui-refresh",
+      "bytes": 423094553,
+      "files": 542,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/vs-xaml-fix",
+      "bytes": 4504806,
+      "files": 9,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/window-verification",
+      "bytes": 344068,
+      "files": 4,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/build-m2-release.log",
+      "bytes": 4172,
+      "files": 1,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/build-release.log",
+      "bytes": 4172,
+      "files": 1,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/m13review-display-scaling-import-fixed.log",
+      "bytes": 1348,
+      "files": 1,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/release/publish.log",
+      "bytes": 1328,
+      "files": 1,
+      "deleted": true
+    },
+    {
+      "path": "artifacts/release/validation/isolated-data",
+      "bytes": 2533,
+      "files": 5,
+      "deleted": true
+    },
+    {
+      "path": "src/TunnelDeck/bin",
+      "bytes": 177882040,
+      "files": 269,
+      "deleted": true
+    },
+    {
+      "path": "src/TunnelDeck/obj",
+      "bytes": 12011493,
+      "files": 495,
+      "deleted": true
+    },
+    {
+      "path": "src/TunnelDeck.Core/bin",
+      "bytes": 1103661,
+      "files": 8,
+      "deleted": true
+    },
+    {
+      "path": "src/TunnelDeck.Core/obj",
+      "bytes": 1769577,
+      "files": 54,
+      "deleted": true
+    },
+    {
+      "path": "src/TunnelDeck.Infrastructure/bin",
+      "bytes": 1363344,
+      "files": 13,
+      "deleted": true
+    },
+    {
+      "path": "src/TunnelDeck.Infrastructure/obj",
+      "bytes": 591644,
+      "files": 55,
+      "deleted": true
+    },
+    {
+      "path": "test-infra/TunnelDeck.ProcessProbe/bin",
+      "bytes": 365754,
+      "files": 10,
+      "deleted": true
+    },
+    {
+      "path": "test-infra/TunnelDeck.ProcessProbe/obj",
+      "bytes": 439904,
+      "files": 33,
+      "deleted": true
+    },
+    {
+      "path": "tests/TunnelDeck.Core.Tests/bin",
+      "bytes": 16169788,
+      "files": 270,
+      "deleted": true
+    },
+    {
+      "path": "tests/TunnelDeck.Core.Tests/obj",
+      "bytes": 2163653,
+      "files": 58,
+      "deleted": true
+    },
+    {
+      "path": "tests/TunnelDeck.Infrastructure.Tests/bin",
+      "bytes": 33947716,
+      "files": 304,
+      "deleted": true
+    },
+    {
+      "path": "tests/TunnelDeck.Infrastructure.Tests/obj",
+      "bytes": 1313647,
+      "files": 58,
+      "deleted": true
+    },
+    {
+      "path": "tests/TunnelDeck.Ssh.Tests/bin",
+      "bytes": 33628474,
+      "files": 288,
+      "deleted": true
+    },
+    {
+      "path": "tests/TunnelDeck.Ssh.Tests/obj",
+      "bytes": 1781308,
+      "files": 58,
+      "deleted": true
+    }
+  ],
+  "sizeMethod": "Sum of the logical sizes of deleted files, not a volume free-space delta",
+  "designTimeRegeneration": {
+    "files": 5,
+    "bytes": 3067,
+    "note": "The open Visual Studio instance recreated a few Debug design-time files after deletion. It was not stopped and its preferences were preserved."
+  }
+}

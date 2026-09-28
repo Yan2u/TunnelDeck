@@ -24,7 +24,7 @@ public sealed class WindowsCredentialStore : ICredentialStore
     {
         ArgumentNullException.ThrowIfNull(secret);
         int byteCount = Encoding.Unicode.GetByteCount(secret);
-        if (byteCount > 2560) { throw new ArgumentException("The credential exceeds Windows' storage limit.", nameof(secret)); }
+        if (byteCount > 2560) { throw new ArgumentException(UiText.Invariant("Diagnostic_WindowsCredentialStore_TheCredentialExceedsWindowsStorageLimit"), nameof(secret)); }
 
         IntPtr blob = Marshal.StringToCoTaskMemUni(secret);
         try
@@ -77,7 +77,7 @@ public sealed class WindowsCredentialStore : ICredentialStore
 
     private string Target(Guid reference)
     {
-        if (reference == Guid.Empty) { throw new ArgumentException("A credential reference is required.", nameof(reference)); }
+        if (reference == Guid.Empty) { throw new ArgumentException(UiText.Invariant("Diagnostic_WindowsCredentialStore_ACredentialReferenceIsRequired"), nameof(reference)); }
         return $"{_prefix}/{reference:D}";
     }
 

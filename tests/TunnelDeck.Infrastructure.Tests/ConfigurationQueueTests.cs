@@ -172,7 +172,7 @@ public sealed class ConfigurationQueueTests
     {
         using var fixture = new StorageFixture();
         System.IO.Directory.CreateDirectory(fixture.Directory.RootPath);
-        await File.WriteAllTextAsync(fixture.Directory.StatePath, "{\"schemaVersion\":2}");
+        await File.WriteAllTextAsync(fixture.Directory.StatePath, $"{{\"schemaVersion\":{AppState.CurrentSchemaVersion + 1}}}");
         ConfigurationService service = fixture.Service();
         Assert.True((await service.InitializeAsync()).IsReadOnly);
         Assert.Null(service.Current);

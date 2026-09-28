@@ -55,7 +55,7 @@ internal sealed class SshNetSession : ISshSession
     public async Task<IForwardHandle> StartAsync(ForwardRule rule, CancellationToken cancellationToken = default)
     {
         ConfigurationValidator.ValidateRule(rule).ThrowIfInvalid();
-        if (rule.ServerId != ServerId || rule.Mode != Mode) { throw new ArgumentException("The rule must belong to this server and transport mode.", nameof(rule)); }
+        if (rule.ServerId != ServerId || rule.Mode != Mode) { throw new ArgumentException(UiText.Invariant("Diagnostic_SshNetSession_TheRuleMustBelongToThisServerAnd"), nameof(rule)); }
         using var stopping = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, Disconnected);
         await _forwardGate.WaitAsync(stopping.Token).ConfigureAwait(false);
         try
@@ -71,7 +71,7 @@ internal sealed class SshNetSession : ISshSession
             {
                 await _control.StartAsync(forward, stopping.Token).ConfigureAwait(false);
                 stopping.Token.ThrowIfCancellationRequested();
-                if (!forward.IsStarted) { throw new SshConnectionException("The listener did not start."); }
+                if (!forward.IsStarted) { throw new SshConnectionException(UiText.Invariant("Diagnostic_SshNetSession_TheListenerDidNotStart")); }
                 return handle;
             }
             catch (Exception error)

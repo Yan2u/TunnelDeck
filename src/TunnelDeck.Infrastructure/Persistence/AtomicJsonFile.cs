@@ -18,7 +18,7 @@ internal sealed class AtomicJsonFile(string path, AtomicFileOperations? operatio
         catch (DirectoryNotFoundException) { return null; }
         catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
         {
-            throw new StateStoreException(StateStoreFailure.Unavailable, "Saved data could not be read. Check access to the data directory and retry.");
+            throw new StateStoreException(StateStoreFailure.Unavailable, UiText.Invariant("Diagnostic_AtomicJsonFile_SavedDataCouldNotBeReadCheckAccess"));
         }
     }
 
@@ -45,7 +45,7 @@ internal sealed class AtomicJsonFile(string path, AtomicFileOperations? operatio
         catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
         {
             throw new StateStoreException(StateStoreFailure.WriteFailed,
-                "Saved data could not be written. The edit has not been published; retry after checking the data directory.");
+                UiText.Invariant("Diagnostic_AtomicJsonFile_SavedDataCouldNotBeWrittenTheEdit"));
         }
         finally
         {

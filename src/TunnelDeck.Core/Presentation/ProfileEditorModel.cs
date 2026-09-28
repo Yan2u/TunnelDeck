@@ -19,17 +19,17 @@ public sealed class ProfileEditorModel : ObservableModel
     public ObservableCollection<ProfileRuleItem> Rules { get; } = [];
     public RuleEditorModel RuleEditor { get; } = new();
     public string Name { get => _name; set { if (SetProperty(ref _name, value)) { Error = string.Empty; DraftChanged(); } } }
-    public string Title => _original?.Name ?? "New profile";
-    public string Error { get => _error; private set => SetProperty(ref _error, value); }
+    public string Title => _original?.Name ?? UiText.Get("ProfileEditorModel_NewProfile");
+    public string Error { get => UiText.Translate(_error); private set => SetProperty(ref _error, value); }
     public bool IsEmpty => Rules.Count == 0;
     public bool IsEditingRule => _editing;
-    public string RuleEditorTitle => _editingRule is null ? "Add forwarding rule" : "Edit forwarding rule";
+    public string RuleEditorTitle => _editingRule is null ? UiText.Get("ProfileEditorModel_AddForwardingRule") : UiText.Get("ProfileEditorModel_EditForwardingRule");
     public bool CanEdit => _available && !IsEditingRule;
     public bool CanApplyRule => _available && IsEditingRule;
     public bool HasChanges => !ProfileEditPolicy.ContentEquals(_original, Candidate());
     public bool CanSave => _available && !IsEditingRule && HasChanges;
     public bool CanRunSaved => _available && !IsEditingRule && !HasChanges && !IsEmpty && _state.Profiles.Any(profile => profile.Id == Id);
-    public string DraftHint => IsEditingRule ? "Apply or cancel this rule, then save the profile." : HasChanges ? "Save this profile before starting its rules. Running forwards keep their original settings." : string.Empty;
+    public string DraftHint => IsEditingRule ? UiText.Get("ProfileEditorModel_ApplyOrCancelThisRuleThenSaveThe") : HasChanges ? UiText.Get("ProfileEditorModel_SaveThisProfileBeforeStartingItsRulesRunning") : string.Empty;
 
     public ProfileEditorModel(AppState state, Guid? id)
     {
@@ -81,10 +81,10 @@ public sealed class ProfileEditorModel : ObservableModel
 
     public ForwardProfile? Capture()
     {
-        if (IsEditingRule) { Error = "Apply or cancel the rule before saving."; return null; }
+        if (IsEditingRule) { Error = UiText.Get("ProfileEditorModel_ApplyOrCancelTheRuleBeforeSaving"); return null; }
         ForwardProfile candidate = Candidate();
         ValidationResult validation = ConfigurationValidator.ValidateProfile(candidate, _state.Servers.Select(server => server.Id).ToHashSet());
-        Error = string.Join(" ", validation.Issues.Select(issue => issue.Message));
+        Error = string.Join(" ", validation.Issues.Select(issue => UiText.Translate(issue.Message)));
         return validation.IsValid ? candidate : null;
     }
 

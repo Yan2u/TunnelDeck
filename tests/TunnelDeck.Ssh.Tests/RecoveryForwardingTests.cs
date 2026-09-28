@@ -41,7 +41,9 @@ public sealed class RecoveryForwardingTests(SshFixture fixture)
 
         proxy.RejectConnections(true);
         proxy.DisconnectAll();
-        await scope.WaitAsync(() => originals.Keys.All(id => scope.Tunnel(id).State == TunnelState.Reconnecting));
+        // Reconnecting is published before old handles finish cleanup and the coordinator can register its group.
+        await scope.WaitAsync(() => originals.Keys.All(id => scope.Tunnel(id).State == TunnelState.Reconnecting) &&
+            scope.Reconnect.ActiveServerCount == 1);
         Assert.Equal(1, scope.Reconnect.ActiveServerCount);
         await LocalEchoServer.AssertPayloadAsync(ports.First + 2, payload);
         Assert.Equal(unaffected.Tunnel.Generation, scope.Tunnel(unaffected.Tunnel.Id).Generation);

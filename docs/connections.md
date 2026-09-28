@@ -69,11 +69,11 @@ M8 的应用关闭顺序为 Profiles → Forwarding → Tunnels → Connections 
 ```powershell
 ./scripts/Build.ps1 -LockedRestore
 ./scripts/Test.ps1 -Ssh -NoFixtureBuild
-./scripts/Verify-Connections.ps1 -NoFixtureBuild
-./scripts/Verify-Forwards.ps1 -NoFixtureBuild
-./scripts/Verify-Shell.ps1
-./scripts/Verify-Window.ps1
-./scripts/Verify-Storage.ps1
+./scripts/debug/Verify-Connections.ps1 -NoFixtureBuild
+./scripts/debug/Verify-Forwards.ps1 -NoFixtureBuild
+./scripts/debug/Verify-Shell.ps1
+./scripts/debug/Verify-Window.ps1
+./scripts/debug/Verify-Storage.ps1
 ```
 
 首次运行或修改夹具后省略 NoFixtureBuild。M5 夹具增加未加密 Ed25519 私钥，与原密码、加密私钥、可更换 host key、策略限制和受控 TCP 代理一起覆盖 AUTH-02 / AUTH-03 / CONN-01–03。纯 Core 测试使用可控制完成顺序的假 session 验证保存竞态、独立服务器、单个等待者取消、关闭与迟到成功、清理失败重试。

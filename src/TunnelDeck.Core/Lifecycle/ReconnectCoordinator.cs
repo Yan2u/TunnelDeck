@@ -99,13 +99,13 @@ public sealed class ReconnectCoordinator : IShutdownParticipant, IAsyncDisposabl
                     catch (OperationCanceledException) when (ticket.Work.Token.IsCancellationRequested)
                     { await StopTicketAsync(recovery, ticket).ConfigureAwait(false); continue; }
                     if (result is { State: TunnelState.Reconnecting } && !ReconnectPolicy.CanRetry(result.LastError))
-                    { await _tunnels.FailReconnectAsync(ticket.TunnelId, result.LastError ?? new(TunnelFailureKind.Unknown, "The forward could not be restored. Retry it manually.")).ConfigureAwait(false); }
+                    { await _tunnels.FailReconnectAsync(ticket.TunnelId, result.LastError ?? new(TunnelFailureKind.Unknown, UiText.Invariant("Diagnostic_ReconnectCoordinator_TheForwardCouldNotBeRestoredRetryIt"))).ConfigureAwait(false); }
                 }
                 rounds++;
             }
         }
         catch (OperationCanceledException) { /* A deadline fails remaining rows; a cancelled work lease stops its row. */ }
-        catch (Exception) { failure = new(TunnelFailureKind.Unknown, "Automatic reconnect could not complete. Check the forward and retry."); }
+        catch (Exception) { failure = new(TunnelFailureKind.Unknown, UiText.Invariant("Diagnostic_ReconnectCoordinator_AutomaticReconnectCouldNotCompleteCheckTheForward")); }
         finally
         {
             lock (_sync) { recovery.Finishing = true; }

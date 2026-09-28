@@ -33,10 +33,10 @@ M5 在 App 项目中显式声明与既有锁文件一致的 `RuntimeIdentifiers=
 ./scripts/Build.ps1 -LockedRestore
 ./scripts/Test.ps1
 ./scripts/Test.ps1 -Ssh
-./scripts/Verify-Window.ps1
-./scripts/Verify-Storage.ps1
-./scripts/Verify-Shell.ps1
-./scripts/Verify-Connections.ps1 -NoFixtureBuild
+./scripts/debug/Verify-Window.ps1
+./scripts/debug/Verify-Storage.ps1
+./scripts/debug/Verify-Shell.ps1
+./scripts/debug/Verify-Connections.ps1 -NoFixtureBuild
 ./scripts/Run.ps1
 ```
 
@@ -55,19 +55,19 @@ M4 新增 `Run.ps1 -Preview Sample|Stress|Empty` 与 `Verify-Shell.ps1`。GUI �
 
 ## SSH 夹具
 
-`test-infra/sshd/Dockerfile` 固定 Ubuntu 镜像摘要 `sha256:b8b6ee6aa931ecd9d0d952abc34dc0e5f7c6a30c6bb71b079fe399fde0329c02` 和 OpenSSH 包版本。初次构建需要访问 Docker Hub / Ubuntu 包仓库；后续可使用 `-NoFixtureBuild`。固定包若从上游移除应明确升级并重新验证，不自动换版本。
+`scripts/fixtures/sshd/Dockerfile` 固定 Ubuntu 镜像摘要 `sha256:b8b6ee6aa931ecd9d0d952abc34dc0e5f7c6a30c6bb71b079fe399fde0329c02` 和 OpenSSH 包版本。初次构建需要访问 Docker Hub / Ubuntu 包仓库；后续可使用 `-NoFixtureBuild`。固定包若从上游移除应明确升级并重新验证，不自动换版本。
 
 一个临时容器内有四个 sshd：允许转发、禁止转发、PermitListen 限制、可更换 host key。另有 IPv4/IPv6 echo 服务和带随机 token 的控制入口。所有对主机的发布端口仅绑定 `127.0.0.1`；远端监听直接从容器内部传输 payload 来检验。
 
 ```powershell
-$fixture = ./test-infra/Start-SshFixture.ps1
+$fixture = ./scripts/fixtures/Start-SshFixture.ps1
 $env:TUNNELDECK_SSH_FIXTURE = $fixture
 try {
     . ./scripts/Enter-DevelopmentShell.ps1
     dotnet test tests/TunnelDeck.Ssh.Tests/TunnelDeck.Ssh.Tests.csproj -c Release -p:Platform=x64
 }
 finally {
-    ./test-infra/Stop-SshFixture.ps1 -ManifestPath $fixture
+    ./scripts/fixtures/Stop-SshFixture.ps1 -ManifestPath $fixture
     Remove-Item Env:TUNNELDECK_SSH_FIXTURE -ErrorAction SilentlyContinue
 }
 ```

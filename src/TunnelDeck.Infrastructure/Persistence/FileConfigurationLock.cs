@@ -27,7 +27,7 @@ public sealed class FileConfigurationLock(string path) : IConfigurationLock
             catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
             {
                 throw new StateStoreException(StateStoreFailure.Unavailable,
-                    "Saved data is unavailable or in use. Check the data directory and retry.");
+                    UiText.Invariant("Diagnostic_FileConfigurationLock_SavedDataIsUnavailableOrInUseCheck"));
             }
         }
     }

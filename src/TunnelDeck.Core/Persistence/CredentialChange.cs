@@ -20,5 +20,5 @@ public sealed class CredentialChange
         return new(CredentialChangeKind.Remember, secret);
     }
 
-    public override string ToString() => $"CredentialChange {{ Kind = {Kind} }}";
+    public override string ToString() => UiText.Invariant("Diagnostic_CredentialChange_CredentialChangeKind", Kind);
 }

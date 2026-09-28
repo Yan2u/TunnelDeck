@@ -1,0 +1,145 @@
+{
+  "milestone": "M12",
+  "capturedAtUtc": "2026-09-21T07:16:00.2754897+00:00",
+  "gitBase": "8665720da5a09bbffa99b1a1b2a11894cd287d9e",
+  "status": "Implementation and automated verification complete; GUI H pending user evaluation",
+  "priorAcceptance": "M0-M11 and GUI A-G accepted by the user",
+  "build": {
+    "report": "artifacts/m12-review/build.log",
+    "platform": "x64",
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0,
+    "lockedRestore": true
+  },
+  "tests": [
+    {
+      "path": "artifacts/m12-review/tests/TunnelDeck.Core.Tests.trx",
+      "total": 414,
+      "passed": 414,
+      "failed": 0
+    },
+    {
+      "path": "artifacts/m12-review/tests/TunnelDeck.Infrastructure.Tests.trx",
+      "total": 142,
+      "passed": 142,
+      "failed": 0
+    },
+    {
+      "path": "artifacts/m12-review/tests/TunnelDeck.Ssh.Tests.rerun.trx",
+      "total": 85,
+      "passed": 85,
+      "failed": 0
+    }
+  ],
+  "totalPassed": 641.0,
+  "nativeReports": [
+    "artifacts/m12-review/native-activity/activity-verification.json",
+    "artifacts/m12-review/native-transfer/result.json",
+    "artifacts/m12-review/native-shell/result.json",
+    "artifacts/m12-review/native-forwards/verification.json",
+    "artifacts/m12-review/import-resize/result.json"
+  ],
+  "userSshConfigPreview": {
+    "canCommit": true,
+    "available": 9,
+    "mode": "Read-only static parsing",
+    "sourceModified": false,
+    "skipped": 0,
+    "userStateModified": false
+  },
+  "sshImportRule": "Import supported static required fields; report ignored optional options. No Include reads, command execution or SSH config writes.",
+  "notes": [
+    "The initial SSH test observed Reconnecting before cleanup completed and its recovery group was registered. Its wait condition now includes group registration; the complete 85-test SSH rerun passed. Production reconnect code is unchanged.",
+    "Native checks encountered abnormal exits, including one WER report for Microsoft.UI.Xaml 3.2.3.0 / E_SURFACE_CONTENTS_LOST (0x802b0020). The full Transfer rerun and the final build without diagnostic instrumentation passed, including 20 repeated narrow/wide resize cycles. Root cause is unconfirmed; retain for M13 follow-up.",
+    "Temporary exception recording was removed. No unhandled exception was suppressed.",
+    "The MobileGym forwarding report was closed by the user after correcting the saved SSH connection parameters."
+  ],
+  "reviewWindow": {
+    "processId": 39932,
+    "isolation": "Dedicated data directory; reserved example hosts; sample history; no connections started",
+    "dataPath": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m12-review\\5261a5f82dd7464ea7aa966c8dcf3f86\\data"
+  },
+  "limitations": [
+    "GUI H not yet accepted",
+    "Follow up the intermittent WinUI rendering incident in M13",
+    "System High Contrast and comprehensive DPI/accessibility/performance/release validation remain M13 work"
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/m12-review/tests/TunnelDeck.Core.Tests.trx",
+      "bytes": 609043,
+      "sha256": "f6f736094da3c8b9dd7e6400285b20c192a1460acff0274a98bd63e9e6525992"
+    },
+    {
+      "path": "artifacts/m12-review/tests/TunnelDeck.Infrastructure.Tests.trx",
+      "bytes": 224441,
+      "sha256": "5231359c78f88cd9b7742a2f3b05eb787f087f08b1b3b748c4d7c91c8b46bb94"
+    },
+    {
+      "path": "artifacts/m12-review/tests/TunnelDeck.Ssh.Tests.rerun.trx",
+      "bytes": 130830,
+      "sha256": "0ed96e92412485770e61856e056d14aed767b4c4d9badc9b82ac632c97b298ba"
+    },
+    {
+      "path": "artifacts/m12-review/native-activity/activity-verification.json",
+      "bytes": 958,
+      "sha256": "af417eba6192835e067ae4c40a21531d55224ec7e1159a9271dfcd183f4e0551"
+    },
+    {
+      "path": "artifacts/m12-review/native-transfer/result.json",
+      "bytes": 996,
+      "sha256": "1b32136cbfef2d1dc0eb071708e6cfb3597dca835e56408bba2eac4f79f5ec7d"
+    },
+    {
+      "path": "artifacts/m12-review/native-shell/result.json",
+      "bytes": 681,
+      "sha256": "3af1a7a9ac6bb9aab3218c3edda164e01fd1795e1a59296032888b329e846436"
+    },
+    {
+      "path": "artifacts/m12-review/native-forwards/verification.json",
+      "bytes": 691,
+      "sha256": "e2702202863b3912615b4624ce7c99f62bb3213e805d8e2c807b33c69a1ea953"
+    },
+    {
+      "path": "artifacts/m12-review/import-resize/result.json",
+      "bytes": 290,
+      "sha256": "e3f6e93ad998df946a070ecbfed20920502626abc43baa27c5a9d6ff21b63392"
+    },
+    {
+      "path": "artifacts/m12-review/build.log",
+      "bytes": 4577,
+      "sha256": "f1f378b6468de04a1245dbef48afd3a368bc3d37707a2877f32a0bd829e3eac4"
+    },
+    {
+      "path": "artifacts/m12-review/gui-review/review.json",
+      "bytes": 326,
+      "sha256": "a97395f7d0d83b986d6f760315ae5409ce9832b69783fdf4ac5a2857c718eee8"
+    },
+    {
+      "path": "artifacts/m12-review/gui-review/activity-review.png",
+      "bytes": 125005,
+      "sha256": "992cc1205ae4e0721b39c27be2ebb2a966f40ec2c265c3cf931636aa413f459b"
+    },
+    {
+      "path": "artifacts/m12-review/native-activity/dashboard-500-dark.png",
+      "bytes": 58819,
+      "sha256": "2c499e9a6c926128b0b22f4882a86aecd47b6d6943a15ff0e38106cc72ae9c40"
+    },
+    {
+      "path": "artifacts/m12-review/native-activity/ssh-options-ignored-preview.png",
+      "bytes": 92881,
+      "sha256": "3c1f0f41b45e666cc5cad1c3b1edec9ac39866a753a266778965fe03eb28061a"
+    },
+    {
+      "path": "artifacts/m12-review/native-activity/import-required-fields-missing.png",
+      "bytes": 93327,
+      "sha256": "3def83650b51e483f530627f4a5317cae78c4adb97f39d40d585ca9ac5aee065"
+    },
+    {
+      "path": "artifacts/m12-review/native-transfer/ssh-warnings-narrow.png",
+      "bytes": 49810,
+      "sha256": "759b0fb4c90b206a035be7c1e6432e721cbf39bc8f82f11f7ff715eb222e508e"
+    }
+  ]
+}

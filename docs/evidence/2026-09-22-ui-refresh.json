@@ -1,0 +1,51 @@
+{
+  "iteration": "UI/UX 1",
+  "status": "Local candidate ready for user review",
+  "capturedAtUtc": "2026-09-22T13:17:35.0732708+00:00",
+  "project": "src/TunnelDeck/TunnelDeck.csproj",
+  "gitBase": "8665720da5a09bbffa99b1a1b2a11894cd287d9e",
+  "uncommitted": true,
+  "validationPolicy": "User requested lightweight checks during UI/UX iteration; retain full scripts until the design stabilizes.",
+  "package": {
+    "packagePath": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\artifacts\\ui-refresh\\release-1\\TunnelDeck-ui-refresh-1-win-x64",
+    "archivePath": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\artifacts\\ui-refresh\\release-1\\TunnelDeck-ui-refresh-1-win-x64.zip",
+    "archiveBytes": 34389243,
+    "unpackedBytes": 96936053,
+    "sha256": "5a2be23a8e666627df722fab3d64b39c23deef42be590bc325ef51c804f8aa55",
+    "signed": false,
+    "publishedExternally": false
+  },
+  "packageIntegrity": {
+    "archive": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\artifacts\\ui-refresh\\release-1\\TunnelDeck-ui-refresh-1-win-x64.zip",
+    "extraction": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\ui-package\\d4a62b2074bc4eb6a66f0cf05378b22d\\App with spaces",
+    "verifiedFiles": 91,
+    "sha256": "5a2be23a8e666627df722fab3d64b39c23deef42be590bc325ef51c804f8aa55",
+    "integrityPassed": true
+  },
+  "packageSmoke": {
+    "passed": true,
+    "checked": "Extracted ZIP launch, DevWinUI settings, Light/Dark caption and dialog rendering, cancel without writes",
+    "processId": 44992,
+    "windowHandle": 2887602,
+    "dataPath": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\ui-review\\a1c1b09fed6749299b0e4c32944fe6bb\\data",
+    "capturedAtUtc": "2026-09-22T21:14:01.7707009+08:00"
+  },
+  "finalDragSmoke": {
+    "capturedAtUtc": "2026-09-22T21:04:48.3558297+08:00",
+    "mode": "Single native drag smoke",
+    "checks": {
+      "nativePinnedProfileDrag": "Passed"
+    },
+    "dataDirectory": "C:\\Users\\19559\\Mp\\ai_workspace\\temp\\TunnelDeck\\.test-output\\m8-resources\\0382e4d786e442da8581e83c08f83eb3"
+  },
+  "earlierEvidence": [
+    "artifacts/ui-refresh/unit-tests",
+    "artifacts/ui-refresh/resources-retry/resources-verification.json",
+    "artifacts/ui-refresh/native-remaining/result.json",
+    "artifacts/ui-refresh/functional-final/result.json",
+    "artifacts/ui-refresh/ui-final/resourcescale/result.json",
+    "artifacts/ui-refresh/final-layout/result.json"
+  ],
+  "note": "Earlier matrices contain retained failed attempts; use docs/ui-refresh-validation.md for the verified scope and final lightweight checks.",
+  "deferredEnvironmentChecks": "Clean machine, physical cross-monitor DPI, actual Narrator speech and full 200 percent system-text validation remain tracked under M13."
+}

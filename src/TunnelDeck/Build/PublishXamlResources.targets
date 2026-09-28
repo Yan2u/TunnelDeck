@@ -1,0 +1,16 @@
+<Project>
+  <!-- Unpackaged MrtCore builds generate these files but do not wire them into .NET publish. -->
+  <Target Name="AddUnpackagedXamlResourcesToPublish" AfterTargets="ComputeFilesToPublish"
+          Condition="'$(UseWinUI)' == 'true' and '$(WindowsPackageType)' == 'None'">
+    <Error Condition="!Exists('$(TargetDir)$(AssemblyName).pri')" Text="The application PRI is missing. Build the WinUI resources before publishing." />
+    <Error Condition="!Exists('$(TargetDir)App.xbf')" Text="The compiled application XAML is missing." />
+    <ItemGroup>
+      <_TunnelDeckXamlResource Include="$(TargetDir)**\*.xbf;$(TargetDir)$(AssemblyName).pri" />
+      <ResolvedFileToPublish Remove="@(_TunnelDeckXamlResource)" />
+      <ResolvedFileToPublish Include="@(_TunnelDeckXamlResource)">
+        <RelativePath>%(_TunnelDeckXamlResource.RecursiveDir)%(_TunnelDeckXamlResource.Filename)%(_TunnelDeckXamlResource.Extension)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+</Project>

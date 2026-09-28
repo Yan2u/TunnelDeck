@@ -19,7 +19,7 @@ public sealed class ShutdownCoordinator
     public event Action<ShutdownProgress>? StateChanged;
 
     public ShutdownCoordinator(IEnumerable<IShutdownParticipant> participants)
-        : this(participants.Select(participant => new ShutdownStep("Closing TunnelDeck…", participant))) { }
+        : this(participants.Select(participant => new ShutdownStep(UiText.Invariant("Diagnostic_ShutdownCoordinator_ClosingTunnelDeck"), participant))) { }
     public ShutdownCoordinator(IEnumerable<ShutdownStep> steps)
     {
         _steps = steps.ToArray();
@@ -61,16 +61,16 @@ public sealed class ShutdownCoordinator
                 await work.WaitAsync(cancellationToken).ConfigureAwait(false);
                 lock (_sync) { _next++; _stepWork = null; }
             }
-            Publish(ShutdownState.Complete, "Ready to close.", false);
+            Publish(ShutdownState.Complete, UiText.Invariant("Diagnostic_ShutdownCoordinator_ReadyToClose"), false);
         }
         catch (OperationCanceledException)
         {
-            Publish(ShutdownState.TimedOut, Current.SavesData ? "Saving is still in progress." : "Some cleanup is still in progress.", Current.SavesData);
+            Publish(ShutdownState.TimedOut, Current.SavesData ? UiText.Invariant("Diagnostic_ShutdownCoordinator_SavingIsStillInProgress") : UiText.Invariant("Diagnostic_ShutdownCoordinator_SomeCleanupIsStillInProgress"), Current.SavesData);
             throw;
         }
         catch (Exception)
         {
-            Publish(ShutdownState.Failed, Current.SavesData ? "Changes could not be saved." : "Cleanup could not finish.", Current.SavesData);
+            Publish(ShutdownState.Failed, Current.SavesData ? UiText.Invariant("Diagnostic_ShutdownCoordinator_ChangesCouldNotBeSaved") : UiText.Invariant("Diagnostic_ShutdownCoordinator_CleanupCouldNotFinish"), Current.SavesData);
             throw;
         }
     }

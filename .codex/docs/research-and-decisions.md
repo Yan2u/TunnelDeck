@@ -102,7 +102,7 @@ M7 已按新成功实例记录 TotalForwards / ServerForwards 和 LastUsedAt，�
 
 [OpenSSH 配置语义](https://github.com/openssh/openssh-portable/blob/master/ssh_config.5) 规定一般选项采用第一个取得的值，另有 Host 模式、Include、Match、ProxyJump 等。有限导入必须展示支持范围和逐条警告，不静默忽略关键选项后把错误配置当成成功导入。
 
-不在导入时盲目执行 `ssh -G`：任意配置可能涉及 `Match exec` 等行为。首版用纯文本白名单解析；不支持的复合配置要求用户在预览页补齐，或者跳过该条。导出 TunnelDeck JSON 不携带密码、私钥内容或“已信任”主机状态，不覆盖用户原始 SSH config。
+不在导入时盲目执行 `ssh -G`：任意配置可能涉及 `Match exec` 等行为。首版用纯文本解析。按用户 2026-09-21 修订，支持的静态字段足以形成有效 Host / Username / Port 时允许导入，其他不支持选项忽略并显示行号提示；必要字段缺失或无效才要求补齐或跳过。Match 条件字段不参与静态取值，Include 和命令不执行。导出 TunnelDeck JSON 不携带密码、私钥内容或“已信任”主机状态，不覆盖用户原始 SSH config。
 
 ## 5. 技能采用说明
 

@@ -17,7 +17,7 @@ public sealed partial class TunnelWorkspace
         if (launch is null) { return Task.CompletedTask; }
         ServerWorkLease work;
         try { work = _tunnels.Work.Begin(launch.Server, ServerWorkKind.Forward, [launch], _stopping.Token); }
-        catch (Exception) { CommandError = "This server is being deleted or is no longer available."; return Task.CompletedTask; }
+        catch (Exception) { CommandError = UiText.Get("TunnelWorkspaceCommands_ThisServerIsBeingDeletedOrIsNo"); return Task.CompletedTask; }
         Quick.IsBusy = true;
         return Track(async () =>
         {
@@ -30,11 +30,11 @@ public sealed partial class TunnelWorkspace
     {
         if (!item.CanRetry || _closing) { return Task.CompletedTask; }
         RemoteServer? server = _state.Servers.FirstOrDefault(server => server.Id == item.Value.ServerId);
-        if (server is null) { CommandError = "This server is no longer available. Remove the failed forward or select another server."; return Task.CompletedTask; }
+        if (server is null) { CommandError = UiText.Get("TunnelWorkspaceCommands_ThisServerIsNoLongerAvailableRemoveThe"); return Task.CompletedTask; }
         var launch = new RuleLaunchSnapshot(server, item.Value.Requested, item.Value.Source);
         ServerWorkLease work;
         try { work = _tunnels.Work.Begin(launch.Server, ServerWorkKind.Forward, [launch], _stopping.Token); }
-        catch (Exception) { CommandError = "This server is being deleted or is no longer available."; return Task.CompletedTask; }
+        catch (Exception) { CommandError = UiText.Get("TunnelWorkspaceCommands_ThisServerIsBeingDeletedOrIsNo"); return Task.CompletedTask; }
         item.IsBusy = true;
         return Track(async () =>
         {
@@ -54,7 +54,7 @@ public sealed partial class TunnelWorkspace
         ConnectionCredentials? input = null;
         if (prompted)
         {
-            input = await _credentials(launch.Server, failure?.Message ?? "Enter the SSH password to start this forward.", token).ConfigureAwait(false);
+            input = await _credentials(launch.Server, failure?.Message ?? UiText.Get("TunnelWorkspaceCommands_EnterTheSSHPasswordToStartThisForward"), token).ConfigureAwait(false);
             if (input is null) { return; }
         }
         token.ThrowIfCancellationRequested();
@@ -119,7 +119,7 @@ public sealed partial class TunnelWorkspace
             {
                 try { await OnUiAsync(() => CommandError = string.Empty).ConfigureAwait(false); await operation().ConfigureAwait(false); }
                 catch (OperationCanceledException) { }
-                catch (Exception) { await OnUiAsync(() => CommandError = "The operation could not finish. Check the tunnel state and try again.").ConfigureAwait(false); }
+                catch (Exception) { await OnUiAsync(() => CommandError = UiText.Get("TunnelWorkspaceCommands_TheOperationCouldNotFinishCheckTheTunnel")).ConfigureAwait(false); }
             });
             _commands.Add(work);
             _ = work.ContinueWith(completed => { lock (_commandSync) { _commands.Remove(completed); } }, CancellationToken.None, TaskContinuationOptions.ExecuteSynchronously, TaskScheduler.Default);

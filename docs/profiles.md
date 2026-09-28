@@ -57,8 +57,8 @@ Sidebar 的 Profiles / Servers 各自遵守 MaximumItems：按 Pinned 顺序优�
 ```powershell
 ./scripts/Build.ps1 -LockedRestore
 ./scripts/Test.ps1 -Ssh -NoFixtureBuild
-./scripts/Verify-Profiles.ps1 -NoFixtureBuild
-./scripts/Verify-Resources.ps1
+./scripts/debug/Verify-Profiles.ps1 -NoFixtureBuild
+./scripts/debug/Verify-Resources.ps1
 ```
 
 | 计划用例 | 覆盖 |

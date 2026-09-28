@@ -43,6 +43,17 @@ public sealed class ServerWorkRegistry : IShutdownParticipant
         }
     }
 
+    internal void RequireResourceAdmission(IEnumerable<Guid> serverIds, IEnumerable<Guid> profileIds)
+    {
+        lock (_sync)
+        {
+            if (!_accepting) { throw new ConnectionException(ConnectionFailure.ShuttingDown); }
+            if (serverIds.Any(id => _blockedServers.Contains(id) || _deletedServers.Contains(id)) ||
+                profileIds.Any(id => _blockedProfiles.Contains(id) || _deletedProfiles.Contains(id)))
+            { throw new ConnectionException(ConnectionFailure.ServerUnavailable); }
+        }
+    }
+
     internal void Validate(ServerWorkLease work, RuleLaunchSnapshot launch)
     {
         lock (_sync)
@@ -50,7 +61,7 @@ public sealed class ServerWorkRegistry : IShutdownParticipant
             if (work.Owner != this || work.Released || !_work.ContainsKey(work.Snapshot.Id) ||
                 work.Snapshot.Server.Id != launch.Server.Id ||
                 !work.Snapshot.Forwards.Any(rule => rule.Launch.Requested.Id == launch.Requested.Id))
-            { throw new InvalidOperationException("The forwarding operation is no longer registered."); }
+            { throw new InvalidOperationException(UiText.Invariant("Diagnostic_ServerWorkRegistry_TheForwardingOperationIsNoLongerRegistered")); }
             work.Token.ThrowIfCancellationRequested();
         }
     }
@@ -110,7 +121,7 @@ public sealed class ServerWorkRegistry : IShutdownParticipant
         lock (_sync)
         {
             HashSet<Guid> blocked = kind == ResourceKind.Server ? _blockedServers : _blockedProfiles;
-            if (ids.Any(blocked.Contains)) { throw new InvalidOperationException("A deletion of these resources is already in progress."); }
+            if (ids.Any(blocked.Contains)) { throw new InvalidOperationException(UiText.Invariant("Diagnostic_ServerWorkRegistry_ADeletionOfTheseResourcesIsAlreadyIn")); }
             blocked.UnionWith(ids);
             return new(this, kind, ids);
         }

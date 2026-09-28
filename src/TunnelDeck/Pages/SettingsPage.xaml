@@ -1,0 +1,134 @@
+<pages:ShellPage x:Class="TunnelDeck.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:pages="using:TunnelDeck.Pages" xmlns:dev="using:DevWinUI" SizeChanged="OnPageSizeChanged">
+    <Grid>
+        <Grid.RowDefinitions><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+        <ScrollViewer x:Name="SettingsScroll" HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Disabled"
+                      HorizontalContentAlignment="Stretch" AutomationProperties.AutomationId="SettingsScroll">
+            <!-- Keep the ScrollViewer's immediate child unconstrained by MaxWidth. The Grid
+                 arranges the capped form without centering it using its smaller DesiredSize. -->
+            <Grid x:Name="SettingsViewport">
+                <StackPanel x:Name="PageContent" Padding="24" Spacing="32" MaxWidth="1120" HorizontalAlignment="Stretch">
+                    <TextBlock Text="{Binding Values[MainWindow_Settings], Source={StaticResource Strings}, Mode=OneWay}" Style="{ThemeResource TitleTextBlockStyle}" AutomationProperties.HeadingLevel="Level1" AutomationProperties.AutomationId="SettingsPage" />
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="{Binding Values[SettingsPage_Appearance], Source={StaticResource Strings}, Mode=OneWay}" Style="{ThemeResource SubtitleTextBlockStyle}" AutomationProperties.HeadingLevel="Level2" />
+                        <StackPanel Spacing="4">
+                            <dev:SettingsCard x:Name="LanguageCard" Header="{Binding Values[Settings_Language], Source={StaticResource Strings}, Mode=OneWay}"
+                                              Description="{Binding Values[Settings_LanguageHint], Source={StaticResource Strings}, Mode=OneWay}">
+                                <dev:SettingsCard.HeaderIcon><FontIcon Glyph="&#xF2B7;" /></dev:SettingsCard.HeaderIcon>
+                                <ComboBox x:Name="LanguageSelector" MinWidth="0" Width="240" SelectionChanged="OnLanguageChanged"
+                                          IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}"
+                                          AutomationProperties.Name="{Binding Values[Settings_Language], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="LanguageSelector">
+                                    <ComboBoxItem Content="{Binding Values[Language_English], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="LanguageEnglish">
+                                        <ComboBoxItem.ContentTemplate>
+                                            <DataTemplate><TextBlock Text="{Binding Values[Language_English], Source={StaticResource Strings}, Mode=OneWay}" /></DataTemplate>
+                                        </ComboBoxItem.ContentTemplate>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem Content="{Binding Values[Language_Chinese], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="LanguageChinese">
+                                        <ComboBoxItem.ContentTemplate>
+                                            <DataTemplate><TextBlock Text="{Binding Values[Language_Chinese], Source={StaticResource Strings}, Mode=OneWay}" /></DataTemplate>
+                                        </ComboBoxItem.ContentTemplate>
+                                    </ComboBoxItem>
+                                </ComboBox>
+                            </dev:SettingsCard>
+                            <dev:SettingsCard x:Name="ThemeCard" Header="{Binding Values[SettingsPage_Theme], Source={StaticResource Strings}, Mode=OneWay}">
+                                <dev:SettingsCard.HeaderIcon><FontIcon Glyph="&#xE790;" /></dev:SettingsCard.HeaderIcon>
+                                <ComboBox x:Name="ThemeSelector" SelectedIndex="{x:Bind Shell.ThemeIndex, Mode=TwoWay}" MinWidth="0" Width="240"
+                                          AutomationProperties.Name="{Binding Values[SettingsPage_WindowTheme], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="ThemeSelector">
+                                    <ComboBoxItem Content="{Binding Values[SettingsPage_UseSystemSetting], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="ThemeSystem">
+                                        <ComboBoxItem.ContentTemplate>
+                                            <DataTemplate><TextBlock Text="{Binding Values[SettingsPage_UseSystemSetting], Source={StaticResource Strings}, Mode=OneWay}" /></DataTemplate>
+                                        </ComboBoxItem.ContentTemplate>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem Content="{Binding Values[SettingsPage_Light], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="ThemeLight">
+                                        <ComboBoxItem.ContentTemplate>
+                                            <DataTemplate><TextBlock Text="{Binding Values[SettingsPage_Light], Source={StaticResource Strings}, Mode=OneWay}" /></DataTemplate>
+                                        </ComboBoxItem.ContentTemplate>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem Content="{Binding Values[SettingsPage_Dark], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="ThemeDark">
+                                        <ComboBoxItem.ContentTemplate>
+                                            <DataTemplate><TextBlock Text="{Binding Values[SettingsPage_Dark], Source={StaticResource Strings}, Mode=OneWay}" /></DataTemplate>
+                                        </ComboBoxItem.ContentTemplate>
+                                    </ComboBoxItem>
+                                </ComboBox>
+                            </dev:SettingsCard>
+                            <dev:SettingsCard x:Name="SidebarCard" Header="{Binding Values[SettingsPage_Sidebar], Source={StaticResource Strings}, Mode=OneWay}" Description="{Binding Values[SettingsPage_MaximumItemsPerSection], Source={StaticResource Strings}, Mode=OneWay}"
+                                              ToolTipService.ToolTip="{Binding Values[SettingsPage_Show310ItemsPerSectionPinnedItems], Source={StaticResource Strings}, Mode=OneWay}">
+                                <dev:SettingsCard.HeaderIcon><FontIcon Glyph="&#xE700;" /></dev:SettingsCard.HeaderIcon>
+                                <NumberBox x:Name="SidebarMaximum" Minimum="3" Maximum="10" SmallChange="1" Width="160"
+                                           SpinButtonPlacementMode="Compact" ValueChanged="OnMaximumChanged"
+                                           IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}" AutomationProperties.Name="{Binding Values[SettingsPage_MaximumItemsPerSection], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="SidebarMaximum" />
+                            </dev:SettingsCard>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="{Binding Values[DashboardPage_Forwarding], Source={StaticResource Strings}, Mode=OneWay}" Style="{ThemeResource SubtitleTextBlockStyle}" AutomationProperties.HeadingLevel="Level2" />
+                        <StackPanel Spacing="4">
+                            <dev:SettingsCard x:Name="DefaultServerCard" Header="{Binding Values[SettingsPage_DefaultServer], Source={StaticResource Strings}, Mode=OneWay}" Description="{Binding Values[SettingsPage_UsedByQuickForward], Source={StaticResource Strings}, Mode=OneWay}"
+                                              ToolTipService.ToolTip="{Binding Values[SettingsPage_UsedWhenNoServerIsSelectedOrPinned], Source={StaticResource Strings}, Mode=OneWay}">
+                                <dev:SettingsCard.HeaderIcon><SymbolIcon Symbol="Remote" /></dev:SettingsCard.HeaderIcon>
+                                <ComboBox x:Name="DefaultServer" DisplayMemberPath="Name" SelectionChanged="OnDefaultServerChanged" MinWidth="0" Width="240"
+                                          IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}" AutomationProperties.Name="{Binding Values[SettingsPage_DefaultServer], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="DefaultServer" />
+                            </dev:SettingsCard>
+                            <dev:SettingsCard x:Name="AutoFindCard" Header="{Binding Values[DashboardPage_FindAnAvailablePort], Source={StaticResource Strings}, Mode=OneWay}" Description="{Binding Values[SettingsPage_ForNewLocalForwardingRules], Source={StaticResource Strings}, Mode=OneWay}"
+                                              ToolTipService.ToolTip="{Binding Values[SettingsPage_TryTheNextLocalPortWhenOccupiedExisting], Source={StaticResource Strings}, Mode=OneWay}">
+                                <dev:SettingsCard.HeaderIcon><FontIcon Glyph="&#xE8AB;" /></dev:SettingsCard.HeaderIcon>
+                                <ToggleSwitch x:Name="AutoFindDefault" Toggled="OnAutoFindToggled" IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}"
+                                              OnContent="{Binding Values[Common_On], Source={StaticResource Strings}, Mode=OneWay}" OffContent="{Binding Values[Common_Off], Source={StaticResource Strings}, Mode=OneWay}"
+                                              AutomationProperties.Name="{Binding Values[SettingsPage_FindNextAvailableLocalPortWhenOccupied], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="AutoFindDefault" />
+                            </dev:SettingsCard>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="{Binding Values[SettingsPage_ServerAuthentication], Source={StaticResource Strings}, Mode=OneWay}" Style="{ThemeResource SubtitleTextBlockStyle}" AutomationProperties.HeadingLevel="Level2" />
+                        <StackPanel Spacing="4">
+                            <dev:SettingsCard x:Name="AuthenticationCard" Header="{Binding Values[SettingsPage_DefaultMethod], Source={StaticResource Strings}, Mode=OneWay}" Description="{Binding Values[SettingsPage_ForNewServersAndSSHImportsWithoutAn], Source={StaticResource Strings}, Mode=OneWay}"
+                                              ToolTipService.ToolTip="{Binding Values[SettingsPage_ExistingServersAndEditedDraftsKeepTheirAuthentication], Source={StaticResource Strings}, Mode=OneWay}">
+                                <dev:SettingsCard.HeaderIcon><SymbolIcon Symbol="Permissions" /></dev:SettingsCard.HeaderIcon>
+                                <ComboBox x:Name="DefaultAuthentication" MinWidth="0" Width="240" SelectedIndex="{x:Bind ViewModel.DefaultAuthenticationIndex, Mode=OneWay}"
+                                          SelectionChanged="OnDefaultAuthenticationChanged" IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}"
+                                          AutomationProperties.Name="{Binding Values[SettingsPage_DefaultAuthenticationMethod], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="DefaultAuthentication">
+                                    <ComboBoxItem Content="{Binding Values[ServerDetailPage_Password], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="DefaultAuthPassword">
+                                        <ComboBoxItem.ContentTemplate>
+                                            <DataTemplate><TextBlock Text="{Binding Values[ServerDetailPage_Password], Source={StaticResource Strings}, Mode=OneWay}" /></DataTemplate>
+                                        </ComboBoxItem.ContentTemplate>
+                                    </ComboBoxItem>
+                                    <ComboBoxItem Content="{Binding Values[ServerDetailPage_PrivateKeyIdentityFile], Source={StaticResource Strings}, Mode=OneWay}" AutomationProperties.AutomationId="DefaultAuthPrivateKey">
+                                        <ComboBoxItem.ContentTemplate>
+                                            <DataTemplate><TextBlock Text="{Binding Values[ServerDetailPage_PrivateKeyIdentityFile], Source={StaticResource Strings}, Mode=OneWay}" /></DataTemplate>
+                                        </ComboBoxItem.ContentTemplate>
+                                    </ComboBoxItem>
+                                </ComboBox>
+                            </dev:SettingsCard>
+                            <dev:SettingsExpander x:Name="DefaultKeySettings" Header="{Binding Values[SettingsPage_DefaultPrivateKey], Source={StaticResource Strings}, Mode=OneWay}" IsExpanded="True"
+                                                  x:Load="{x:Bind ViewModel.UsesPrivateKey, Mode=OneWay}" AutomationProperties.AutomationId="DefaultKeySettings">
+                                <dev:SettingsExpander.HeaderIcon><FontIcon Glyph="&#xE8D7;" /></dev:SettingsExpander.HeaderIcon>
+                                <dev:SettingsExpander.Items>
+                                    <dev:SettingsCard ContentAlignment="Vertical" HorizontalContentAlignment="Stretch" Padding="16" MinWidth="0">
+                                        <StackPanel Spacing="8">
+                                            <TextBox Header="{Binding Values[SettingsPage_KeyFile], Source={StaticResource Strings}, Mode=OneWay}" PlaceholderText="{Binding Values[SettingsPage_FullPathToAPrivateKeyFile], Source={StaticResource Strings}, Mode=OneWay}" MinWidth="0"
+                                                     Text="{x:Bind ViewModel.DefaultIdentityFilePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="OnDefaultKeyDown"
+                                                     IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}" AutomationProperties.AutomationId="DefaultKeyPath" />
+                                            <TextBlock Text="{x:Bind ViewModel.KeyPathHint, Mode=OneWay}" TextWrapping="Wrap" Style="{StaticResource MetadataTextStyle}" AutomationProperties.AutomationId="DefaultKeyHint" />
+                                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                                <Button Content="{Binding Values[ImportPage_Browse], Source={StaticResource Strings}, Mode=OneWay}" Click="OnBrowseDefaultKey" IsEnabled="{x:Bind ViewModel.CanEdit, Mode=OneWay}" AutomationProperties.AutomationId="BrowseDefaultKey" />
+                                                <Button Content="{Binding Values[SettingsPage_SavePath], Source={StaticResource Strings}, Mode=OneWay}" Click="OnSaveDefaultKey" IsEnabled="{x:Bind ViewModel.CanSaveKeyPath, Mode=OneWay}" AutomationProperties.AutomationId="SaveDefaultKey"
+                                                        ToolTipService.ToolTip="{Binding Values[SettingsPage_PressEnterOrSavePathToSaveA], Source={StaticResource Strings}, Mode=OneWay}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </dev:SettingsCard>
+                                </dev:SettingsExpander.Items>
+                            </dev:SettingsExpander>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+        <InfoBar Grid.Row="1" Margin="16,0,16,16" IsOpen="{x:Bind pages:ShellPage.HasText(ViewModel.Error), Mode=OneWay}"
+                 Visibility="{x:Bind pages:ShellPage.TextVisible(ViewModel.Error), Mode=OneWay}" IsClosable="False" Severity="Error"
+                 Message="{x:Bind ViewModel.Error, Mode=OneWay}" AutomationProperties.AutomationId="SettingsSaveError">
+            <InfoBar.ActionButton><Button Content="{Binding Values[DashboardPage_RetrySaving], Source={StaticResource Strings}, Mode=OneWay}" Click="OnRetryClick" IsEnabled="{x:Bind ViewModel.CanRetry, Mode=OneWay}"
+                Visibility="{x:Bind pages:ShellPage.Visible(ViewModel.CanRetry), Mode=OneWay}" AutomationProperties.AutomationId="RetrySettingsSave" /></InfoBar.ActionButton>
+        </InfoBar>
+    </Grid>
+</pages:ShellPage>

@@ -1,0 +1,28 @@
+{
+  "iteration": 2,
+  "date": "2026-09-22",
+  "scope": "Settings sections, tunnel row alignment, rule editor dialog and compact navigation",
+  "validationPolicy": "Release publish and focused UI smoke only; no full regression, SSH, stress or system display tests",
+  "evidenceRoot": "artifacts/ui-refresh/iteration-2",
+  "checks": {
+    "publish": "passed",
+    "settingsLayout": "settings-settled.png",
+    "ruleEditor": "rule-smoke.json",
+    "invalidRuleStaysOpen": true,
+    "cancelKeptConfiguration": true,
+    "applyChangesDraftOnly": true,
+    "profileSavePersistsRule": true,
+    "editRestoresSavedPorts": true,
+    "tunnelAlignment": "tunnel-alignment.json",
+    "compactNavigation": "sidebar-final.json"
+  },
+  "finalBuildScope": "Only the badge container width changed after the initial smoke; final package startup and compact sidebar were rechecked",
+  "delivery": {
+    "archive": "artifacts/ui-refresh/release-2-final/TunnelDeck-ui-refresh-2-win-x64.zip",
+    "bytes": 34390876,
+    "sha256": "ca3913fa5aa360d0b952e8f17b579a032a990cce19b7696cbdbbb5eb4b08331c",
+    "review": "artifacts/ui-refresh/iteration-2/final-review/review.json",
+    "signed": false,
+    "publishedExternally": false
+  }
+}

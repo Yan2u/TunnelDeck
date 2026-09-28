@@ -28,7 +28,7 @@ public sealed partial class TunnelManager
     {
         entry.TerminalState = terminalState;
         entry.RecoverRequested = false;
-        if (terminalState == TunnelState.Cancelled) { entry.TerminalFailure = new(TunnelFailureKind.Cancelled, "The forwarding request was cancelled."); }
+        if (terminalState == TunnelState.Cancelled) { entry.TerminalFailure = new(TunnelFailureKind.Cancelled, UiText.Invariant("Diagnostic_TunnelErrors_TheForwardingRequestWasCancelled")); }
         entry.Value = entry.Value with { StopRequested = true, State = TunnelState.Stopping, NextReconnectAt = null };
     }
 

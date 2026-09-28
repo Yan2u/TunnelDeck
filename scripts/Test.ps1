@@ -3,12 +3,13 @@ param(
     [switch] $Ssh,
     [string] $Distribution = 'Ubuntu',
     [switch] $NoFixtureBuild,
-    [ValidateSet('Debug', 'Release')][string] $Configuration = 'Release'
+    [ValidateSet('Debug', 'Release')][string] $Configuration = 'Release',
+    [string] $OutputDirectory
 )
 
 . (Join-Path $PSScriptRoot 'Enter-DevelopmentShell.ps1')
 $repoRoot = Split-Path $PSScriptRoot -Parent
-$resultsPath = Join-Path $repoRoot 'artifacts\test-results'
+$resultsPath = if ($OutputDirectory) { [IO.Path]::GetFullPath($OutputDirectory) } else { Join-Path $repoRoot 'artifacts\test-results' }
 New-Item -ItemType Directory -Path $resultsPath -Force | Out-Null
 foreach ($project in @('TunnelDeck.Core.Tests', 'TunnelDeck.Infrastructure.Tests')) {
     & dotnet test (Join-Path $repoRoot "tests\$project\$project.csproj") -c $Configuration -p:Platform=x64 `
@@ -20,7 +21,7 @@ if ($Ssh) {
     $previousFixture = $env:TUNNELDECK_SSH_FIXTURE
     $fixturePath = $null
     try {
-        $fixturePath = & (Join-Path $repoRoot 'test-infra\Start-SshFixture.ps1') `
+        $fixturePath = & (Join-Path $repoRoot 'scripts\fixtures\Start-SshFixture.ps1') `
             -Distribution $Distribution -NoBuild:$NoFixtureBuild
         $env:TUNNELDECK_SSH_FIXTURE = $fixturePath
         & dotnet test (Join-Path $repoRoot 'tests\TunnelDeck.Ssh.Tests\TunnelDeck.Ssh.Tests.csproj') `
@@ -30,6 +31,6 @@ if ($Ssh) {
     }
     finally {
         $env:TUNNELDECK_SSH_FIXTURE = $previousFixture
-        if ($fixturePath) { & (Join-Path $repoRoot 'test-infra\Stop-SshFixture.ps1') -ManifestPath $fixturePath }
+        if ($fixturePath) { & (Join-Path $repoRoot 'scripts\fixtures\Stop-SshFixture.ps1') -ManifestPath $fixturePath }
     }
 }

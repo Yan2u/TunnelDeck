@@ -139,7 +139,7 @@ public sealed class JsonStateStoreTests
 
     [Theory]
     [InlineData(0)]
-    [InlineData(2)]
+    [InlineData(AppState.CurrentSchemaVersion + 1)]
     [InlineData(int.MaxValue)]
     public async Task UnsupportedSchemaNeverDowngradesToAnOlderBackup(int version)
     {
@@ -241,7 +241,7 @@ public sealed class JsonStateStoreTests
 
     [Theory]
     [InlineData("{\"schemaVersion\":2147483648}")]
-    [InlineData("{\"schemaVersion\":1,\"schemaVersion\":2}")]
+    [InlineData("{\"schemaVersion\":1,\"schemaVersion\":4}")]
     public void FutureSchemaIsProtectedBeforeCheckingTodaysDataShape(string json) =>
         Assert.Equal(StateStoreFailure.UnsupportedSchema, Assert.Throws<StateStoreException>(() => Codec.Decode(Encoding.UTF8.GetBytes(json))).Failure);
 
@@ -279,6 +279,9 @@ public sealed class JsonStateStoreTests
             Calls++;
             source["schemaVersion"] = 1;
             source["settings"] = JsonSerializer.SerializeToNode(new AppSettings(), VersionedJson.Options);
+            source["settings"]!.AsObject().Remove("defaultAuthenticationMethod");
+            source["settings"]!.AsObject().Remove("defaultIdentityFilePath");
+            source["settings"]!.AsObject().Remove("language");
             return source;
         }
     }
